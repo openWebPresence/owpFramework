@@ -1,0 +1,22 @@
+{
+    "name": "openWebPresence/owpFramework",
+    "description": "The openWebPresence Framework.",
+    "keywords": ["framework", "openWebPresence"],
+    "license": "MIT",
+    "type": "project",
+    "homepage": "https://openWebPresence.com",
+    "support": {
+        "issues": "https://github.com/openWebPresence/owpFramework/issues",
+        "source": "https://github.com/openWebPresence/owpFramework"
+    },
+    "authors": [
+        {
+            "name": "Brian Tafoya",
+            "email": "brian@openwebpresence.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.6.4",
+        "openWebPresence/owpCore": "*"
+    }
+}
