@@ -1,13 +1,13 @@
 {
-    "name": "openWebPresence/owpFramework",
+    "name": "openwebpresence/owp-framework",
     "description": "The openWebPresence Framework.",
     "keywords": ["framework", "openWebPresence"],
     "license": "MIT",
     "type": "project",
     "homepage": "https://openWebPresence.com",
     "support": {
-        "issues": "https://github.com/openWebPresence/owpFramework/issues",
-        "source": "https://github.com/openWebPresence/owpFramework"
+        "issues": "https://github.com/openwebpresence/owp-framework/issues",
+        "source": "https://github.com/openwebpresence/owp-framework"
     },
     "authors": [
         {
@@ -16,7 +16,6 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4",
-        "openWebPresence/owpCore": "*"
+        "php": ">=5.6.4"
     }
 }
