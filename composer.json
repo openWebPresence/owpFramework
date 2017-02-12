@@ -17,5 +17,8 @@
     ],
     "require": {
         "php": ">=5.6.4"
+    },
+    "autoload": {
+        "classmap": ["owp_EzSql_mysql.inc.php", "owp_EzSql_mysqli.inc.php"]
     }
 }
