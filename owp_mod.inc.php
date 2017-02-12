@@ -12,8 +12,8 @@
 
 class owp_mod {
 	protected function getDataItem($itemName) {
-		if(isset(parent::$this->data_item[$itemName])) {
-			return parent::$this->data_item[$itemName];
+		if(isset($this->data_item[$itemName])) {
+			return $this->data_item[$itemName];
 		}
 	}
 }
