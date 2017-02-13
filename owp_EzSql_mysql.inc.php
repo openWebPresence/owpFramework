@@ -18,7 +18,7 @@
 */
 class owp_EzSql_mysql extends ezSQL_mysql {
 
-		function firephpdebug($firephp, $title = "ezSql Debug") {
+		public function firephpdebug($firephp, $title = "ezSql Debug") {
 			
 			$table   = array();
 			$table[] = array('Item', 'Detail');
@@ -36,5 +36,11 @@ class owp_EzSql_mysql extends ezSQL_mysql {
 			$firephp->table($title, $table);
 
 			$this->debug_called = true;
+		}
+
+		public function owpGetLastMysqlError() {
+			if ($this->last_error) {
+				return $this->last_error;
+			}
 		}
 }
