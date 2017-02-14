@@ -16,6 +16,7 @@
 * @author     Brian Tafoya
 * @version    1.0
 */
+
 class owp_EzSql_mysql extends ezSQL_mysql {
 
 		public function firephpdebug($firephp, $title = "ezSql Debug") {

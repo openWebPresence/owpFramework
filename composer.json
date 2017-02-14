@@ -16,9 +16,13 @@
         }
     ],
     "require": {
-        "php": ">=5.6.4"
+        "php": ">=5.6.4",
+        "phpmailer/phpmailer": "^5.2",
+        "jv2222/ezsql": "dev-master",
+        "vlucas/phpdotenv": "^2.4",
+        "guzzlehttp/guzzle": "~6.0"
     },
     "autoload": {
-        "classmap": ["owp_EzSql_mysql.inc.php", "owp_EzSql_mysqli.inc.php", "owp_mod.inc.php"]
+        "classmap": ["owp_EzSql_mysql.inc.php", "owp_EzSql_mysqli.inc.php", "owp_mod.inc.php", "owp_Messaging.inc.php"]
     }
 }
