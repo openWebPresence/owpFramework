@@ -6,5 +6,4 @@ php:
   - '7.1'
 
 install:
-  # install drush globally
-  - composer install
+  - composer update
