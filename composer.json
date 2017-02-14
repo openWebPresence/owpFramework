@@ -25,6 +25,6 @@
         "classmap": ["src/owp_EzSql_mysql.inc.php", "src/owp_EzSql_mysqli.inc.php", "src/owp_mod.inc.php", "src/owp_Messaging.inc.php", "src/owp_SupportMethods.inc.php"]
     },
     "require-dev": {
-        "phpunit/phpunit": "^6.0"
+        "phpunit/phpunit": "^5.7"
     }
 }
