@@ -19,7 +19,7 @@
 
 class owp_EzSql_mysqli extends ezSQL_mysqli {
 
-		function firephpdebug($firephp, $title = "ezSql Debug") {
+		public function firephpdebug($firephp, $title = "ezSql Debug") {
 			
 			$table   = array();
 			$table[] = array('Item', 'Detail');
