@@ -23,6 +23,6 @@
         "guzzlehttp/guzzle": "~6.0"
     },
     "autoload": {
-        "classmap": ["owp_EzSql_mysql.inc.php", "owp_EzSql_mysqli.inc.php", "owp_mod.inc.php", "owp_Messaging.inc.php"]
+        "classmap": ["src/owp_EzSql_mysql.inc.php", "src/owp_EzSql_mysqli.inc.php", "src/owp_mod.inc.php", "src/owp_Messaging.inc.php", "src/owp_SupportMethods.inc.php"]
     }
 }

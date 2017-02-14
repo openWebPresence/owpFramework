@@ -16,7 +16,6 @@
  * @author     Brian Tafoya
  * @version    1.0
  */
-
 class owp_Messaging {
 
 	public $errors = false;
