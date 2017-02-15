@@ -27,7 +27,7 @@ class owp_SupportMethods {
 	 * @author     Brian Tafoya
 	 * @version    1.0
 	 */
-	public function uuid(){
+	static public function uuid(){
 		return md5(uniqid(rand()+MicroTime(),1));
 	}
 
@@ -42,7 +42,7 @@ class owp_SupportMethods {
 	 * @author     Brian Tafoya
 	 * @version    1.0
 	 */
-	public function randomPasswordAlphaNum( $length ) {
+	static public function randomPasswordAlphaNum( $length ) {
 		$alphabets = range('A','Z');
 		$alphabets_lower = range('a','z');
 		$numbers = range('0','9');
@@ -56,5 +56,24 @@ class owp_SupportMethods {
 		}
 
 		return (string)$password;
+	}
+
+
+	/**
+	 * GetUserIP
+	 *
+	 * @method GetUserIP()
+	 * @access public
+	 * @return string
+	 *
+	 * @author     Brian Tafoya
+	 * @version    1.0
+	 */
+	static public function GetUserIP() {
+		if(isset($_SERVER) && isset($_SERVER['REMOTE_ADDR'])) {
+			return $_SERVER['REMOTE_ADDR'];
+		} else {
+			return "127.0.0.1";
+		}
 	}
 }
