@@ -38,4 +38,10 @@ class owp_EzSql_mysqli extends ezSQL_mysqli {
 
 			$this->debug_called = true;
 		}
+
+	public function owpGetLastMysqlError() {
+		if ($this->last_error) {
+			return $this->last_error;
+		}
+	}
 }
