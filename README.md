@@ -4,7 +4,7 @@
 # Open Web Presence Framework Support Library
 
 [![Author](https://img.shields.io/badge/author-btafoya@briantafoya.com-blue.svg?style=flat-square)](https://www.briantafoya.com)
-[![GitHub Tag](https://img.shields.io/github/tag/openwebpresence/owp-users.svg?style=flat-square)](https://github.com/openwebpresence/owp-framework)
+[![GitHub Tag](https://img.shields.io/github/tag/openwebpresence/owp-framework.svg?style=flat-square)](https://github.com/openwebpresence/owp-framework)
 [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](LICENSE)
 [![Packagist](https://img.shields.io/packagist/dt/openwebpresence/owp-framework.svg?maxAge=86400&style=flat-square)](https://packagist.org/packages/openwebpresence/owp-framework)
 [![Build Status](https://travis-ci.org/openwebpresence/owp-framework.png?branch=master&style=flat-square)](https://travis-ci.org/openwebpresence/owp-framework)
