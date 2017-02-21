@@ -1,1 +1,16 @@
+OwpUsers_test
+ [x] Add user from in valid data
+ [x] Add user from valid data
+ [x] User login via user i d
+ [x] Log out
+ [x] User login
+ [x] Is logged in
+ [x] Update password
+ [x] Set lost pass u u i d
+ [x] Get user i d via lost pass u u i d
+ [x] Clear lost pass u u i d
+ [x] Update user
+ [x] User exists via email
+ [x] Update login count
+ [x] Delete user
 

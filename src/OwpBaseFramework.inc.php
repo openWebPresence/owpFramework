@@ -195,7 +195,7 @@ class OwpBaseFramework
      */
     private function loadEnviroment() 
     {
-        $dotenv = new Dotenv\Dotenv(ROOT_PATH, '.env');
+        $dotenv = new Dotenv\Dotenv($this->root_path, '.env');
         $dotenv->load();
         // database
         $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS'])->notEmpty();
@@ -287,7 +287,7 @@ class OwpBaseFramework
      *
      * @method void loadNav() Loads the nav based on the template setting.
      * @access protected
-     * @uses   $this->loadTemplate
+     * @uses   $this->loadTemplate()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -296,14 +296,14 @@ class OwpBaseFramework
     {
         $class_name = "owp_mod_" . $this->requested_action;
 
-        $mods["theme_functions"] = ROOT_PATH . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], "owpFunctions.inc.php"));
+        $mods["theme_functions"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], "owpFunctions.inc.php"));
         if(file_exists($mods["theme_functions"])) {
             include $mods["theme_functions"];
         }
 
         $mods = array();
-        $mods["theme"] = ROOT_PATH . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', 'pages', $class_name . ".inc.php"));
-        $mods["default"] = ROOT_PATH . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', 'mods', 'pages', $class_name . ".inc.php"));
+        $mods["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', 'pages', $class_name . ".inc.php"));
+        $mods["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', 'mods', 'pages', $class_name . ".inc.php"));
 
         foreach($mods as $tk => $tv) {
             if(file_exists($tv)) {
@@ -317,7 +317,20 @@ class OwpBaseFramework
         $this->firephp->log($mods, 'framework->mod()');
     }
 
-
+    /**
+     * processAction()
+     *
+     * @method void processAction() Process the framework action.
+     * @access private
+     * @uses   $this->mod()
+     * @uses   $this->loadTemplate()
+     * @uses   $this->loadHeader()
+     * @uses   $this->loadNav()
+     * @uses   $this->loadFooter();
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     private function processAction() 
     {
         $this->mod();

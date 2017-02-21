@@ -3,4 +3,15 @@ php:
   - '5.6'
 
 install:
-  - composer update
+  - composer install --dev --no-suggest
+
+script:
+  - vendor/bin/phpunit
+
+services:
+  - mysql
+
+before_install:
+  - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
+  - mysql -e 'CREATE DATABASE owp_users;'
+  - mysql owp_users < ./schema/owp-users-complete.sql

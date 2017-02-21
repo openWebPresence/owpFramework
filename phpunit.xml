@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpunit bootstrap="./vendor/autoload.php">
     <testsuites>
-        <testsuite name="OwpFramework">
-            <directory suffix="_test.php">./tests/</directory>
+        <testsuite name="OwpUsers">
+            <file>tests/OwpUsers_test.php</file>
         </testsuite>
     </testsuites>
     <php>

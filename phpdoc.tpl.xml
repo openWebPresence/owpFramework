@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpdoc>
-    <title>OpenWebPresence - owp-Framework</title>
+    <title>OpenWebPresence - owpFramework</title>
     <parser>
         <target>docs</target>
         <markers>
@@ -16,7 +16,9 @@
         <target>docs</target>
     </transformer>
     <files>
-        <file>src/OwpBaseFramework.inc.php</file>
+        <ignore-hidden>true</ignore-hidden>
+        <ignore-symlinks>true</ignore-symlinks>
+        <directory>src/</directory>
     </files>
     <logging>
         <level>warn</level>

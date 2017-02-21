@@ -1,0 +1,49 @@
+<?xml version="1.0"?>
+<mysqldump xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<database name="owp_users">
+	<table_data name="tbl_users">
+	<row>
+		<field name="userID">1</field>
+		<field name="passwd">$2a$08$AjMKPO9lS3VOcuFJPgrdUuLltnEZO1d8/QKJJxD4c44NQG782qA3C</field>
+		<field name="user_created_datetime">2017-01-01 01:00:00</field>
+		<field name="user_updated_datetime">2017-01-01 01:00:00</field>
+		<field name="user_last_login_datetime">2017-01-01 01:00:00</field>
+		<field name="login_count">0</field>
+		<field name="statusID">10</field>
+		<field name="email">system@system</field>
+		<field name="first_name">System</field>
+		<field name="last_name">User</field>
+		<field name="uuid" xsi:nil="true" />
+		<field name="welcome_email_sent">0</field>
+		<field name="reset_pass_uuid" xsi:nil="true" />
+		<field name="user_ip" xsi:nil="true" />
+	</row>
+	</table_data>
+	<table_data name="tbl_users_meta_data">
+	</table_data>
+	<table_data name="tbl_users_rights">
+	</table_data>
+	<table_data name="tbl_users_status">
+	<row>
+		<field name="statusID">1</field>
+		<field name="status_label">New Pending Verification</field>
+	</row>
+	<row>
+		<field name="statusID">2</field>
+		<field name="status_label">Verified</field>
+	</row>
+	<row>
+		<field name="statusID">9</field>
+		<field name="status_label">Closed by Admin</field>
+	</row>
+	<row>
+		<field name="statusID">3</field>
+		<field name="status_label">Bounced Verification Email</field>
+	</row>
+	<row>
+		<field name="statusID">10</field>
+		<field name="status_label">System User</field>
+	</row>
+	</table_data>
+</database>
+</mysqldump>
