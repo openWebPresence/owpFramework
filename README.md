@@ -17,26 +17,18 @@ Class documentation can be found in the generated [phpDoc](https://openwebpresen
 
 ### Features
 
-* Provide MySQL debugging suppport via [FirePHPCode](https://github.com/firephp/firephp-core).
-* Send email via [phpMailer](https://github.com/PHPMailer/PHPMailer).
 * Operating framework for [OpenWebPresence](https://openwebpresence.com).
-* Provide _get/_set data methods for the [OpenWebPresence](https://openwebpresence.com) framework.
-* Misc support methods for the [OpenWebPresence](https://openwebpresence.com) framework.
-
-### Messaging Class Hooks
-
-* owpUDF_On_sendEmailDirect(int userID, object db, object firephp);
-* owpUDF_On_sendEmailViaSMTP(int userID, object db, object firephp);
 
 ### Requirements
 
     "require": {
         "php": ">=5.6.0",
         "ext-imap": "*",
-        "phpmailer/phpmailer": "^5.2",
-        "jv2222/ezsql": "dev-master",
         "vlucas/phpdotenv": "^2.4",
-        "guzzlehttp/guzzle": "~6.0"
+        "guzzlehttp/guzzle": "~6.0",
+        "firephp/firephp-core": "^0.4.0",
+        "openwebpresence/owp-users": "~1.2",
+        "jv2222/ezsql": "dev-master"
     }
 
 ### Installation by Composer

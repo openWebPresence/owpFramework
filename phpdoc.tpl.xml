@@ -17,11 +17,6 @@
     </transformer>
     <files>
         <file>src/OwpBaseFramework.inc.php</file>
-        <file>src/OwpEzSqlMysql.inc.php</file>
-        <file>src/OwpEzSqlMysqli.inc.php</file>
-        <file>src/OwpMessaging.inc.php</file>
-        <file>src/OwpMod.inc.php</file>
-        <file>src/OwpSupportMethods.inc.php</file>
     </files>
     <logging>
         <level>warn</level>

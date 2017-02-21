@@ -104,7 +104,7 @@ class OwpBaseFramework
      *
      * @method void __construct()
      * @access public
-     * @param string $root_path The app root file path.
+     * @param  string $root_path The app root file path.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -213,7 +213,7 @@ class OwpBaseFramework
      *
      * @method void loadFooter() Loads the footer based on the template setting.
      * @access private
-     * @uses $this->loadTemplate
+     * @uses   $this->loadTemplate
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -228,7 +228,7 @@ class OwpBaseFramework
      *
      * @method void loadHeader() Loads the header based on the template setting.
      * @access private
-     * @uses $this->loadTemplate
+     * @uses   $this->loadTemplate
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -243,7 +243,7 @@ class OwpBaseFramework
      *
      * @method void loadNav() Loads the nav based on the template setting.
      * @access private
-     * @uses $this->loadTemplate
+     * @uses   $this->loadTemplate
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -256,10 +256,10 @@ class OwpBaseFramework
     /**
      * loadTemplate()
      *
-     * @method void loadTemplate($template_name,$sub_dir) Loads the template based on the template setting.
-     * @access private
-     * @param string $template_name Template Name.
-     * @param string $sub_dir Sub Directory
+     * @method  void loadTemplate($template_name,$sub_dir) Loads the template based on the template setting.
+     * @access  private
+     * @param   string $template_name Template Name.
+     * @param   string $sub_dir       Sub Directory
      * @returns boolean Loaded status
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
@@ -287,7 +287,7 @@ class OwpBaseFramework
      *
      * @method void loadNav() Loads the nav based on the template setting.
      * @access protected
-     * @uses $this->loadTemplate
+     * @uses   $this->loadTemplate
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
