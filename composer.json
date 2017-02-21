@@ -24,7 +24,7 @@
         "guzzlehttp/guzzle": "~6.0",
         "tedivm/jshrink": "^1.1",
         "firephp/firephp-core": "^0.4.0",
-        "openwebpresence/owp-users": "^1.2.0"
+        "openwebpresence/owp-users": "1.2.*"
     },
     "autoload": {
         "classmap": ["src/OwpBaseFramework.inc.php", "src/OwpEzSqlMysql.inc.php", "src/OwpEzSqlMysqli.inc.php", "src/OwpMessaging.inc.php", "src/OwpMod.inc.php", "src/OwpSupportMethods.inc.php"]
