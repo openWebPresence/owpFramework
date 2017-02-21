@@ -1,0 +1,884 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project title="OpenWebPresence - owp-Framework" version="2.8.5">
+  <partials/>
+  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="173530b3622f346fb4db215f845735df" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="24" package="OwpBaseFramework">
+      <extends/>
+      <name>OwpBaseFramework</name>
+      <full_name>\OwpBaseFramework</full_name>
+      <docblock line="24">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="24" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="24" description="OwpBaseFramework"/>
+        <tag name="author" line="24" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="24" description="1.0"/>
+        <tag name="license" line="24" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="24" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="24" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="24" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="31" package="OwpBaseFramework">
+        <name>$debugging</name>
+        <full_name>\OwpBaseFramework::debugging</full_name>
+        <default>array()</default>
+        <docblock line="31">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="31" description="&lt;p&gt;Debugging array&lt;/p&gt;" type="array" variable="$debugging">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="36" package="OwpBaseFramework">
+        <name>$debug</name>
+        <full_name>\OwpBaseFramework::debug</full_name>
+        <default>false</default>
+        <docblock line="36">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="36" description="&lt;p&gt;Is debugging enabled by default&lt;/p&gt;" type="boolean" variable="$debug">
+            <type>boolean</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="41" package="OwpBaseFramework">
+        <name>$userID</name>
+        <full_name>\OwpBaseFramework::userID</full_name>
+        <default>0</default>
+        <docblock line="41">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="41" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="integer" variable="$userID">
+            <type>integer</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="46" package="OwpBaseFramework">
+        <name>$ezSqlDB</name>
+        <full_name>\OwpBaseFramework::ezSqlDB</full_name>
+        <default></default>
+        <docblock line="46">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="46" description="&lt;p&gt;ezSQL Database Object&lt;/p&gt;" type="object" variable="$ezSqlDB">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="51" package="OwpBaseFramework">
+        <name>$firephp</name>
+        <full_name>\OwpBaseFramework::firephp</full_name>
+        <default></default>
+        <docblock line="51">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="51" description="&lt;p&gt;FirePHP debugging libray&lt;/p&gt;" type="object" variable="$firephp">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="56" package="OwpBaseFramework">
+        <name>$current_web_root</name>
+        <full_name>\OwpBaseFramework::current_web_root</full_name>
+        <default></default>
+        <docblock line="56">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="56" description="&lt;p&gt;The web root url&lt;/p&gt;" type="string" variable="$current_web_root">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="61" package="OwpBaseFramework">
+        <name>$owp_SupportMethods</name>
+        <full_name>\OwpBaseFramework::owp_SupportMethods</full_name>
+        <default></default>
+        <docblock line="61">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="61" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="object" variable="$owp_SupportMethods">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="66" package="OwpBaseFramework">
+        <name>$default_action</name>
+        <full_name>\OwpBaseFramework::default_action</full_name>
+        <default>"home"</default>
+        <docblock line="66">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="66" description="&lt;p&gt;Default action&lt;/p&gt;" type="string" variable="$default_action">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="71" package="OwpBaseFramework">
+        <name>$requested_action</name>
+        <full_name>\OwpBaseFramework::requested_action</full_name>
+        <default>"home"</default>
+        <docblock line="71">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="71" description="&lt;p&gt;Default action&lt;/p&gt;" type="string" variable="$requested_action">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="76" package="OwpBaseFramework">
+        <name>$mod_data</name>
+        <full_name>\OwpBaseFramework::mod_data</full_name>
+        <default></default>
+        <docblock line="76">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="76" description="&lt;p&gt;Modifier method data storage&lt;/p&gt;" type="object" variable="$mod_data">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="81" package="OwpBaseFramework">
+        <name>$DB_HOST</name>
+        <full_name>\OwpBaseFramework::DB_HOST</full_name>
+        <default></default>
+        <docblock line="81">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="81" description="&lt;p&gt;$DB_NAME, $DB_USER, $DB_PASS Database credentials&lt;/p&gt;" type="string" variable="$DB_HOST,">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="81" package="OwpBaseFramework">
+        <name>$DB_NAME</name>
+        <full_name>\OwpBaseFramework::DB_NAME</full_name>
+        <default></default>
+        <docblock line="81">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="81" description="&lt;p&gt;$DB_NAME, $DB_USER, $DB_PASS Database credentials&lt;/p&gt;" type="string" variable="$DB_HOST,">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="81" package="OwpBaseFramework">
+        <name>$DB_USER</name>
+        <full_name>\OwpBaseFramework::DB_USER</full_name>
+        <default></default>
+        <docblock line="81">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="81" description="&lt;p&gt;$DB_NAME, $DB_USER, $DB_PASS Database credentials&lt;/p&gt;" type="string" variable="$DB_HOST,">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="81" package="OwpBaseFramework">
+        <name>$DB_PASS</name>
+        <full_name>\OwpBaseFramework::DB_PASS</full_name>
+        <default>null</default>
+        <docblock line="81">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="81" description="&lt;p&gt;$DB_NAME, $DB_USER, $DB_PASS Database credentials&lt;/p&gt;" type="string" variable="$DB_HOST,">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="86" package="OwpBaseFramework">
+        <name>$THEME</name>
+        <full_name>\OwpBaseFramework::THEME</full_name>
+        <default>null</default>
+        <docblock line="86">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="86" description="&lt;p&gt;Active theme&lt;/p&gt;" type="string" variable="$THEME">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="protected" namespace="" line="91" package="OwpBaseFramework">
+        <name>$userClass</name>
+        <full_name>\OwpBaseFramework::userClass</full_name>
+        <default></default>
+        <docblock line="91">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="91" description="&lt;p&gt;ezSQL Database Object&lt;/p&gt;" type="object" variable="$ezSqlDB">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="103" package="OwpBaseFramework">
+        <name>__construct</name>
+        <full_name>\OwpBaseFramework::__construct()</full_name>
+        <docblock line="103">
+          <description>Constructor</description>
+          <long-description></long-description>
+          <tag name="method" line="103" description="" method_name="__construct"/>
+          <tag name="access" line="103" description="public"/>
+          <tag name="author" line="103" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="103" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="179" package="OwpBaseFramework">
+        <name>loadEnviroment</name>
+        <full_name>\OwpBaseFramework::loadEnviroment()</full_name>
+        <docblock line="179">
+          <description>loadEnviroment</description>
+          <long-description></long-description>
+          <tag name="method" line="179" description="" method_name="__construct"/>
+          <tag name="access" line="179" description="public"/>
+          <tag name="author" line="179" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="179" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="194" package="OwpBaseFramework">
+        <name>loadFooter</name>
+        <full_name>\OwpBaseFramework::loadFooter()</full_name>
+        <docblock line="194">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="200" package="OwpBaseFramework">
+        <name>loadHeader</name>
+        <full_name>\OwpBaseFramework::loadHeader()</full_name>
+        <docblock line="200">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="206" package="OwpBaseFramework">
+        <name>loadNav</name>
+        <full_name>\OwpBaseFramework::loadNav()</full_name>
+        <docblock line="206">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="213" package="OwpBaseFramework">
+        <name>loadTemplate</name>
+        <full_name>\OwpBaseFramework::loadTemplate()</full_name>
+        <docblock line="213">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$template_name</name>
+          <default></default>
+          <type/>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$sub_dir</name>
+          <default>"pages"</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="230" package="OwpBaseFramework">
+        <name>mod</name>
+        <full_name>\OwpBaseFramework::mod()</full_name>
+        <docblock line="230">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="256" package="OwpBaseFramework">
+        <name>processAction</name>
+        <full_name>\OwpBaseFramework::processAction()</full_name>
+        <docblock line="256">
+          <description></description>
+          <long-description></long-description>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="194" code="PPC:ERR-50008">No summary for method loadFooter()</error>
+      <error line="200" code="PPC:ERR-50008">No summary for method loadHeader()</error>
+      <error line="206" code="PPC:ERR-50008">No summary for method loadNav()</error>
+      <error line="213" code="PPC:ERR-50015">Argument $template_name is missing from the Docblock of loadTemplate</error>
+      <error line="213" code="PPC:ERR-50015">Argument $sub_dir is missing from the Docblock of loadTemplate</error>
+      <error line="213" code="PPC:ERR-50008">No summary for method loadTemplate()</error>
+      <error line="230" code="PPC:ERR-50008">No summary for method mod()</error>
+      <error line="256" code="PPC:ERR-50008">No summary for method processAction()</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="OwpEzSqlMysql.inc.php" generated-path="OwpEzSqlMysql.inc.html" hash="2b98db20f9472bfd5a3958556fdf8199" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="23" package="OwpEzSqlMysql">
+      <extends>\ezSQL_mysql</extends>
+      <name>OwpEzSqlMysql</name>
+      <full_name>\OwpEzSqlMysql</full_name>
+      <docblock line="23">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="23" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="23" description="OwpEzSqlMysql"/>
+        <tag name="author" line="23" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="23" description="1.0"/>
+        <tag name="license" line="23" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="23" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="23" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="23" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="OwpEzSqlMysql">
+        <name>MySQLFirephp</name>
+        <full_name>\OwpEzSqlMysql::MySQLFirephp()</full_name>
+        <docblock line="40">
+          <description>MySQLFirephp()</description>
+          <long-description></long-description>
+          <tag name="method" line="40" description="Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer." method_name="MySQLFirephp"/>
+          <tag name="access" line="40" description="public"/>
+          <tag name="param" line="40" description="&lt;p&gt;Traditional FirePHPCore library for sending PHP variables to the browser.&lt;/p&gt;" type="object" variable="$firephp">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="40" description="&lt;p&gt;Optional title.&lt;/p&gt;" type="string" variable="$title">
+            <type>string</type>
+          </tag>
+          <tag name="uses" line="40" description="FirePHPCore table method." link="firephp::table()"/>
+          <tag name="author" line="40" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="40" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$firephp</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$title</name>
+          <default>"ezSql Debug"</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="72" package="OwpEzSqlMysql">
+        <name>MySQLFirephpGetLastMysqlError</name>
+        <full_name>\OwpEzSqlMysql::MySQLFirephpGetLastMysqlError()</full_name>
+        <docblock line="72">
+          <description>MySQLFirephpGetLastMysqlError()</description>
+          <long-description></long-description>
+          <tag name="method" line="72" description="Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer." method_name="MySQLFirephpGetLastMysqlError"/>
+          <tag name="access" line="72" description="public"/>
+          <tag name="return" line="72" description="Last recorded MySQL Error" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="72" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="72" description="1.0"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJzFVm1v2kgQ/s6vmEOVgMiFtF9OyvXNAROsGpvaTnK5qkLGLLBX43XX61Ja5b/fzHpJgOR6uS93FhJ4dmaemWdelldvi1XR6J2cNOAEgoLl12w2kaxkecogqopCSAUen8lEbuE5CNTYsFlhNLqpWKMh2b5LRbGVfLlS8PL09AXqvjx98asF55InOcTJQmyTrlYskvRzsmQAEGwK53v0JRtvyy+ZPksqtRISjw7s4NVM6R/vZiStfxP2G230lcmSixyNXnRPtSTjKctLghi78ZFkpVRRnvV6lEopKolZCLnsGYWyhxYQrxhZYuJaWOeXKLYUyMIxTVND09TQZPDyz6AfwjNwR8wdOzJM9u+IbKedR1g0ahMm17zUifMSVkyy2RaWEulhcwsWkjEQC0hXiVwyC5SAJN9CgVShgUA+ec7zJSRAdSNNtUI3pVioTSIZKs8hKUuRckx7DnORVmuGzCvCW/CMldBWyFIzMhbNjgaZsyQDngOd7Y5gw7GqlQLMU0mekg8LldKsmlMMu+OMr7lBIHPNQUlOqxIzoDgtWIs5X9A302kV1Szj5cqCOSfXs0qhsCShLpxFefSwoUqWZeSBY9w61/votA6hFESoMhRp3M0Ki3SQCVK0qGSOkEzbzAVSphH/ZKkiCakvRJaJDaWWinzOKaPyzJSNWiuZia8M7gcmFwrjreOgKhT3pTVH5SrBBGbMsIbgyHGyl5OkGEqF1edYAGpHAj3OtbsLYuRAFAzjazt0wI1gEgZX7sAZQNOO8L1pwbUbj4LLGFAjtP34BoIh2P4NvHf9gQXO75PQiSIIQnDHE891UOb6fe9y4PoXcI52foDT4+IModM40IDGletE5GzshP0RvtrnrufGNxYM3dgnn0N0asPEDmO3f+nZIUwuw0kQOQg/QLe+6w9DRHHGjh93ERVl4FzhC0Qj2/M0lH2J0Yc6vn4wuQndi1EMo8AbOCg8dzAy+9xzaihMqu/Z7tiCgT22LxxtFaCXUKuZ6K5HjhYhno2ffuwGPqXRD/w4xFcLswzjO9NrN3IssEM3IkKGYYDuiU60CLQTtPOd2gtRfVgRVKH3y8i5j2Xg2B76ish4X5lK2ms00gyn9XChAvumWD4vgX2PPnjTtV6yPxoNWkp64dNzAuMtng65ZHgRtDtGujt8t2Y4m3NY82/Ycweqzxb1DwueKa4y1gEXVw8uIMWAdCajCW6DWbVc0iDw3MyGQ8HUnjjuIZzaRC8EyJItk9074CRNGWakBzw9jqpIZLJGaz10u0Aglkk9bDgBJoK+wKHNzPW10Isg1zuHovua4Fad0Sozsc2k2JT7QdQ4tFnQpE6Trq3CgGhB9zg43Fa4JeqYzs4UIbQ7BwFpGdTUPjDfXYFPvQCN2e4S1FeglvX0d00gbq28pvmnNYTX0GTUQDCgyjXrdjA9Q8+zOnRAxUTKZNvu/HZ09vHT3VnLVWzdsqA1YHjdZK09Xb6A9i9ogdvu+RvdJdMU1xn2WAfhYO956NX5g9r5CkcZpwfdH7zvYdweoBksHBM1ZVIiw/+M5KEyOKTcsuCBg0ehHjr5UDHsvY8t6O5c5NV6+gWltLi70Pp05JyOtkdcmfNUZFOeL8QTYu+LDAdyIe6d74yfGLdOPmRllSn0ccCf1NK3RrRkO0nZzqsso70X2jdTu3PW9IVxUTY7+61i+u75m3o86u6zTBSouBfXwxZ5DUpWrPZ2+9N9dsEUpaHXoa7jv1hwj9j+hxtOMoX/M0xYuhSSpULOd0HWbfk/7o6/o/bHz6fuuHFNng/09noUWIZ/3B81o3Y77ubbxm3jL9IH60c=</source>
+  </file>
+  <file path="OwpEzSqlMysqli.inc.php" generated-path="OwpEzSqlMysqli.inc.html" hash="582aa888c06237e2c27eaeb03a55963c" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="23" package="OwpEzSqlMysqli">
+      <extends>\ezSQL_mysqli</extends>
+      <name>OwpEzSqlMysqli</name>
+      <full_name>\OwpEzSqlMysqli</full_name>
+      <docblock line="23">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="23" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="23" description="OwpEzSqlMysqli"/>
+        <tag name="author" line="23" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="23" description="1.0"/>
+        <tag name="license" line="23" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="23" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="23" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="23" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="40" package="OwpEzSqlMysqli">
+        <name>MySQLFirephp</name>
+        <full_name>\OwpEzSqlMysqli::MySQLFirephp()</full_name>
+        <docblock line="40">
+          <description>MySQLFirephp()</description>
+          <long-description></long-description>
+          <tag name="method" line="40" description="Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer." method_name="MySQLFirephp"/>
+          <tag name="access" line="40" description="public"/>
+          <tag name="param" line="40" description="&lt;p&gt;Traditional FirePHPCore library for sending PHP variables to the browser.&lt;/p&gt;" type="object" variable="$firephp">
+            <type>object</type>
+          </tag>
+          <tag name="param" line="40" description="&lt;p&gt;Optional title.&lt;/p&gt;" type="string" variable="$title">
+            <type>string</type>
+          </tag>
+          <tag name="uses" line="40" description="FirePHPCore table method." link="firephp::table()"/>
+          <tag name="author" line="40" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="40" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$firephp</name>
+          <default></default>
+          <type>object</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$title</name>
+          <default>"ezSql Debug"</default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="72" package="OwpEzSqlMysqli">
+        <name>MySQLFirephpGetLastMysqlError</name>
+        <full_name>\OwpEzSqlMysqli::MySQLFirephpGetLastMysqlError()</full_name>
+        <docblock line="72">
+          <description>MySQLFirephpGetLastMysqlError()</description>
+          <long-description></long-description>
+          <tag name="method" line="72" description="Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer." method_name="MySQLFirephpGetLastMysqlError"/>
+          <tag name="access" line="72" description="public"/>
+          <tag name="return" line="72" description="Last recorded MySQL Error" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="72" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="72" description="1.0"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJzFVm1v2kgQ/s6vmEOVgMiFtF9OyvXNAROsgk1tp7lcVSFjFtir8brrdSmN8t9vZr0k4OR6uS93KFLY2Zl5Zp55WV69zdd5o3dy0oAT8HOWXbH5VLKCZQmDsMxzIRWM+VzGcgfPQaDGls1zo9FNxAYNyfZdIvKd5Ku1gpenpy9Q9+Xpi18tOJc8ziCKl2IXd7ViHidf4hUDAH+bOz/Cr+lkV3xNub6MS7UWEu+ODOHVXOkv7+Ykrb4T+Btt9I3JgosMjV50T7Uk5QnLCsKYuFFNslYqL856PcqlEKXENIRc9YxC0UMLiNaMLDFzLawSjBVbCaShztPM8DQzPBm87AvoD+EZuBp1dUeGyv4dk+2k8wiNRm3K5IYXOnFewJpJNt/BSiI9bGHBUjIGYgnJOpYrZoESEGc7yJEqNBDIJ894toIYqHCkqdbophBLtY0lQ+UFxEUhEo5pL2AhknLDkHlFeEuesgLaCllqhsai2dEgCxanwDOgu/0VbDlWtVSAeSrJE/JhoVKSlguKYX+d8g03CGSuOSjIaVlgBhSnBRux4Ev6z3RaeTlPebG2YMHJ9bxUKCxIqAtnUR49bKiCpSl54Bi3zvU+Oq1DKDkRqgxFGne7xiIdZYIULUuZISTTNguBlGnEP1miSELqS5GmYkupJSJbcMqoODNlo9aK5+Ibg/uJyYTCeKs4qAr5fWnNVbGOMYE5M6whOHIcH+QkKYZCYfU5FoDakUDruXb3QYwcCP1hdGUHDrghTAP/oztwBtC0Qzw3Lbhyo5F/GQFqBLYXXYM/BNu7hveuN7DA+X0aOGEIfgDuZDp2HZS5Xn98OXC9CzhHO8/H6XFxhtBp5GtA48p1QnI2cYL+CI/2uTt2o2sLhm7kkc8hOrVhageR278c2wFML4OpHzoIP0C3nusNA0RxJo4XdREVZeB8xAOEI3s81lD2JUYf6Pj6/vQ6cC9GEYz88cBB4bmDkdnnY6eCwqT6Y9udWDCwJ/aFo6189BJoNRPd1cjRIsSz8a8fub5HafR9LwrwaGGWQXRneuWGjgV24IZEyDDw0T3RiRa+doJ2nlN5IaqPK4IqdL4MnftYBo49Rl8hGR8qU0l7jUaS4rTWNiqw74pliwLYj/DDeLap1uxNo0FrSe98+pzAZIfXQy4ZvgXtjpHuL99tGE7nAjb8O3bdkeqzZfXFgmeKq5R1wMXlgytIMSCd6WiK+2BerlY0Cjwz0+FQNJUnjpsI5zbWKwHSeMdk9w44ThKGOekRT+pR5bGMN2itx24fCEQyrsYNZ8BE0Bc4tql5wZZ6FWR661B032Lcq3NaZia2uRTb4jCICod2C5pUadLLlRsQLejWg8N9hXuiiunsTBFCu3MUkJZBRe0D8/0j+NQn0Jjtn0H9CGpZT/+vCMS9lVU0/7SG8BqajFoIBlS5Zge0j5vKo/ncHZ5VeQBaxVLGu3bnt9rdp893dy1XsU3LgtaA4euTtg50+RLav6AFLr/nb3TLzBLcbthwnRr0Q6/OH9TcH3GycZjQ/dH5AOP2CM1g4dSoGZMS6f5npDEqg0PKLQseOHgU6qGTDyXDRvzUgu7eRVZuZl9RSnu8C63PNed0tatxZe4Tkc54thRPiL0vUpzOpbh3vjd+Ytw6+YAVZarQxxF/UkvfGtGK7SVFOyvTlNZgYF/P7M5Z0xPGRdHsHLaKacLnb6pZqVrRMlGg4kFcD1vkNShZssrb7U+X2wVTlIbejrqO/2LbPWL7H647yRT+7DBh6VJIlgi52AdZteX/uEj+jtqbn09dvXFNng/0DnoUWIq/4x81o3ard/Nt47bxF7Z77iI=</source>
+  </file>
+  <file path="OwpMessaging.inc.php" generated-path="OwpMessaging.inc.html" hash="0fdb891e11aa1a513cfa334f3596c58e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="23" package="OwpMessaging">
+      <extends/>
+      <name>OwpMessaging</name>
+      <full_name>\OwpMessaging</full_name>
+      <docblock line="23">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="23" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="23" description="OwpMessaging"/>
+        <tag name="author" line="23" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="23" description="1.0"/>
+        <tag name="license" line="23" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="23" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="23" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="23" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <property static="false" visibility="public" namespace="" line="29" package="OwpMessaging">
+        <name>$errors</name>
+        <full_name>\OwpMessaging::errors</full_name>
+        <default>false</default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="&lt;p&gt;Error array&lt;/p&gt;" type="array" variable="$errors">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="44" package="OwpMessaging">
+        <name>sendEmailDirect</name>
+        <full_name>\OwpMessaging::sendEmailDirect()</full_name>
+        <docblock line="44">
+          <description>sendEmailDirect</description>
+          <long-description></long-description>
+          <tag name="method" line="44" description="Send email directly to the recipient's mail server using the PHPMailer library." method_name="sendEmailDirect"/>
+          <tag name="access" line="44" description="public"/>
+          <tag name="return" line="44" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="44" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
+            <type>array</type>
+          </tag>
+          <tag name="throws" line="44" description="Missing required argument." type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="author" line="44" description="Brian Tafoya"/>
+          <tag name="version" line="44" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data_array</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="104" package="OwpMessaging">
+        <name>sendEmailViaSMTP</name>
+        <full_name>\OwpMessaging::sendEmailViaSMTP()</full_name>
+        <docblock line="104">
+          <description>sendEmailViaSMTP</description>
+          <long-description></long-description>
+          <tag name="method" line="104" description="" method_name="sendEmailViaSMTP"/>
+          <tag name="access" line="104" description="public"/>
+          <tag name="return" line="104" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="param" line="104" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
+            <type>array</type>
+          </tag>
+          <tag name="author" line="104" description="Brian Tafoya"/>
+          <tag name="version" line="104" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data_array</name>
+          <default></default>
+          <type>array</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="168" package="OwpMessaging">
+        <name>isDev</name>
+        <full_name>\OwpMessaging::isDev()</full_name>
+        <docblock line="168">
+          <description>isDev</description>
+          <long-description></long-description>
+          <tag name="method" line="168" description="" method_name="isDev"/>
+          <tag name="access" line="168" description="private"/>
+          <tag name="return" line="168" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="author" line="168" description="Brian Tafoya"/>
+          <tag name="version" line="168" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="184" package="OwpMessaging">
+        <name>validateData</name>
+        <full_name>\OwpMessaging::validateData()</full_name>
+        <docblock line="184">
+          <description>validateData</description>
+          <long-description></long-description>
+          <tag name="method" line="184" description="" method_name="validateData"/>
+          <tag name="access" line="184" description="private"/>
+          <tag name="return" line="184" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="author" line="184" description="Brian Tafoya"/>
+          <tag name="version" line="184" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$data_array</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="184" code="PPC:ERR-50015">Argument $data_array is missing from the Docblock of validateData</error>
+    </parse_markers>
+    <source>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</source>
+  </file>
+  <file path="OwpMod.inc.php" generated-path="OwpMod.inc.html" hash="e9b88459fe6865fc04be368d3e21120e" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="23" package="OwpMod">
+      <extends/>
+      <name>OwpMod</name>
+      <full_name>\OwpMod</full_name>
+      <docblock line="23">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="23" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="23" description="OwpMod"/>
+        <tag name="author" line="23" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="23" description="1.0"/>
+        <tag name="license" line="23" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="23" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="23" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="23" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <property static="false" visibility="private" namespace="" line="29" package="OwpMod">
+        <name>$mod_data</name>
+        <full_name>\OwpMod::mod_data</full_name>
+        <default>array()</default>
+        <docblock line="29">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="29" description="&lt;p&gt;Data storage array&lt;/p&gt;" type="array" variable="$mod_data">
+            <type>array</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="42" package="OwpMod">
+        <name>__debugInfo</name>
+        <full_name>\OwpMod::__debugInfo()</full_name>
+        <docblock line="42">
+          <description>__debugInfo</description>
+          <long-description></long-description>
+          <tag name="method" line="42" description="" method_name="__debugInfo"/>
+          <tag name="access" line="42" description="public"/>
+          <tag name="return" line="42" description="Array mod_data" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="42" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="42" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="64" package="OwpMod">
+        <name>__get</name>
+        <full_name>\OwpMod::__get()</full_name>
+        <docblock line="64">
+          <description>__get</description>
+          <long-description></long-description>
+          <tag name="method" line="64" description="Add mod data by key" method_name="__get"/>
+          <tag name="access" line="64" description="public"/>
+          <tag name="param" line="64" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="64" description="Array value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="64" description="Mod data key does not exist, code 20" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="author" line="64" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="64" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="82" package="OwpMod">
+        <name>__isset</name>
+        <full_name>\OwpMod::__isset()</full_name>
+        <docblock line="82">
+          <description>__isset</description>
+          <long-description></long-description>
+          <tag name="method" line="82" description="Add mod data by key" method_name="__isset"/>
+          <tag name="access" line="82" description="public"/>
+          <tag name="param" line="82" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="82" description="" type="boolean">
+            <type>boolean</type>
+          </tag>
+          <tag name="author" line="82" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="82" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="101" package="OwpMod">
+        <name>__set</name>
+        <full_name>\OwpMod::__set()</full_name>
+        <docblock line="101">
+          <description>__set</description>
+          <long-description></long-description>
+          <tag name="method" line="101" description="Add mod data by key" method_name="__set"/>
+          <tag name="access" line="101" description="public"/>
+          <tag name="param" line="101" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="101" description="&lt;p&gt;Mod data value&lt;/p&gt;" type="mixed" variable="$itemValue">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="101" description="Array value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="101" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="101" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$itemValue</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="117" package="OwpMod">
+        <name>__unset</name>
+        <full_name>\OwpMod::__unset()</full_name>
+        <docblock line="117">
+          <description>__unset</description>
+          <long-description></long-description>
+          <tag name="method" line="117" description="Add mod data by key" method_name="__unset"/>
+          <tag name="access" line="117" description="public"/>
+          <tag name="param" line="117" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="117" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="117" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="139" package="OwpMod">
+        <name>getModDataItem</name>
+        <full_name>\OwpMod::getModDataItem()</full_name>
+        <docblock line="139">
+          <description>getModDataItem</description>
+          <long-description></long-description>
+          <tag name="method" line="139" description="Add mod data by key" method_name="getModDataItem"/>
+          <tag name="access" line="139" description="public"/>
+          <tag name="param" line="139" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="return" line="139" description="Array value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="throws" line="139" description="Mod data key does not exist, code 20" type="\InvalidArgumentException">
+            <type>\InvalidArgumentException</type>
+          </tag>
+          <tag name="author" line="139" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="139" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="162" package="OwpMod">
+        <name>setModDataItem</name>
+        <full_name>\OwpMod::setModDataItem()</full_name>
+        <docblock line="162">
+          <description>setModDataItem</description>
+          <long-description></long-description>
+          <tag name="method" line="162" description="Add mod data by key" method_name="setModDataItem"/>
+          <tag name="access" line="162" description="public"/>
+          <tag name="param" line="162" description="&lt;p&gt;Mod data array key&lt;/p&gt;" type="string" variable="$itemName">
+            <type>string</type>
+          </tag>
+          <tag name="param" line="162" description="&lt;p&gt;Mod data value&lt;/p&gt;" type="mixed" variable="$itemValue">
+            <type>mixed</type>
+          </tag>
+          <tag name="return" line="162" description="Array value" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="162" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="162" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$itemName</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+        <argument line="0" by_reference="false">
+          <name>$itemValue</name>
+          <default></default>
+          <type>mixed</type>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+    </parse_markers>
+    <source>eJztV21v2kgQ/s6vGEWRSiIX0nw5qW9XB5xgHdjIdpqLqipa7AX2arzWeh2Cqvz3m1nM60HgQ693H2pFwR7P6/PMzMrvf8/Hea15fl6Dc/Bznt3xQV/xgmcxh7DMc6k0dMVAMTWD1yBRY8oHeaXRiOUEDcn2UyzzmRKjsYbLi4s3qHt58eY3C66UYBlEbChnrGEUcxZ/YyMOAP4078nECFmpx1KhbMMA3g+0ufk0IOn8noJ+NEaPXBVCZmj0pnFhJKmIeVaQ754bbUnGWufF22aTaihkqTB9qUbNSqFoogVEY06WWLERzgtjmo8klr+Nz0OFz0OFTxUv+wbmonhVuC3Ith1VELaWCNbjsx3wVWp9riaiMIWLAsZc8cEMRgrh4YkFQ8U5yCHEY6ZG3AItgWUzyBEqNJCIp8hENgIGRBhp6jG6KeRQT5niqJwAKwoZCyw7gUTG5YQj8priDUXKC6hrROkkrCxOzkyQhLMURAb0bvEKpgJZLTVgnVqJmHxYqBSnZUI5LF6nYiKqCGRuMCjIaVlgBZSnBROZiCH9clNWXg5SUYwtSAS5HpQahQUJDXEW1dHEhip4mpIHgXmbWlfZGR2KkhOguoLIxJ2OkaSNShCiYakyDMmNTSIRMhPxLx5rkpD6UKapnFJpscwSQRUVbyvaqLXYQD5yWE1KJjXmO8+DWMhX1FavijHDAga8Qg2DI8ZsrSZFORQa2RdIALUjBd2utbFIouNA6F9Hd3bggBtCP/A/u22nDSd2iM8nFty5Uce/jQA1AtuL7sG/Btu7hz9cr22B82c/cMIQ/ADcXr/rOihzvVb3tu16N3CFdp6P0+PiDKHTyDcBK1euE5KznhO0OvhoX7ldN7q34NqNPPJ5jU5t6NtB5LZuu3YA/dug74cOhm+jW8/1rgOM4vQcL2pgVJSB8xkfIOzY3a4JZd9i9oHJr+X37wP3phNBx++2HRReOZiZfdV15qGwqFbXdnsWtO2efeMYKx+9BEatyu6u4xgRxrPxrxW5vkdltHwvCvDRwiqDaGl654aOBXbghgTIdeCje4ITLXzjBO08Z+6FoN5kBFXo+TZ0Vrm0HbuLvkIyXlcmSpu1WpzitC426fdajTaPWed00Y5kCphSbAanOEIPCdMM2vSv0FLRGjYvK/Wm+c2VeMThhzWLD3O1+tm7f0R4eEj4oBy52VBWomXsCcf5TmAinrBv1/TqZ0sVFscc8zfjHG/bK65x5ip72xSxyGhbdXF+HHt6LNCpThBzfqxDYPLBkc/M0tpMHozK97kBXlWaX5YCul4tMn0FHz7CKY33648LmbVU/frO3D7vgHXE9QFAUaN+KjSfeGzCz8BOEsIHDGN4Jnzjs+NwzpliE6A9iptr6RB6C1/z/lm5e4mgR5aWfFtPj5WcFuBm+FYkthqZM8V5inlu4F1Gwhi4WnGv4foD/oS7nfZ/wvE0/OmMb6K7m/OKV1TFEmisXNRfs9rPLq75g/wanf8FwwMpU86yn87BNgK7Wai0Nmfsy9Lq6ws0HCZhIwFrDt5navIfT8d+PhYm86TWkliZ7By8vQP68yjcj9+LI1XsGakND/t5LbPDzBqd/3a8/nX0t2vcwlwM6weH52xNn67K5aFpmzOzm5/NffkiTXtX66/j7kd2yn6Yf0DHbE72Dou1jgGe4tf6pr3BEzI+3Qtp/WSJKTmFE2isMdvA502YG/ilc3lxRKcWx3fqURvr15lxuBePA3KrL/c3F368rOxWjB/ZlM+159rf1ay0dQ==</source>
+  </file>
+  <file path="OwpSupportMethods.inc.php" generated-path="OwpSupportMethods.inc.html" hash="2d94bb424ee55679c54be9c7a087cf76" package="Default">
+    <docblock line="0">
+      <description></description>
+      <long-description></long-description>
+      <tag name="package" line="0" description="Default"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="23" package="OwpSupportMethods">
+      <extends/>
+      <name>OwpSupportMethods</name>
+      <full_name>\OwpSupportMethods</full_name>
+      <docblock line="23">
+        <description>OpenWebPresence Support Library - openwebpresence.com</description>
+        <long-description></long-description>
+        <tag name="copyright" line="23" description="2001 - 2017, Brian Tafoya."/>
+        <tag name="package" line="23" description="OwpSupportMethods"/>
+        <tag name="author" line="23" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+        <tag name="version" line="23" description="1.0"/>
+        <tag name="license" line="23" description="MIT" link="http://opensource.org/licenses/MIT"/>
+        <tag name="license" line="23" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+        <tag name="category" line="23" description="OpenWebPresence_Support_Library"/>
+        <tag name="link" line="23" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="34" package="OwpSupportMethods">
+        <name>uuid</name>
+        <full_name>\OwpSupportMethods::uuid()</full_name>
+        <docblock line="34">
+          <description>uuid</description>
+          <long-description></long-description>
+          <tag name="method" line="34" description="" method_name="uuid"/>
+          <tag name="access" line="34" description="public"/>
+          <tag name="return" line="34" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="34" description="Brian Tafoya"/>
+          <tag name="version" line="34" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="49" package="OwpSupportMethods">
+        <name>randomPasswordAlphaNum</name>
+        <full_name>\OwpSupportMethods::randomPasswordAlphaNum()</full_name>
+        <docblock line="49">
+          <description>randomPasswordAlphaNum</description>
+          <long-description></long-description>
+          <tag name="method" line="49" description="" method_name="randomPasswordAlphaNum"/>
+          <tag name="access" line="49" description="public"/>
+          <tag name="return" line="49" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="49" description="Brian Tafoya"/>
+          <tag name="version" line="49" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$length</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="76" package="OwpSupportMethods">
+        <name>GetUserIP</name>
+        <full_name>\OwpSupportMethods::GetUserIP()</full_name>
+        <docblock line="76">
+          <description>GetUserIP</description>
+          <long-description></long-description>
+          <tag name="method" line="76" description="" method_name="GetUserIP"/>
+          <tag name="access" line="76" description="public"/>
+          <tag name="return" line="76" description="" type="string">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="76" description="Brian Tafoya"/>
+          <tag name="version" line="76" description="1.0"/>
+        </docblock>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="PPC:ERR-50000">No summary was found for this file</error>
+      <error line="49" code="PPC:ERR-50015">Argument $length is missing from the Docblock of randomPasswordAlphaNum</error>
+    </parse_markers>
+    <source>eJzFVm1v2kgQ/kyk/IdRFBXIuZBUOlXXa+/qwCZYBzayTXK5qkLGXvA2xutb20W5U//7zayXl3Dp54YgvDPPzDPzzO7C+9+LtDg96V9cnJ7ABXgFz+/5Yqp4yfOYQ1AXhVQVjMVCReoJXoNExIYvCoPoxXJNkTr6YyyLJyVWaQVvLi+vEP3m8uqtBddKRDmE0VI+Rb0GWUTxY7TiAOBtCsMy4VUqk7IBRDUuFPqfRcP7RaUfPi7I2jxTDb81UV+5KoXMMeqqd9mYMhHzvCSmiRMem9KqKsp3/T51VcpaYUNSrfoGUPYxBMKUUyhqoI2m06jiK4mKHEs2N83MjWRbxvwR9B8xGsIjGY8z7WQd7FTtxN0XJN0Bp1ytRakFECWkXPHFE6wU6sQTC5aKc5BLiNNIrbgFlYQof4ICJcMAicKKXOQriIDGSMgqxTSlXFabSHEEJxCVpYwF9p5AIuN6zXEEFfEtRcZL6FSo1VlgIs66miThUQYiB/JtXbARON66Auy1UiKmHBaC4qxOqIatOxNrYRgoXKtQUtK6xA6oTgvWMhFL+uS6raJeZKJMLUgEpV7UFRpLMurxWdRHH3dWybOMMgisW/e6r05jiKUgQSsjkebdpDioZ52gRMta5UjJdUwiUTLN+IXHFVkIvpRZJjfUWizzRFBH5bvd4GiLRQv5lcP+BOWywoqbSmgOxX64xlWmEbaw4EY3pEeVo4OuFFVRVjh/gSOgXUm0x9329mWMGATeTXhv+wycAKa+d+cM2RDO7ADXZxbcO+HIm4WACN92wwfwbsB2H+APxx1awP6c+iwIwPPBmUzHDkOb4w7Gs6Hj3sI1xrkeniMHTxMmDT1NaFI5LKBkE+YPRri0r52xEz5YcOOELuW8waQ2TG0/dAazse3DdOZPvYAh/RDTuo574yMLmzA37CEr2oDd4QKCkT0eayp7htX7ur6BN33wndtRCCNvPGRovGZYmX09Zg0VNjUY287EgqE9sW+ZjvIwi69hprr7EdMm5LPxfxA6nkttDDw39HFpYZd+uAu9dwJmge07AQly43uYnuTECE8nwTiXNVlI6ucTQQitZwHb1zJk9hhzBRR8CNZD7Z+enJ7EGR7a/9+y8O/pSUtf+y2cfF2LRD81y49rDdLmTtfYojjmmEmfr9jYFK9w7wMdtHx1mGB/fR9dVa3n13RzT7d0ra2SjnpsGPBU5fpeMFVQvS3Dt05+7tS5+BvteLuh86eJiJUMxZp3utZVt/srgr9R94dNElSupyjHRqrEzoo0cuv1C22/DPzxQnynLjjPeL6qUujqobbOI/IsON6UHyhmxTttu221/2prXQ78c7yTuNqjIkT9s0Xl9XqB5e29l+j9ZetdijzK5pFS0RMi9Odc38CdfXprm8M6pqQkOk1hmsEc7bYxblL8MumYpl6/Nl21zh/5nkqP/bCIpqyDhL0PcOj/ROGfNehbQ2NG1mlm1t1Fvrh3bnk1K7lypi9sl53vx++Qg1Ia1cSyg18avOqczwPm3zG/C69ewXPTp7bPJl7I5vZw6Lc/d7eCm4q/A2ukBJ7hD6ln+LOrN297l/i6OtvKTe9v/wEHECAI</source>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <package name="OwpBaseFramework" full_name="OwpBaseFramework"/>
+  <package name="OwpEzSqlMysql" full_name="OwpEzSqlMysql"/>
+  <package name="OwpEzSqlMysqli" full_name="OwpEzSqlMysqli"/>
+  <package name="OwpMessaging" full_name="OwpMessaging"/>
+  <package name="OwpMod" full_name="OwpMod"/>
+  <package name="OwpSupportMethods" full_name="OwpSupportMethods"/>
+  <package name="global" full_name="global"/>
+  <namespace name="global" full_name="global"/>
+  <deprecated count="0"/>
+</project>

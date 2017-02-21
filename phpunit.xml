@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<phpunit bootstrap="./vendor/autoload.php">
+    <testsuites>
+        <testsuite name="OwpFramework">
+            <directory suffix="_test.php">./tests/</directory>
+        </testsuite>
+    </testsuites>
+    <php>
+        <env name="DB_HOST" value="localhost" />
+        <env name="DB_USER" value="travis" />
+        <env name="DB_PASS" value="" />
+        <env name="DB_NAME" value="owp_users" />
+    </php>
+    <logging>
+        <log type="junit" target="./logs/logfile.xml" logIncompleteSkipped="false"/>
+        <log type="testdox-text" target="./logs/testdox.txt"/>
+    </logging>
+    <filter>
+        <whitelist processUncoveredFilesFromWhitelist="true">
+            <directory suffix=".php">./src/</directory>
+        </whitelist>
+    </filter>
+</phpunit>
