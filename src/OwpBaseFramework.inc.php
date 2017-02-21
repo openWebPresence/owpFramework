@@ -21,52 +21,60 @@
  */
 
 
+/**
+ * This class is the glue that binds all of the Open Web Presence functionality together.
+ * It acts as the controller, logic, and view handler without extreme complexity of an entire MVC framework.
+ */
 class OwpBaseFramework
 {
 
+    /**
+     * @var string $root_path Set the root file path.
+     */
+    public $root_path = null;
 
     /**
-     * @var array $debugging Debugging array
+     * @var array $debugging Debugging array.
      */
     public $debugging = array();
 
     /**
-     * @var boolean $debug Is debugging enabled by default
+     * @var boolean $debug Is debugging enabled by default.
      */
     public $debug = false;
 
     /**
-     * @var int $userID OpenWebPresence support methods
+     * @var int $userID OpenWebPresence support methods.
      */
     public $userID = 0;
 
     /**
-     * @var object $ezSqlDB ezSQL Database Object
+     * @var object $ezSqlDB The ezSQL Database Object.
      */
     protected $ezSqlDB;
 
     /**
-     * @var object $firephp FirePHP debugging libray
+     * @var object $firephp The FirePHP debugging libray.
      */
     protected $firephp;
 
     /**
-     * @var string $current_web_root The web root url
+     * @var string $current_web_root The web root url.
      */
     protected $current_web_root;
 
     /**
-     * @var object $owp_SupportMethods OpenWebPresence support methods
+     * @var object $owp_SupportMethods OpenWebPresence support methods.
      */
     protected $owp_SupportMethods;
 
     /**
-     * @var string $default_action Default action
+     * @var string $default_action Default action.
      */
     public $default_action = "home";
 
     /**
-     * @var string $requested_action Default action
+     * @var string $requested_action The requested action.
      */
     public $requested_action = "home";
 
@@ -96,12 +104,19 @@ class OwpBaseFramework
      *
      * @method void __construct()
      * @access public
+     * @param string $root_path The app root file path.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct() 
+    public function __construct($root_path)
     {
+
+        /*
+		 * Set the root path
+		 */
+        $this->root_path = $root_path;
+
         /*
 		 * Set the requested action
 		 */
@@ -146,7 +161,7 @@ class OwpBaseFramework
         /*
 		 * Init the database class
 		 */
-        $this->ezSqlDB = new owp_EzSql_mysql($this->DB_USER, $this->DB_PASS, $this->DB_NAME, $this->DB_HOST);
+        $this->ezSqlDB = new OwpEzSqlMysql($this->DB_USER, $this->DB_PASS, $this->DB_NAME, $this->DB_HOST);
         $this->ezSqlDB->use_disk_cache = false;
         $this->ezSqlDB->cache_queries = false;
         $this->ezSqlDB->hide_errors();
@@ -168,10 +183,12 @@ class OwpBaseFramework
     }
 
     /**
-     * loadEnviroment
+     * loadEnviroment()
      *
-     * @method void __construct()
-     * @access public
+     * @method void loadEnviroment() Establish the app environment using the Dotenv library.
+     * @access private
+     *
+     * @uses https://packagist.org/packages/vlucas/phpdotenv Dotenv\Dotenv Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically. This is a PHP version of the original Ruby dotenv.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -191,30 +208,68 @@ class OwpBaseFramework
     }
 
 
+    /**
+     * loadFooter()
+     *
+     * @method void loadFooter() Loads the footer based on the template setting.
+     * @access private
+     * @uses $this->loadTemplate
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     private function loadFooter()
     {
         $this->loadTemplate("footer", "common");
     }
 
-
+    /**
+     * loadHeader()
+     *
+     * @method void loadHeader() Loads the header based on the template setting.
+     * @access private
+     * @uses $this->loadTemplate
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     private function loadHeader()
     {
         $this->loadTemplate("header", "common");
     }
 
-
+    /**
+     * loadNav()
+     *
+     * @method void loadNav() Loads the nav based on the template setting.
+     * @access private
+     * @uses $this->loadTemplate
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     private function loadNav()
     {
         $this->loadTemplate("nav", "common");
     }
 
-
-
+    /**
+     * loadTemplate()
+     *
+     * @method void loadTemplate($template_name,$sub_dir) Loads the template based on the template setting.
+     * @access private
+     * @param string $template_name Template Name.
+     * @param string $sub_dir Sub Directory
+     * @returns boolean Loaded status
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     private function loadTemplate($template_name,$sub_dir = "pages")
     {
         $template = array();
-        $template["theme"] = ROOT_PATH . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], $sub_dir, $template_name . ".inc.php"));
-        $template["default"] = ROOT_PATH . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', $sub_dir, $template_name . ".inc.php"));
+        $template["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], $sub_dir, $template_name . ".inc.php"));
+        $template["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', $sub_dir, $template_name . ".inc.php"));
 
         foreach($template as $tk => $tv) {
             if(file_exists($tv)) {
@@ -227,6 +282,16 @@ class OwpBaseFramework
         return false;
     }
 
+    /**
+     * loadNav()
+     *
+     * @method void loadNav() Loads the nav based on the template setting.
+     * @access protected
+     * @uses $this->loadTemplate
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     protected function mod()
     {
         $class_name = "owp_mod_" . $this->requested_action;

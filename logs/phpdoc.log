@@ -2,7 +2,6 @@ Collecting files .. OK
 Initializing parser .. OK
 Parsing files
 Parsing /mnt/hgfs/www/owp-framework/src/OwpBaseFramework.inc.php
-  No summary was found for this file
   No summary for method loadFooter()
   No summary for method loadHeader()
   No summary for method loadNav()
@@ -12,26 +11,20 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpBaseFramework.inc.php
   No summary for method mod()
   No summary for method processAction()
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysql.inc.php
-  No summary was found for this file
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysqli.inc.php
-  No summary was found for this file
 Parsing /mnt/hgfs/www/owp-framework/src/OwpMessaging.inc.php
-  No summary was found for this file
-  Argument $data_array is missing from the Docblock of validateData
 Parsing /mnt/hgfs/www/owp-framework/src/OwpMod.inc.php
-  No summary was found for this file
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
-  No summary was found for this file
   Argument $length is missing from the Docblock of randomPasswordAlphaNum
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.081s
+Load cache                                                         ..    0.139s
 Preparing template "responsive"                                    ..    0.028s
 Preparing 13 transformations                                       ..    0.000s
 Build "elements" index                                             ..    0.000s
-Replace textual FQCNs with object aliases                          ..    0.004s
+Replace textual FQCNs with object aliases                          ..    0.006s
 Resolve @link and @see tags in descriptions                        ..    0.000s
 Enriches inline example tags with their sources                    ..    0.000s
-Build "packages" index                                             ..    0.006s
+Build "packages" index                                             ..    0.008s
 Build "namespaces" index and add namespaces to "elements"          ..    0.000s
 Collect all markers embedded in tags                               ..    0.000s
 Transform analyzed project into artifacts                          .. 
@@ -53,5 +46,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   1.814s
-Analyze results and write report to log                            ..    0.000s
+   1.884s
+Analyze results and write report to log                            ..    0.001s

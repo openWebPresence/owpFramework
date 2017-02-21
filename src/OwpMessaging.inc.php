@@ -20,13 +20,31 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
+/**
+ * This class provides messaging for the owpFramework library utilizing PHPMailer.
+ */
 class OwpMessaging
 {
 
     /**
      * @var array $errors Error array
      */
-    public $errors = false;
+    public $errors = array();
+
+    /**
+     * @var string $root_path The root file path.
+     */
+    private $root_path = null;
+
+    /**
+     * Constructor.
+     *
+     * @param string $root_path The root file path.
+     */
+    function __construct($root_path) 
+    {
+        $this->root_path = $root_path;
+    }
 
     /**
      * sendEmailDirect
@@ -34,7 +52,7 @@ class OwpMessaging
      * @method boolean sendEmailDirect($data_array) Send email directly to the recipient's mail server using the PHPMailer library.
      * @access public
      * @return boolean
-     * @param array $data_array Mailer data array.
+     * @param  array $data_array Mailer data array.
      *
      * @throws InvalidArgumentException Missing required argument.
      *
@@ -65,12 +83,11 @@ class OwpMessaging
 
         $mail->From = $data_array["email_from"];
         $mail->FromName = $data_array["email_from_name"];
-        $mail->ReturnPath = $data_array["reply_to"];
         $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
         $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
 
         $mail->DKIM_domain = $_ENV["DKIM_domain"];
-        $mail->DKIM_private = ROOT_PATH . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
+        $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
         $mail->DKIM_selector = $_ENV["DKIM_selector"];
         $mail->DKIM_passphrase = $_ENV["DKIM_passphrase"];
         $mail->DKIM_identity = $_ENV["DKIM_identity"];
@@ -84,19 +101,21 @@ class OwpMessaging
         $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for " . $data_array["sender_domain"]. ".");
         $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
 
-        $message_sent = (int)($mail->Send()?1:0);
+        $message_sent = (boolean)($mail->Send()?true:false);
 
         return $message_sent;
     }
 
 
     /**
-     * sendEmailViaSMTP
+     * sendEmailViaSMTP()
      *
-     * @method sendEmailViaSMTP()
+     * @method boolean sendEmailViaSMTP($data_array) Send email via mail server using the PHPMailer library.
      * @access public
      * @return boolean
-     * @param array $data_array Mailer data array.
+     * @param  array $data_array Mailer data array.
+     *
+     * @throws InvalidArgumentException Missing required argument.
      *
      * @author  Brian Tafoya
      * @version 1.0
@@ -105,7 +124,7 @@ class OwpMessaging
     {
 
         if($this->validateData($data_array)) {
-            throw new Exception($this->errors);
+            throw new InvalidArgumentException($this->errors);
         }
 
         $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
@@ -130,12 +149,11 @@ class OwpMessaging
 
         $mail->From = $data_array["email_from"];
         $mail->FromName = $data_array["email_from_name"];
-        $mail->ReturnPath = $data_array["reply_to"];
         $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
         $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
 
         $mail->DKIM_domain = $_ENV["DKIM_domain"];
-        $mail->DKIM_private = ROOT_PATH . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
+        $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
         $mail->DKIM_selector = $_ENV["DKIM_selector"];
         $mail->DKIM_passphrase = $_ENV["DKIM_passphrase"];
         $mail->DKIM_identity = $_ENV["DKIM_identity"];
@@ -149,33 +167,17 @@ class OwpMessaging
         $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for " . $data_array["sender_domain"]. ".");
         $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
 
-        $message_sent = (int)($mail->Send()?1:0);
+        $message_sent = (boolean)($mail->Send()?true:false);
 
         return $message_sent;
     }
 
-
-    /**
-     * isDev
-     *
-     * @method isDev()
-     * @access private
-     * @return boolean
-     *
-     * @author  Brian Tafoya
-     * @version 1.0
-     */
-    private function isDev() 
-    {
-        return ((int)$_ENV["ISDEV"]?true:false);
-    }
-
-
     /**
      * validateData
      *
-     * @method validateData()
+     * @method validateData() Validate the arguments used to send a message.
      * @access private
+     * @param  array $data_array Mail data to be validated.
      * @return boolean
      *
      * @author  Brian Tafoya

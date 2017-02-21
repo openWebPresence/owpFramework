@@ -1,5 +1,5 @@
 Changing into directory /mnt/hgfs/www/owp-framework/src
-Processing OwpMod.inc.php [PHP => 898 tokens in 167 lines]... DONE in 30ms (0 fixable violations)
+Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 70ms (0 fixable violations)
 No fixable errors were found
-Time: 3.12 secs; Memory: 5.5Mb
+Time: 380ms; Memory: 5.5Mb
 

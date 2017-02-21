@@ -20,64 +20,71 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-class OwpSupportMethods {
-	/**
-	 * uuid
-	 *
-	 * @method uuid()
-	 * @access public
-	 * @return string
-	 *
-	 * @author     Brian Tafoya
-	 * @version    1.0
-	 */
-	static public function uuid(){
-		return md5(uniqid(rand()+MicroTime(),1));
-	}
+/**
+ * This class provides various helper methods which can be used in any php development projects.
+ */
+class OwpSupportMethods
+{
+    /**
+     * uuid
+     *
+     * @method uuid()
+     * @access public
+     * @return string
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static public function uuid()
+    {
+        return md5(uniqid(rand()+MicroTime(), 1));
+    }
 
 
-	/**
-	 * randomPasswordAlphaNum
-	 *
-	 * @method randomPasswordAlphaNum()
-	 * @access public
-	 * @return string
-	 *
-	 * @author     Brian Tafoya
-	 * @version    1.0
-	 */
-	static public function randomPasswordAlphaNum( $length ) {
-		$alphabets = range('A','Z');
-		$alphabets_lower = range('a','z');
-		$numbers = range('0','9');
-		$final_array = array_merge($alphabets,$numbers,$alphabets_lower);
+    /**
+     * randomPasswordAlphaNum
+     *
+     * @method randomPasswordAlphaNum()
+     * @access public
+     * @return string
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static public function randomPasswordAlphaNum( $length ) 
+    {
+        $alphabets = range('A', 'Z');
+        $alphabets_lower = range('a', 'z');
+        $numbers = range('0', '9');
+        $final_array = array_merge($alphabets, $numbers, $alphabets_lower);
 
-		$password = '';
+        $password = '';
 
-		while($length--) {
-			$key = array_rand($final_array);
-			$password .= $final_array[$key];
-		}
+        while($length--) {
+            $key = array_rand($final_array);
+            $password .= $final_array[$key];
+        }
 
-		return (string)$password;
-	}
+        return (string)$password;
+    }
 
 
-	/**
-	 * GetUserIP
-	 *
-	 * @method GetUserIP()
-	 * @access public
-	 * @return string
-	 *
-	 * @author     Brian Tafoya
-	 * @version    1.0
-	 */
-	static public function GetUserIP() {
-		if(isset($_SERVER) && isset($_SERVER['REMOTE_ADDR'])) {
-			return $_SERVER['REMOTE_ADDR'];
-		} else {
-			return "127.0.0.1";
-		}
-	}
+    /**
+     * GetUserIP
+     *
+     * @method GetUserIP()
+     * @access public
+     * @return string
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static public function GetUserIP() 
+    {
+        if(isset($_SERVER) && isset($_SERVER['REMOTE_ADDR'])) {
+            return $_SERVER['REMOTE_ADDR'];
+        } else {
+            return "127.0.0.1";
+        }
+    }
 }
