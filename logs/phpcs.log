@@ -1,19 +1,18 @@
 Changing into directory /mnt/hgfs/www/owp-framework/src
-Processing OwpAjax.inc.php [PHP => 179 tokens in 39 lines]... DONE in 29ms (0 fixable violations)
-Processing OwpBaseFramework.inc.php [PHP => 2651 tokens in 396 lines]... DONE in 282ms (0 fixable violations)
-Processing OwpDefaultAjax.inc.php [PHP => 281 tokens in 56 lines]... DONE in 18ms (0 fixable violations)
-Processing OwpEzSqlMysqli.inc.php [PHP => 536 tokens in 83 lines]... DONE in 36ms (0 fixable violations)
-Processing OwpEzSqlMysql.inc.php [PHP => 681 tokens in 104 lines]... DONE in 45ms (0 fixable violations)
-Processing OwpFirePHP.inc.php [PHP => 219 tokens in 45 lines]... DONE in 21ms (0 fixable violations)
-Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 121ms (0 fixable violations)
-Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 69ms (0 fixable violations)
-Processing OwpSupportMethods.inc.php [PHP => 518 tokens in 91 lines]... DONE in 33ms (0 fixable violations)
-Processing OwpUsers.inc.php [PHP => 7271 tokens in 1120 lines]... DONE in 469ms (0 fixable violations)
+Processing OwpAjax.inc.php [PHP => 179 tokens in 39 lines]... DONE in 10ms (0 fixable violations)
+Processing OwpBaseFramework.inc.php [PHP => 2698 tokens in 402 lines]... DONE in 114ms (0 fixable violations)
+Processing OwpEzSqlMysqli.inc.php [PHP => 536 tokens in 83 lines]... DONE in 22ms (0 fixable violations)
+Processing OwpEzSqlMysql.inc.php [PHP => 681 tokens in 104 lines]... DONE in 21ms (0 fixable violations)
+Processing OwpFirePHP.inc.php [PHP => 219 tokens in 45 lines]... DONE in 9ms (0 fixable violations)
+Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 57ms (0 fixable violations)
+Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 40ms (0 fixable violations)
+Processing OwpSupportMethods.inc.php [PHP => 518 tokens in 91 lines]... DONE in 23ms (0 fixable violations)
+Processing OwpUsers.inc.php [PHP => 7271 tokens in 1120 lines]... DONE in 268ms (0 fixable violations)
 No fixable errors were found
-Time: 1.59 secs; Memory: 17.75Mb
+Time: 911ms; Memory: 17.75Mb
 
 Changing into directory /mnt/hgfs/www/owp-framework/tests
-Processing OwpUsers_test.php [PHP => 2041 tokens in 291 lines]... DONE in 58ms (0 fixable violations)
+Processing OwpUsers_test.php [PHP => 2041 tokens in 291 lines]... DONE in 61ms (0 fixable violations)
 No fixable errors were found
-Time: 284ms; Memory: 7.5Mb
+Time: 298ms; Memory: 7.5Mb
 

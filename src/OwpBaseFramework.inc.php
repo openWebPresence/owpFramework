@@ -373,7 +373,8 @@ class OwpBaseFramework
      * @uses   $this->loadHeader()
      * @uses   $this->loadNav()
      * @uses   $this->loadFooter();
-     * @uses   owpAjax::processAction();
+     * @uses   OwpAjaxUser::processAction();
+     * @throws Exception User class OwpAjaxUser() does not exist.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -389,7 +390,12 @@ class OwpBaseFramework
             $this->loadFooter();
             break;
         case "ajax":
-            owpAjax::processAction();
+            if(class_exists("OwpAjaxUser")) {
+                call_user_func(array("OwpAjaxUser","processAction"));
+            } else {
+                throw new Exception("User class OwpAjaxUser() does not exist.", 911);
+            }
+
             break;
         }
     }
