@@ -37,7 +37,7 @@ class OwpMod
      * @method mixed __debugInfo()
      * @access public
      *
-     * @return mixed Array mod_data
+     * @return mixed mod_data
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
