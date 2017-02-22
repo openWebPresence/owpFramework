@@ -98,6 +98,11 @@ class OwpBaseFramework
      */
     protected $userClass;
 
+    /**
+     * @var object $frameworkObject Framework Class Object
+     */
+    protected $frameworkObject;
+
 
     /**
      * Constructor
@@ -165,6 +170,7 @@ class OwpBaseFramework
         }
 
         $this->firephp->group('Process State');
+
         /*
 		 * Init the database class
 		 */
@@ -180,6 +186,18 @@ class OwpBaseFramework
 		 */
         $this->processAction();
         $this->firephp->groupEnd();
+
+        /*
+         * Create an object reference to pass to user defined class libraries.
+         */
+        $this->frameworkObject = array(
+            "ezSqlDB" => $this->ezSqlDB,
+            "firephp" => $this->firephp,
+            "userClass" => $this->userClass,
+            "mod_data" => $this->mod_data,
+            "current_web_root" => $current_web_root,
+            "root_path" => $root_path
+        );
     }
 
     /**
@@ -391,7 +409,7 @@ class OwpBaseFramework
             break;
         case "ajax":
             if(class_exists("OwpAjaxUser")) {
-                call_user_func(array("OwpAjaxUser","processAction"));
+                call_user_func(array("OwpAjaxUser","processAction"), $this->frameworkObject);
             } else {
                 throw new Exception("User class OwpAjaxUser() does not exist.", 911);
             }

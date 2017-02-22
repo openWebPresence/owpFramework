@@ -37,7 +37,7 @@
     </interface>
     <source>eJyNVVGP2jgQfudXjPZpd5WD3b6c1FZ3G8As1oUkSkLpPlVOYojbEEd2UopO999vxoSli/pQhASezHzffN/Yzse/26odTe7vR3APUSubjcxjI61sCglp37badBCo3AhzhD9AY8ZB5u2QMS70Hgup9qnQ7dGoXdXBu4eHR8x99/D4pwdTo0QDmdjqoxi7xFYU38ROAkB0aP2v4oeLir6rtMHgmwr4mHfuz1NO0dN/Yv3LFX2XxirdYNHj+MFFalXIxhL4imdXkarrWvt+MiERVvcG+9dmNxkS7AQrIKskVaJkFzwpE53cadR/bdCXwaAvg0EDX/MN3If4Brorz66BBg9nrxbeFne/8G9Ii6XZK+uEKwuVNDI/ws6gPbL0YGukBL2FohJmJz3oNIjmCC1ahQUa/VSNanYggCZGmV2FMFZvu4MwEpNLENbqQqHsEkpd9HuJznfEt1W1tHDboUs36VBxc+dISilqUA3Qs/MjOCicat8B6uyMKgjDw6Si7kvq4fy4Vns1MFC588ASaG9RAfXpwV6Xaku/0slq+7xWtvKgVASd9x0GLQXd4DzSMcENZWVdE4LCvp3WS3cuh1haMrQbLHK8hwqH9EYJWrTtTYOU0tWUGi1zjF9l0VGE0re6rvWBpBW6KRUpsu+HsdHWErn+LuFyVBrdYb+nPmgK7WW0wyNbCRSQy8E1JEePxU+aDPVgO5y+wgHQdiTSa63jcxNLBmm0yDZ+woCnECfRJz5nc7jxU1zfeLDh2TJaZ4AZiR9mLxAtwA9f4B8ezj1gn+OEpSlECfBVHHCGMR7OgvWch88wxbowwtPD8QwhaBY5wgGKs5TAViyZLXHpT3nAsxcPFjwLCXOBoD7EfpLx2TrwE4jXSRylDOnnCBvycJEgC1uxMBsjK8aAfcIFpEs/CByVv8buE9ffLIpfEv68zGAZBXOGwSnDzvxpwE5UKGoW+Hzlwdxf+c/MVUWIkri0obvNkrkQ8vn4nWU8CknGLAqzBJceqkyy19INT5kHfsJTMmSRRAhPdmJF5ECwLmQnFLL67UQwhdbrlF16mTM/QKyUin9OppFORqPz5Z3R/lF4B5itwH2j9m0t6eBatw8E3rN0CltNd2GFG66W5oRwqTnfx/+O6PpyuPS5h9boQlrruwN8ezeEz0+f9hKPcQl79QO351UuxKf1L7oQLuUVRRQuzx3s4pri/Hr43ZfDUHZ+QbjXg4tN3K+l26YYuPBgN66V694/jP4b/Q8Hh0Ac</source>
   </file>
-  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="8015ddde84b97ffafe6938c39e4309b2" package="OwpBaseFramework">
+  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="ce1aad63c4d5b6d6e5c85ae12a6b4261" package="OwpBaseFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -263,22 +263,34 @@
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="113" package="OwpBaseFramework">
+      <property static="false" visibility="protected" namespace="" line="104" package="OwpBaseFramework">
+        <name>$frameworkObject</name>
+        <full_name>\OwpBaseFramework::frameworkObject</full_name>
+        <default></default>
+        <docblock line="104">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="104" description="&lt;p&gt;Framework Class Object&lt;/p&gt;" type="object" variable="$frameworkObject">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="118" package="OwpBaseFramework">
         <name>__construct</name>
         <full_name>\OwpBaseFramework::__construct()</full_name>
-        <docblock line="113">
+        <docblock line="118">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="method" line="113" description="" method_name="__construct"/>
-          <tag name="access" line="113" description="public"/>
-          <tag name="param" line="113" description="&lt;p&gt;The app root file path.&lt;/p&gt;" type="string" variable="$root_path">
+          <tag name="method" line="118" description="" method_name="__construct"/>
+          <tag name="access" line="118" description="public"/>
+          <tag name="param" line="118" description="&lt;p&gt;The app root file path.&lt;/p&gt;" type="string" variable="$root_path">
             <type>string</type>
           </tag>
-          <tag name="param" line="113" description="&lt;p&gt;The current web root.&lt;/p&gt;" type="string" variable="$current_web_root">
+          <tag name="param" line="118" description="&lt;p&gt;The current web root.&lt;/p&gt;" type="string" variable="$current_web_root">
             <type>string</type>
           </tag>
-          <tag name="author" line="113" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="113" description="1.0"/>
+          <tag name="author" line="118" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="118" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$root_path</name>
@@ -291,99 +303,99 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="194" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="212" package="OwpBaseFramework">
         <name>__destruct</name>
         <full_name>\OwpBaseFramework::__destruct()</full_name>
-        <docblock line="194">
+        <docblock line="212">
           <description>Destructor</description>
           <long-description></long-description>
-          <tag name="method" line="194" description="" method_name="__destruct"/>
-          <tag name="access" line="194" description="public"/>
-          <tag name="author" line="194" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="194" description="1.0"/>
-        </docblock>
-      </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="212" package="OwpBaseFramework">
-        <name>__debugInfo</name>
-        <full_name>\OwpBaseFramework::__debugInfo()</full_name>
-        <docblock line="212">
-          <description>Debug</description>
-          <long-description></long-description>
-          <tag name="method" line="212" description="" method_name="__debugInfo"/>
+          <tag name="method" line="212" description="" method_name="__destruct"/>
           <tag name="access" line="212" description="public"/>
           <tag name="author" line="212" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
           <tag name="version" line="212" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="242" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="230" package="OwpBaseFramework">
+        <name>__debugInfo</name>
+        <full_name>\OwpBaseFramework::__debugInfo()</full_name>
+        <docblock line="230">
+          <description>Debug</description>
+          <long-description></long-description>
+          <tag name="method" line="230" description="" method_name="__debugInfo"/>
+          <tag name="access" line="230" description="public"/>
+          <tag name="author" line="230" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="230" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="260" package="OwpBaseFramework">
         <name>loadEnviroment</name>
         <full_name>\OwpBaseFramework::loadEnviroment()</full_name>
-        <docblock line="242">
+        <docblock line="260">
           <description>loadEnviroment()</description>
           <long-description></long-description>
-          <tag name="method" line="242" description="Establish the app environment using the Dotenv library." method_name="loadEnviroment"/>
-          <tag name="access" line="242" description="private"/>
-          <tag name="uses" line="242" description="Dotenv\Dotenv Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically. This is a PHP version of the original Ruby dotenv." link="https://packagist.org/packages/vlucas/phpdotenv"/>
-          <tag name="author" line="242" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="242" description="1.0"/>
+          <tag name="method" line="260" description="Establish the app environment using the Dotenv library." method_name="loadEnviroment"/>
+          <tag name="access" line="260" description="private"/>
+          <tag name="uses" line="260" description="Dotenv\Dotenv Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically. This is a PHP version of the original Ruby dotenv." link="https://packagist.org/packages/vlucas/phpdotenv"/>
+          <tag name="author" line="260" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="260" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="267" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="285" package="OwpBaseFramework">
         <name>loadFooter</name>
         <full_name>\OwpBaseFramework::loadFooter()</full_name>
-        <docblock line="267">
+        <docblock line="285">
           <description>loadFooter()</description>
           <long-description></long-description>
-          <tag name="method" line="267" description="Loads the footer based on the template setting." method_name="loadFooter"/>
-          <tag name="access" line="267" description="private"/>
-          <tag name="uses" line="267" description="" link="$this-&gt;loadTemplate"/>
-          <tag name="author" line="267" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="267" description="1.0"/>
+          <tag name="method" line="285" description="Loads the footer based on the template setting." method_name="loadFooter"/>
+          <tag name="access" line="285" description="private"/>
+          <tag name="uses" line="285" description="" link="$this-&gt;loadTemplate"/>
+          <tag name="author" line="285" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="285" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="282" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="300" package="OwpBaseFramework">
         <name>loadHeader</name>
         <full_name>\OwpBaseFramework::loadHeader()</full_name>
-        <docblock line="282">
+        <docblock line="300">
           <description>loadHeader()</description>
           <long-description></long-description>
-          <tag name="method" line="282" description="Loads the header based on the template setting." method_name="loadHeader"/>
-          <tag name="access" line="282" description="private"/>
-          <tag name="uses" line="282" description="" link="$this-&gt;loadTemplate"/>
-          <tag name="author" line="282" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="282" description="1.0"/>
+          <tag name="method" line="300" description="Loads the header based on the template setting." method_name="loadHeader"/>
+          <tag name="access" line="300" description="private"/>
+          <tag name="uses" line="300" description="" link="$this-&gt;loadTemplate"/>
+          <tag name="author" line="300" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="300" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="297" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="315" package="OwpBaseFramework">
         <name>loadNav</name>
         <full_name>\OwpBaseFramework::loadNav()</full_name>
-        <docblock line="297">
+        <docblock line="315">
           <description>loadNav()</description>
           <long-description></long-description>
-          <tag name="method" line="297" description="Loads the nav based on the template setting." method_name="loadNav"/>
-          <tag name="access" line="297" description="private"/>
-          <tag name="uses" line="297" description="" link="$this-&gt;loadTemplate"/>
-          <tag name="author" line="297" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="297" description="1.0"/>
+          <tag name="method" line="315" description="Loads the nav based on the template setting." method_name="loadNav"/>
+          <tag name="access" line="315" description="private"/>
+          <tag name="uses" line="315" description="" link="$this-&gt;loadTemplate"/>
+          <tag name="author" line="315" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="315" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="314" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="332" package="OwpBaseFramework">
         <name>loadTemplate</name>
         <full_name>\OwpBaseFramework::loadTemplate()</full_name>
-        <docblock line="314">
+        <docblock line="332">
           <description>loadTemplate()</description>
           <long-description></long-description>
-          <tag name="method" line="314" description="Loads the template based on the template setting." method_name="loadTemplate"/>
-          <tag name="access" line="314" description="private"/>
-          <tag name="param" line="314" description="&lt;p&gt;Template Name.&lt;/p&gt;" type="string" variable="$template_name">
+          <tag name="method" line="332" description="Loads the template based on the template setting." method_name="loadTemplate"/>
+          <tag name="access" line="332" description="private"/>
+          <tag name="param" line="332" description="&lt;p&gt;Template Name.&lt;/p&gt;" type="string" variable="$template_name">
             <type>string</type>
           </tag>
-          <tag name="param" line="314" description="&lt;p&gt;Sub Directory&lt;/p&gt;" type="string" variable="$sub_dir">
+          <tag name="param" line="332" description="&lt;p&gt;Sub Directory&lt;/p&gt;" type="string" variable="$sub_dir">
             <type>string</type>
           </tag>
-          <tag name="returns" line="314" description="boolean Loaded status"/>
-          <tag name="author" line="314" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="314" description="1.0"/>
+          <tag name="returns" line="332" description="boolean Loaded status"/>
+          <tag name="author" line="332" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="332" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$template_name</name>
@@ -396,42 +408,42 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="341" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="protected" namespace="" line="359" package="OwpBaseFramework">
         <name>mod</name>
         <full_name>\OwpBaseFramework::mod()</full_name>
-        <docblock line="341">
+        <docblock line="359">
           <description>loadNav()</description>
           <long-description></long-description>
-          <tag name="method" line="341" description="Loads the nav based on the template setting." method_name="loadNav"/>
-          <tag name="access" line="341" description="protected"/>
-          <tag name="uses" line="341" description="" link="$this-&gt;loadTemplate()"/>
-          <tag name="author" line="341" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="341" description="1.0"/>
+          <tag name="method" line="359" description="Loads the nav based on the template setting." method_name="loadNav"/>
+          <tag name="access" line="359" description="protected"/>
+          <tag name="uses" line="359" description="" link="$this-&gt;loadTemplate()"/>
+          <tag name="author" line="359" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="359" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="382" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="400" package="OwpBaseFramework">
         <name>processAction</name>
         <full_name>\OwpBaseFramework::processAction()</full_name>
-        <docblock line="382">
+        <docblock line="400">
           <description>processAction()</description>
           <long-description></long-description>
-          <tag name="method" line="382" description="Process the framework action." method_name="processAction"/>
-          <tag name="access" line="382" description="private"/>
-          <tag name="uses" line="382" description="" link="$this-&gt;mod()"/>
-          <tag name="uses" line="382" description="" link="$this-&gt;loadTemplate()"/>
-          <tag name="uses" line="382" description="" link="$this-&gt;loadHeader()"/>
-          <tag name="uses" line="382" description="" link="$this-&gt;loadNav()"/>
-          <tag name="uses" line="382" description="" link="$this-&gt;loadFooter();"/>
-          <tag name="uses" line="382" description="" link="OwpAjaxUser::processAction();"/>
-          <tag name="throws" line="382" description="User class OwpAjaxUser() does not exist." type="\Exception">
+          <tag name="method" line="400" description="Process the framework action." method_name="processAction"/>
+          <tag name="access" line="400" description="private"/>
+          <tag name="uses" line="400" description="" link="$this-&gt;mod()"/>
+          <tag name="uses" line="400" description="" link="$this-&gt;loadTemplate()"/>
+          <tag name="uses" line="400" description="" link="$this-&gt;loadHeader()"/>
+          <tag name="uses" line="400" description="" link="$this-&gt;loadNav()"/>
+          <tag name="uses" line="400" description="" link="$this-&gt;loadFooter();"/>
+          <tag name="uses" line="400" description="" link="OwpAjaxUser::processAction();"/>
+          <tag name="throws" line="400" description="User class OwpAjaxUser() does not exist." type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="382" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="382" description="1.0"/>
+          <tag name="author" line="400" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="400" description="1.0"/>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <file path="OwpEzSqlMysql.inc.php" generated-path="OwpEzSqlMysql.inc.html" hash="24c8f507353beca055da46e132e56db9" package="OwpEzSqlMysql">
     <docblock line="0">
