@@ -31,9 +31,10 @@ interface OwpAjax
      *
      * @method mixed processAction() Process the ajax response action
      * @access public
+     * @param  mixed $frameworkObject Class objects
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    static public function processAction();
+    static public function processAction($frameworkObject);
 }

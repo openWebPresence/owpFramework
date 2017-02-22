@@ -64,9 +64,9 @@ class OwpBaseFramework
     protected $current_web_root;
 
     /**
-     * @var object $owp_SupportMethods OpenWebPresence support methods.
+     * @var object $OwpSupportMethods OpenWebPresence support methods.
      */
-    protected $owp_SupportMethods;
+    protected $OwpSupportMethods;
 
     /**
      * @var string $default_action Default action.
@@ -134,6 +134,11 @@ class OwpBaseFramework
         $this->requested_action = (isset($_GET["_route_"])?$_GET["_route_"]:$this->default_action);
 
         /*
+         * Open Web Presence Helper methods
+         */
+        $this->OwpSupportMethods = new OwpSupportMethods();
+
+        /*
 		 * Load the environment variables
 		 */
         $this->loadEnviroment();
@@ -163,9 +168,7 @@ class OwpBaseFramework
             $this->firephp->log($_POST, '_POST');
             $this->firephp->log($_SESSION, '_SESSION');
             $this->firephp->log($_SERVER, '_SERVER');
-            $this->firephp->log($_ENV, '_ENV');
             $this->firephp->log(session_id(), 'session_id');
-            $this->firephp->log(array($this->DB_USER, $this->DB_PASS, $this->DB_NAME, $this->DB_HOST), 'DB');
             $this->firephp->groupEnd();
         }
 
@@ -182,12 +185,6 @@ class OwpBaseFramework
         $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, $this->current_web_root);
 
         /*
-		 * Process the request
-		 */
-        $this->processAction();
-        $this->firephp->groupEnd();
-
-        /*
          * Create an object reference to pass to user defined class libraries.
          */
         $this->frameworkObject = array(
@@ -196,8 +193,17 @@ class OwpBaseFramework
             "userClass" => $this->userClass,
             "mod_data" => $this->mod_data,
             "current_web_root" => $current_web_root,
-            "root_path" => $root_path
+            "root_path" => $root_path,
+            "OwpSupportMethods" => $this->OwpSupportMethods,
         );
+
+        /*
+		 * Process the request
+		 */
+        $this->processAction();
+        $this->firephp->groupEnd();
+
+
     }
 
     /**
@@ -408,6 +414,7 @@ class OwpBaseFramework
             $this->loadFooter();
             break;
         case "ajax":
+            ob_clean();
             if(class_exists("OwpAjaxUdf")) {
                 call_user_func(array("OwpAjaxUdf","processAction"), $this->frameworkObject);
             } else {
@@ -416,5 +423,7 @@ class OwpBaseFramework
 
             break;
         }
+
+        return;
     }
 }
