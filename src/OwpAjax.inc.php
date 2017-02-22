@@ -36,16 +36,4 @@ interface OwpAjax
      * @version 1.0
      */
     static public function processAction();
-
-    /**
-     * echoJsonEncodedVariable($mixed_data)
-     *
-     * @method mixed echoJsonEncodedVariable($mixed_data) Echo json encoded data.
-     * @access public
-     * @param  string $mixed_data Data to json encode.
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    static public function echoJsonEncodedVariable($mixed_data);
 }
