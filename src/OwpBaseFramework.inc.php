@@ -144,7 +144,8 @@ class OwpBaseFramework
 		 */
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
 
-        $this->firephp = FirePHP::getInstance(true);
+        $this->firephp = new OwpFirePHP();
+        $this->firephp->getInstance(true);
         $this->firephp->setEnabled((bool)$this->debug);
 
         if((bool)$this->debug) {

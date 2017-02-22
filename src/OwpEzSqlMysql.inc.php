@@ -25,6 +25,27 @@
  */
 class OwpEzSqlMysql extends ezSQL_mysql
 {
+    /**
+     * Debug
+     *
+     * @method void __debugInfo()
+     * @access public
+     * @uses   $this->userData()
+     * @uses   $this->userData()
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function __debugInfo()
+    {
+        return [
+            "EZSQL_VERSION" => EZSQL_VERSION,
+            "Last Error" => $this->last_error,
+            "Last Query" => $this->last_query,
+            "Last Col Info" => $this->col_info,
+            "Last Result" => ($this->last_result?$this->get_results(null, ARRAY_A):"No Results"),
+        ];
+    }
 
     /**
      * MySQLFirephp()

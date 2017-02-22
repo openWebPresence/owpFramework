@@ -6,18 +6,19 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpBaseFramework.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpDefaultAjax.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysql.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysqli.inc.php
+Parsing /mnt/hgfs/www/owp-framework/src/OwpFirePHP.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpMessaging.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpMod.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpUsers.inc.php
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.240s
-Preparing template "responsive"                                    ..    0.034s
+Load cache                                                         ..    0.247s
+Preparing template "responsive"                                    ..    0.024s
 Preparing 13 transformations                                       ..    0.000s
 Build "elements" index                                             ..    0.001s
-Replace textual FQCNs with object aliases                          ..    0.015s
+Replace textual FQCNs with object aliases                          ..    0.010s
 Resolve @link and @see tags in descriptions                        ..    0.001s
-Enriches inline example tags with their sources                    ..    0.001s
+Enriches inline example tags with their sources                    ..    0.000s
 Build "packages" index                                             ..    0.008s
 Build "namespaces" index and add namespaces to "elements"          ..    0.000s
 Collect all markers embedded in tags                               ..    0.000s
@@ -40,5 +41,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   2.276s
+   2.181s
 Analyze results and write report to log                            ..    0.001s

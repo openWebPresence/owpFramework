@@ -80,6 +80,25 @@ class OwpUsers
         $this->owp_SupportMethods = new OwpSupportMethods();
     }
 
+    /**
+     * Debug
+     *
+     * @method void __debugInfo()
+     * @access public
+     * @uses   $this->userData()
+     * @uses   $this->userData()
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function __debugInfo()
+    {
+        return [
+            "userID" => $this->userID(),
+            "userData" => $this->userData(),
+            "MySQL_Errors" => $this->ezSqlDB->captured_errors,
+        ];
+    }
 
     /**
      * addUser
