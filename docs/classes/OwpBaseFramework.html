@@ -68,7 +68,11 @@
 <ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
-                    <ul><li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li></ul>
+                    <ul>
+<li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: Debug"><span class="description">Debug</span><pre>__debugInfo()</pre></a></li>
+<li class="method public "><a href="#method___destruct" title="__destruct() :: Destructor"><span class="description">Destructor</span><pre>__destruct()</pre></a></li>
+</ul>
 </li>
 <li class="nav-header protected">» Protected
                     <ul><li class="method protected "><a href="#method_mod" title="mod() :: loadNav()"><span class="description">loadNav()</span><pre>mod()</pre></a></li></ul>
@@ -132,7 +136,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Constructor</h2>
-<pre>__construct(string $root_path) </pre>
+<pre>__construct(string $root_path, string $current_web_root) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -158,6 +162,61 @@
 <div class="subelement argument">
 <h4>$root_path</h4>
 <code>string</code><p>The app root file path.</p></div>
+<div class="subelement argument">
+<h4>$current_web_root</h4>
+<code>string</code><p>The current web root.</p></div>
+</div></div>
+</div>
+<a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo " data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
+<h2>Debug</h2>
+<pre>__debugInfo() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+</div></div>
+</div>
+<a id="method___destruct"></a><div class="element clickable method public method___destruct " data-toggle="collapse" data-target=".method___destruct .collapse" title="public">
+<h2>Destructor</h2>
+<pre>__destruct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
 </div></div>
 </div>
 <a id="method_mod"></a><div class="element clickable method protected method_mod " data-toggle="collapse" data-target=".method_mod .collapse" title="protected">
@@ -414,7 +473,7 @@
 <pre>$debugging : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>array()</code></div>
+<div class="subelement argument"><code>null</code></div>
 </div></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -576,7 +635,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-02-22T12:41:07-05:00.<br></footer></div>
+            generated on 2017-02-22T13:01:26-05:00.<br></footer></div>
 </div>
 </body>
 </html>

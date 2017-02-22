@@ -36,7 +36,7 @@ class OwpBaseFramework
     /**
      * @var array $debugging Debugging array.
      */
-    public $debugging = array();
+    public $debugging = null;
 
     /**
      * @var boolean $debug Is debugging enabled by default.
@@ -104,18 +104,24 @@ class OwpBaseFramework
      *
      * @method void __construct()
      * @access public
-     * @param  string $root_path The app root file path.
+     * @param  string $root_path        The app root file path.
+     * @param  string $current_web_root The current web root.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($root_path)
+    public function __construct($root_path, $current_web_root)
     {
 
         /*
 		 * Set the root path
 		 */
         $this->root_path = $root_path;
+
+        /*
+        * Set the root path
+        */
+        $this->current_web_root = $current_web_root;
 
         /*
 		 * Set the requested action
@@ -166,20 +172,59 @@ class OwpBaseFramework
         $this->ezSqlDB->cache_queries = false;
         $this->ezSqlDB->hide_errors();
 
+        $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, $this->current_web_root);
 
         /*
 		 * Process the request
 		 */
         $this->processAction();
         $this->firephp->groupEnd();
+    }
 
+    /**
+     * Destructor
+     *
+     * @method void __destruct()
+     * @access public
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    function __destruct() 
+    {
         $this->firephp->group('Completion State');
         $this->firephp->log($this->debugging, 'Debugging');
         $this->firephp->log($this->ezSqlDB->captured_errors, 'MySQL Errors');
 
         $this->firephp->groupEnd();
+    }
 
-        $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, CURRENT_WEB_ROOT);
+    /**
+     * Debug
+     *
+     * @method void __debugInfo()
+     * @access public
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function __debugInfo() 
+    {
+        return [
+            "requested_action" => $this->requested_action,
+            "default_action" => $this->default_action,
+            "MySQL_Errors" => $this->ezSqlDB->captured_errors,
+            "UserClass" => $this->userClass,
+            "root_path" => $this->root_path,
+            "current_web_root" => $this->current_web_root,
+            "mod_data" => $this->mod_data,
+            "theme" => $this->THEME,
+            "_ENV" => $_ENV,
+            "_POST" => $_POST,
+            "_GET" => $_GET,
+            "_SESSION" => $_SESSION,
+            "_SERVER" => $_SERVER,
+        ];
     }
 
     /**
