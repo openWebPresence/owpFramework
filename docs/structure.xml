@@ -1,7 +1,63 @@
 <?xml version="1.0" encoding="utf-8"?>
 <project title="OpenWebPresence - owpFramework" version="2.8.5">
   <partials/>
-  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="69dd7aaf0d0850cee81b4c1320696a08" package="OwpBaseFramework">
+  <file path="OwpAjax.inc.php" generated-path="OwpAjax.inc.html" hash="83a0abc11c407c474311745448f80e85" package="OwpAjax">
+    <docblock line="0">
+      <description>OpenWebPresence Support Library - openwebpresence.com</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2001 - 2017, Brian Tafoya."/>
+      <tag name="package" line="0" description="OwpAjax"/>
+      <tag name="author" line="0" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+      <tag name="version" line="0" description="1.0"/>
+      <tag name="license" line="0" description="MIT" link="http://opensource.org/licenses/MIT"/>
+      <tag name="license" line="0" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+      <tag name="category" line="0" description="OpenWebPresence_Support_Library"/>
+      <tag name="link" line="0" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+    </docblock>
+    <interface namespace="" line="27" package="OwpAjax">
+      <name>OwpAjax</name>
+      <full_name>\OwpAjax</full_name>
+      <docblock line="27">
+        <description>This interface implements the ajax response handler.</description>
+        <long-description></long-description>
+        <tag name="package" line="27" description="OwpAjax"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="38" package="OwpAjax">
+        <name>processAction</name>
+        <full_name>\OwpAjax::processAction()</full_name>
+        <docblock line="38">
+          <description>processAction()</description>
+          <long-description></long-description>
+          <tag name="method" line="38" description="Process the ajax response action" method_name="processAction"/>
+          <tag name="access" line="38" description="public"/>
+          <tag name="author" line="38" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="38" description="1.0"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="50" package="OwpAjax">
+        <name>echoJsonEncodedVariable</name>
+        <full_name>\OwpAjax::echoJsonEncodedVariable()</full_name>
+        <docblock line="50">
+          <description>echoJsonEncodedVariable($mixed_data)</description>
+          <long-description></long-description>
+          <tag name="method" line="50" description="Echo json encoded data." method_name="echoJsonEncodedVariable"/>
+          <tag name="access" line="50" description="public"/>
+          <tag name="param" line="50" description="&lt;p&gt;Data to json encode.&lt;/p&gt;" type="string" variable="$mixed_data">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="50" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="50" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$mixed_data</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </interface>
+    <source>eJzFVU1v2zgQvftXDII9JIFqJ70s0BbdKDYdc1eWDElONqeAkmiLqSwKJF03WOx/3xlazodRFLmtEcTmaOa9eW9I6ssfXd0NRufnAziHpJPtnSwWRlrZlhKybddp4yBShRHmCT6AxoydLLo+Y1jqDRZS7VWpuyej1rWDjxcXl5j78eLy9wCujRIt5GKln8TQJ3ai/CbWEgCSXRc+ih8+Krau1gaDbyrgS+H8j6uCovvfxPrVF32XxirdYtHl8MJHGlXK1hL4nOdHkdq5zn4ajUiE1VuD/WuzHvUJdoQVkNeSKlGyD+6VCSfXGvUfG/TQG/TQG9Tztd/Af4ivpzvy7Bio93D8bOFpefYT//q0hTQbZb1wZaGWRhZPsDZoj6wCWBkpQa+grIVZywCcBtE+QYdWYYFGP1Wr2jUIoIlRpqsRxuqV2wkjMbkCYa0uFcquoNLldiPReUd8K9VIC6cOXTrJ+oqTM09SSdGAaoGeHR7BTuFUtw5QpzOqJIwAk8pmW1EPh8eN2qiegcq9B5ZAtxYVUJ8BbHSlVvQtvaxuWzTK1gFUiqCLrcOgpaAfXEA6RrihrGwaQlDYt9f60p3PIZaODHW9RZ53V+OQ3ihBi1Zb0yKl9DWVRss846MsHUUofaWbRu9IWqnbSpEi+6kfG20tUejvEl6OSqsd9rvvg6bQvYy2f2RrgQIK2buG5OixeKXJUA/W4fQVDoC2I5Eeax0empgxyJJpfhemDHgGizS55RM2gZMww/VJAHc8nyXLHDAjDeP8HpIphPE9/MXjSQDs70XKsgySFPh8EXGGMR6Po+WExzdwjXVxgqeH4xlC0DzxhD0UZxmBzVk6nuEyvOYRz+8DmPI8JswpgoawCNOcj5dRmMJimS6SjCH9BGFjHk9TZGFzFudDZMUYsFtcQDYLo8hThUvsPvX9jZPFfcpvZjnMkmjCMHjNsLPwOmJ7KhQ1jkI+D2ASzsMb5qsSREl9Wt/d3Yz5EPKF+DfOeRKTjHES5ykuA1SZ5s+ldzxjAYQpz8iQaZogPNmJFYkHwbqY7VHI6rcTwRRaLzP20suEhRFiZVT8OplGOhoMDpd3TvtH4R1gVgL3jdp0jaSDa/0+EHjP0insNN2FNW64Rpo9wkvN4T7+Z0DXl8elzzl0RpfS2tAf4NOzPnx4erWReIwr2KgfuD2PcmGxX/+kC+FTnlFE6fP8wS6PKQ6vh/e+HPqywwvCvx58bOS/Ld02Zc+FB7v1rRz3/nlwbIQsa/0nXhKsLTWexVuBxEUjT3/z2h8q4cSv3XkPADBMgke6ruU+DSg+/KVT9F41YgN0GeL18woPJvTPvUEc/j/+vkf958G/g/8Av0O0ag==</source>
+  </file>
+  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="9612f1c9353a83b51ad63296a8ad4ea5" package="OwpBaseFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -341,25 +397,86 @@
           <tag name="version" line="295" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="334" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="335" package="OwpBaseFramework">
         <name>processAction</name>
         <full_name>\OwpBaseFramework::processAction()</full_name>
-        <docblock line="334">
+        <docblock line="335">
           <description>processAction()</description>
           <long-description></long-description>
-          <tag name="method" line="334" description="Process the framework action." method_name="processAction"/>
-          <tag name="access" line="334" description="private"/>
-          <tag name="uses" line="334" description="" link="$this-&gt;mod()"/>
-          <tag name="uses" line="334" description="" link="$this-&gt;loadTemplate()"/>
-          <tag name="uses" line="334" description="" link="$this-&gt;loadHeader()"/>
-          <tag name="uses" line="334" description="" link="$this-&gt;loadNav()"/>
-          <tag name="uses" line="334" description="" link="$this-&gt;loadFooter();"/>
-          <tag name="author" line="334" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="334" description="1.0"/>
+          <tag name="method" line="335" description="Process the framework action." method_name="processAction"/>
+          <tag name="access" line="335" description="private"/>
+          <tag name="uses" line="335" description="" link="$this-&gt;mod()"/>
+          <tag name="uses" line="335" description="" link="$this-&gt;loadTemplate()"/>
+          <tag name="uses" line="335" description="" link="$this-&gt;loadHeader()"/>
+          <tag name="uses" line="335" description="" link="$this-&gt;loadNav()"/>
+          <tag name="uses" line="335" description="" link="$this-&gt;loadFooter();"/>
+          <tag name="uses" line="335" description="" link="owpAjax::processAction();"/>
+          <tag name="author" line="335" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="335" description="1.0"/>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>eJzdGmlv20b2c/0rBoIBSQUjpf1SwKnTyhIdE9W1lOxskDUIihxJbCgOO0PK0S7y3/e94fAQD0nBNlugRgANh+++Z5iffwm34VX/+++vyPdkFtLgPV3NORU0cChZxGHIeETG3orb/EBeEQYQL3QVKoiew3aAiLi/Oiw8cG+zjciPr1//ALA/vv7hJ43ccc8OyNJes4Pdk4Ch7XyyN5QQMnsJ72xB77m9oy+Mf5Kv7TjaMg5vj1DJz6tILn5d4W6yRvZvJdKecuGxAJB+6L2WO77n0EAgl4mxLO1soygUN/0+aiNYzEERxjd9BSD6gEGWW4qYoLvcTFS0I7phYIiypSxlKUtZSvELPhH5h/wUu5LxyoSUMYeZLTtOt8aQCmxO+c4TUnFPkC3ldHUgGw7moa5G1pxSwtbE2dp8QzUSMWIHBxKCqQCBgT29wAs2xCboOoSMtkBGsHX0YnMKwC6xhWCOB2q7xGVOvKNg+Qj5rT2fCtKJwEqthcJodSUTl9o+8QKC79JX5MUDr8YRAT0j7jlIQwMgx49dlCF97Xs7T3FAdGkDgURjARqgnBrZMddb4y+VaoXxyvfEViOuh6RXcQSbAjel4zTUow8BJajvIwUP5Ja65tJJGOQSokEjZSLJ92ULTjrSBEy0jnkALKnEcRmYTHL8nToR7iD4mvk+e0HVHBa4HmokbpTbMLTsFdtTkudMwCKQN5EDvRDmrlWvxNYGBVZUWQ2Yg43tgk4cZRAReN8DB2A4ItOyrr1UiAedLGb3y/cDUyfGgszN2ZMx0kekNVjAc0sj743lw+xxSQDCHEyXH8jsngymH8hvxnSkEf2fc1NfLMjMJMZkPjZ02DOmw/HjyJi+I3eAN51B9hiQQ0B0OZMMFSlDXyCxiW4OH+BxcGeMjeUHjdwbyynSvAeiAzIfmEtj+DgemGT+aM5nCx3Yj4Ds1Jjem8BFn+jTZQ+4wh7Rn+CBLB4G47FkNXgE6U0p33A2/2Aa7x6W5GE2HumweaeDZIO7sZ6wAqWG44Ex0choMBm80yXWDKiYEkxJ9/5Bl1vAbwD/hktjNkU1hrPp0oRHDbQ0lxnqe2Oha2RgGgs0yL05A/JoTsCYSSKAN9UTKmjqY48ACD4/LvRclpE+GAOtBSIXgdGl/aurtIovMX4cH1IXYxV9v/FjCgs7IisvcIWMGhUWWH8IFCCSFf11HMj0tH0vOkA4byjAcVm6jYjYDuSjnZCFyI44xDnlGvHZxnOSPNp79IVsYQUvssSmnyNOd4izC336GUmDBFDQoKJ4kFWTpyEULNUHEoUSFSo94j9XV1hTpbL4h9XfhtiH3Idsu+aMRVZoR1uyoFFSRGBH1iuC2z2F1Ze/sng4RaxbEsS+/6aeic25fSDXLl3Fmw2yG2Ur+aqeeA5+m4B1ug30V4z5FIySoBBDkByXBvbKh6yHEu/StR370QluwGlt+4I28PGCiFxDSeXGqNL0hWr6O/A7c0U9E4V7S143cGBJNbym/1784Y/uZM2D9T/GZGRH9go8SmYSpESfswg2Qc0U8wz9NQQPTDCS/j2s5w/zgs18bMdlr+QsFHIDizSinJhziFILWrclYwl5wUMSWDH3G+mXMc/owl7CdJCYJMb/SufknKukziipQsqyZe5DXMtHkjw2BdoRyi1pQa+krTOMOP0jhhmAuikeWjPbPMmwgnqGZWpXGBgsF6KOTHBy8KAqJeYjclNEjMM42mTJFPmMWqM762G2gB6Aq+lgoicrqN9mspoPoLFlse9w6lLZqEUT48sonixXqXDQLCbQEcFoe+wDUIebmCaQJ4mWM7s2q5voY90YYl0H4mXqQ5hWIh474A+1lfFV/tozzyWW5aSAnW4GYTsOhW6RhEq2G9rQNkhNb5AjWBg29IacqjqLXHoSSc2kTiPyLFIN5LTDHqmSC5copdpcYqOr774DukcNDSHldj+Du8bJ8dXbYi/Lqb45Qa+UfQ1kq9nXgQmVgujWO335sQUlDmZvq/Xc/aW8c6NoHJeMbo1MY2a7Uiga7D3OAjxxEAg7D5ufqJfMBxxdgiN0p0hWQahcQoNY+vTpY0tttJ7f1IBish2B4kY9KGbjEShu1IOqdM1BcaMGNE1BBSgfEaxiKiPwEv8l/Y7yeuuk80CnA12/q6gai5H+1Hr+BWKP3shJocZqaW+9TTvrzQ0Mg0aAZwyHdhC3WxFfIb16C5GhJyNLp4NzTbcoT5Gbt64DgAQghb8ydU43cNyjXOec8Ydk2OwAEGcvckv/7NAwOQDdkpKkJ+mleCnNC/EGkAm8iHcNqQ11IMpeSLHEklUk00gidw5ZhKg4p06KDSRa2GljRODZbwFHaNo+IzlM7EnmaqSNP5fBz2VLasvfyzAWcKKDMw4iqeWleOYTtrq2Wl2GBdGNKPBzCbyg8ohteW6nC2j54yXIySh/XAu0UsJrpbKilSoSch3dneMm3asHbjEYvzSlaxYNc85kT6xEQ7WAZGMJtub6MpK2e5gN4HgHpzIdNyYH8Yf/v9qgUkMUr1dvYVywXE98shzbATmzQ00TvASzoE9xvBE5C771XGpRmZeya1QslJqw0CXrrRMmgAPZ1zonqmLRleccOJRnZdlrKz6sjf5C/cTjD8ZWur4Qt2DJMIphSFXmAVKTA855SRVrn5W+QcVs/svj6BG2RIm/ViKqkeGjaerTpfVev7PM2SwNmi+VKbI8DJwaJcuwRIfWJm8TpcdxQCyOIbHAKRLfjGCgDfbJ8ZJn58t8CuXeHvxVZg3Ki+zuObkFh94hr57Vnbjo7/3YsUUfdHYTHgmrfymOOB6J+tmIrEEN0kOoiBFo1LDCqiZroryYSWsqgbGW7YC5Y/v+oZdcGME/m+DpOR1e1QUR4x7EDzQVM8abBynGN5+TE/vlg3LFUWpEzqJLGSsJqiOTpZGVDcIQymiko4RI0JNJspi9/X5WG6vAWBAgPN3Ox7aqZG1ZzWWRU0ush2qJpbD93H31NmCRvgujQ4lR4VzWwEWOgqdIQNTsbDjM8JNkxC4KrS0TUWDvKAonN9CF2QOm6dHbEFL2hXE332A8ahSlkaugDhQViWfj/Th1n2wfqiq+Fz4Sj3yBPwELEOw0ydFvxsRyIZK9QNoYH1XoZM+C+hRPlDkAaBJuOXi0rSU7njyJR4dadb5Uz6kYJPcQTTgcnqsuKZxK3OTLAG4RjCmXqO8cEYVKjxEPQ3MEReZMRVGl5OgAtFQk/orUPLJGISur0nVaifotjbSA344FrZOV/IHa7iV2TuEKdt7Krb+VnY+sccbOifqX2nlq788bWQIVLBzY+7+VeXMjnLEtKH6pYTOkJuvm5s1Ar1M7WliDtWsRr2AK5kXTZ5b+OvtXHKAuyLIbsiPOJJWITOGp14ik5FMWW8QrMoIKjVX3kOFwCuMkHGjTLxyoCggO81YUi7/C2eesjZfLIY5krWpIpGYpfM6pvPzYkg299YxXOeWLuR75nXlBZ2SY+nA5Mz/AYDYfmANYaopkG4ZP2Q+RCLbE4+sgLbO6VnZaj7R6XuD0YBhodeslU9dwf5psbUWw/RViZXKtGadwbMv9gJ8Xr6NP5PYt/OzLF0HeuoP3tRb9DLMznhv23TJIIW+zsxC4Q5EXreePz5nrgJGGNN5UKKjP7ChD9WUSzvL65vjll7oDuoIunEb/4iqs7uMvqMNVef705Ew/DmTpuWNutQ7Lq4kklCAz8fsWfplpQVw13E8XD58AKlRCWikb8c1SE6W7T7nU5mI5iBvkq0R2FpMNCPXXQwhcW6sKVL6ZMdrIBCFkMUWAgicba1Ui2TesU18lVrVWSZN+mzqFpP+MEnUd7cLiVUtBwU75duX49qWGkwLIvqTe5uSzy6/yVXltKay9e0KVwRXZ//+QjDrdduNkVbpuO1UyS6BHV3oZw9Jn5wvn1bxOXVhD64BKJ5w6kGJbqHufHr/elGGgDg1+tz/f3NRfT/7/Bq46f+W5IF68SA4AtXW8mDUqf2+O4qzojdp79KKZGwGkkRvfFqbFeiEbMUvOUX8rqCOf8i0HL99bNviqdazbGQ/WU/uisubL1X8BvrLuUA==</source>
+  </file>
+  <file path="OwpDefaultAjax.inc.php" generated-path="OwpDefaultAjax.inc.html" hash="7a2abaaa1009a69964607015f3e1b469" package="OwpDefaultAjax">
+    <docblock line="0">
+      <description>OpenWebPresence Support Library - openwebpresence.com</description>
+      <long-description></long-description>
+      <tag name="copyright" line="0" description="2001 - 2017, Brian Tafoya."/>
+      <tag name="package" line="0" description="OwpDefaultAjax"/>
+      <tag name="author" line="0" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+      <tag name="version" line="0" description="1.0"/>
+      <tag name="license" line="0" description="MIT" link="http://opensource.org/licenses/MIT"/>
+      <tag name="license" line="0" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
+      <tag name="category" line="0" description="OpenWebPresence_Support_Library"/>
+      <tag name="link" line="0" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+    </docblock>
+    <class final="false" abstract="false" namespace="" line="26" package="OwpDefaultAjax">
+      <extends/>
+      <implements>\OwpAjax</implements>
+      <name>OwpDefaultAjax</name>
+      <full_name>\OwpDefaultAjax</full_name>
+      <docblock line="26">
+        <description>This class implements the default ajax response handler.</description>
+        <long-description></long-description>
+        <tag name="package" line="26" description="OwpDefaultAjax"/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="37" package="OwpDefaultAjax">
+        <name>processAction</name>
+        <full_name>\OwpDefaultAjax::processAction()</full_name>
+        <docblock line="37">
+          <description>processAction()</description>
+          <long-description></long-description>
+          <tag name="method" line="37" description="Throw an exception in the event a default hanlder has not been defined by the developer." method_name="processAction"/>
+          <tag name="access" line="37" description="public"/>
+          <tag name="author" line="37" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="37" description="1.0"/>
+          <tag name="inherited_from" description="\OwpAjax::processAction()" refers="\OwpAjax::processAction()" link="/classes/OwpAjax.html#method_processAction"/>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="52" package="OwpDefaultAjax">
+        <name>echoJsonEncodedVariable</name>
+        <full_name>\OwpDefaultAjax::echoJsonEncodedVariable()</full_name>
+        <docblock line="52">
+          <description>echoJsonEncodedVariable($mixed_data)</description>
+          <long-description></long-description>
+          <tag name="method" line="52" description="Echo json encoded data." method_name="echoJsonEncodedVariable"/>
+          <tag name="access" line="52" description="public"/>
+          <tag name="param" line="52" description="&lt;p&gt;Data to json encode.&lt;/p&gt;" type="string" variable="$mixed_data">
+            <type>string</type>
+          </tag>
+          <tag name="author" line="52" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="52" description="1.0"/>
+          <tag name="inherited_from" description="\OwpAjax::echoJsonEncodedVariable()" refers="\OwpAjax::echoJsonEncodedVariable()" link="/classes/OwpAjax.html#method_echoJsonEncodedVariable"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$mixed_data</name>
+          <default></default>
+          <type>string</type>
+        </argument>
+      </method>
+    </class>
+    <source>eJzFVlFv4zYMfs+v4Io9tIWXtPcy7HbY6ibKxZtjB7bTrk+FbCuxeo5lSErTYrj/PlJ2Lk1wOPRtQdHUFMmP30eR7qc/26odjC4vB3AJcSuae5EvtDCiKQSk27ZV2kIoc831K/wCCj12Im97j2GhNhhIsTeFal+1XFcWPlxdXaPvh6vrXz241ZI3kPGVeuVD59jy4gtfCwCId+1ErPi2tv4Tf3GHfGsrpfHsKBA+5db9cZOTtfubwP9wQc9CG6kaDLoeXjlLLQvRGMKYB9mJpbK2NR9HI+Ji1FYjDaXXo97BjDACskpQJDJ3xo4gt2KtUIZTnR57nR57nXq85gu4D+H1cCfSnSbqpRx/U/K8uPiOjL3bQuiNNI64NFAJLfJXWGuUR5QerLQQoFZQVFyvhQdWAW9eoUWpMEChnrKRzRo4UOPI01aYxqiV3XEt0LkEbowqJNIuoVTFdiNQeUt4K1kLA+cWVTpL+4izCwdSCl6DbIDO9kewk9jVrQXkabUsKIeHTkW9LamG/XEtN7JHoHCngaGkW4MMqE4PNqqUK/oWjla7zWtpKg9KSanzrUWjIaNrnEc8RnihjKhryiCxbsf1UJ3zIZSWBLW9RA53V2GTjpigRKutbhBSuJhSoWQO8UkUlizkvlJ1rXZErVBNKYmR+di3ja4Wz9WzgMPENMpivV0d1IX20Nr+yFQcCeSiVw3BUWP+hpOmGozF7ktsAF1HAj3lOtwXMWOQxtPs3k8YBCkskvgumLAJnPkpPp95cB9ks3iZAXokfpQ9QDwFP3qAv4No4gH7Z5GwNIU4gWC+CAOGtiAah8tJEH2GW4yLYpyeAGcIk2axA+xTBSylZHOWjGf46N8GYZA9eDANsohyTjGpDws/yYLxMvQTWCyTRZwyhJ9g2iiIpgmisDmLsiGiog3YHT5AOvPD0EH5S6w+cfWN48VDEnyeZTCLwwlD4y3DyvzbkHVQSGoc+sHcg4k/9z8zFxVjlsS59dXdz5gzIZ6PP+MsiCOiMY6jLMFHD1km2bfQ+yBlHvhJkJIg0yTG9CQnRsQuCcZFrMtCUh93BF3oeZmyQy0T5oeYK6Xgt87U0tFgv8Izuj5FjZMLctPWgmbWuCtQdpsWOK5aGsRW0Tqs8M7VQndJurjjrfw2DZ64Rf3vgPaaQ6TPJbRaFcIY3032+UVv3p/ebATOdwkb+YL39sQXK9Zqh1cfxEshWjf8/foQz4iKC2pfOdZal0Ljt6GxwGkQDR3KBtPi7utYPosaVy0x6tF5QXjdpihOS9u/b977tunD9m8c975xtpH7NrS+ih4LN0XjWH5Xn05E+linQCN2wPYSnJ/Naf5xgeDq04cedMsRh1p1rfgJJ/W36+uL312yr4PTxoiiUn/hNmNNoXBp3HEklNfi/GfXi8eSW/7jbr0nATB0gid6r4jODcj+4w7Q/wGab4C2NtJ8kw8m9MseZRz+P317t3yHZoq9Fo9d5Ue++zZ9HfwHwWb9ZQ==</source>
   </file>
   <file path="OwpEzSqlMysql.inc.php" generated-path="OwpEzSqlMysql.inc.html" hash="e774dda850ab65be9b1d6fd625fcdfc8" package="OwpEzSqlMysql">
     <docblock line="0">
@@ -639,7 +756,7 @@
     </class>
     <source>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</source>
   </file>
-  <file path="OwpMod.inc.php" generated-path="OwpMod.inc.html" hash="63baf0517e4adfa2a5946ccc17a3bc00" package="OwpMod">
+  <file path="OwpMod.inc.php" generated-path="OwpMod.inc.html" hash="65f025fb1ffa1c8f5000027603e78930" package="OwpMod">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -681,7 +798,7 @@
           <long-description></long-description>
           <tag name="method" line="45" description="" method_name="__debugInfo"/>
           <tag name="access" line="45" description="public"/>
-          <tag name="return" line="45" description="Array mod_data" type="mixed">
+          <tag name="return" line="45" description="mod_data" type="mixed">
             <type>mixed</type>
           </tag>
           <tag name="author" line="45" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
@@ -846,7 +963,7 @@
         </argument>
       </method>
     </class>
-    <source>eJztV21v2kgQ/s6vGEWVCpULab+c1LerA06xDmxkO81FVRWt7QX2arzW2g5FVf/7zazNmw8CH3q9+1ArCnh2Xp9nZla8+T2bZ63es2cteAZuxtNbHk4Uz3kacfDLLJOqgJEIFVMreA4SNZY8zGqNbiQXaEi27yOZrZSYzQt4eXn5AnVfXr74zYArJVgKAZvKFetqxYxFX9iMA4C7zMYy1kJWFnOpULZnAG/CQn95H5K0+k5B32mjB65yIVM0etG91JJERDzNyffYDhqSeVFk+atej2rIZakwfalmvVoh76EFBHNOllixFlaFsYLPJJbfxOe+xue+xqeOl34B/VC8OlwDsqajGsL+BsF21DkAX6024Wohcl24yGHOFQ9XMFMID48NmCrOQU4hmjM14wYUEli6ggyhQgOJeIpUpDNgQISRZjFHN7mcFkumOCrHwPJcRgLLjiGWUbngiHxB8aYi4Tm0C0Tpwq8tLjo6SMxZAiIFOlsfwVIgq2UBWGehREQ+DFSKkjKmHNbHiViIOgKZawxyclrmWAHlacBCxmJKn1yXlZVhIvK5AbEg12FZoDAnoSbOoDp62FA5TxLyIDBvXes2O61DUTICtKgh0nGXcyRprxKEaFqqFENybRNLhExH/ItHBUlIfSqTRC6ptEimsaCK8lc1bdRaLJQPHLaTksoC863yIBayLbX1UT5nWEDIa9QwOGLMdmpSlENeIPsCCaB2pKDNWrvrJIYW+O51cGt6Ftg+TDz3oz2wBnBh+vh+YcCtHQzdmwBQwzOd4A7cazCdO/jDdgYGWH9OPMv3wfXAHk9GtoUy2+mPbga28wGu0M5xcXpsnCF0Grg6YO3KtnxyNra8/hBfzSt7ZAd3BlzbgUM+r9GpCRPTC+z+zcj0YHLjTVzfwvADdOvYzrWHUayx5QRdjIoysD7iC/hDczTSocwbzN7T+fXdyZ1nfxgGMHRHAwuFVxZmZl6NrCoUFtUfmfbYgIE5Nj9Y2spFL55Wq7O7HVpahPFM/OsHtutQGX3XCTx8NbBKL9iY3tq+ZYDp2T4Bcu256J7gRAtXO0E7x6q8ENT7jKAKvd/41jaXgWWO0JdPxrvKRGmvtV7dAbVPlODkQqbkg4ixN3BkIGYFgwVLceHSGGMTp3oMWSKKVRfaDrYaLj/dciHLsb9miQyxk/JCKjTqdnSYynO9r7+1WrTfdGR6aBMzBUwptoInGPVeRx3Qv9pNdVir9/RnpsQDrhjYsXhbqbU7r/8R4f4+5mE5s9OprEWb2AuOWySGhfiK2e/otTsbFRZFnJDR+6Fpr3iBk13bm7qIdUZN1fUtde4dtUanvqf0LbULgc5nw8l+8qBVvlUG+NRpftoI6Hm6zvQpvH0HT2iJPH+3lhkb1c+v9dfvB2Cd8eIEoKjRfiIKvnDYgnfAjONtZ+HN84WvzsM5Y4otgLY17seNQxivfVX9s3X3GEEPLCl5U6+YK7nMwU7xVMSmmumby/oa8UzDu4mEMXCB44TgkgX+FW8QumVijnfuT2d8H93DnNe8oiqWQGNlo/6O1XF28TI5ya/W+V8wHEqZcJb+dA6aCBxmodban7FPG6vPj9BwmoS9BIwKvI/U5D+ejuN8rE2qpHaS2JocHLyjA/rzKDyO36MjlR8ZqT0Px3kt09PMap3/drz+dfSbNTYwF9P2yeHp7OjTU7s8NW0VM4f52d+Xj9J0dLX+uu5+ZKcch/kHdMz+ZB+w2OkY4EnOG/YaT0j58iik7YsNpuQULqC7w2wX3/dh7uLvqZeXZ3Rqfn6nnrWxft0Zp3vxPCAbfXm8ufDHy9Zuy/iZTfm99b31N54p1zQ=</source>
+    <source>eJztV21v2kgQ/s6vGEWVCpELab+c1LerA06xDmxkO81FVRWt7QX2arzW2g5FVf/7zazNmw8KH3q9+1ArCnh2Xp9nZla8/j2bZ63e5WULLsHNeHrHw4niOU8jDn6ZZVIVMBKhYmoFz0CixpKHWa3RjeQCDcn2XSSzlRKzeQEvrq6eo+6Lq+e/GXCtBEshYFO5Yl2tmLHoM5txAHCX2VjGWsjKYi4VyvYM4HVY6C/vQpJW3ynoW230yFUuZIpGz7tXWpKIiKc5+R7bQUMyL4osf9nrUQ25LBWmL9WsVyvkPbSAYM7JEivWwqowVvCZxPKb+DzU+DzU+NTx0s+gH4pXh2tA1nRUQ9jfINiOOgfgq9UmXC1ErgsXOcy54uEKZgrh4bEBU8U5yClEc6Zm3IBCAktXkCFUaCART5GKdAYMiDDSLOboJpfTYskUR+UYWJ7LSGDZMcQyKhcckS8o3lQkPId2gShd+LXFRUcHiTlLQKRAZ+sjWApktSwA6yyUiMiHgUpRUsaUw/o4EQtRRyBzjUFOTsscK6A8DVjIWEzpk+uysjJMRD43IBbkOiwLFOYk1MQZVEcPGyrnSUIeBOata91mp3UoSkaAFjVEOu5yjiTtVYIQTUuVYkiubWKJkOmIf/GoIAmpT2WSyCWVFsk0FlRR/rKmjVqLhfKRw3ZSUllgvlUexEK2pbY+yucMCwh5jRoGR4zZTk2KcsgLZF8gAdSOFLRZa3edxNAC370J7kzPAtuHied+sAfWAC5MH98vDLizg6F7GwBqeKYT3IN7A6ZzD3/YzsAA68+JZ/k+uB7Y48nItlBmO/3R7cB23sM12jkuTo+NM4ROA1cHrF3Zlk/OxpbXH+KreW2P7ODegBs7cMjnDTo1YWJ6gd2/HZkeTG69ietbGH6Abh3bufEwijW2nKCLUVEG1gd8AX9ojkY6lHmL2Xs6v747uffs98MAhu5oYKHw2sLMzOuRVYXCovoj0x4bMDDH5ntLW7noxdNqdXZ3Q0uLMJ6Jf/3Adh0qo+86gYevBlbpBRvTO9u3DDA92ydAbjwX3ROcaOFqJ2jnWJUXgnqfEVSh91vf2uYysMwR+vLJeFeZKO211qs7oPaJEpxcyJR8FDH2Bo4MxKxgsGApLlwaY2ziVI8hS0Sx6kLbwVbD5adbLmQ59tcskSF2Ul5IhUbdjg5Tea739ddWi/abjkwPbWKmgCnFVvAEoz7oqAP6V7upDmv1nv7MlHjEFQM7Fm8qtXbn1T8iPDzEPCxndjqVtWgTe8Fxi8SwEF8w+x29dmejwqKIEzJ6PzTtFS9wsmv7dS5NpfX9dO7ttMalvqH0/bRbvM5kw8Z+2qBVvlYG+NQJftwI6Hm6zvQpvHkLT2h9PHu7lhkb1U+v9NdvBwCd8eIElKjRfiIKvnDYgnfAjONtT+Gd85mvzkM4Y4otgPY0bsaNQxivfVWds3V3mBpTaz2ypORNvWKu5DIHO8VTEZtqpu8s60vEMw3vJhLGwNWNs4HrFfgXvDvofok53rY/nfF9dA9zXvOKqlgCDZSN+jtWx9nFa+Qkv1rnf8FwKGXCWfrTOWgicJiFWmt/xj5urD59h4bTJOwlYFTgfaAm//F0HOdjbVIltZPE1uTg4B0d0J9H4XH8vjtS+ZGR2vNwnNcyPc2s1vlvx+tfR79ZYwNzMW2fHJ7Ojj49tctT01Yxc5if/X35XZqOrtZf192P7JTjMP+Ajtmf7AMWOx0DPMl5w17jCSlfHoW0fbHBlJzCBXR3mO3i+z7MXfwl9eLqjE7Nz+/UszbWrzvjdC+eB2SjL483F/5s2dptGT+zKb+1vrX+BuKN1RU=</source>
   </file>
   <file path="OwpSupportMethods.inc.php" generated-path="OwpSupportMethods.inc.html" hash="0166d7d9a90fa939439ce59a660ad4a1" package="OwpSupportMethods">
     <docblock line="0">
@@ -1789,7 +1906,9 @@
     </class>
     <source>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</source>
   </file>
+  <package name="OwpAjax" full_name="OwpAjax"/>
   <package name="OwpBaseFramework" full_name="OwpBaseFramework"/>
+  <package name="OwpDefaultAjax" full_name="OwpDefaultAjax"/>
   <package name="OwpEzSqlMysql" full_name="OwpEzSqlMysql"/>
   <package name="OwpEzSqlMysqli" full_name="OwpEzSqlMysqli"/>
   <package name="OwpMessaging" full_name="OwpMessaging"/>

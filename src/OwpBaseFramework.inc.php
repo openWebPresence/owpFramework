@@ -327,16 +327,24 @@ class OwpBaseFramework
      * @uses   $this->loadHeader()
      * @uses   $this->loadNav()
      * @uses   $this->loadFooter();
+     * @uses   owpAjax::processAction();
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function processAction() 
+    private function processAction()
     {
-        $this->mod();
-        $this->loadHeader();
-        $this->loadNav();
-        $this->loadTemplate($this->requested_action);
-        $this->loadFooter();
+        switch($this->requested_action) {
+        default:
+            $this->mod();
+            $this->loadHeader();
+            $this->loadNav();
+            $this->loadTemplate($this->requested_action);
+            $this->loadFooter();
+            break;
+        case "ajax":
+            owpAjax::processAction();
+            break;
+        }
     }
 }

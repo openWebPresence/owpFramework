@@ -1,7 +1,9 @@
 Collecting files .. OK
 Initializing parser .. OK
 Parsing files
+Parsing /mnt/hgfs/www/owp-framework/src/OwpAjax.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpBaseFramework.inc.php
+Parsing /mnt/hgfs/www/owp-framework/src/OwpDefaultAjax.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysql.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysqli.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpMessaging.inc.php
@@ -9,15 +11,15 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpMod.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpUsers.inc.php
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.214s
-Preparing template "responsive"                                    ..    0.033s
+Load cache                                                         ..    0.198s
+Preparing template "responsive"                                    ..    0.062s
 Preparing 13 transformations                                       ..    0.000s
 Build "elements" index                                             ..    0.001s
-Replace textual FQCNs with object aliases                          ..    0.008s
+Replace textual FQCNs with object aliases                          ..    0.009s
 Resolve @link and @see tags in descriptions                        ..    0.001s
-Enriches inline example tags with their sources                    ..    0.001s
-Build "packages" index                                             ..    0.029s
-Build "namespaces" index and add namespaces to "elements"          ..    0.001s
+Enriches inline example tags with their sources                    ..    0.000s
+Build "packages" index                                             ..    0.010s
+Build "namespaces" index and add namespaces to "elements"          ..    0.000s
 Collect all markers embedded in tags                               ..    0.000s
 Transform analyzed project into artifacts                          .. 
 Applying 13 transformations
@@ -38,5 +40,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   2.343s
+   2.349s
 Analyze results and write report to log                            ..    0.001s
