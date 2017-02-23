@@ -373,7 +373,7 @@ class OwpBaseFramework
 
         $mods = array();
         $mods["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', 'pages', $class_name . ".inc.php"));
-        $mods["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', 'mods', 'pages', $class_name . ".inc.php"));
+        $mods["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'mods', 'pages', $class_name . ".inc.php"));
 
         foreach($mods as $tk => $tv) {
             if(file_exists($tv)) {
