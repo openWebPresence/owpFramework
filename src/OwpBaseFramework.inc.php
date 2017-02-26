@@ -211,7 +211,7 @@ class OwpBaseFramework
         $this->modMethods = new $modFileIncludeName;
         if(class_exists($modFileIncludeName)) {
             $this->modAvailableMethods = get_class_methods($this->modMethods);
-            $this->firephp->log($this->modMethodsArray, 'modMethods');
+            $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
         }
 
         /*
