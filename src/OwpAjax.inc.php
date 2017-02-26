@@ -31,13 +31,13 @@ interface OwpAjax
      *
      * @method mixed processAction() Process the ajax response action
      * @access public
-     * @param  object $OwpSupportMethods    OWP support method class.
-     * @param  object $ezSqlDB              Database abstraction class.
-     * @param  object $userClass            User management class.
-     * @param  object $firephp              The current web root.
-     * @param  string $current_web_root     The current web root.
-     * @param  string $root_path            The app root file path.
-     * @param  string $requested_action     The requested action.
+     * @param  object $OwpSupportMethods OWP support method class.
+     * @param  object $ezSqlDB           Database abstraction class.
+     * @param  object $userClass         User management class.
+     * @param  object $firephp           The current web root.
+     * @param  string $current_web_root  The current web root.
+     * @param  string $root_path         The app root file path.
+     * @param  string $requested_action  The requested action.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
