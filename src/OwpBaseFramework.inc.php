@@ -197,24 +197,34 @@ class OwpBaseFramework
         $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, $this->current_web_root);
 
         /*
-         * Dynamic mod include
+         * Dynamic OwpCommon include
          */
-        $modCommonFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"OwpCommon.inc.php"));
+        $modCommonFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpCommon.inc.php"));
         include $modCommonFileLocation;
-        $this->OwpCommon = new OwpCommon($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
+        $this->OwpCommon = new OwpCommon($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
 
+        /*
+         * Dynamic Owp_request_ include
+         */
         $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
         $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
         if (file_exists($modFileLocation)) {
             include $modFileLocation;
-            $this->modMethods = new $modFileIncludeName($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
+            $this->modMethods = new $modFileIncludeName($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
         } else {
-            $this->modMethods = new OwpDefaultMod($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
+            $this->modMethods = new OwpDefaultMod($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
         }
         if(class_exists($modFileIncludeName)) {
             $this->modAvailableMethods = get_class_methods($this->modMethods);
             $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
         }
+
+        /*
+         * Dynamic OwpAjaxUdf include
+         */
+        $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php"));
+        include $modAjaxFileLocation;
+        $this->OwpAjaxUdf = new OwpAjaxUdf($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
 
         /*
          * Create an object reference to pass to user defined class libraries.
@@ -227,6 +237,7 @@ class OwpBaseFramework
             "current_web_root" => $current_web_root,
             "root_path" => $root_path,
             "OwpSupportMethods" => $this->OwpSupportMethods,
+            "requested_action" => $this->requested_action,
         );
 
         /*
@@ -398,7 +409,7 @@ class OwpBaseFramework
     {
         $class_name = "owp_mod_" . $this->requested_action;
 
-        $mods["theme_functions"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], "owpFunctions.inc.php"));
+        $mods["theme_functions"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', "owpFunctions.inc.php"));
         if(file_exists($mods["theme_functions"])) {
             include $mods["theme_functions"];
         }
