@@ -199,6 +199,10 @@ class OwpBaseFramework
         /*
          * Dynamic mod include
          */
+        $modCommonFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"OwpCommon.inc.php"));
+        include $modCommonFileLocation;
+        $this->OwpCommon = new OwpCommon($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
+
         $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
         $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
         if (file_exists($modFileLocation)) {
