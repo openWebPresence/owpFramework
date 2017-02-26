@@ -1,19 +1,19 @@
 Changing into directory /mnt/hgfs/www/owp-framework/src
-Processing OwpAjax.inc.php [PHP => 187 tokens in 40 lines]... DONE in 17ms (0 fixable violations)
-Processing OwpBaseFramework.inc.php [PHP => 3056 tokens in 457 lines]... DONE in 199ms (0 fixable violations)
+Processing OwpAjax.inc.php [PHP => 187 tokens in 40 lines]... DONE in 16ms (0 fixable violations)
+Processing OwpBaseFramework.inc.php [PHP => 3062 tokens in 457 lines]... DONE in 191ms (0 fixable violations)
 Processing OwpDefaultMod.inc.php [PHP => 203 tokens in 42 lines]... DONE in 13ms (0 fixable violations)
-Processing OwpEzSqlMysqli.inc.php [PHP => 536 tokens in 83 lines]... DONE in 34ms (0 fixable violations)
+Processing OwpEzSqlMysqli.inc.php [PHP => 536 tokens in 83 lines]... DONE in 31ms (0 fixable violations)
 Processing OwpEzSqlMysql.inc.php [PHP => 681 tokens in 104 lines]... DONE in 42ms (0 fixable violations)
 Processing OwpFirePHP.inc.php [PHP => 225 tokens in 45 lines]... DONE in 12ms (0 fixable violations)
-Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 234ms (0 fixable violations)
-Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 70ms (0 fixable violations)
-Processing OwpSupportMethods.inc.php [PHP => 618 tokens in 110 lines]... DONE in 24ms (0 fixable violations)
-Processing OwpUsers.inc.php [PHP => 7271 tokens in 1120 lines]... DONE in 215ms (0 fixable violations)
+Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 96ms (0 fixable violations)
+Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 55ms (0 fixable violations)
+Processing OwpSupportMethods.inc.php [PHP => 618 tokens in 110 lines]... DONE in 36ms (0 fixable violations)
+Processing OwpUsers.inc.php [PHP => 7271 tokens in 1120 lines]... DONE in 445ms (0 fixable violations)
 No fixable errors were found
-Time: 1.14 secs; Memory: 17.75Mb
+Time: 1.13 secs; Memory: 17.75Mb
 
 Changing into directory /mnt/hgfs/www/owp-framework/tests
-Processing OwpUsers_test.php [PHP => 2041 tokens in 291 lines]... DONE in 86ms (0 fixable violations)
+Processing OwpUsers_test.php [PHP => 2041 tokens in 291 lines]... DONE in 126ms (0 fixable violations)
 No fixable errors were found
-Time: 170ms; Memory: 7.5Mb
+Time: 278ms; Memory: 7.5Mb
 
