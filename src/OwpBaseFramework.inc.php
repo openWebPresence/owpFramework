@@ -79,27 +79,37 @@ class OwpBaseFramework
     public $requested_action = "home";
 
     /**
-     * @var object $mod_data Modifier method data storage
+     * @var string $modMethods Mod methods object.
+     */
+    public $modMethods = null;
+
+    /**
+     * @var string $modAvailableMethods Mod methods available.
+     */
+    public $modAvailableMethods = array();
+
+    /**
+     * @var object $mod_data Modifier method data storage.
      */
     protected $mod_data;
 
     /**
-     * @var string $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS Database credentials
+     * @var string $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS Database credentials.
      */
     protected $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS = null;
 
     /**
-     * @var string $THEME Active theme
+     * @var string $THEME Active theme.
      */
     protected $THEME = null;
 
     /**
-     * @var object $ezSqlDB ezSQL Database Object
+     * @var object $ezSqlDB ezSQL Database Object.
      */
     protected $userClass;
 
     /**
-     * @var object $frameworkObject Framework Class Object
+     * @var object $frameworkObject Framework Class Object.
      */
     protected $frameworkObject;
 
@@ -182,7 +192,27 @@ class OwpBaseFramework
         $this->ezSqlDB->cache_queries = false;
         $this->ezSqlDB->hide_errors();
 
+        /*
+         * Load the user class
+         */
         $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, $this->current_web_root);
+
+        /*
+         * Dynamic mod include
+         */
+        $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
+        $modFileLocation = $this->root_path . join(PATH_SEPARATOR,array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
+        if (file_exists($modFileLocation)) {
+            include $modFileLocation;
+        } else {
+            include $modFileLocation;
+        }
+
+        $this->modMethods = new $modFileIncludeName;
+        if(class_exists($modFileIncludeName)) {
+            $this->modAvailableMethods = get_class_methods($this->modMethods);
+            $this->firephp->log($this->modMethodsArray, 'modMethods');
+        }
 
         /*
          * Create an object reference to pass to user defined class libraries.

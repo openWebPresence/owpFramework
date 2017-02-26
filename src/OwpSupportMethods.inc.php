@@ -88,4 +88,23 @@ class OwpSupportMethods
             return "127.0.0.1";
         }
     }
+
+
+    /**
+     * includeIfExists
+     *
+     * @method includeIfExists($file) Includes file if it exists.
+     * @access public
+     * @param string $file File to include.
+     * @return mixed
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static function includeIfExists($file)
+    {
+        if (file_exists($file)) {
+            return include $file;
+        }
+    }
 }
