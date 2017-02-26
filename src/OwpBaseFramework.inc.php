@@ -201,7 +201,7 @@ class OwpBaseFramework
          * Dynamic mod include
          */
         $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
-        $modFileLocation = $this->root_path . join(PATH_SEPARATOR,array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
+        $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR,array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
         if (file_exists($modFileLocation)) {
             include $modFileLocation;
         } else {
