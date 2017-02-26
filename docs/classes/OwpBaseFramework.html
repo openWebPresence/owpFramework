@@ -22,8 +22,10 @@
 <li><a>Packages</a></li>
 <li><a href="../packages/OwpAjax.html"><i class="icon-folder-open"></i> OwpAjax</a></li>
 <li><a href="../packages/OwpBaseFramework.html"><i class="icon-folder-open"></i> OwpBaseFramework</a></li>
+<li><a href="../packages/OwpDefaultMod.html"><i class="icon-folder-open"></i> OwpDefaultMod</a></li>
 <li><a href="../packages/OwpEzSqlMysql.html"><i class="icon-folder-open"></i> OwpEzSqlMysql</a></li>
 <li><a href="../packages/OwpEzSqlMysqli.html"><i class="icon-folder-open"></i> OwpEzSqlMysqli</a></li>
+<li><a href="../packages/OwpFirePHP.html"><i class="icon-folder-open"></i> OwpFirePHP</a></li>
 <li><a href="../packages/OwpMessaging.html"><i class="icon-folder-open"></i> OwpMessaging</a></li>
 <li><a href="../packages/OwpMod.html"><i class="icon-folder-open"></i> OwpMod</a></li>
 <li><a href="../packages/OwpSupportMethods.html"><i class="icon-folder-open"></i> OwpSupportMethods</a></li>
@@ -92,6 +94,8 @@
 <li class="property public "><a href="#property_debug" title="$debug() :: "><span class="description">Is debugging enabled by default.</span><pre>$debug</pre></a></li>
 <li class="property public "><a href="#property_debugging" title="$debugging() :: "><span class="description">Debugging array.</span><pre>$debugging</pre></a></li>
 <li class="property public "><a href="#property_default_action" title="$default_action() :: "><span class="description">Default action.</span><pre>$default_action</pre></a></li>
+<li class="property public "><a href="#property_modAvailableMethods" title="$modAvailableMethods() :: "><span class="description">Mod methods available.</span><pre>$modAvailableMethods</pre></a></li>
+<li class="property public "><a href="#property_modMethods" title="$modMethods() :: "><span class="description">Mod methods object.</span><pre>$modMethods</pre></a></li>
 <li class="property public "><a href="#property_requested_action" title="$requested_action() :: "><span class="description">The requested action.</span><pre>$requested_action</pre></a></li>
 <li class="property public "><a href="#property_root_path" title="$root_path() :: "><span class="description">Set the root file path.</span><pre>$root_path</pre></a></li>
 <li class="property public "><a href="#property_userID" title="$userID() :: "><span class="description">OpenWebPresence support methods.</span><pre>$userID</pre></a></li>
@@ -99,18 +103,18 @@
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
-<li class="property protected "><a href="#property_DB_HOST" title="$DB_HOST() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials</span><pre>$DB_HOST</pre></a></li>
-<li class="property protected "><a href="#property_DB_NAME" title="$DB_NAME() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials</span><pre>$DB_NAME</pre></a></li>
-<li class="property protected "><a href="#property_DB_PASS" title="$DB_PASS() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials</span><pre>$DB_PASS</pre></a></li>
-<li class="property protected "><a href="#property_DB_USER" title="$DB_USER() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials</span><pre>$DB_USER</pre></a></li>
+<li class="property protected "><a href="#property_DB_HOST" title="$DB_HOST() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_HOST</pre></a></li>
+<li class="property protected "><a href="#property_DB_NAME" title="$DB_NAME() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_NAME</pre></a></li>
+<li class="property protected "><a href="#property_DB_PASS" title="$DB_PASS() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_PASS</pre></a></li>
+<li class="property protected "><a href="#property_DB_USER" title="$DB_USER() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_USER</pre></a></li>
 <li class="property protected "><a href="#property_OwpSupportMethods" title="$OwpSupportMethods() :: "><span class="description">OpenWebPresence support methods.</span><pre>$OwpSupportMethods</pre></a></li>
-<li class="property protected "><a href="#property_THEME" title="$THEME() :: "><span class="description">Active theme</span><pre>$THEME</pre></a></li>
+<li class="property protected "><a href="#property_THEME" title="$THEME() :: "><span class="description">Active theme.</span><pre>$THEME</pre></a></li>
 <li class="property protected "><a href="#property_current_web_root" title="$current_web_root() :: "><span class="description">The web root url.</span><pre>$current_web_root</pre></a></li>
 <li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">The ezSQL Database Object.</span><pre>$ezSqlDB</pre></a></li>
 <li class="property protected "><a href="#property_firephp" title="$firephp() :: "><span class="description">The FirePHP debugging libray.</span><pre>$firephp</pre></a></li>
-<li class="property protected "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework Class Object</span><pre>$frameworkObject</pre></a></li>
-<li class="property protected "><a href="#property_mod_data" title="$mod_data() :: "><span class="description">Modifier method data storage</span><pre>$mod_data</pre></a></li>
-<li class="property protected "><a href="#property_userClass" title="$userClass() :: "><span class="description">ezSQL Database Object</span><pre>$userClass</pre></a></li>
+<li class="property protected "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework Class Object.</span><pre>$frameworkObject</pre></a></li>
+<li class="property protected "><a href="#property_mod_data" title="$mod_data() :: "><span class="description">Modifier method data storage.</span><pre>$mod_data</pre></a></li>
+<li class="property protected "><a href="#property_userClass" title="$userClass() :: "><span class="description">ezSQL Database Object.</span><pre>$userClass</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -493,6 +497,26 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_modAvailableMethods"> </a><div class="element clickable property public property_modAvailableMethods" data-toggle="collapse" data-target=".property_modAvailableMethods .collapse" title="public">
+<h2>Mod methods available.</h2>
+<pre>$modAvailableMethods : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_modMethods"> </a><div class="element clickable property public property_modMethods" data-toggle="collapse" data-target=".property_modMethods .collapse" title="public">
+<h2>Mod methods object.</h2>
+<pre>$modMethods : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>null</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_requested_action"> </a><div class="element clickable property public property_requested_action" data-toggle="collapse" data-target=".property_requested_action .collapse" title="public">
 <h2>The requested action.</h2>
 <pre>$requested_action : string</pre>
@@ -524,7 +548,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_DB_HOST"> </a><div class="element clickable property protected property_DB_HOST" data-toggle="collapse" data-target=".property_DB_HOST .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials</h2>
+<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
 <pre>$DB_HOST : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -534,7 +558,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_DB_NAME"> </a><div class="element clickable property protected property_DB_NAME" data-toggle="collapse" data-target=".property_DB_NAME .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials</h2>
+<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
 <pre>$DB_NAME : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -544,7 +568,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_DB_PASS"> </a><div class="element clickable property protected property_DB_PASS" data-toggle="collapse" data-target=".property_DB_PASS .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials</h2>
+<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
 <pre>$DB_PASS : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -554,7 +578,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_DB_USER"> </a><div class="element clickable property protected property_DB_USER" data-toggle="collapse" data-target=".property_DB_USER .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials</h2>
+<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
 <pre>$DB_USER : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -574,7 +598,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_THEME"> </a><div class="element clickable property protected property_THEME" data-toggle="collapse" data-target=".property_THEME .collapse" title="protected">
-<h2>Active theme</h2>
+<h2>Active theme.</h2>
 <pre>$THEME : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -614,7 +638,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_frameworkObject"> </a><div class="element clickable property protected property_frameworkObject" data-toggle="collapse" data-target=".property_frameworkObject .collapse" title="protected">
-<h2>Framework Class Object</h2>
+<h2>Framework Class Object.</h2>
 <pre>$frameworkObject : object</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -624,7 +648,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_mod_data"> </a><div class="element clickable property protected property_mod_data" data-toggle="collapse" data-target=".property_mod_data .collapse" title="protected">
-<h2>Modifier method data storage</h2>
+<h2>Modifier method data storage.</h2>
 <pre>$mod_data : object</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -634,7 +658,7 @@
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 <a id="property_userClass"> </a><div class="element clickable property protected property_userClass" data-toggle="collapse" data-target=".property_userClass .collapse" title="protected">
-<h2>ezSQL Database Object</h2>
+<h2>ezSQL Database Object.</h2>
 <pre>$userClass : object</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
@@ -650,7 +674,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-02-22T15:29:38-05:00.<br></footer></div>
+            generated on 2017-02-26T06:50:36-05:00.<br></footer></div>
 </div>
 </body>
 </html>

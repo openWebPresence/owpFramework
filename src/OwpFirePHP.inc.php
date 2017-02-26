@@ -3,7 +3,7 @@
  * OpenWebPresence Support Library - openwebpresence.com
  *
  * @copyright 2001 - 2017, Brian Tafoya.
- * @package   OwpEzSqlMysql
+ * @package   OwpFirePHP
  * @author    Brian Tafoya <btafoya@briantafoya.com>
  * @version   1.0
  * @license   MIT
@@ -25,12 +25,12 @@
  */
 class OwpFirePHP extends FirePHP
 {
-
     /**
      * Debug
      *
      * @method void __debugInfo()
      * @access public
+     * @return array
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0

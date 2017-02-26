@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>OpenWebPresence - owpFramework » \OwpMod</title>
+<title>OpenWebPresence - owpFramework » \OwpDefaultMod</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -70,13 +70,14 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: __debugInfo"><span class="description">__debugInfo</span><pre>__debugInfo()</pre></a></li>
-<li class="method public "><a href="#method___get" title="__get() :: __get"><span class="description">__get</span><pre>__get()</pre></a></li>
-<li class="method public "><a href="#method___isset" title="__isset() :: __isset"><span class="description">__isset</span><pre>__isset()</pre></a></li>
-<li class="method public "><a href="#method___set" title="__set() :: __set"><span class="description">__set</span><pre>__set()</pre></a></li>
-<li class="method public "><a href="#method___unset" title="__unset() :: __unset"><span class="description">__unset</span><pre>__unset()</pre></a></li>
-<li class="method public "><a href="#method_getModDataItem" title="getModDataItem() :: getModDataItem"><span class="description">getModDataItem</span><pre>getModDataItem()</pre></a></li>
-<li class="method public "><a href="#method_setModDataItem" title="setModDataItem() :: setModDataItem"><span class="description">setModDataItem</span><pre>setModDataItem()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: setModDataItem"><span class="description">setModDataItem</span><pre>__construct()</pre></a></li>
+<li class="method public inherited"><a href="#method___debugInfo" title="__debugInfo() :: __debugInfo"><span class="description">__debugInfo</span><pre>__debugInfo()</pre></a></li>
+<li class="method public inherited"><a href="#method___get" title="__get() :: __get"><span class="description">__get</span><pre>__get()</pre></a></li>
+<li class="method public inherited"><a href="#method___isset" title="__isset() :: __isset"><span class="description">__isset</span><pre>__isset()</pre></a></li>
+<li class="method public inherited"><a href="#method___set" title="__set() :: __set"><span class="description">__set</span><pre>__set()</pre></a></li>
+<li class="method public inherited"><a href="#method___unset" title="__unset() :: __unset"><span class="description">__unset</span><pre>__unset()</pre></a></li>
+<li class="method public inherited"><a href="#method_getModDataItem" title="getModDataItem() :: getModDataItem"><span class="description">getModDataItem</span><pre>getModDataItem()</pre></a></li>
+<li class="method public inherited"><a href="#method_setModDataItem" title="setModDataItem() :: setModDataItem"><span class="description">setModDataItem</span><pre>setModDataItem()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -89,28 +90,65 @@
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\OwpMod"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\OwpDefaultMod"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/OwpMod.html">OwpMod</a>
+<span class="divider">\</span><a href="../classes/OwpDefaultMod.html">OwpDefaultMod</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">This class provides mod data management functionality. (Non session based global storage.)</p>
+<p class="short_description">This class provides a default OwpDefaultMod class.</p>
 <div class="details">
 <div class="long_description"></div>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th>package</th>
-<td><a href="../packages/OwpMod.html">OwpMod</a></td>
-</tr></table>
+<td><a href="../packages/OwpDefaultMod.html">OwpDefaultMod</a></td>
+</tr>
+<tr>
+<th>inherited_from</th>
+<td>\OwpMod</td>
+</tr>
+</table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo " data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>setModDataItem</h2>
+<pre>__construct() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Missing UserDefinedModClass.</td>
+</tr></table>
+</div></div>
+</div>
+<a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo inherited" data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
 <h2>__debugInfo</h2>
 <pre>__debugInfo() : mixed</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -136,10 +174,10 @@
 <code>mixed</code>mod_data</div>
 </div></div>
 </div>
-<a id="method___get"></a><div class="element clickable method public method___get " data-toggle="collapse" data-target=".method___get .collapse" title="public">
+<a id="method___get"></a><div class="element clickable method public method___get inherited" data-toggle="collapse" data-target=".method___get .collapse" title="public">
 <h2>__get</h2>
 <pre>__get(string $itemName) : mixed</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -174,10 +212,10 @@
 <code>mixed</code>Array value</div>
 </div></div>
 </div>
-<a id="method___isset"></a><div class="element clickable method public method___isset " data-toggle="collapse" data-target=".method___isset .collapse" title="public">
+<a id="method___isset"></a><div class="element clickable method public method___isset inherited" data-toggle="collapse" data-target=".method___isset .collapse" title="public">
 <h2>__isset</h2>
 <pre>__isset(string $itemName) : boolean</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -206,10 +244,10 @@
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
-<a id="method___set"></a><div class="element clickable method public method___set " data-toggle="collapse" data-target=".method___set .collapse" title="public">
+<a id="method___set"></a><div class="element clickable method public method___set inherited" data-toggle="collapse" data-target=".method___set .collapse" title="public">
 <h2>__set</h2>
 <pre>__set(string $itemName, mixed $itemValue) : mixed</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -242,10 +280,10 @@
 <code>mixed</code>Array value</div>
 </div></div>
 </div>
-<a id="method___unset"></a><div class="element clickable method public method___unset " data-toggle="collapse" data-target=".method___unset .collapse" title="public">
+<a id="method___unset"></a><div class="element clickable method public method___unset inherited" data-toggle="collapse" data-target=".method___unset .collapse" title="public">
 <h2>__unset</h2>
 <pre>__unset(string $itemName) </pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -272,10 +310,10 @@
 <code>string</code><p>Mod data array key</p></div>
 </div></div>
 </div>
-<a id="method_getModDataItem"></a><div class="element clickable method public method_getModDataItem " data-toggle="collapse" data-target=".method_getModDataItem .collapse" title="public">
+<a id="method_getModDataItem"></a><div class="element clickable method public method_getModDataItem inherited" data-toggle="collapse" data-target=".method_getModDataItem .collapse" title="public">
 <h2>getModDataItem</h2>
 <pre>getModDataItem(string $itemName) : mixed</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -310,10 +348,10 @@
 <code>mixed</code>Array value</div>
 </div></div>
 </div>
-<a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem " data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
+<a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem inherited" data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
 <h2>setModDataItem</h2>
 <pre>setModDataItem(string $itemName, mixed $itemValue) : mixed</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Inherited</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">

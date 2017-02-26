@@ -3,6 +3,7 @@ Initializing parser .. OK
 Parsing files
 Parsing /mnt/hgfs/www/owp-framework/src/OwpAjax.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpBaseFramework.inc.php
+Parsing /mnt/hgfs/www/owp-framework/src/OwpDefaultMod.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysql.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpEzSqlMysqli.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpFirePHP.inc.php
@@ -11,11 +12,11 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpMod.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpUsers.inc.php
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.242s
-Preparing template "responsive"                                    ..    0.025s
+Load cache                                                         ..    0.081s
+Preparing template "responsive"                                    ..    0.038s
 Preparing 13 transformations                                       ..    0.000s
 Build "elements" index                                             ..    0.001s
-Replace textual FQCNs with object aliases                          ..    0.009s
+Replace textual FQCNs with object aliases                          ..    0.012s
 Resolve @link and @see tags in descriptions                        ..    0.001s
 Enriches inline example tags with their sources                    ..    0.000s
 Build "packages" index                                             ..    0.007s
@@ -40,5 +41,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   2.416s
+   1.498s
 Analyze results and write report to log                            ..    0.001s

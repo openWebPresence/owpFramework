@@ -95,7 +95,7 @@ class OwpSupportMethods
      *
      * @method includeIfExists($file) Includes file if it exists.
      * @access public
-     * @param string $file File to include.
+     * @param  string $file File to include.
      * @return mixed
      *
      * @author  Brian Tafoya

@@ -113,7 +113,6 @@ class OwpBaseFramework
      */
     protected $frameworkObject;
 
-
     /**
      * Constructor
      *
@@ -201,14 +200,13 @@ class OwpBaseFramework
          * Dynamic mod include
          */
         $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
-        $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR,array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
+        $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
         if (file_exists($modFileLocation)) {
             include $modFileLocation;
+            $this->modMethods = new $modFileIncludeName($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
         } else {
-            include $modFileLocation;
+            $this->modMethods = new OwpDefaultMod($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path);
         }
-
-        $this->modMethods = new $modFileIncludeName;
         if(class_exists($modFileIncludeName)) {
             $this->modAvailableMethods = get_class_methods($this->modMethods);
             $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
