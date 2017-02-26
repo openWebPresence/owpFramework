@@ -366,8 +366,8 @@ class OwpBaseFramework
     private function loadTemplate($template_name,$sub_dir = "pages")
     {
         $template = array();
-        $template["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], $sub_dir, $template_name . ".inc.php"));
-        $template["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', $sub_dir, $template_name . ".inc.php"));
+        $template["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], "view", $sub_dir, $template_name . ".inc.php"));
+        $template["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', "view", $sub_dir, $template_name . ".inc.php"));
 
         foreach($template as $tk => $tv) {
             if(file_exists($tv)) {
