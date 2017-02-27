@@ -262,8 +262,6 @@ class OwpBaseFramework
 		 */
         $this->processAction();
         $this->firephp->groupEnd();
-
-
     }
 
     /**

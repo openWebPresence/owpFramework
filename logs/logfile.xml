@@ -1,21 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="OwpUsers" tests="14" assertions="14" failures="0" errors="0" time="0.262151">
-    <testsuite name="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" tests="14" assertions="14" failures="0" errors="0" time="0.262151">
-      <testcase name="testAddUserFromInValidData" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="118" assertions="1" time="0.006798"/>
-      <testcase name="testAddUserFromValidData" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="128" assertions="1" time="0.063797"/>
-      <testcase name="testUserLoginViaUserID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="143" assertions="1" time="0.010386"/>
-      <testcase name="testLogOut" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="165" assertions="1" time="0.000394"/>
-      <testcase name="testUserLogin" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="177" assertions="1" time="0.018727"/>
-      <testcase name="testIsLoggedIn" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="187" assertions="1" time="0.001371"/>
-      <testcase name="testUpdatePassword" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="198" assertions="1" time="0.064324"/>
-      <testcase name="testSetLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="213" assertions="1" time="0.050345"/>
-      <testcase name="testGetUserIDViaLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="227" assertions="1" time="0.001290"/>
-      <testcase name="testClearLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="238" assertions="1" time="0.005806"/>
-      <testcase name="testUpdateUser" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="252" assertions="1" time="0.022864"/>
-      <testcase name="testUserExistsViaEmail" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="274" assertions="1" time="0.001231"/>
-      <testcase name="testUpdateLoginCount" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="283" assertions="1" time="0.012021"/>
-      <testcase name="testDeleteUser" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="295" assertions="1" time="0.002797"/>
+  <testsuite name="OwpUsers" tests="14" assertions="14" failures="0" errors="0" time="0.173321">
+    <testsuite name="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" tests="14" assertions="14" failures="0" errors="0" time="0.173321">
+      <testcase name="testAddUserFromInValidData" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="118" assertions="1" time="0.007937"/>
+      <testcase name="testAddUserFromValidData" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="128" assertions="1" time="0.043188"/>
+      <testcase name="testUserLoginViaUserID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="143" assertions="1" time="0.005385"/>
+      <testcase name="testLogOut" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="165" assertions="1" time="0.000384"/>
+      <testcase name="testUserLogin" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="177" assertions="1" time="0.019107"/>
+      <testcase name="testIsLoggedIn" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="187" assertions="1" time="0.001402"/>
+      <testcase name="testUpdatePassword" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="198" assertions="1" time="0.042799"/>
+      <testcase name="testSetLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="213" assertions="1" time="0.035616"/>
+      <testcase name="testGetUserIDViaLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="227" assertions="1" time="0.001299"/>
+      <testcase name="testClearLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="238" assertions="1" time="0.005013"/>
+      <testcase name="testUpdateUser" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="252" assertions="1" time="0.003990"/>
+      <testcase name="testUserExistsViaEmail" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="274" assertions="1" time="0.000622"/>
+      <testcase name="testUpdateLoginCount" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="283" assertions="1" time="0.004028"/>
+      <testcase name="testDeleteUser" class="OwpUsers_test" file="/mnt/hgfs/www/owp-framework/tests/OwpUsers_test.php" line="295" assertions="1" time="0.002551"/>
     </testsuite>
   </testsuite>
 </testsuites>
