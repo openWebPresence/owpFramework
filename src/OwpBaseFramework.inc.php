@@ -243,7 +243,7 @@ class OwpBaseFramework
             include $modFileLocation;
             $this->modMethods = new $modFileIncludeName($this->frameworkObject);
         } else {
-            $this->modMethods = new OwpDefaultMod($this->frameworkObject);
+            $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
         }
         if(class_exists($modFileIncludeName)) {
             $this->modAvailableMethods = get_class_methods($this->modMethods);
