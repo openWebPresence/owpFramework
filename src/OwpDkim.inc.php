@@ -49,10 +49,7 @@ class OwpDkim
             throw new Exception("Unable to create the DKIM directory; " . $file_path);
         }
 
-        $files = array(
-            "public_key_filename" => '.htkeypublic_' . $domain,
-            "private_key_filename" => '.htkeyprivate_' . $domain
-        );
+        $files = OwpDkim::keyFileNamePath($domain);
 
         $keys = OwpDkim::generateKeys();
 
@@ -69,6 +66,52 @@ class OwpDkim
     }
 
     /**
+     * validateDkim
+     *
+     * @method validateDkim($domain, $file_path)
+     * @access public
+     * @param  string $domain    The domain to generate DKIM keys.
+     * @param  string $file_path File path used to store the keys and instructions.
+     * @return boolean Dkim exist.
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static public function validateDkim($domain, $file_path)
+    {
+
+        $files = OwpDkim::keyFileNamePath($domain);
+
+        if(file_exists($file_path . $files["public_key_filename"]) && file_exists($file_path . $files["private_key_filename"])) {
+            return true;
+        } else {
+            ob_clean();
+            echo OwpDkim::createDkimRecords($domain, $file_path);
+            die();
+        }
+    }
+
+    /**
+     * keyFileNamePath
+     *
+     * @method keyFileNamePath()
+     * @access private
+     * @param string $domain Domain to generate filename for.
+     * @return array
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    private function keyFileNamePath($domain) {
+        $files = array(
+            "public_key_filename" => '.htkeypublic_' . $domain,
+            "private_key_filename" => '.htkeyprivate_' . $domain
+        );
+
+        return $files;
+    }
+
+    /**
      * generateKeys
      *
      * @method generateKeys()
@@ -78,7 +121,7 @@ class OwpDkim
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function generateKeys() 
+    protected function generateKeys()
     {
 
         $config = array(

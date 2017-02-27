@@ -333,7 +333,7 @@ class OwpBaseFramework
         // phpmailer
         $dotenv->required(['smtp_hostname', 'smtp_auth', 'smtp_username', 'smtp_password', 'smtp_port'])->notEmpty();
         $dotenv->required(['smtp_secure'])->allowedValues(['ssl', 'tls', 'none']);
-        $dotenv->required(['DKIM_domain', 'DKIM_private', 'DKIM_selector', 'DKIM_passphrase','DKIM_identity'])->notEmpty();
+        $dotenv->required(['DKIM_domain'])->notEmpty();
     }
 
 
