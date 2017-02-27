@@ -31,12 +31,22 @@ class OwpDefaultMod extends OwpMod
      * @method mixed __construct()
      * @access public
      * @throws Exception Missing UserDefinedModClass.
+     * @param  array $frameworkObject OWP Objects and Data
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct()
+    public function __construct($frameworkObject)
     {
+        $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
+        $this->ezSqlDB = $frameworkObject["ezSqlDB"];
+        $this->userClass = $frameworkObject["userClass"];
+        $this->firephp = $frameworkObject["firephp"];
+        $this->current_web_root = $frameworkObject["current_web_root"];
+        $this->root_path = $frameworkObject["root_path"];
+        $this->requested_action = $frameworkObject["requested_action"];
+        $this->uuid = $frameworkObject["uuid"];
+
         throw new Exception("Missing UserDefinedModClass.");
     }
 }

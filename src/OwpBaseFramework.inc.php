@@ -44,9 +44,14 @@ class OwpBaseFramework
     public $debug = false;
 
     /**
-     * @var int $userID OpenWebPresence support methods.
+     * @var int $userID UserID.
      */
     public $userID = 0;
+
+    /**
+     * @var string $uuid Unique uuid().
+     */
+    public $uuid = null;
 
     /**
      * @var object $ezSqlDB The ezSQL Database Object.
@@ -148,6 +153,11 @@ class OwpBaseFramework
         $this->OwpSupportMethods = new OwpSupportMethods();
 
         /*
+         * Generate $uuid based on OwpSupportMethods->uuid().
+         */
+        $this->uuid = $this->OwpSupportMethods->uuid();
+
+        /*
 		 * Load the environment variables
 		 */
         $this->loadEnviroment();
@@ -162,6 +172,10 @@ class OwpBaseFramework
 		 * Init the debugger
 		 */
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
+
+        if($this->debug) {
+            file_put_contents(ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR . 'errors.log', "[" . date(DATE_RFC2822) . " - " . $this->uuid . "]\n\n", FILE_APPEND);
+        }
 
         $this->firephp = new OwpFirePHP();
         $this->firephp->getInstance(true);
@@ -178,6 +192,7 @@ class OwpBaseFramework
             $this->firephp->log($_SESSION, '_SESSION');
             $this->firephp->log($_SERVER, '_SERVER');
             $this->firephp->log(session_id(), 'session_id');
+            $this->firephp->log($this->uuid, 'uuid');
             $this->firephp->groupEnd();
         }
 
@@ -194,14 +209,30 @@ class OwpBaseFramework
         /*
          * Load the user class
          */
-        $this->userClass = new OwpUsers($this->ezSqlDB, $this->firephp, $this->current_web_root);
+        $this->userClass = new OwpUsers($this->OwpSupportMethods, $this->ezSqlDB, $this->firephp, $this->current_web_root, $this->root_path, $this->requested_action, $this->uuid);
+
+
+        /*
+         * Create an object reference to pass to user defined class libraries.
+         */
+        $this->frameworkObject = array(
+            "ezSqlDB" => $this->ezSqlDB,
+            "firephp" => $this->firephp,
+            "userClass" => $this->userClass,
+            "mod_data" => $this->mod_data,
+            "current_web_root" => $this->current_web_root,
+            "root_path" => $this->root_path,
+            "OwpSupportMethods" => $this->OwpSupportMethods,
+            "requested_action" => $this->requested_action,
+            "uuid" => $this->uuid
+        );
 
         /*
          * Dynamic OwpCommon include
          */
         $modCommonFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpCommon.inc.php"));
         include $modCommonFileLocation;
-        $this->OwpCommon = new OwpCommon($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
+        $this->OwpCommon = new OwpCommon($this->frameworkObject);
 
         /*
          * Dynamic Owp_request_ include
@@ -210,9 +241,9 @@ class OwpBaseFramework
         $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
         if (file_exists($modFileLocation)) {
             include $modFileLocation;
-            $this->modMethods = new $modFileIncludeName($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
+            $this->modMethods = new $modFileIncludeName($this->frameworkObject);
         } else {
-            $this->modMethods = new OwpDefaultMod($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
+            $this->modMethods = new OwpDefaultMod($this->frameworkObject);
         }
         if(class_exists($modFileIncludeName)) {
             $this->modAvailableMethods = get_class_methods($this->modMethods);
@@ -224,21 +255,7 @@ class OwpBaseFramework
          */
         $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php"));
         include $modAjaxFileLocation;
-        $this->OwpAjaxUdf = new OwpAjaxUdf($this->OwpSupportMethods, $this->ezSqlDB, $this->userClass, $this->firephp, $current_web_root, $root_path, $this->requested_action);
-
-        /*
-         * Create an object reference to pass to user defined class libraries.
-         */
-        $this->frameworkObject = array(
-            "ezSqlDB" => $this->ezSqlDB,
-            "firephp" => $this->firephp,
-            "userClass" => $this->userClass,
-            "mod_data" => $this->mod_data,
-            "current_web_root" => $current_web_root,
-            "root_path" => $root_path,
-            "OwpSupportMethods" => $this->OwpSupportMethods,
-            "requested_action" => $this->requested_action,
-        );
+        $this->OwpAjaxUdf = new OwpAjaxUdf($this->frameworkObject);
 
         /*
 		 * Process the request
@@ -292,6 +309,7 @@ class OwpBaseFramework
             "_GET" => $_GET,
             "_SESSION" => $_SESSION,
             "_SERVER" => $_SERVER,
+            "uuid" => $this->uuid,
         ];
     }
 
@@ -422,7 +440,7 @@ class OwpBaseFramework
             if(file_exists($tv)) {
                 $this->debugging["mods"][] = array($tk,$tv);
                 include $tv;
-                $tmpClass = new $class_name($this->firephp, $this->ezSqlDB);
+                $tmpClass = new $class_name($this->frameworkObject);
                 $this->mod_data = $tmpClass->process();
             }
         }

@@ -55,6 +55,21 @@ class OwpUsers
     protected $current_web_root;
 
     /**
+     * @var string $root_path Set the root file path.
+     */
+    public $root_path;
+
+    /**
+     * @var string $uuid Set the root file path.
+     */
+    public $uuid;
+
+    /**
+     * @var string $requested_action Requested action.
+     */
+    public $requested_action;
+
+    /**
      * @var object $owp_SupportMethods OpenWebPresence support methods
      */
     protected $owp_SupportMethods;
@@ -65,19 +80,26 @@ class OwpUsers
      * @method void __construct()
      * @access public
      *
-     * @param object $ezSqlDB          ezSQL Database Object
-     * @param object $firephp          FirePHP debugging libray
-     * @param string $current_web_root The web root url
+     * @param object $owp_SupportMethods owp_SupportMethods Object
+     * @param object $ezSqlDB            ezSQL Database Object
+     * @param object $firephp            FirePHP debugging library
+     * @param string $current_web_root   The web root url
+     * @param string $root_path          The root file path.
+     * @param string $requested_action   The requested action.
+     * @param string $uuid               Set the root file path.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($ezSqlDB, $firephp, $current_web_root)
+    public function __construct($owp_SupportMethods, $ezSqlDB, $firephp, $current_web_root, $root_path, $requested_action, $uuid)
     {
+        $this->owp_SupportMethods = $owp_SupportMethods;
         $this->ezSqlDB = $ezSqlDB;
         $this->firephp = $firephp;
         $this->current_web_root = $current_web_root;
-        $this->owp_SupportMethods = new OwpSupportMethods();
+        $this->root_path = $root_path;
+        $this->requested_action = $requested_action;
+        $this->uuid = $uuid;
     }
 
     /**
@@ -85,8 +107,9 @@ class OwpUsers
      *
      * @method void __debugInfo()
      * @access public
+     * @uses   $this->isAdmin()
      * @uses   $this->userData()
-     * @uses   $this->userData()
+     * @uses   $this->userID()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -94,9 +117,10 @@ class OwpUsers
     public function __debugInfo()
     {
         return [
-            "userID" => $this->userID(),
-            "userData" => $this->userData(),
+            "isAdmin" => $this->isAdmin(),
             "MySQL_Errors" => $this->ezSqlDB->captured_errors,
+            "userData" => $this->userData(),
+            "userID" => $this->userID(),
         ];
     }
 

@@ -38,6 +38,7 @@ class OwpUsers_test extends TestCase
     public static $owpUsers;
     public static $current_web_root;
     public static $userID;
+    public static $root_path;
     public static $lostPassUUID = null;
 
     public static $shared_session = array();
@@ -56,11 +57,18 @@ class OwpUsers_test extends TestCase
         self::$db->hide_errors();
 
         self::$current_web_root = "http://openwebpresence.com/";
-
-        self::$owpUsers = new OwpUsers(self::$db, self::$firephp, self::$current_web_root);
+        self::$root_path = dirname(__FILE__) . DIRECTORY_SEPARATOR;
 
         $owp_SupportMethods = new OwpSupportMethods();
         self::$uuid = $owp_SupportMethods->uuid();
+
+        $requested_action = "home";
+
+        self::$owpUsers = new OwpUsers($owp_SupportMethods, self::$db, self::$firephp, self::$current_web_root, self::$root_path, $requested_action, self::$uuid);
+
+        // $owp_SupportMethods, $ezSqlDB, $firephp, $current_web_root, $root_path, $requested_action, $uuid
+
+
         self::$passwd = $owp_SupportMethods->randomPasswordAlphaNum(10);
         self::$passwdSecond = $owp_SupportMethods->randomPasswordAlphaNum(10);
 
