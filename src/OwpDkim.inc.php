@@ -96,13 +96,14 @@ class OwpDkim
      *
      * @method keyFileNamePath()
      * @access private
-     * @param string $domain Domain to generate filename for.
+     * @param  string $domain Domain to generate filename for.
      * @return array
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function keyFileNamePath($domain) {
+    private function keyFileNamePath($domain) 
+    {
         $files = array(
             "public_key_filename" => '.htkeypublic_' . $domain,
             "private_key_filename" => '.htkeyprivate_' . $domain
@@ -161,7 +162,7 @@ class OwpDkim
     private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path) 
     {
 
-$instructions = "
+        $instructions = "
 DKIM keys and record information has been generated for the domain " . $domain . ".\n
 \n
 DNS Records are as follows:\n

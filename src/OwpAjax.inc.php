@@ -31,7 +31,7 @@ interface OwpAjax
      *
      * @method mixed processAction() Process the ajax response action
      * @access public
-     * @param  array $frameworkObject   OWP support method class.
+     * @param  array $frameworkObject OWP support method class.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
