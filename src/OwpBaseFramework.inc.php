@@ -174,7 +174,7 @@ class OwpBaseFramework
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
 
         if($this->debug) {
-            file_put_contents(ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR . 'errors.log', "[" . date(DATE_RFC2822) . " - " . $this->uuid . "]\n\n", FILE_APPEND);
+            file_put_contents(ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR . 'errors.log', "\n\n[" . date(DATE_RFC2822) . " - " . $this->uuid . "]\n\n", FILE_APPEND);
         }
 
         $this->firephp = new OwpFirePHP();
@@ -234,28 +234,23 @@ class OwpBaseFramework
         include $modCommonFileLocation;
         $this->OwpCommon = new OwpCommon($this->frameworkObject);
 
-        /*
-         * Dynamic Owp_request_ include
-         */
-        $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
-        $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
-        if (file_exists($modFileLocation)) {
-            include $modFileLocation;
-            $this->modMethods = new $modFileIncludeName($this->frameworkObject);
-        } else {
-            $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
+        if($this->requested_action != "ajax") {
+            /*
+             * Dynamic Owp_request_ include
+             */
+            $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
+            $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
+            if (file_exists($modFileLocation)) {
+                include $modFileLocation;
+                $this->modMethods = new $modFileIncludeName($this->frameworkObject);
+            } else {
+                $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
+            }
+            if(class_exists($modFileIncludeName)) {
+                $this->modAvailableMethods = get_class_methods($this->modMethods);
+                $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
+            }
         }
-        if(class_exists($modFileIncludeName)) {
-            $this->modAvailableMethods = get_class_methods($this->modMethods);
-            $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
-        }
-
-        /*
-         * Dynamic OwpAjaxUdf include
-         */
-        $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php"));
-        include $modAjaxFileLocation;
-        $this->OwpAjaxUdf = new OwpAjaxUdf($this->frameworkObject);
 
         /*
 		 * Process the request
@@ -474,6 +469,15 @@ class OwpBaseFramework
             break;
         case "ajax":
             ob_clean();
+
+            /*
+             * Dynamic OwpAjaxUdf include
+             */
+
+            $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
+            include $modAjaxFileLocation;
+            $this->OwpAjaxUdf = new OwpAjaxUdf();
+
             if(class_exists("OwpAjaxUdf")) {
                 call_user_func(array("OwpAjaxUdf","processAction"), $this->frameworkObject);
             } else {
