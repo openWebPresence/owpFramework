@@ -31,9 +31,9 @@ class OwpDefaultMod extends OwpMod
      * @method mixed __construct()
      * @access public
      * @throws Exception Missing UserDefinedModClass.
-     * @param  array $frameworkObject OWP Objects and Data
+     * @param  array $frameworkObject    OWP Objects and Data
      * @param  array $modFileIncludeName Dynamic Class Name
-     * @param  array $modFileLocation Dynamic Class file path.
+     * @param  array $modFileLocation    Dynamic Class file path.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
