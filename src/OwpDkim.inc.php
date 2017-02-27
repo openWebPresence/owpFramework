@@ -118,21 +118,21 @@ class OwpDkim
     private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path) 
     {
 
-        $instructions = "
-        DKIM keys and record information has been generated for the domain " . $domain . ".\n
-        \n
-        DNS Records are as follows:\n
-        - Record Type: TXT - Host Name: " . $dkim_selector . "." . $domain . " - Text: " . $dkim_record . "\n
-        - Record Type: TXT - Host Name: blank - Text: " . $spf_record . "\n
-        \n\n
-        For your records:\n
-        _Private Key_\n\n
-        " . $keys["privatekey"] . "\n\n
-        _Public Key_\n\n
-        " . $keys["publickey"] . "\n\n
-        
-        All of the above information has been recorded in the below file path:\n
-        " . $file_path;
+$instructions = "
+DKIM keys and record information has been generated for the domain " . $domain . ".\n
+\n
+DNS Records are as follows:\n
+- Record Type: TXT - Host Name: " . $dkim_selector . "." . $domain . " - Text: " . $dkim_record . "\n
+- Record Type: TXT - Host Name: blank - Text: " . $spf_record . "\n
+\n\n
+For your records:\n
+_Private Key_\n\n
+" . $keys["privatekey"] . "\n\n
+_Public Key_\n\n
+" . $keys["publickey"] . "\n\n
+
+All of the above information has been recorded in the below file path:\n
+" . $file_path . "\n\n\n";
 
         file_put_contents($file_path . "instructions.txt", $instructions);
 
