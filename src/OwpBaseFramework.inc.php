@@ -109,6 +109,11 @@ class OwpBaseFramework
     protected $userClass;
 
     /**
+     * @var object $PhpConsole PhpConsole Object.
+     */
+    public $PhpConsole;
+
+    /**
      * @var object $frameworkObject Framework Class Object.
      */
     public $frameworkObject;
@@ -120,11 +125,12 @@ class OwpBaseFramework
      * @access public
      * @param  string $root_path        The app root file path.
      * @param  string $current_web_root The current web root.
+     * @param  object $PhpConsole       PhpConsole debugger object.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($root_path, $current_web_root)
+    public function __construct($root_path, $current_web_root, $PhpConsole)
     {
 
         /*
@@ -136,6 +142,11 @@ class OwpBaseFramework
         * Set the root path
         */
         $this->current_web_root = $current_web_root;
+
+        /*
+        * PhpConsole
+        */
+        $this->PhpConsole = $PhpConsole;
 
         /*
 		 * Set the requested action
@@ -187,7 +198,8 @@ class OwpBaseFramework
             "OwpSupportMethods" => (object)$this->OwpSupportMethods,
             "requested_action" => (string)$this->requested_action,
             "uuid" => (string)$this->uuid,
-            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper()
+            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper(),
+            "PhpConsole" => $this->PhpConsole
         );
 
         /*
@@ -267,16 +279,7 @@ class OwpBaseFramework
      */
     private function loadEnviroment() 
     {
-        $dotenv = new Dotenv\Dotenv($this->root_path, '.env');
-        $dotenv->load();
-        // database
-        $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS'])->notEmpty();
-        // theme
-        $dotenv->required(['THEME'])->notEmpty();
-        // phpmailer
-        $dotenv->required(['smtp_hostname', 'smtp_auth', 'smtp_username', 'smtp_password', 'smtp_port'])->notEmpty();
-        $dotenv->required(['smtp_secure'])->allowedValues(['ssl', 'tls', 'none']);
-        $dotenv->required(['DKIM_domain'])->notEmpty();
+
     }
 
 
@@ -408,29 +411,28 @@ class OwpBaseFramework
 
 
         switch($this->requested_action) {
-            default:
-                $this->mod();
-                $this->loadHeader();
-                $this->loadNav();
-                $this->loadTemplate($this->requested_action);
-                $this->loadFooter();
-                break;
-            case "ajax":
+        default:
+            $this->mod();
+            $this->loadHeader();
+            $this->loadNav();
+            $this->loadTemplate($this->requested_action);
+            $this->loadFooter();
+            break;
+        case "ajax":
 
-                /*
-                 * Dynamic OwpAjaxUdf include
-                 */
-                $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
-                include $modAjaxFileLocation;
-                $this->OwpAjaxUdf = new OwpAjaxUdf();
+            /*
+            * Dynamic OwpAjaxUdf include
+            */
+            $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
+            include $modAjaxFileLocation;
 
-                if(class_exists("OwpAjaxUdf")) {
-                    call_user_func(array("OwpAjaxUdf","processAction"), $this->frameworkObject);
-                } else {
-                    throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
-                }
-
-                break;
+            if(class_exists("OwpAjaxUdf")) {
+                $OwpAjaxUdf = new OwpAjaxUdf();
+                $OwpAjaxUdf->processAction($this->frameworkObject);
+            } else {
+                throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
+            }
+            break;
         }
     }
 }

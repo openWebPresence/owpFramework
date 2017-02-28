@@ -75,6 +75,11 @@ class OwpUsers
     protected $SqueakyMindsPhpHelper;
 
     /**
+     * @var object $PhpConsole PhpConsole object.
+     */
+    public $PhpConsole;
+
+    /**
      * Constructor
      *
      * @method void __construct()
@@ -94,6 +99,7 @@ class OwpUsers
         $this->requested_action = $frameworkObject["requested_action"];
         $this->uuid = $frameworkObject["uuid"];
         $this->SqueakyMindsPhpHelper = $frameworkObject["SqueakyMindsPhpHelper"];
+        $this->PhpConsole = $frameworkObject["PhpConsole"];
     }
 
     /**
@@ -380,6 +386,7 @@ class OwpUsers
             // unset the session if the user being deleted is logged in.
             if ((int)$this->userID() === (int)$userID && isset($_SESSION["userData"])) {
                 unset($_SESSION["userData"]);
+                $this->PhpConsole->debug("unset", 'deleteUser->userData');
             }
 
             return true;
@@ -660,6 +667,7 @@ class OwpUsers
 
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
+            $this->PhpConsole->debug("unset", 'logOut->userData');
         }
 
         return (boolean)isset($_SESSION["userData"]);
@@ -939,10 +947,12 @@ class OwpUsers
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
 
             if ($val_pass === true) {
+                $this->PhpConsole->debug($_SESSION["userData"], 'userLogin->userData');
                 return $this->userID();
             } else {
                 if (isset($_SESSION["userData"])) {
                     unset($_SESSION["userData"]);
+                    $this->PhpConsole->debug("unset", 'userLogin->userData');
                 }
             }
         }
@@ -965,6 +975,7 @@ class OwpUsers
     {
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
+            $this->PhpConsole->debug("unset", 'userLoginCore->userData');
         }
 
         $get_user_info_row = $this->get_user_info_row($where_statement);

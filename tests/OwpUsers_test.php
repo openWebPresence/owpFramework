@@ -100,7 +100,8 @@ class OwpUsers_test extends TestCase
             "OwpSupportMethods" => (object)$owp_SupportMethods,
             "requested_action" => (string)$requested_action,
             "uuid" => (string)self::$uuid,
-            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper()
+            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper(),
+            "PhpConsole" => PhpConsole\Handler::getInstance()
         );
 
         self::$owpUsers = new OwpUsers(self::$frameworkObject);
