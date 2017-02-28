@@ -20,29 +20,98 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/*
+/**
  * Provides password validation.
  */
 class OwpPasswordValidator
 {
+    /**
+     * @var string $tooShortMessage TooShortMessage
+     */
     static public $tooShortMessage = 'Your password must be at least {{minlength}} characters long.';
+
+    /**
+     * @var string $tooLongMessage TooLongMessage
+     */
     static public $tooLongMessage = 'Your password must not exceed {{maxlength}} characters.';
+
+    /**
+     * @var string $missingLettersMessage MissingLettersMessage
+     */
     static public $missingLettersMessage = 'Your password must include at least one letter.';
+
+    /**
+     * @var string $requireCaseDiffMessage RequireCaseDiffMessage
+     */
     static public $requireCaseDiffMessage = 'Your password must include both upper and lower case letters.';
+
+    /**
+     * @var string $missingNumbersMessage MissingNumbersMessage
+     */
     static public $missingNumbersMessage = 'Your password must include at least one digit.';
+
+    /**
+     * @var string $missingNonAlphanumericMessage MissingNonAlphanumericMessage
+     */
     static public $missingNonAlphanumericMessage = 'Your password must include at least one non-alphanumeric character.';
 
+    /**
+     * @var string $minLength MinLength
+     */
     static public $minLength = 5;
+
+    /**
+     * @var string $maxLength MaxLength
+     */
     static public $maxLength = 0;
+
+    /**
+     * @var string $requireLetters RequireLetters
+     */
     static public $requireLetters = true;
+
+    /**
+     * @var string $requireCaseDiff RequireCaseDiff
+     */
     static public $requireCaseDiff = false;
+
+    /**
+     * @var string $requireNumbers RequireNumbers
+     */
     static public $requireNumbers = false;
+
+    /**
+     * @var string $requireNonAlphanumeric RequireNonAlphanumeric
+     */
     static public $requireNonAlphanumeric = false;
+
+    /**
+     * @var string $charset Allowed Characterset
+     */
     static public $charset = 'UTF-8';
 
+    /**
+     * @var string $violations Violation array
+     */
     static public $violations = array();
+
+    /**
+     * @var string $constraint Validation constraints
+     */
     static public $constraint;
 
+    /**
+     * validate
+     *
+     * @method validate($value, $constraint)
+     * @access public
+     * @param  string $value      Password value
+     * @param  string $constraint Constraints
+     * @return mixed Violation array or false if no violations
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
     static public function validate($value, $constraint)
     {
         self::$constraint = $constraint;
@@ -73,9 +142,19 @@ class OwpPasswordValidator
 
         return (self::$violations?self::$violations:false);
     }
-    
-    static public function addViolation($violation)
+
+    /**
+     * addViolation
+     *
+     * @method addViolation($violation)
+     * @access private
+     * @param  string $violation Violation to record
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    static private function addViolation($violation)
     {
-        self::$violations[] = str_replace(array("{{minlength}}","{{maxlength}}"),array(self::$constraint->minLength,self::$constraint->maxLength,),$violation);
+        self::$violations[] = str_replace(array("{{minlength}}","{{maxlength}}"), array(self::$constraint->minLength,self::$constraint->maxLength,), $violation);
     }
 }

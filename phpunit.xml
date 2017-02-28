@@ -3,6 +3,8 @@
     <testsuites>
         <testsuite name="OwpUsers">
             <file>tests/OwpUsers_test.php</file>
+            <file>tests/OwpSettings_test.php</file>
+            <file>tests/OwpPasswordValidator_test.php</file>
         </testsuite>
     </testsuites>
     <php>

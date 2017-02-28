@@ -14,3 +14,10 @@ OwpUsers_test
  [x] Update login count
  [x] Delete user
 
+OwpSettings_test
+ [x] Set get
+ [x] Delete get
+
+OwpPasswordValidator_test
+ [x] Validate pass
+

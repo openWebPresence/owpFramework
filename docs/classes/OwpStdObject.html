@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>OpenWebPresence - owpFramework » \OwpDkim</title>
+<title>OpenWebPresence - owpFramework » \OwpStdObject</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -71,49 +71,37 @@
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
 </div>
-<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
-<li class="nav-header">
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list"><li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_createDkimRecords" title="createDkimRecords() :: createDkimRecords"><span class="description">createDkimRecords</span><pre>createDkimRecords()</pre></a></li>
-<li class="method public "><a href="#method_validateDkim" title="validateDkim() :: validateDkim"><span class="description">validateDkim</span><pre>validateDkim()</pre></a></li>
+<li class="method public "><a href="#method___call" title="__call() :: __call"><span class="description">__call</span><pre>__call()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: __construct"><span class="description">__construct</span><pre>__construct()</pre></a></li>
 </ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul><li class="method protected "><a href="#method_generateKeys" title="generateKeys() :: generateKeys"><span class="description">generateKeys</span><pre>generateKeys()</pre></a></li></ul>
-</li>
-<li class="nav-header private">» Private
-                    <ul>
-<li class="method private "><a href="#method_createPath" title="createPath() :: Recursively create a long directory path"><span class="description">Recursively create a long directory path</span><pre>createPath()</pre></a></li>
-<li class="method private "><a href="#method_generateInstructions" title="generateInstructions() :: generateInstructions"><span class="description">generateInstructions</span><pre>generateInstructions()</pre></a></li>
-<li class="method private "><a href="#method_keyFileNamePath" title="keyFileNamePath() :: keyFileNamePath"><span class="description">keyFileNamePath</span><pre>keyFileNamePath()</pre></a></li>
-</ul>
-</li>
-</ul>
+</li></ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\OwpDkim"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\OwpStdObject"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/OwpDkim.html">OwpDkim</a>
+<span class="divider">\</span><a href="../classes/OwpStdObject.html">OwpStdObject</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">DKIM generation and use class.</p>
+<p class="short_description">stdObject class to create classes.</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/OwpDkim.html">OwpDkim</a></td>
+<td><a href="../packages/OwpStdObject.html">OwpStdObject</a></td>
 </tr></table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_createDkimRecords"></a><div class="element clickable method public method_createDkimRecords " data-toggle="collapse" data-target=".method_createDkimRecords .collapse" title="public">
-<h2>createDkimRecords</h2>
-<pre>createDkimRecords(string $domain, string $file_path) : string</pre>
-<div class="labels"><span class="label">Static</span></div>
+<a id="method___call"></a><div class="element clickable method public method___call " data-toggle="collapse" data-target=".method___call .collapse" title="public">
+<h2>__call</h2>
+<pre>__call(object $method, mixed $arguments) : mixed</pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -136,25 +124,24 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>The domain to generate DKIM keys.</p></div>
+<h4>$method</h4>
+<code>object</code><p>Object arguments</p></div>
 <div class="subelement argument">
-<h4>$file_path</h4>
-<code>string</code><p>File path used to store the keys and instructions.</p></div>
+<h4>$arguments</h4>
+<code>mixed</code><p>Method arguments</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\Exception</code></th>
-<td>Unable to create the DKIM directory.</td>
+<td>Fatal error: Call to undefined method stdObject</td>
 </tr></table>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>string</code>Dkim instructions will be output.</div>
+<div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
-<a id="method_validateDkim"></a><div class="element clickable method public method_validateDkim " data-toggle="collapse" data-target=".method_validateDkim .collapse" title="public">
-<h2>validateDkim</h2>
-<pre>validateDkim(string $domain, string $file_path) : boolean</pre>
-<div class="labels"><span class="label">Static</span></div>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>__construct</h2>
+<pre>__construct(array $arguments<code> = array()</code>) </pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -177,145 +164,8 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>The domain to generate DKIM keys.</p></div>
-<div class="subelement argument">
-<h4>$file_path</h4>
-<code>string</code><p>File path used to store the keys and instructions.</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>Dkim exist.</div>
-</div></div>
-</div>
-<a id="method_generateKeys"></a><div class="element clickable method protected method_generateKeys " data-toggle="collapse" data-target=".method_generateKeys .collapse" title="protected">
-<h2>generateKeys</h2>
-<pre>generateKeys() : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
-</div></div>
-</div>
-<a id="method_createPath"></a><div class="element clickable method private method_createPath " data-toggle="collapse" data-target=".method_createPath .collapse" title="private">
-<h2>Recursively create a long directory path</h2>
-<pre>createPath(string $path) : boolean</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$path</h4>
-<code>string</code><p>Path to create.</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>boolean</code></div>
-</div></div>
-</div>
-<a id="method_generateInstructions"></a><div class="element clickable method private method_generateInstructions " data-toggle="collapse" data-target=".method_generateInstructions .collapse" title="private">
-<h2>generateInstructions</h2>
-<pre>generateInstructions(string $domain, string $dkim_selector, string $dkim_record, string $spf_record, array $keys, string $file_path) : string</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>Domain name used by the Owp site and keys.</p></div>
-<div class="subelement argument">
-<h4>$dkim_selector</h4>
-<code>string</code><p>DKIM domain text selector phrase.</p></div>
-<div class="subelement argument">
-<h4>$dkim_record</h4>
-<code>string</code><p>DKIM domain text record.</p></div>
-<div class="subelement argument">
-<h4>$spf_record</h4>
-<code>string</code><p>Recommended SPF domain text record.</p></div>
-<div class="subelement argument">
-<h4>$keys</h4>
-<code>array</code><p>Array of the generated public and private keys.</p></div>
-<div class="subelement argument">
-<h4>$file_path</h4>
-<code>string</code><p>The file storage path.</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
-</div>
-<a id="method_keyFileNamePath"></a><div class="element clickable method private method_keyFileNamePath " data-toggle="collapse" data-target=".method_keyFileNamePath .collapse" title="private">
-<h2>keyFileNamePath</h2>
-<pre>keyFileNamePath(string $domain) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>Domain to generate filename for.</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>array</code></div>
+<h4>$arguments</h4>
+<code>array</code><p>Object arguments</p></div>
 </div></div>
 </div>
 </div>

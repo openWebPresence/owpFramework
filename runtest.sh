@@ -3,7 +3,7 @@ clear
 rm -rf ./logs/*
 rm -rf ./docs/*
 composer -n -q update
-/usr/bin/mysql owp_users < ./schema/owp-users-complete.sql
+/usr/bin/mysql owp_users < ./schema/owp-complete.sql
 ./vendor/bin/phpunit --verbose --colors=never > ./logs/phpunit.log
 ./vendor/bin/phpdoc -c ./phpdoc.tpl.xml > ./logs/phpdoc.log
 rm -rf ./docs/phpdoc-cache-*

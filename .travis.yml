@@ -14,4 +14,4 @@ services:
 before_install:
   - rm -f ~/.phpenv/versions/$(phpenv version-name)/etc/conf.d/xdebug.ini
   - mysql -e 'CREATE DATABASE owp_users;'
-  - mysql owp_users < ./schema/owp-users-complete.sql
+  - mysql owp_users < ./schema/owp-complete.sql

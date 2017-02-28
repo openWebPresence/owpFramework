@@ -1,14 +1,14 @@
 <?php
 /**
- * OpenWebPresence Support Library - openwebpresence.com
+ * OpenWebPresence Support Library - openwebpresence.com - OwpSettings_test
  *
  * @copyright 2001 - 2017, Brian Tafoya.
- * @package   OwpStdObject
+ * @package   OwpSettings_test
  * @author    Brian Tafoya <btafoya@briantafoya.com>
  * @version   1.0
  * @license   MIT
  * @license   https://opensource.org/licenses/MIT The MIT License
- * @category  OpenWebPresence_Support_Library
+ * @category  OpenWebPresence Support Library
  * @link      http://openwebpresence.com OpenWebPresence
  *
  * Copyright (c) 2017, Brian Tafoya
@@ -20,51 +20,51 @@
  * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
 
-/**
- * stdObject class to create classes.
- */
-class OwpStdObject
-{
 
-    /**
-     * __construct
-     *
-     * @method __construct($arguments)
-     * @access public
-     * @param  array $arguments Object arguments
-     *
-     * @author  Brian Tafoya
-     * @version 1.0
-     */
-    public function __construct(array $arguments = array()) 
+use PHPUnit\Framework\TestCase;
+
+define("ROOT_PATH", dirname(__FILE__).DIRECTORY_SEPARATOR);
+
+class OwpSettings_test extends TestCase
+{
+    public static $db = null;
+
+    public static function setUpBeforeClass()
     {
-        if (!empty($arguments)) {
-            foreach ($arguments as $property => $argument) {
-                $this->{$property} = $argument;
-            }
-        }
+        /*
+		 * Init the database class
+		 */
+        self::$db = new OwpEzSqlMysql(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
+        self::$db->use_disk_cache = false;
+        self::$db->cache_queries = false;
+        self::$db->hide_errors();
     }
 
     /**
-     * __call
-     *
-     * @method __call($method, $arguments)
-     * @access public
-     * @param  object $method    Object arguments
-     * @param  mixed  $arguments Method arguments
-     * @return mixed
-     * @throws Exception Fatal error: Call to undefined method stdObject
-     *
-     * @author  Brian Tafoya
-     * @version 1.0
+     * @covers OwpSettings::__set
+     * @covers OwpSettings::__get
      */
-    public function __call($method, $arguments) 
+    public function testSetGet()
     {
-        $arguments = array_merge(array("stdObject" => $this), $arguments);
-        if (isset($this->{$method}) && is_callable($this->{$method})) {
-            return call_user_func_array($this->{$method}, $arguments);
-        } else {
-            throw new Exception("Fatal error: Call to undefined method stdObject::{$method}()");
-        }
+        $OwpSettings =  new OwpSettings();
+        $OwpSettings->WhatDoISay = array("HelloILoveYou");
+
+        $this->assertEquals(
+            $OwpSettings->WhatDoISay,
+            array("HelloILoveYou")
+        );
+    }
+
+    /**
+     * @expectedException InvalidArgumentException
+     * @covers OwpSettings::__set
+     * @covers OwpSettings::__get
+     * @depends testSetGet
+     */
+    public function testDeleteGet()
+    {
+        $OwpSettings =  new OwpSettings();
+        unset($OwpSettings->WhatDoISay);
+        $getMe = $OwpSettings->WhatDoISay;
     }
 }

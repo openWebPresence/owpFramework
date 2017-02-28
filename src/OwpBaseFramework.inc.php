@@ -163,11 +163,6 @@ class OwpBaseFramework
          */
         $this->uuid = $this->OwpSupportMethods->uuid();
 
-        /*
-		 * Load the environment variables
-		 */
-        $this->loadEnviroment();
-
         $this->DB_HOST = $_ENV["DB_HOST"];
         $this->DB_NAME = $_ENV["DB_NAME"];
         $this->DB_USER = $_ENV["DB_USER"];
@@ -265,23 +260,6 @@ class OwpBaseFramework
             "uuid" => $this->uuid,
         ];
     }
-
-    /**
-     * loadEnviroment()
-     *
-     * @method void loadEnviroment() Establish the app environment using the Dotenv library.
-     * @access private
-     *
-     * @uses https://packagist.org/packages/vlucas/phpdotenv Dotenv\Dotenv Loads environment variables from .env to getenv(), $_ENV and $_SERVER automagically. This is a PHP version of the original Ruby dotenv.
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    private function loadEnviroment() 
-    {
-
-    }
-
 
     /**
      * loadFooter()
