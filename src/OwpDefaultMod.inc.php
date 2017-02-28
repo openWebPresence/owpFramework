@@ -43,7 +43,6 @@ class OwpDefaultMod extends OwpMod
         $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
         $this->userClass = $frameworkObject["userClass"];
-        $this->firephp = $frameworkObject["firephp"];
         $this->current_web_root = $frameworkObject["current_web_root"];
         $this->root_path = $frameworkObject["root_path"];
         $this->requested_action = $frameworkObject["requested_action"];

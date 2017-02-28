@@ -45,11 +45,6 @@ class OwpUsers
     protected $ezSqlDB;
 
     /**
-     * @var object $firephp FirePHP debugging libray
-     */
-    protected $firephp;
-
-    /**
      * @var string $current_web_root The web root url
      */
     protected $current_web_root;
@@ -94,7 +89,6 @@ class OwpUsers
     {
         $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
-        $this->firephp = $frameworkObject["firephp"];
         $this->current_web_root = $frameworkObject["current_web_root"];
         $this->root_path = $frameworkObject["root_path"];
         $this->requested_action = $frameworkObject["requested_action"];
@@ -153,7 +147,7 @@ class OwpUsers
 
         // Execute owpUDF_On_addUserValiateData user defined function
         if (function_exists("owpUDF_On_addUserValiateData")) {
-            $owpUDF_On_addUserValiateData = owpUDF_On_addUserValiateData(array("db" => $this->ezSqlDB, "firephp" => $this->firephp, "data_array" => $data_array));
+            $owpUDF_On_addUserValiateData = owpUDF_On_addUserValiateData(array("db" => $this->ezSqlDB, "data_array" => $data_array));
             if ($owpUDF_On_addUserValiateData) {
                 throw new Exception($owpUDF_On_addUserValiateData, 30);
             }
@@ -248,7 +242,7 @@ class OwpUsers
 
             // Execute owpUDF_On_addUserSuccess user defined function
             if (function_exists("owpUDF_On_addUserSuccess")) {
-                $owpUDF_On_addUserSuccess = owpUDF_On_addUserSuccess(array("userID" => (int)$this->userID, "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+                $owpUDF_On_addUserSuccess = owpUDF_On_addUserSuccess(array("userID" => (int)$this->userID, "db" => $this->ezSqlDB));
                 if ($owpUDF_On_addUserSuccess) {
                     throw new Exception((string)$owpUDF_On_addUserSuccess, 30);
                 }
@@ -377,7 +371,7 @@ class OwpUsers
 
             // Execute owpUDF_On_deleteUser user defined function
             if (function_exists("owpUDF_On_deleteUser")) {
-                $owpUDF_On_deleteUser = owpUDF_On_deleteUser(array("userID" => (int)$userID, "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+                $owpUDF_On_deleteUser = owpUDF_On_deleteUser(array("userID" => (int)$userID, "db" => $this->ezSqlDB));
                 if ($owpUDF_On_deleteUser) {
                     throw new Exception((string)$owpUDF_On_deleteUser, 30);
                 }
@@ -599,11 +593,9 @@ class OwpUsers
             $a1 = $this->get_user_record_noMeta(" WHERE tbl_ser.userID = " . (int)$this->userID());
             $a2 = $this->getUserMetaData((int)$this->userID());
             $_SESSION["userData"] = array_merge($a1, $a2);
-            $this->firephp->log($_SESSION["userData"], "refresh_user_session");
 
             return true;
         }
-        $this->firephp->log("Not Logged In", "refresh_user_session");
 
         return false;
     }
@@ -630,7 +622,6 @@ class OwpUsers
                 LIMIT 1";
 
             $result = $this->ezSqlDB->get_var($query_sql);
-            $this->firephp->log(array("userID" => (int)$this->userID(), "db_match" => ((int)$result) ? "Yes" : "No"), "sanityCheck");
 
             if ((int)$result === 0) {
                 $this->logOut();
@@ -661,7 +652,7 @@ class OwpUsers
     {
         // Execute owpUDF_On_logOut user defined function
         if (function_exists("owpUDF_On_logOut")) {
-            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_logOut) {
                 throw new Exception($owpUDF_On_logOut, 30);
             }
@@ -732,7 +723,7 @@ class OwpUsers
 
         // Execute owpUDF_On_setStatusID user defined function
         if (function_exists("owpUDF_On_setStatusID")) {
-            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_setStatusID) {
                 throw new Exception($owpUDF_On_setStatusID, 30);
             }
@@ -773,7 +764,7 @@ class OwpUsers
 
         // Execute owpUDF_On_updatePassword user defined function
         if (function_exists("owpUDF_On_updatePassword")) {
-            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_updatePassword) {
                 throw new Exception($owpUDF_On_updatePassword, 30);
             }
@@ -847,8 +838,6 @@ class OwpUsers
         unset($core_keys["userID"]);
         $meta_keys = array_diff_key($data_array, $current_user_row);
 
-        $this->firephp->log(array($current_user_row, $core_keys, $meta_keys), 'Keys');
-
         $ck_sql_array = array();
         if ($core_keys) {
             foreach ($core_keys as $ckc => $ckv) {
@@ -892,7 +881,7 @@ class OwpUsers
 
             // Execute owpUDF_On_updateUser user defined function
             if (function_exists("owpUDF_On_updateUser")) {
-                $owpUDF_On_updateUser = owpUDF_On_updateUser(array("userID" => (int)$userID, "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+                $owpUDF_On_updateUser = owpUDF_On_updateUser(array("userID" => (int)$userID, "db" => $this->ezSqlDB));
                 if ($owpUDF_On_updateUser) {
                     throw new Exception($owpUDF_On_updateUser, 30);
                 }
@@ -948,7 +937,6 @@ class OwpUsers
 
         if ($exists) {
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
-            $this->firephp->log(array("val_pass" => ($val_pass === true ? "OK" : "Bad")));
 
             if ($val_pass === true) {
                 return $this->userID();
@@ -981,8 +969,6 @@ class OwpUsers
 
         $get_user_info_row = $this->get_user_info_row($where_statement);
 
-        $this->firephp->log($get_user_info_row, "OwpUsers->userLoginCore()");
-
         if ($get_user_info_row) {
             $_SESSION["userData"] = $get_user_info_row;
 
@@ -990,7 +976,7 @@ class OwpUsers
 
             // Execute owpUDF_On_userLoginCore user defined function
             if (function_exists("owpUDF_On_userLoginCore")) {
-                owpUDF_On_userLoginCore(array("userID" => (int)$get_user_info_row["userID"], "db" => $this->ezSqlDB, "firephp" => $this->firephp));
+                owpUDF_On_userLoginCore(array("userID" => (int)$get_user_info_row["userID"], "db" => $this->ezSqlDB));
             }
 
             return true;

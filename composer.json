@@ -24,7 +24,6 @@
         "ext-curl": "*",
         "vlucas/phpdotenv": "^2.4",
         "guzzlehttp/guzzle": "~6.0",
-        "firephp/firephp-core": "^0.4.0",
         "jv2222/ezsql": "dev-master",
         "phpmailer/phpmailer": "^5.2",
         "squeaky-minds/squeaky-minds-php-helper": "^1.2.0",

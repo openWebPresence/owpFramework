@@ -59,11 +59,6 @@ class OwpBaseFramework
     protected $ezSqlDB;
 
     /**
-     * @var object $firephp The FirePHP debugging libray.
-     */
-    protected $firephp;
-
-    /**
      * @var string $current_web_root The web root url.
      */
     protected $current_web_root;
@@ -173,29 +168,6 @@ class OwpBaseFramework
 		 */
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
 
-        if($this->debug) {
-            file_put_contents(ROOT_PATH . 'logs' . DIRECTORY_SEPARATOR . 'errors.log', "\n\n[" . date(DATE_RFC2822) . " - " . $this->uuid . "]\n\n", FILE_APPEND);
-        }
-
-        $this->firephp = new OwpFirePHP();
-        $this->firephp->getInstance(true);
-        $this->firephp->setEnabled((bool)$this->debug);
-
-        if((bool)$this->debug) {
-            $this->firephp->registerErrorHandler($throwErrorExceptions = true);
-            $this->firephp->registerExceptionHandler();
-            $this->firephp->registerAssertionHandler($convertAssertionErrorsToExceptions = true, $throwAssertionExceptions = false);
-
-            $this->firephp->group('Initial State');
-            $this->firephp->log($_GET, '_GET');
-            $this->firephp->log($_POST, '_POST');
-            $this->firephp->log($_SESSION, '_SESSION');
-            $this->firephp->log($_SERVER, '_SERVER');
-            $this->firephp->log(session_id(), 'session_id');
-            $this->firephp->log($this->uuid, 'uuid');
-            $this->firephp->groupEnd();
-        }
-
         /*
 		 * Init the database class
 		 */
@@ -209,7 +181,6 @@ class OwpBaseFramework
          */
         $this->frameworkObject = array(
             "ezSqlDB" => (object)$this->ezSqlDB,
-            "firephp" => (object)$this->firephp,
             "mod_data" => (array)$this->mod_data,
             "current_web_root" => (string)$this->current_web_root,
             "root_path" => (string)$this->root_path,
@@ -250,27 +221,8 @@ class OwpBaseFramework
             }
             if(class_exists($modFileIncludeName)) {
                 $this->modAvailableMethods = get_class_methods($this->modMethods);
-                $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
             }
         }
-    }
-
-    /**
-     * Destructor
-     *
-     * @method void __destruct()
-     * @access public
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    function __destruct() 
-    {
-        $this->firephp->group('Completion State');
-        $this->firephp->log($this->debugging, 'Debugging');
-        $this->firephp->log($this->ezSqlDB->captured_errors, 'MySQL Errors');
-
-        $this->firephp->groupEnd();
     }
 
     /**
@@ -433,8 +385,6 @@ class OwpBaseFramework
                 $this->mod_data = $tmpClass->process();
             }
         }
-
-        $this->firephp->log($mods, 'framework->mod()');
     }
 
     /**
@@ -456,10 +406,6 @@ class OwpBaseFramework
     public function processAction()
     {
 
-        /*
-		 * Process the request
-		 */
-        $this->firephp->group('Process State');
 
         switch($this->requested_action) {
         default:
@@ -470,12 +416,10 @@ class OwpBaseFramework
             $this->loadFooter();
             break;
         case "ajax":
-            ob_clean();
 
             /*
-             * Dynamic OwpAjaxUdf include
-             */
-
+            * Dynamic OwpAjaxUdf include
+            */
             $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
             include $modAjaxFileLocation;
             $this->OwpAjaxUdf = new OwpAjaxUdf();
@@ -488,8 +432,5 @@ class OwpBaseFramework
 
             break;
         }
-
-        $this->firephp->groupEnd();
-        return;
     }
 }

@@ -29,18 +29,15 @@ class OwpEzSqlMysqli extends ezSQL_mysqli
     /**
      * MySQLFirephp()
      *
-     * @method mixed MySQLFirephp($firephp, $title) Integrate FirePHP debugging into the EzSQL MySQLi abstraction layer.
+     * @method mixed MySQLFirephp($title) Integrate FirePHP debugging into the EzSQL MySQLi abstraction layer.
      * @access public
      *
-     * @param object $firephp Traditional FirePHPCore library for sending PHP variables to the browser.
-     * @param string $title   Optional title.
-     *
-     * @uses firephp::table() FirePHPCore table method.
+     * @param string $title Optional title.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function MySQLFirephp($firephp, $title = "ezSql Debug") 
+    public function MySQLFirephp($title = "ezSql Debug")
     {
             
         $table   = array();
@@ -56,7 +53,6 @@ class OwpEzSqlMysqli extends ezSQL_mysqli
             $table[] = array('Col Info', $this->col_info);
         }
         $table[] = array('Last Result', ($this->last_result?$this->get_results(null, ARRAY_A):"No Results"));
-        $firephp->table($title, $table);
 
         $this->debug_called = true;
     }

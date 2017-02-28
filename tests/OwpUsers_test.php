@@ -27,9 +27,7 @@ if (!isset($_SESSION)) $_SESSION = array();
 
 class OwpUsers_test extends TestCase
 {
-    public static $firephp = null;
     public static $db = null;
-
     public static $passwd = null;
     public static $passwdSecond = null;
     public static $uuid = null;
@@ -40,15 +38,11 @@ class OwpUsers_test extends TestCase
     public static $userID;
     public static $root_path;
     public static $lostPassUUID = null;
-
     public static $shared_session = array();
-
     public static $frameworkObject = array();
 
     public static function setUpBeforeClass()
     {
-        self::$firephp = FirePHP::getInstance(true);
-        self::$firephp->setEnabled(false);
 
         /*
 		 * Init the database class
@@ -100,7 +94,6 @@ class OwpUsers_test extends TestCase
 
         self::$frameworkObject = array(
             "ezSqlDB" => (object)self::$db,
-            "firephp" => (object)self::$firephp,
             "mod_data" => array(),
             "current_web_root" => (string)self::$current_web_root,
             "root_path" => (string)self::$root_path,
