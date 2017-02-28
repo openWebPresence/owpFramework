@@ -75,31 +75,31 @@ class OwpUsers
     protected $owp_SupportMethods;
 
     /**
+     * @var object $SqueakyMindsPhpHelper SqueakyMindsPhpHelper support methods
+     */
+    protected $SqueakyMindsPhpHelper;
+
+    /**
      * Constructor
      *
      * @method void __construct()
      * @access public
      *
-     * @param object $owp_SupportMethods owp_SupportMethods Object
-     * @param object $ezSqlDB            ezSQL Database Object
-     * @param object $firephp            FirePHP debugging library
-     * @param string $current_web_root   The web root url
-     * @param string $root_path          The root file path.
-     * @param string $requested_action   The requested action.
-     * @param string $uuid               Set the root file path.
+     * @param object $frameworkObject owp_SupportMethods Object
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($owp_SupportMethods, $ezSqlDB, $firephp, $current_web_root, $root_path, $requested_action, $uuid)
+    public function __construct($frameworkObject)
     {
-        $this->owp_SupportMethods = $owp_SupportMethods;
-        $this->ezSqlDB = $ezSqlDB;
-        $this->firephp = $firephp;
-        $this->current_web_root = $current_web_root;
-        $this->root_path = $root_path;
-        $this->requested_action = $requested_action;
-        $this->uuid = $uuid;
+        $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
+        $this->ezSqlDB = $frameworkObject["ezSqlDB"];
+        $this->firephp = $frameworkObject["firephp"];
+        $this->current_web_root = $frameworkObject["current_web_root"];
+        $this->root_path = $frameworkObject["root_path"];
+        $this->requested_action = $frameworkObject["requested_action"];
+        $this->uuid = $frameworkObject["uuid"];
+        $this->SqueakyMindsPhpHelper = $frameworkObject["SqueakyMindsPhpHelper"];
     }
 
     /**
@@ -200,7 +200,7 @@ class OwpUsers
                 tbl_users.user_last_login_datetime = SYSDATE(),
                 tbl_users.login_count = 0,
                 tbl_users.welcome_email_sent = " . (int)$data_array["welcome_email_sent"] . ",
-                tbl_users.uuid = '" . $this->owp_SupportMethods->uuid() . "',
+                tbl_users.uuid = '" . $this->SqueakyMindsPhpHelper->uuid() . "',
                 tbl_users.reset_pass_uuid = NULL,
                 tbl_users.user_ip = NULL";
 
@@ -210,7 +210,7 @@ class OwpUsers
 
         if (!$this->userID) {
             $this->ezSqlDB->query('ROLLBACK');
-            throw new Exception("Insert tbl_users failed: " . $this->ezSqlDB->owpGetLastMysqlError(), 10);
+            throw new Exception("Insert tbl_users failed: " . $this->ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
 
         $query_sql = "
@@ -221,7 +221,7 @@ class OwpUsers
 
         if (!$current_user_row) {
             $this->ezSqlDB->query('ROLLBACK');
-            throw new Exception("Get user failed: " . $this->ezSqlDB->owpGetLastMysqlError(), 10);
+            throw new Exception("Get user failed: " . $this->ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
 
         $core_keys = $current_user_row;
@@ -258,7 +258,7 @@ class OwpUsers
         } else {
             // transaction failed, rollback
             $this->ezSqlDB->query('ROLLBACK');
-            throw new Exception("Transaction failed: " . $this->ezSqlDB->owpGetLastMysqlError(), 10);
+            throw new Exception("Transaction failed: " . $this->ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
     }
 
@@ -467,6 +467,30 @@ class OwpUsers
     {
         if (isset($_SESSION["userData"])) {
             return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * get_user_record_byEMAIL
+     *
+     * @method mixed get_user_record_byEMAIL($email) Retrieve a user's data (with meta) based on email, without setting a session
+     * @access public
+     *
+     * @param string $email The string Existing Email
+     *
+     * @return mixed User array or false on failure
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function get_user_record_byEMAIL($email)
+    {
+        $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.email = '" . $email . "'");
+
+        if ($get_user_record_noMeta) {
+            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
         } else {
             return false;
         }
@@ -760,7 +784,7 @@ class OwpUsers
         } else {
             // transaction failed, rollback
             $this->ezSqlDB->query('ROLLBACK');
-            $this->errors[] = array("message" => "updatePassword: transaction failed, rollback.", "details" => array("last_mysql_error" => $this->ezSqlDB->owpGetLastMysqlError()));
+            $this->errors[] = array("message" => "updatePassword: transaction failed, rollback.", "details" => array("last_mysql_error" => $this->ezSqlDB->MySQLFirephpGetLastMysqlError()));
 
             return false;
         }
@@ -810,7 +834,7 @@ class OwpUsers
         $current_user_row = $this->ezSqlDB->get_row($query_sql, ARRAY_A);
 
         if (!$current_user_row) {
-            $this->errors[] = array("message" => "updateUser: current_user_row SELECT tbl_users failed.", "details" => array("query_sql" => $query_sql, "last_mysql_error" => $this->ezSqlDB->owpGetLastMysqlError()));
+            $this->errors[] = array("message" => "updateUser: current_user_row SELECT tbl_users failed.", "details" => array("query_sql" => $query_sql, "last_mysql_error" => $this->ezSqlDB->MySQLFirephpGetLastMysqlError()));
 
             throw new InvalidArgumentException("Invalid userID " . (int)$userID, 10);
         }
@@ -878,7 +902,7 @@ class OwpUsers
         } else {
             // transaction failed, rollback
             $this->ezSqlDB->query('ROLLBACK');
-            $this->errors[] = array("message" => "updateUser: transaction failed, rollback.", "details" => array("last_mysql_error" => $this->ezSqlDB->owpGetLastMysqlError()));
+            $this->errors[] = array("message" => "updateUser: transaction failed, rollback.", "details" => array("last_mysql_error" => $this->ezSqlDB->MySQLFirephpGetLastMysqlError()));
 
             return false;
         }
@@ -1027,6 +1051,33 @@ class OwpUsers
         $query_sql .= "	LIMIT 1";
 
         return $this->ezSqlDB->get_row($query_sql, ARRAY_A);
+    }
+
+    /**
+     * updateUserAdminRights
+     *
+     * @method updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) Updating the login counter as well as the user's current IP address
+     * @access public
+     *
+     * @param int $userID   New or Existing userID
+     * @param int $is_admin (optional) Designate as an admin
+     * @param int $hide_ads (optional) Hide ads
+     * @param int $is_dev   (optional) Enable dev features
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0)
+    {
+        $this->ezSqlDB->query(
+            "
+            REPLACE INTO tbl_users_rights
+            SET tbl_users_rights.userID = " . (int)$userID . ",
+                tbl_users_rights.is_admin = " . (int)$is_admin . ",
+                tbl_users_rights.hide_ads = " . (int)$hide_ads . ",
+                tbl_users_rights.is_dev = " . (int)$is_dev . "
+            "
+        );
     }
 
     /**

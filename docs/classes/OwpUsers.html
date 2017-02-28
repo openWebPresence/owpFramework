@@ -79,6 +79,7 @@
 <li class="method public "><a href="#method_genPasswdHash" title="genPasswdHash() :: genPasswdHash"><span class="description">genPasswdHash</span><pre>genPasswdHash()</pre></a></li>
 <li class="method public "><a href="#method_getUserIDViaLostPassUUID" title="getUserIDViaLostPassUUID() :: getUserIDViaLostPassUUID"><span class="description">getUserIDViaLostPassUUID</span><pre>getUserIDViaLostPassUUID()</pre></a></li>
 <li class="method public "><a href="#method_getUserMetaData" title="getUserMetaData() :: getUserMetaData"><span class="description">getUserMetaData</span><pre>getUserMetaData()</pre></a></li>
+<li class="method public "><a href="#method_get_user_record_byEMAIL" title="get_user_record_byEMAIL() :: get_user_record_byEMAIL"><span class="description">get_user_record_byEMAIL</span><pre>get_user_record_byEMAIL()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_byID" title="get_user_record_byID() :: get_user_record_byID"><span class="description">get_user_record_byID</span><pre>get_user_record_byID()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_byID_noMeta" title="get_user_record_byID_noMeta() :: get_user_record_byID_noMeta"><span class="description">get_user_record_byID_noMeta</span><pre>get_user_record_byID_noMeta()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_noMeta" title="get_user_record_noMeta() :: get_user_record_noMeta"><span class="description">get_user_record_noMeta</span><pre>get_user_record_noMeta()</pre></a></li>
@@ -92,6 +93,7 @@
 <li class="method public "><a href="#method_updateLoginCount" title="updateLoginCount() :: updateLoginCount"><span class="description">updateLoginCount</span><pre>updateLoginCount()</pre></a></li>
 <li class="method public "><a href="#method_updatePassword" title="updatePassword() :: updatePassword"><span class="description">updatePassword</span><pre>updatePassword()</pre></a></li>
 <li class="method public "><a href="#method_updateUser" title="updateUser() :: updateUser"><span class="description">updateUser</span><pre>updateUser()</pre></a></li>
+<li class="method public "><a href="#method_updateUserAdminRights" title="updateUserAdminRights() :: updateUserAdminRights"><span class="description">updateUserAdminRights</span><pre>updateUserAdminRights()</pre></a></li>
 <li class="method public "><a href="#method_userData" title="userData() :: userData"><span class="description">userData</span><pre>userData()</pre></a></li>
 <li class="method public "><a href="#method_userDataItem" title="userDataItem() :: userDataItem"><span class="description">userDataItem</span><pre>userDataItem()</pre></a></li>
 <li class="method public "><a href="#method_userExistsViaEmail" title="userExistsViaEmail() :: userExistsViaEmail"><span class="description">userExistsViaEmail</span><pre>userExistsViaEmail()</pre></a></li>
@@ -121,6 +123,7 @@
 </li>
 <li class="nav-header protected">» Protected
                     <ul>
+<li class="property protected "><a href="#property_SqueakyMindsPhpHelper" title="$SqueakyMindsPhpHelper() :: "><span class="description">SqueakyMindsPhpHelper support methods</span><pre>$SqueakyMindsPhpHelper</pre></a></li>
 <li class="property protected "><a href="#property_current_web_root" title="$current_web_root() :: "><span class="description">The web root url</span><pre>$current_web_root</pre></a></li>
 <li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">ezSQL Database Object</span><pre>$ezSqlDB</pre></a></li>
 <li class="property protected "><a href="#property_firephp" title="$firephp() :: "><span class="description">FirePHP debugging libray</span><pre>$firephp</pre></a></li>
@@ -150,7 +153,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Constructor</h2>
-<pre>__construct(object $owp_SupportMethods, object $ezSqlDB, object $firephp, string $current_web_root, string $root_path, string $requested_action, string $uuid) </pre>
+<pre>__construct(object $frameworkObject) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -174,26 +177,8 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$owp_SupportMethods</h4>
+<h4>$frameworkObject</h4>
 <code>object</code><p>owp_SupportMethods Object</p></div>
-<div class="subelement argument">
-<h4>$ezSqlDB</h4>
-<code>object</code><p>ezSQL Database Object</p></div>
-<div class="subelement argument">
-<h4>$firephp</h4>
-<code>object</code><p>FirePHP debugging library</p></div>
-<div class="subelement argument">
-<h4>$current_web_root</h4>
-<code>string</code><p>The web root url</p></div>
-<div class="subelement argument">
-<h4>$root_path</h4>
-<code>string</code><p>The root file path.</p></div>
-<div class="subelement argument">
-<h4>$requested_action</h4>
-<code>string</code><p>The requested action.</p></div>
-<div class="subelement argument">
-<h4>$uuid</h4>
-<code>string</code><p>Set the root file path.</p></div>
 </div></div>
 </div>
 <a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo " data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
@@ -450,6 +435,39 @@
 <code>integer</code><p>Existing userID</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_get_user_record_byEMAIL"></a><div class="element clickable method public method_get_user_record_byEMAIL " data-toggle="collapse" data-target=".method_get_user_record_byEMAIL .collapse" title="public">
+<h2>get_user_record_byEMAIL</h2>
+<pre>get_user_record_byEMAIL(string $email) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Retrieve a user's data (with meta) based on email, without setting a session</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$email</h4>
+<code>string</code><p>The string Existing Email</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>mixed</code>User array or false on failure</div>
 </div></div>
 </div>
 <a id="method_get_user_record_byID"></a><div class="element clickable method public method_get_user_record_byID " data-toggle="collapse" data-target=".method_get_user_record_byID .collapse" title="public">
@@ -908,6 +926,45 @@
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
+<a id="method_updateUserAdminRights"></a><div class="element clickable method public method_updateUserAdminRights " data-toggle="collapse" data-target=".method_updateUserAdminRights .collapse" title="public">
+<h2>updateUserAdminRights</h2>
+<pre>updateUserAdminRights(integer $userID, integer $is_admin<code> = 0</code>, integer $hide_ads<code> = 0</code>, integer $is_dev<code> = 0</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Updating the login counter as well as the user's current IP address</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$userID</h4>
+<code>integer</code><p>New or Existing userID</p></div>
+<div class="subelement argument">
+<h4>$is_admin</h4>
+<code>integer</code><p>(optional) Designate as an admin</p></div>
+<div class="subelement argument">
+<h4>$hide_ads</h4>
+<code>integer</code><p>(optional) Hide ads</p></div>
+<div class="subelement argument">
+<h4>$is_dev</h4>
+<code>integer</code><p>(optional) Enable dev features</p></div>
+</div></div>
+</div>
 <a id="method_userData"></a><div class="element clickable method public method_userData " data-toggle="collapse" data-target=".method_userData .collapse" title="public">
 <h2>userData</h2>
 <pre>userData() : mixed</pre>
@@ -1324,6 +1381,16 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_SqueakyMindsPhpHelper"> </a><div class="element clickable property protected property_SqueakyMindsPhpHelper" data-toggle="collapse" data-target=".property_SqueakyMindsPhpHelper .collapse" title="protected">
+<h2>SqueakyMindsPhpHelper support methods</h2>
+<pre>$SqueakyMindsPhpHelper : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_current_web_root"> </a><div class="element clickable property protected property_current_web_root" data-toggle="collapse" data-target=".property_current_web_root .collapse" title="protected">
 <h2>The web root url</h2>
 <pre>$current_web_root : string</pre>
@@ -1371,7 +1438,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-02-27T16:13:39-05:00.<br></footer></div>
+            generated on 2017-02-27T22:41:33-05:00.<br></footer></div>
 </div>
 </body>
 </html>

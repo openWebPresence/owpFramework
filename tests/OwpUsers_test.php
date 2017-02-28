@@ -43,7 +43,9 @@ class OwpUsers_test extends TestCase
 
     public static $shared_session = array();
 
-    public static function setUpBeforeClass() 
+    public static $frameworkObject = array();
+
+    public static function setUpBeforeClass()
     {
         self::$firephp = FirePHP::getInstance(true);
         self::$firephp->setEnabled(false);
@@ -63,10 +65,6 @@ class OwpUsers_test extends TestCase
         self::$uuid = $owp_SupportMethods->uuid();
 
         $requested_action = "home";
-
-        self::$owpUsers = new OwpUsers($owp_SupportMethods, self::$db, self::$firephp, self::$current_web_root, self::$root_path, $requested_action, self::$uuid);
-
-        // $owp_SupportMethods, $ezSqlDB, $firephp, $current_web_root, $root_path, $requested_action, $uuid
 
 
         self::$passwd = $owp_SupportMethods->randomPasswordAlphaNum(10);
@@ -99,14 +97,28 @@ class OwpUsers_test extends TestCase
             'is_dev' => null,
             "phpUnit" => "uuid: " . self::$uuid
         );
+
+        self::$frameworkObject = array(
+            "ezSqlDB" => (object)self::$db,
+            "firephp" => (object)self::$firephp,
+            "mod_data" => array(),
+            "current_web_root" => (string)self::$current_web_root,
+            "root_path" => (string)self::$root_path,
+            "OwpSupportMethods" => (object)$owp_SupportMethods,
+            "requested_action" => (string)$requested_action,
+            "uuid" => (string)self::$uuid,
+            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper()
+        );
+
+        self::$owpUsers = new OwpUsers(self::$frameworkObject);
     }
 
-    protected function setUp() 
+    protected function setUp()
     {
         $_SESSION = owpUsers_test::$shared_session;
     }
 
-    public function tearDown() 
+    public function tearDown()
     {
         owpUsers_test::$shared_session = $_SESSION;
     }
@@ -115,7 +127,7 @@ class OwpUsers_test extends TestCase
      * @expectedException Exception
      * @covers OwpUsers::addUser
      */
-    public function testAddUserFromInValidData() 
+    public function testAddUserFromInValidData()
     {
         $copyOfData = self::$createUserTestData;
         $copyOfData["email"] = "bademail";
@@ -125,7 +137,7 @@ class OwpUsers_test extends TestCase
     /**
      * @covers OwpUsers::addUser
      */
-    public function testAddUserFromValidData() 
+    public function testAddUserFromValidData()
     {
         self::$userID = self::$owpUsers->addUser(self::$createUserTestData);
 
@@ -140,7 +152,7 @@ class OwpUsers_test extends TestCase
      * @covers OwpUsers::userLoginViaUserID
      * @covers OwpUsers::userData
      */
-    public function testUserLoginViaUserID() 
+    public function testUserLoginViaUserID()
     {
         self::$owpUsers->userLoginViaUserID(self::$userID);
         $userDataRow = self::$owpUsers->userData(self::$userID);
@@ -162,7 +174,7 @@ class OwpUsers_test extends TestCase
      * @depends testUserLoginViaUserID
      * @covers OwpUsers::logOut
      */
-    public function testLogOut() 
+    public function testLogOut()
     {
         $this->assertEquals(
             false,
@@ -174,7 +186,7 @@ class OwpUsers_test extends TestCase
      * @depends testAddUserFromValidData
      * @covers OwpUsers::userLogin
      */
-    public function testUserLogin() 
+    public function testUserLogin()
     {
         self::$owpUsers->userLogin(self::$createUserTestData["email"], self::$passwd);
         $this->assertEquals(self::$owpUsers->userID(), self::$userID);
@@ -184,7 +196,7 @@ class OwpUsers_test extends TestCase
      * @depends testUserLogin
      * @covers OwpUsers::isLoggedIn
      */
-    public function testIsLoggedIn() 
+    public function testIsLoggedIn()
     {
         $this->assertTrue(self::$owpUsers->isLoggedIn());
     }
@@ -195,7 +207,7 @@ class OwpUsers_test extends TestCase
      * @covers OwpUsers::logOut
      * @covers OwpUsers::userLogin
      */
-    public function testUpdatePassword() 
+    public function testUpdatePassword()
     {
         self::$owpUsers->isLoggedIn();
         self::$owpUsers->updatePassword(self::$passwdSecond, self::$userID);
@@ -210,7 +222,7 @@ class OwpUsers_test extends TestCase
      * @covers OwpUsers::logOut
      * @covers OwpUsers::setLostPassUUID
      */
-    public function testSetLostPassUUID() 
+    public function testSetLostPassUUID()
     {
         self::$owpUsers->logOut();
         $rowBefore = self::$owpUsers->get_user_record_byID_noMeta(self::$userID);
@@ -224,7 +236,7 @@ class OwpUsers_test extends TestCase
      * @depends testSetLostPassUUID
      * @covers OwpUsers::getUserIDViaLostPassUUID
      */
-    public function testGetUserIDViaLostPassUUID() 
+    public function testGetUserIDViaLostPassUUID()
     {
         $lpUserID = self::$owpUsers->getUserIDViaLostPassUUID(self::$lostPassUUID);
         $this->assertEquals($lpUserID, self::$userID);
@@ -235,7 +247,7 @@ class OwpUsers_test extends TestCase
      * @covers OwpUsers::clearLostPassUUID
      * @covers OwpUsers::userLoginViaUserID
      */
-    public function testClearLostPassUUID() 
+    public function testClearLostPassUUID()
     {
         $activeStatusID = 2;
         self::$owpUsers->clearLostPassUUID(self::$userID, $activeStatusID);
@@ -249,7 +261,7 @@ class OwpUsers_test extends TestCase
      * @depends testAddUserFromValidData
      * @covers OwpUsers::updateUser
      */
-    public function testUpdateUser() 
+    public function testUpdateUser()
     {
         $dataArray = array(
             "NewUpdateMetaColumn"=>"123",
@@ -261,8 +273,8 @@ class OwpUsers_test extends TestCase
 
         $this->assertEquals(
             $dataArray, array(
-            "NewUpdateMetaColumn"=>$rowAfter["NewUpdateMetaColumn"],
-            "phpUnit"=>$rowAfter["phpUnit"]
+                "NewUpdateMetaColumn"=>$rowAfter["NewUpdateMetaColumn"],
+                "phpUnit"=>$rowAfter["phpUnit"]
             )
         );
     }
@@ -271,7 +283,7 @@ class OwpUsers_test extends TestCase
      * @depends testAddUserFromValidData
      * @covers OwpUsers::userExistsViaEmail
      */
-    public function testUserExistsViaEmail() 
+    public function testUserExistsViaEmail()
     {
         $this->assertTrue(self::$owpUsers->userExistsViaEmail(self::$createUserTestData["email"]));
     }
@@ -280,7 +292,7 @@ class OwpUsers_test extends TestCase
      * @depends testAddUserFromValidData
      * @covers OwpUsers::updateLoginCount
      */
-    public function testUpdateLoginCount() 
+    public function testUpdateLoginCount()
     {
         $rowBefore = self::$owpUsers->get_user_record_byID_noMeta(self::$userID);
         self::$owpUsers->updateLoginCount(self::$userID);
@@ -292,7 +304,7 @@ class OwpUsers_test extends TestCase
      * @depends testAddUserFromValidData
      * @covers OwpUsers::deleteUser
      */
-    public function testDeleteUser() 
+    public function testDeleteUser()
     {
         $this->assertTrue(self::$owpUsers->deleteUser(self::$userID));
     }

@@ -74,6 +74,7 @@
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: Debug"><span class="description">Debug</span><pre>__debugInfo()</pre></a></li>
 <li class="method public "><a href="#method___destruct" title="__destruct() :: Destructor"><span class="description">Destructor</span><pre>__destruct()</pre></a></li>
+<li class="method public "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header protected">» Protected
@@ -86,7 +87,6 @@
 <li class="method private "><a href="#method_loadHeader" title="loadHeader() :: loadHeader()"><span class="description">loadHeader()</span><pre>loadHeader()</pre></a></li>
 <li class="method private "><a href="#method_loadNav" title="loadNav() :: loadNav()"><span class="description">loadNav()</span><pre>loadNav()</pre></a></li>
 <li class="method private "><a href="#method_loadTemplate" title="loadTemplate() :: loadTemplate()"><span class="description">loadTemplate()</span><pre>loadTemplate()</pre></a></li>
-<li class="method private "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -95,6 +95,7 @@
 <li class="property public "><a href="#property_debug" title="$debug() :: "><span class="description">Is debugging enabled by default.</span><pre>$debug</pre></a></li>
 <li class="property public "><a href="#property_debugging" title="$debugging() :: "><span class="description">Debugging array.</span><pre>$debugging</pre></a></li>
 <li class="property public "><a href="#property_default_action" title="$default_action() :: "><span class="description">Default action.</span><pre>$default_action</pre></a></li>
+<li class="property public "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework Class Object.</span><pre>$frameworkObject</pre></a></li>
 <li class="property public "><a href="#property_modAvailableMethods" title="$modAvailableMethods() :: "><span class="description">Mod methods available.</span><pre>$modAvailableMethods</pre></a></li>
 <li class="property public "><a href="#property_modMethods" title="$modMethods() :: "><span class="description">Mod methods object.</span><pre>$modMethods</pre></a></li>
 <li class="property public "><a href="#property_requested_action" title="$requested_action() :: "><span class="description">The requested action.</span><pre>$requested_action</pre></a></li>
@@ -114,7 +115,6 @@
 <li class="property protected "><a href="#property_current_web_root" title="$current_web_root() :: "><span class="description">The web root url.</span><pre>$current_web_root</pre></a></li>
 <li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">The ezSQL Database Object.</span><pre>$ezSqlDB</pre></a></li>
 <li class="property protected "><a href="#property_firephp" title="$firephp() :: "><span class="description">The FirePHP debugging libray.</span><pre>$firephp</pre></a></li>
-<li class="property protected "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework Class Object.</span><pre>$frameworkObject</pre></a></li>
 <li class="property protected "><a href="#property_mod_data" title="$mod_data() :: "><span class="description">Modifier method data storage.</span><pre>$mod_data</pre></a></li>
 <li class="property protected "><a href="#property_userClass" title="$userClass() :: "><span class="description">ezSQL Database Object.</span><pre>$userClass</pre></a></li>
 </ul>
@@ -223,6 +223,61 @@
 <td>1.0</td>
 </tr>
 </table>
+</div></div>
+</div>
+<a id="method_processAction"></a><div class="element clickable method public method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="public">
+<h2>processAction()</h2>
+<pre>processAction() </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Process the framework action.</td>
+</tr>
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="%24this-&gt;mod()"></a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="%24this-&gt;loadTemplate()"></a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="%24this-&gt;loadHeader()"></a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="%24this-&gt;loadNav()"></a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="%24this-&gt;loadFooter();"></a></td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="OwpAjaxUdf::processAction();"></a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>User class OwpAjaxUdf() does not exist.</td>
+</tr></table>
 </div></div>
 </div>
 <a id="method_mod"></a><div class="element clickable method protected method_mod " data-toggle="collapse" data-target=".method_mod .collapse" title="protected">
@@ -412,61 +467,6 @@
 <code>string</code><p>Sub Directory</p></div>
 </div></div>
 </div>
-<a id="method_processAction"></a><div class="element clickable method private method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="private">
-<h2>processAction()</h2>
-<pre>processAction() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Process the framework action.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;mod()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadTemplate()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadHeader()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadNav()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadFooter();"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="OwpAjaxUdf::processAction();"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>User class OwpAjaxUdf() does not exist.</td>
-</tr></table>
-</div></div>
-</div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
 <a id="property_debug"> </a><div class="element clickable property public property_debug" data-toggle="collapse" data-target=".property_debug .collapse" title="public">
@@ -495,6 +495,16 @@
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>"home"</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_frameworkObject"> </a><div class="element clickable property public property_frameworkObject" data-toggle="collapse" data-target=".property_frameworkObject .collapse" title="public">
+<h2>Framework Class Object.</h2>
+<pre>$frameworkObject : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
 </div></div>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
@@ -649,16 +659,6 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_frameworkObject"> </a><div class="element clickable property protected property_frameworkObject" data-toggle="collapse" data-target=".property_frameworkObject .collapse" title="protected">
-<h2>Framework Class Object.</h2>
-<pre>$frameworkObject : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 <a id="property_mod_data"> </a><div class="element clickable property protected property_mod_data" data-toggle="collapse" data-target=".property_mod_data .collapse" title="protected">
 <h2>Modifier method data storage.</h2>
 <pre>$mod_data : object</pre>
@@ -686,7 +686,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-02-27T16:13:39-05:00.<br></footer></div>
+            generated on 2017-02-27T22:41:33-05:00.<br></footer></div>
 </div>
 </body>
 </html>

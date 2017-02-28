@@ -116,7 +116,7 @@ class OwpBaseFramework
     /**
      * @var object $frameworkObject Framework Class Object.
      */
-    protected $frameworkObject;
+    public $frameworkObject;
 
     /**
      * Constructor
@@ -196,8 +196,6 @@ class OwpBaseFramework
             $this->firephp->groupEnd();
         }
 
-        $this->firephp->group('Process State');
-
         /*
 		 * Init the database class
 		 */
@@ -207,25 +205,29 @@ class OwpBaseFramework
         $this->ezSqlDB->hide_errors();
 
         /*
-         * Load the user class
-         */
-        $this->userClass = new OwpUsers($this->OwpSupportMethods, $this->ezSqlDB, $this->firephp, $this->current_web_root, $this->root_path, $this->requested_action, $this->uuid);
-
-
-        /*
          * Create an object reference to pass to user defined class libraries.
          */
         $this->frameworkObject = array(
-            "ezSqlDB" => $this->ezSqlDB,
-            "firephp" => $this->firephp,
-            "userClass" => $this->userClass,
-            "mod_data" => $this->mod_data,
-            "current_web_root" => $this->current_web_root,
-            "root_path" => $this->root_path,
-            "OwpSupportMethods" => $this->OwpSupportMethods,
-            "requested_action" => $this->requested_action,
-            "uuid" => $this->uuid
+            "ezSqlDB" => (object)$this->ezSqlDB,
+            "firephp" => (object)$this->firephp,
+            "mod_data" => (array)$this->mod_data,
+            "current_web_root" => (string)$this->current_web_root,
+            "root_path" => (string)$this->root_path,
+            "OwpSupportMethods" => (object)$this->OwpSupportMethods,
+            "requested_action" => (string)$this->requested_action,
+            "uuid" => (string)$this->uuid,
+            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper()
         );
+
+        /*
+         * Load the user class
+         */
+        $this->userClass = new OwpUsers($this->frameworkObject);
+
+        /*
+         * Add it to the $frameworkObject array.
+         */
+        $this->frameworkObject["userClass"] = $this->userClass;
 
         /*
          * Dynamic OwpCommon include
@@ -251,12 +253,6 @@ class OwpBaseFramework
                 $this->firephp->log($this->modAvailableMethods, 'modAvailableMethods');
             }
         }
-
-        /*
-		 * Process the request
-		 */
-        $this->processAction();
-        $this->firephp->groupEnd();
     }
 
     /**
@@ -457,8 +453,14 @@ class OwpBaseFramework
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function processAction()
+    public function processAction()
     {
+
+        /*
+		 * Process the request
+		 */
+        $this->firephp->group('Process State');
+
         switch($this->requested_action) {
         default:
             $this->mod();
@@ -487,6 +489,7 @@ class OwpBaseFramework
             break;
         }
 
+        $this->firephp->groupEnd();
         return;
     }
 }
