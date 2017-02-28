@@ -27,7 +27,8 @@
         "jv2222/ezsql": "dev-master",
         "phpmailer/phpmailer": "^5.2",
         "squeaky-minds/squeaky-minds-php-helper": "^1.2.0",
-        "hautelook/phpass": "^1.1"
+        "hautelook/phpass": "^1.1",
+        "php-console/php-console": "^3.1"
     },
     "autoload": {
         "classmap": ["src/"]

@@ -114,6 +114,11 @@ class OwpBaseFramework
     public $frameworkObject;
 
     /**
+     * @var object $PhpConsole PhpConsole debugger object.
+     */
+    public $PhpConsole;
+
+    /**
      * Constructor
      *
      * @method void __construct()
@@ -167,6 +172,15 @@ class OwpBaseFramework
 		 * Init the debugger
 		 */
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
+
+        $this->PhpConsole = PhpConsole\Handler::getInstance();
+        /* You can override default Handler behavior:
+            $handler->setHandleErrors(false);  // disable errors handling
+            $handler->setHandleExceptions(false); // disable exceptions handling
+            $handler->setCallOldHandlers(false); // disable passing errors & exceptions to prviously defined handlers
+        */
+        $this->PhpConsole->start(); // initialize handlers
+        $this->PhpConsole->getConnector()->setSourcesBasePath($root_path);
 
         /*
 		 * Init the database class
@@ -408,29 +422,29 @@ class OwpBaseFramework
 
 
         switch($this->requested_action) {
-        default:
-            $this->mod();
-            $this->loadHeader();
-            $this->loadNav();
-            $this->loadTemplate($this->requested_action);
-            $this->loadFooter();
-            break;
-        case "ajax":
+            default:
+                $this->mod();
+                $this->loadHeader();
+                $this->loadNav();
+                $this->loadTemplate($this->requested_action);
+                $this->loadFooter();
+                break;
+            case "ajax":
 
-            /*
-            * Dynamic OwpAjaxUdf include
-            */
-            $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
-            include $modAjaxFileLocation;
-            $this->OwpAjaxUdf = new OwpAjaxUdf();
+                /*
+                 * Dynamic OwpAjaxUdf include
+                 */
+                $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
+                include $modAjaxFileLocation;
+                $this->OwpAjaxUdf = new OwpAjaxUdf();
 
-            if(class_exists("OwpAjaxUdf")) {
-                call_user_func(array("OwpAjaxUdf","processAction"), $this->frameworkObject);
-            } else {
-                throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
-            }
+                if(class_exists("OwpAjaxUdf")) {
+                    call_user_func(array("OwpAjaxUdf","processAction"), $this->frameworkObject);
+                } else {
+                    throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
+                }
 
-            break;
+                break;
         }
     }
 }
