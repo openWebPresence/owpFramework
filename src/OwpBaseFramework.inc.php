@@ -114,11 +114,6 @@ class OwpBaseFramework
     public $frameworkObject;
 
     /**
-     * @var object $PhpConsole PhpConsole debugger object.
-     */
-    public $PhpConsole;
-
-    /**
      * Constructor
      *
      * @method void __construct()
@@ -172,15 +167,6 @@ class OwpBaseFramework
 		 * Init the debugger
 		 */
         $this->debug = ((int)$_ENV["ISDEV"]?true:false);
-
-        $this->PhpConsole = PhpConsole\Handler::getInstance();
-        /* You can override default Handler behavior:
-            $handler->setHandleErrors(false);  // disable errors handling
-            $handler->setHandleExceptions(false); // disable exceptions handling
-            $handler->setCallOldHandlers(false); // disable passing errors & exceptions to prviously defined handlers
-        */
-        $this->PhpConsole->start(); // initialize handlers
-        $this->PhpConsole->getConnector()->setSourcesBasePath($root_path);
 
         /*
 		 * Init the database class
