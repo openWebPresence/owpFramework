@@ -1,16 +1,16 @@
 /*
 Navicat MySQL Data Transfer
 
-Source Server         : MYSQL - VM .50 Web Dev
-Source Server Version : 50717
-Source Host           : 192.168.25.50:3306
+Source Server         : MYSQL - VM Dev
+Source Server Version : 50713
+Source Host           : 192.168.126.128:3306
 Source Database       : 144_com
 
 Target Server Type    : MYSQL
-Target Server Version : 50717
+Target Server Version : 50713
 File Encoding         : 65001
 
-Date: 2017-02-28 15:56:39
+Date: 2017-03-01 17:25:17
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -30,6 +30,7 @@ CREATE TABLE `tbl_content` (
 -- ----------------------------
 -- Records of tbl_content
 -- ----------------------------
+INSERT INTO `tbl_content` VALUES ('NewUserRegistrationMessageBody', '\"Welcome to OWP {{first_name}} {{last_name}}! Click on the following link to validate your account to continue. {{validation_link}}\"', '2017-03-01', '0');
 
 -- ----------------------------
 -- Table structure for `tbl_settings`
