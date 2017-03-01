@@ -1,9 +1,9 @@
 <?php
 /**
- * OpenWebPresence Support Library - openwebpresence.com - OwpSettings_test
+ * OpenWebPresence Support Library - openwebpresence.com - OwpCms_test
  *
  * @copyright 2001 - 2017, Brian Tafoya.
- * @package   OwpSettings_test
+ * @package   OwpCms_test
  * @author    Brian Tafoya <btafoya@briantafoya.com>
  * @version   1.0
  * @license   MIT
@@ -22,7 +22,7 @@
 
 use PHPUnit\Framework\TestCase;
 
-class OwpSettings_test extends TestCase
+class OwpCms_test extends TestCase
 {
     public static $db = null;
 
@@ -38,12 +38,12 @@ class OwpSettings_test extends TestCase
     }
 
     /**
-     * @covers OwpSettings::__set
-     * @covers OwpSettings::__get
+     * @covers OwpCms::__set
+     * @covers OwpCms::__get
      */
     public function testSetGet()
     {
-        $OwpSettings =  new OwpSettings();
+        $OwpSettings =  new OwpCms();
         $OwpSettings->WhatDoISay = array("HelloILoveYou");
 
         $this->assertEquals(
@@ -54,13 +54,13 @@ class OwpSettings_test extends TestCase
 
     /**
      * @expectedException InvalidArgumentException
-     * @covers OwpSettings::__set
-     * @covers OwpSettings::__get
+     * @covers OwpCms::__set
+     * @covers OwpCms::__get
      * @depends testSetGet
      */
     public function testDeleteGet()
     {
-        $OwpSettings =  new OwpSettings();
+        $OwpSettings =  new OwpCms();
         unset($OwpSettings->WhatDoISay);
         $getMe = $OwpSettings->WhatDoISay;
     }

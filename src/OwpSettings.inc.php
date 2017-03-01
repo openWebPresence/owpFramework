@@ -34,7 +34,7 @@ class OwpSettings
     /**
      * @var array $ezSqlDB Data storage array
      */
-    static protected $ezSqlDB = array();
+    static public $ezSqlDB = array();
 
     /**
      * Constructor.
@@ -95,7 +95,7 @@ class OwpSettings
      */
     public function __get($itemName)
     {
-        return $this->getModDataItem($itemName);
+        return self::getModDataItem($itemName);
     }
 
     /**
@@ -125,14 +125,12 @@ class OwpSettings
      * @param string $itemName  Mod data array key
      * @param mixed  $itemValue Mod data value
      *
-     * @return mixed Array value
-
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
     public function __set($itemName, $itemValue)
     {
-        return $this->setModDataItem($itemName, $itemValue);
+        self::setModDataItem($itemName, $itemValue);
     }
 
     /**
@@ -160,7 +158,7 @@ class OwpSettings
      * @access public
      *
      * @param  string $itemName Mod data array key
-     * @return mixed Array value
+     * @return boolean Array value
      * @throws Exception SQL exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
@@ -200,7 +198,7 @@ class OwpSettings
         if(isset(self::$settings_data[$itemName])) {
             return self::$settings_data[$itemName];
         } else {
-            throw new InvalidArgumentException("Setting data item " . $itemName . " does not exist.", 20);
+            throw new InvalidArgumentException("Data item " . $itemName . " does not exist.", 20);
         }
     }
 
@@ -212,7 +210,6 @@ class OwpSettings
      *
      * @param  string $itemName  Mod data array key
      * @param  mixed  $itemValue Mod data value
-     * @return mixed Array value
      * @throws Exception SQL exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
@@ -221,15 +218,22 @@ class OwpSettings
     static public function setModDataItem($itemName, $itemValue)
     {
         self::$ezSqlDB->query('BEGIN');
-        self::$ezSqlDB->query("REPLACE INTO tbl_settings SET tbl_settings.setting_name = '" . self::$ezSqlDB->escape($itemName) . "', tbl_settings.setting_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "'");
+        self::$ezSqlDB->query(
+            "
+			REPLACE INTO tbl_settings
+			SET
+				tbl_settings.setting_name = '" . self::$ezSqlDB->escape($itemName) . "',
+				tbl_settings.setting_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "',
+				tbl_settings.setting_last_updated = SYSDATE(),
+				tbl_settings.setting_last_updated_by_userID = 0
+		"
+        );
         if (self::$ezSqlDB->query('COMMIT') !== false) {
             self::loadSettings();
         } else {
             self::$ezSqlDB->query('ROLLBACK');
             throw new Exception("SQL error while attempting to update " . $itemName . ": " . self::$ezSqlDB->last_error);
         }
-
-        return self::$settings_data[$itemName];
     }
 
     /**
@@ -241,7 +245,7 @@ class OwpSettings
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function loadSettings()
+    static private function loadSettings()
     {
         $tmp  = self::$ezSqlDB->get_results("SELECT * FROM tbl_settings ORDER BY tbl_settings.setting_name");
         self::$settings_data = array();

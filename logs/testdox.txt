@@ -18,6 +18,10 @@ OwpSettings_test
  [x] Set get
  [x] Delete get
 
+OwpCms_test
+ [x] Set get
+ [x] Delete get
+
 OwpPasswordValidator_test
  [x] Validate pass
 

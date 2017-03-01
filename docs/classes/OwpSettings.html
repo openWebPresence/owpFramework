@@ -91,13 +91,10 @@
 </li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
-                    <ul></ul>
+                    <ul><li class="property public "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">Data storage array</span><pre>$ezSqlDB</pre></a></li></ul>
 </li>
 <li class="nav-header protected">» Protected
-                    <ul>
-<li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">Data storage array</span><pre>$ezSqlDB</pre></a></li>
-<li class="property protected "><a href="#property_settings_data" title="$settings_data() :: "><span class="description">Data storage array</span><pre>$settings_data</pre></a></li>
-</ul>
+                    <ul><li class="property protected "><a href="#property_settings_data" title="$settings_data() :: "><span class="description">Data storage array</span><pre>$settings_data</pre></a></li></ul>
 </li>
 </ul>
 </div>
@@ -239,7 +236,7 @@
 </div>
 <a id="method___set"></a><div class="element clickable method public method___set " data-toggle="collapse" data-target=".method___set .collapse" title="public">
 <h2>__set</h2>
-<pre>__set(string $itemName, mixed $itemValue) : mixed</pre>
+<pre>__set(string $itemName, mixed $itemValue) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -268,9 +265,6 @@
 <div class="subelement argument">
 <h4>$itemValue</h4>
 <code>mixed</code><p>Mod data value</p></div>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Array value</div>
 </div></div>
 </div>
 <a id="method___unset"></a><div class="element clickable method public method___unset " data-toggle="collapse" data-target=".method___unset .collapse" title="public">
@@ -305,7 +299,7 @@
 </div>
 <a id="method_deleteModDataItem"></a><div class="element clickable method public method_deleteModDataItem " data-toggle="collapse" data-target=".method_deleteModDataItem .collapse" title="public">
 <h2>deleteModDataItem</h2>
-<pre>deleteModDataItem(string $itemName) : mixed</pre>
+<pre>deleteModDataItem(string $itemName) : boolean</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -338,7 +332,7 @@
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response">
-<code>mixed</code>Array value</div>
+<code>boolean</code>Array value</div>
 </div></div>
 </div>
 <a id="method_getModDataItem"></a><div class="element clickable method public method_getModDataItem " data-toggle="collapse" data-target=".method_getModDataItem .collapse" title="public">
@@ -381,7 +375,7 @@
 </div>
 <a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem " data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
 <h2>setModDataItem</h2>
-<pre>setModDataItem(string $itemName, mixed $itemValue) : mixed</pre>
+<pre>setModDataItem(string $itemName, mixed $itemValue) </pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -415,15 +409,12 @@
 <th><code>\Exception</code></th>
 <td>SQL exception</td>
 </tr></table>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Array value</div>
 </div></div>
 </div>
 <a id="method_loadSettings"></a><div class="element clickable method private method_loadSettings " data-toggle="collapse" data-target=".method_loadSettings .collapse" title="private">
 <h2>loadSettings</h2>
 <pre>loadSettings() </pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -448,7 +439,7 @@
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_ezSqlDB"> </a><div class="element clickable property protected property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="protected">
+<a id="property_ezSqlDB"> </a><div class="element clickable property public property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="public">
 <h2>Data storage array</h2>
 <pre>$ezSqlDB : array</pre>
 <div class="row collapse"><div class="detail-description">
@@ -475,7 +466,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-02-28T17:57:38-05:00.<br></footer></div>
+            generated on 2017-03-01T11:03:00-08:00.<br></footer></div>
 </div>
 </body>
 </html>

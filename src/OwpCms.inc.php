@@ -95,7 +95,7 @@ class OwpCms
      */
     public function __get($itemName)
     {
-        return $this->getModDataItem($itemName);
+        return self::getModDataItem($itemName);
     }
 
     /**
@@ -132,7 +132,7 @@ class OwpCms
      */
     public function __set($itemName, $itemValue)
     {
-        return $this->setModDataItem($itemName, $itemValue);
+        return self::setModDataItem($itemName, $itemValue);
     }
 
     /**
@@ -200,7 +200,7 @@ class OwpCms
         if(isset(self::$settings_data[$itemName])) {
             return self::$settings_data[$itemName];
         } else {
-            throw new InvalidArgumentException("Setting data item " . $itemName . " does not exist.", 20);
+            throw new InvalidArgumentException("CMS data item " . $itemName . " does not exist.", 20);
         }
     }
 
@@ -221,7 +221,16 @@ class OwpCms
     static public function setModDataItem($itemName, $itemValue)
     {
         self::$ezSqlDB->query('BEGIN');
-        self::$ezSqlDB->query("REPLACE INTO tbl_content SET tbl_content.content_name = '" . self::$ezSqlDB->escape($itemName) . "', tbl_content.content_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "'");
+        self::$ezSqlDB->query(
+            "
+			REPLACE INTO tbl_content
+			SET
+				tbl_content.content_name = '" . self::$ezSqlDB->escape($itemName) . "',
+				tbl_content.content_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "',
+				tbl_content.content_last_updated = SYSDATE(),
+				tbl_content.content_last_updated_by_userID = 0
+		"
+        );
         if (self::$ezSqlDB->query('COMMIT') !== false) {
             self::loadSettings();
         } else {
@@ -241,7 +250,7 @@ class OwpCms
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function loadSettings()
+    static private function loadSettings()
     {
         $tmp  = self::$ezSqlDB->get_results("SELECT * FROM tbl_content ORDER BY tbl_content.content_name");
         self::$settings_data = array();
