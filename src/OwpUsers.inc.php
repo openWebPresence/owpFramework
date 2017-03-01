@@ -90,7 +90,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($frameworkObject)
+    public function __construct($frameworkObject) 
     {
         $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
@@ -114,14 +114,9 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __debugInfo()
+    public function __debugInfo() 
     {
-        return [
-            "isAdmin" => $this->isAdmin(),
-            "MySQL_Errors" => $this->ezSqlDB->captured_errors,
-            "userData" => $this->userData(),
-            "userID" => $this->userID(),
-        ];
+        return ["isAdmin" => $this->isAdmin(), "MySQL_Errors" => $this->ezSqlDB->captured_errors, "userData" => $this->userData(), "userID" => $this->userID(),];
     }
 
     /**
@@ -140,7 +135,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function addUser($data_array)
+    public function addUser($data_array) 
     {
 
         $required_columns = array("email", "passwd", "first_name", "last_name", "statusID", "welcome_email_sent");
@@ -263,47 +258,6 @@ class OwpUsers
     }
 
     /**
-     * validateStatusID
-     *
-     * @method validateStatusID($statusID)
-     * @access public
-     * @return boolean
-     * @param  int $statusID status ID to validate
-     * @see    OwpUsers::setStatusID()
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function validateStatusID($statusID)
-    {
-        return (bool)$this->ezSqlDB->get_var(
-            "
-            SELECT COUNT(*) FROM tbl_users_status
-            WHERE tbl_users_status.statusID = " . (int)$statusID . "
-            LIMIT 1"
-        );
-    }
-
-    /**
-     * genPasswdHash
-     *
-     * @method string genPasswdHash($password) Generate a password hash
-     * @param  string $password User's password
-     *
-     * @return string Hashed password
-     * @access public
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function genPasswdHash($password)
-    {
-        $PasswordHash = new PasswordHash(8, false);
-
-        return $PasswordHash->HashPassword($password);
-    }
-
-    /**
      * clearLostPassUUID
      *
      * @method boolean clearLostPassUUID($userID, $statusID) Reset the lost pass UUID and set the statusID, for example when a lost password request has been completed
@@ -317,7 +271,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function clearLostPassUUID($userID, $statusID)
+    public function clearLostPassUUID($userID, $statusID) 
     {
         return $this->ezSqlDB->query(
             "
@@ -344,7 +298,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function deleteUser($userID)
+    public function deleteUser($userID) 
     {
 
         if (!(int)$userID) {
@@ -399,78 +353,84 @@ class OwpUsers
     }
 
     /**
-     * userID
+     * genPasswdHash
      *
-     * @method userID() Return the current userID
+     * @method string genPasswdHash($password) Generate a password hash
+     * @param  string $password User's password
+     *
+     * @return string Hashed password
      * @access public
-     * @return integer userID
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userID()
+    public function genPasswdHash($password) 
     {
-        return (int)$this->userDataItem("userID", 0);
+        $PasswordHash = new PasswordHash(8, false);
+
+        return $PasswordHash->HashPassword($password);
     }
 
     /**
-     * userDataItem
+     * get_user_info_row
      *
-     * @method userDataItem() Get a user data item for the logged in user
-     * @access public
-     * @param  string $item           User data item column name
-     * @param  string $alternate_data String info as an alternative to the userDataItem when it does not exist
-     * @param  string $append_to_item String info to append to the userDataItem
-     * @return mixed userData
+     * @method mixed get_user_info_row($where_clause) Retrieve a user's data based on a dynamic WHERE statement
+     * @access private
+     *
+     * @param string $where_clause The string WHERE statement used in tbl_users select
+     *
+     * @return mixed User array or false on failure
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userDataItem($item, $alternate_data = "", $append_to_item = "")
+    private function get_user_info_row($where_clause) 
     {
-        if ($this->userData() && isset($_SESSION["userData"][(string)$item])) {
-            return (string)$_SESSION["userData"][(string)$item] . (strlen((string)$append_to_item)?" " . $append_to_item:"");
-        } else {
-            return (string)$alternate_data . (strlen((string)$append_to_item)?" " . $append_to_item:"");
-        }
-    }
+        $get_user_record_noMeta = $this->get_user_record_noMeta($where_clause);
 
-    /**
-     * userData
-     *
-     * @method userData() Get user data for the logged in user
-     * @access public
-     * @return mixed User data array or false if it fails
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function userData()
-    {
-        if ($this->isLoggedIn()) {
-            return $_SESSION["userData"];
+        if ($get_user_record_noMeta) {
+            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
         } else {
             return false;
         }
     }
 
     /**
-     * isLoggedIn
+     * getUserMetaData
      *
-     * @method isLoggedIn() Returns true if a valid user session exists
+     * @method getUserMetaData($userID) Get only the user meta data
      * @access public
-     * @return boolean
+     *
+     * @param int $userID Existing userID
+     *
+     * @return array
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isLoggedIn()
+    public function getUserMetaData($userID) 
     {
-        if (isset($_SESSION["userData"])) {
-            return true;
-        } else {
-            return false;
+        $response = array();
+
+        $query_sql = "
+            SELECT
+                tbl_users_meta_data.key_name,
+                tbl_users_meta_data.key_value
+            FROM
+                tbl_users_meta_data
+            WHERE
+                tbl_users_meta_data.userID = " . (int)$userID . "
+            ORDER BY tbl_users_meta_data.key_name";
+
+        $userData = $this->ezSqlDB->get_results($query_sql);
+
+        if ($userData) {
+            foreach ($userData as $ud) {
+                $response[$ud->key_name] = $ud->key_value;
+            }
         }
+
+        return $response;
     }
 
     /**
@@ -486,7 +446,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byEMAIL($email)
+    public function get_user_record_byEMAIL($email) 
     {
         $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.email = '" . $email . "'");
 
@@ -510,7 +470,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byID($userID)
+    public function get_user_record_byID($userID) 
     {
         $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
 
@@ -535,9 +495,39 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byID_noMeta($userID)
+    public function get_user_record_byID_noMeta($userID) 
     {
         return $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
+    }
+
+    /**
+     * get_user_record_noMeta
+     *
+     * @method array get_user_record_noMeta($where_clause) Retrieve base user data without any meta data by WHERE statement
+     * @access public
+     *
+     * @param string $where_clause The string WHERE statement used in tbl_users select
+     *
+     * @return array User array, false of failure
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function get_user_record_noMeta($where_clause) 
+    {
+
+        $query_sql = "
+            SELECT tbl_users.*,
+                CONCAT_WS(' ',TRIM(tbl_users.first_name),TRIM(tbl_users.last_name)) AS `full_name`,
+                tbl_users_rights.is_admin,
+                tbl_users_rights.hide_ads,
+                tbl_users_rights.is_dev
+            FROM tbl_users
+            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID ";
+        $query_sql .= "	" . $where_clause . " ";
+        $query_sql .= "	LIMIT 1";
+
+        return $this->ezSqlDB->get_row($query_sql, ARRAY_A);
     }
 
     /**
@@ -554,7 +544,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function getUserIDViaLostPassUUID($reset_pass_uuid)
+    public function getUserIDViaLostPassUUID($reset_pass_uuid) 
     {
         return (int)$this->ezSqlDB->get_var(
             "
@@ -575,13 +565,62 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isAdmin()
+    public function isAdmin() 
     {
         if (isset($_SESSION["userData"]) && (int)$_SESSION["userData"]["is_admin"]) {
             return true;
         } else {
             return false;
         }
+    }
+
+    /**
+     * isLoggedIn
+     *
+     * @method isLoggedIn() Returns true if a valid user session exists
+     * @access public
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function isLoggedIn() 
+    {
+        if (isset($_SESSION["userData"])) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * logOut
+     *
+     * @method logOut() Log the user out, clearing the user session
+     * @access public
+     * @return boolean
+     *
+     * @throws Exception Thrown on UDF failures code 30
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function logOut() 
+    {
+        // Execute owpUDF_On_logOut user defined function
+        if (function_exists("owpUDF_On_logOut")) {
+            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB));
+            if ($owpUDF_On_logOut) {
+                throw new Exception($owpUDF_On_logOut, 30);
+            }
+        }
+
+        if (isset($_SESSION["userData"])) {
+            unset($_SESSION["userData"]);
+            $this->PhpConsole->debug("unset", 'logOut->userData');
+        }
+
+        return (boolean)isset($_SESSION["userData"]);
     }
 
     /**
@@ -594,7 +633,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function refresh_user_session()
+    public function refresh_user_session() 
     {
         if ((int)$this->userID()) {
             $a1 = $this->get_user_record_noMeta(" WHERE tbl_ser.userID = " . (int)$this->userID());
@@ -607,7 +646,6 @@ class OwpUsers
         return false;
     }
 
-
     /**
      * sanityCheck
      *
@@ -619,7 +657,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function sanityCheck($redirect_url = "")
+    public function sanityCheck($redirect_url = "") 
     {
         if ((int)$this->userID()) {
             $query_sql = "
@@ -644,36 +682,6 @@ class OwpUsers
     }
 
     /**
-     * logOut
-     *
-     * @method logOut() Log the user out, clearing the user session
-     * @access public
-     * @return boolean
-     *
-     * @throws Exception Thrown on UDF failures code 30
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function logOut()
-    {
-        // Execute owpUDF_On_logOut user defined function
-        if (function_exists("owpUDF_On_logOut")) {
-            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)$this->userID(), "db" => $this->ezSqlDB));
-            if ($owpUDF_On_logOut) {
-                throw new Exception($owpUDF_On_logOut, 30);
-            }
-        }
-
-        if (isset($_SESSION["userData"])) {
-            unset($_SESSION["userData"]);
-            $this->PhpConsole->debug("unset", 'logOut->userData');
-        }
-
-        return (boolean)isset($_SESSION["userData"]);
-    }
-
-    /**
      * setLostPassUUID
      *
      * @method setLostPassUUID($userID) Create a lost password recovery UUID token
@@ -688,7 +696,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function setLostPassUUID($userID)
+    public function setLostPassUUID($userID) 
     {
         $reset_pass_uuid = $this->owp_SupportMethods->uuid();
 
@@ -719,7 +727,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function setStatusID($userID, $statusID)
+    public function setStatusID($userID, $statusID) 
     {
         $this->ezSqlDB->query(
             "
@@ -736,6 +744,62 @@ class OwpUsers
                 throw new Exception($owpUDF_On_setStatusID, 30);
             }
         }
+    }
+
+    /**
+     * userData
+     *
+     * @method userData() Get user data for the logged in user
+     * @access public
+     * @return mixed User data array or false if it fails
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function userData() 
+    {
+        if ($this->isLoggedIn()) {
+            return $_SESSION["userData"];
+        } else {
+            return false;
+        }
+    }
+
+    /**
+     * userDataItem
+     *
+     * @method userDataItem() Get a user data item for the logged in user
+     * @access public
+     * @param  string $item           User data item column name
+     * @param  string $alternate_data String info as an alternative to the userDataItem when it does not exist
+     * @param  string $append_to_item String info to append to the userDataItem
+     * @return mixed userData
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function userDataItem($item, $alternate_data = "", $append_to_item = "") 
+    {
+        if ($this->userData() && isset($_SESSION["userData"][(string)$item])) {
+            return (string)$_SESSION["userData"][(string)$item] . (strlen((string)$append_to_item) ? " " . $append_to_item : "");
+        } else {
+            return (string)$alternate_data . (strlen((string)$append_to_item) ? " " . $append_to_item : "");
+        }
+    }
+
+    /**
+     * userID
+     *
+     * @method userID() Return the current userID
+     * @access public
+     * @return integer userID
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function userID() 
+    {
+        return (int)$this->userDataItem("userID", 0);
     }
 
     /**
@@ -756,7 +820,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updatePassword($password, $userID)
+    public function updatePassword($password, $userID) 
     {
         $new_hash = $this->genPasswdHash($password);
 
@@ -789,7 +853,6 @@ class OwpUsers
         }
     }
 
-
     /**
      * updateUser
      *
@@ -804,7 +867,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updateUser($userID, $data_array)
+    public function updateUser($userID, $data_array) 
     {
 
         if (!(int)$userID) {
@@ -916,7 +979,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userExistsViaEmail($email)
+    public function userExistsViaEmail($email) 
     {
         $query_sql = "
             SELECT COUNT(*)
@@ -939,7 +1002,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userLogin($email, $passwd)
+    public function userLogin($email, $passwd) 
     {
         $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
 
@@ -948,6 +1011,7 @@ class OwpUsers
 
             if ($val_pass === true) {
                 $this->PhpConsole->debug($_SESSION["userData"], 'userLogin->userData');
+
                 return $this->userID();
             } else {
                 if (isset($_SESSION["userData"])) {
@@ -971,7 +1035,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function userLoginCore($where_statement)
+    private function userLoginCore($where_statement) 
     {
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
@@ -997,57 +1061,59 @@ class OwpUsers
     }
 
     /**
-     * get_user_info_row
+     * userLoginViaToken
      *
-     * @method mixed get_user_info_row($where_clause) Retrieve a user's data based on a dynamic WHERE statement
-     * @access private
-     *
-     * @param string $where_clause The string WHERE statement used in tbl_users select
-     *
-     * @return mixed User array or false on failure
+     * @method userLoginViaToken($uuid) User login via UUID token
+     * @access public
+     * @param  string $uuid User UUID token created with the record, not related to the lost password UUID
+     * @return boolean
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function get_user_info_row($where_clause)
+    public function userLoginViaToken($uuid) 
     {
-        $get_user_record_noMeta = $this->get_user_record_noMeta($where_clause);
-
-        if ($get_user_record_noMeta) {
-            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
-        } else {
-            return false;
-        }
+        return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
     }
 
     /**
-     * get_user_record_noMeta
+     * userLoginViaUserID
      *
-     * @method array get_user_record_noMeta($where_clause) Retrieve base user data without any meta data by WHERE statement
+     * @method userLoginViaUserID($userID) User login via UserID
      * @access public
-     *
-     * @param string $where_clause The string WHERE statement used in tbl_users select
-     *
-     * @return array User array, false of failure
+     * @param  int $userID Existing userID
+     * @return boolean
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_noMeta($where_clause)
+    public function userLoginViaUserID($userID) 
     {
+        return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
+    }
 
-        $query_sql = "
-            SELECT tbl_users.*,
-                CONCAT_WS(' ',TRIM(tbl_users.first_name),TRIM(tbl_users.last_name)) AS `full_name`,
-                tbl_users_rights.is_admin,
-                tbl_users_rights.hide_ads,
-                tbl_users_rights.is_dev
-            FROM tbl_users
-            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID ";
-        $query_sql .= "	" . $where_clause . " ";
-        $query_sql .= "	LIMIT 1";
-
-        return $this->ezSqlDB->get_row($query_sql, ARRAY_A);
+    /**
+     * updateLoginCount
+     *
+     * @method updateLoginCount($userID) Updating the login counter as well as the user's current IP address
+     * @access public
+     *
+     * @param int $userID Existing userID
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function updateLoginCount($userID) 
+    {
+        $this->ezSqlDB->query(
+            "
+            UPDATE tbl_users
+            SET tbl_users.login_count = tbl_users.login_count + 1,
+                tbl_users.user_last_login_datetime = SYSDATE(),
+                tbl_users.user_ip = '" . OwpSupportMethods::GetUserIP() . "'
+            WHERE tbl_users.userID = " . (int)$userID . "
+            LIMIT 1"
+        );
     }
 
     /**
@@ -1064,7 +1130,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0)
+    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) 
     {
         $this->ezSqlDB->query(
             "
@@ -1074,68 +1140,6 @@ class OwpUsers
                 tbl_users_rights.hide_ads = " . (int)$hide_ads . ",
                 tbl_users_rights.is_dev = " . (int)$is_dev . "
             "
-        );
-    }
-
-    /**
-     * getUserMetaData
-     *
-     * @method getUserMetaData($userID) Get only the user meta data
-     * @access public
-     *
-     * @param int $userID Existing userID
-     *
-     * @return array
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function getUserMetaData($userID)
-    {
-        $response = array();
-
-        $query_sql = "
-            SELECT
-                tbl_users_meta_data.key_name,
-                tbl_users_meta_data.key_value
-            FROM
-                tbl_users_meta_data
-            WHERE
-                tbl_users_meta_data.userID = " . (int)$userID . "
-            ORDER BY tbl_users_meta_data.key_name";
-
-        $userData = $this->ezSqlDB->get_results($query_sql);
-
-        if ($userData) {
-            foreach ($userData as $ud) {
-                $response[$ud->key_name] = $ud->key_value;
-            }
-        }
-
-        return $response;
-    }
-
-    /**
-     * updateLoginCount
-     *
-     * @method updateLoginCount($userID) Updating the login counter as well as the user's current IP address
-     * @access public
-     *
-     * @param int $userID Existing userID
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function updateLoginCount($userID)
-    {
-        $this->ezSqlDB->query(
-            "
-            UPDATE tbl_users
-            SET tbl_users.login_count = tbl_users.login_count + 1,
-                tbl_users.user_last_login_datetime = SYSDATE(),
-                tbl_users.user_ip = '" . OwpSupportMethods::GetUserIP() . "'
-            WHERE tbl_users.userID = " . (int)$userID . "
-            LIMIT 1"
         );
     }
 
@@ -1151,7 +1155,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function validate_password($passwd, $hash)
+    private function validate_password($passwd, $hash) 
     {
         $PasswordHash = new PasswordHash(8, false);
 
@@ -1159,34 +1163,24 @@ class OwpUsers
     }
 
     /**
-     * userLoginViaToken
+     * validateStatusID
      *
-     * @method userLoginViaToken($uuid) User login via UUID token
+     * @method validateStatusID($statusID)
      * @access public
-     * @param  string $uuid User UUID token created with the record, not related to the lost password UUID
      * @return boolean
+     * @param  int $statusID status ID to validate
+     * @see    OwpUsers::setStatusID()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userLoginViaToken($uuid)
+    public function validateStatusID($statusID) 
     {
-        return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
-    }
-
-    /**
-     * userLoginViaUserID
-     *
-     * @method userLoginViaUserID($userID) User login via UserID
-     * @access public
-     * @param  int $userID Existing userID
-     * @return boolean
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function userLoginViaUserID($userID)
-    {
-        return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
+        return (bool)$this->ezSqlDB->get_var(
+            "
+            SELECT COUNT(*) FROM tbl_users_status
+            WHERE tbl_users_status.statusID = " . (int)$statusID . "
+            LIMIT 1"
+        );
     }
 }
