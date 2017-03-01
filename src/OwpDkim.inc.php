@@ -105,8 +105,8 @@ class OwpDkim
     private function keyFileNamePath($domain) 
     {
         $files = array(
-            "public_key_filename" => '.htkeypublic_' . $domain,
-            "private_key_filename" => '.htkeyprivate_' . $domain
+            "public_key_filename" => $domain . '.htkeypublic_',
+            "private_key_filename" => $domain . '.htkeyprivate'
         );
 
         return $files;
