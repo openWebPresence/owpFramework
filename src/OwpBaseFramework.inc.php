@@ -207,6 +207,8 @@ class OwpBaseFramework
          */
         $this->frameworkObject["userClass"] = $this->userClass;
 
+        $this->PhpConsole->debug(array("requested_action"=>(string)$this->requested_action), 'debug');
+
         /*
          * Dynamic OwpCommon include
          */
@@ -214,7 +216,7 @@ class OwpBaseFramework
         include $modCommonFileLocation;
         $this->OwpCommon = new OwpCommon($this->frameworkObject);
 
-        if($this->requested_action != "ajax") {
+        if(!in_array($this->requested_action, array("ajax", "jsAssets", "cssAssets"))) {
             /*
              * Dynamic Owp_request_ include
              */
@@ -413,7 +415,7 @@ class OwpBaseFramework
             break;
         case "jsAssets":
         case "cssAssets":
-            $fileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", $this->requested_action . "cssAssets.inc.php"));
+            $fileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "Owp" . $this->requested_action . ".inc.php"));
             include $fileLocation;
                 break;
         }
