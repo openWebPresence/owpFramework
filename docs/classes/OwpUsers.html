@@ -107,6 +107,7 @@
 <li class="method public "><a href="#method_userLoginViaToken" title="userLoginViaToken() :: userLoginViaToken"><span class="description">userLoginViaToken</span><pre>userLoginViaToken()</pre></a></li>
 <li class="method public "><a href="#method_userLoginViaUserID" title="userLoginViaUserID() :: userLoginViaUserID"><span class="description">userLoginViaUserID</span><pre>userLoginViaUserID()</pre></a></li>
 <li class="method public "><a href="#method_validateStatusID" title="validateStatusID() :: validateStatusID"><span class="description">validateStatusID</span><pre>validateStatusID()</pre></a></li>
+<li class="method public "><a href="#method_validateUserPassword" title="validateUserPassword() :: validateUserPassword"><span class="description">validateUserPassword</span><pre>validateUserPassword()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
@@ -1274,6 +1275,41 @@
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
+<a id="method_validateUserPassword"></a><div class="element clickable method public method_validateUserPassword " data-toggle="collapse" data-target=".method_validateUserPassword .collapse" title="public">
+<h2>validateUserPassword</h2>
+<pre>validateUserPassword(integer $userID, string $passwd) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Validate user password via userID</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$userID</h4>
+<code>integer</code><p>Valid userID</p></div>
+<div class="subelement argument">
+<h4>$passwd</h4>
+<code>string</code><p>Valid user password</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
 <a id="method_get_user_info_row"></a><div class="element clickable method private method_get_user_info_row " data-toggle="collapse" data-target=".method_get_user_info_row .collapse" title="private">
 <h2>get_user_info_row</h2>
 <pre>get_user_info_row(string $where_clause) : mixed</pre>
@@ -1483,7 +1519,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-01T21:10:59-05:00.<br></footer></div>
+            generated on 2017-03-02T14:05:45-05:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -142,6 +142,20 @@ class OwpUsers_test extends TestCase
     }
 
     /**
+     * @covers OwpUsers::validateUserPassword
+     * @depends testAddUserFromValidData
+     */
+    public function testValidateUserPassword()
+    {
+        $passwordMatches = self::$owpUsers->validateUserPassword(self::$userID, self::$createUserTestData["passwd"]);
+
+        $this->assertEquals(
+            true,
+            $passwordMatches
+        );
+    }
+
+    /**
      * @depends testAddUserFromValidData
      * @covers OwpUsers::userLoginViaUserID
      * @covers OwpUsers::userData

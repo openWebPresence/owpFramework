@@ -1214,4 +1214,28 @@ class OwpUsers
             LIMIT 1"
         );
     }
+
+    /**
+     * validateUserPassword
+     *
+     * @method userLogin($userID, $passwd) Validate user password via userID
+     * @access public
+     * @param  int    $userID Valid userID
+     * @param  string $passwd Valid user password
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function validateUserPassword($userID, $passwd)
+    {
+        $get_user_info_row = $this->get_user_info_row("WHERE tbl_users.userID = " . (int)$userID);
+        if ($get_user_info_row) {
+            $val_pass = $this->validate_password($passwd, $get_user_info_row["passwd"]);
+            if ($val_pass === true) {
+                return true;
+            }
+        }
+        return false;
+    }
 }
