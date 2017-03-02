@@ -90,7 +90,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($frameworkObject) 
+    public function __construct($frameworkObject)
     {
         $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
@@ -114,7 +114,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __debugInfo() 
+    public function __debugInfo()
     {
         return ["isAdmin" => $this->isAdmin(), "MySQL_Errors" => $this->ezSqlDB->captured_errors, "userData" => $this->userData(), "userID" => $this->userID(),];
     }
@@ -135,7 +135,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function addUser($data_array) 
+    public function addUser($data_array)
     {
 
         $required_columns = array("email", "passwd", "first_name", "last_name", "statusID", "welcome_email_sent");
@@ -271,7 +271,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function clearLostPassUUID($userID, $statusID) 
+    public function clearLostPassUUID($userID, $statusID)
     {
         return $this->ezSqlDB->query(
             "
@@ -298,7 +298,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function deleteUser($userID) 
+    public function deleteUser($userID)
     {
 
         if (!(int)$userID) {
@@ -364,7 +364,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function genPasswdHash($password) 
+    public function genPasswdHash($password)
     {
         $PasswordHash = new PasswordHash(8, false);
 
@@ -384,7 +384,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function get_user_info_row($where_clause) 
+    private function get_user_info_row($where_clause)
     {
         $get_user_record_noMeta = $this->get_user_record_noMeta($where_clause);
 
@@ -408,7 +408,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function getUserMetaData($userID) 
+    public function getUserMetaData($userID)
     {
         $response = array();
 
@@ -446,7 +446,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byEMAIL($email) 
+    public function get_user_record_byEMAIL($email)
     {
         $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.email = '" . $email . "'");
 
@@ -470,7 +470,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byID($userID) 
+    public function get_user_record_byID($userID)
     {
         $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
 
@@ -495,7 +495,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_byID_noMeta($userID) 
+    public function get_user_record_byID_noMeta($userID)
     {
         return $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
     }
@@ -513,7 +513,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function get_user_record_noMeta($where_clause) 
+    public function get_user_record_noMeta($where_clause)
     {
 
         $query_sql = "
@@ -544,7 +544,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function getUserIDViaLostPassUUID($reset_pass_uuid) 
+    public function getUserIDViaLostPassUUID($reset_pass_uuid)
     {
         return (int)$this->ezSqlDB->get_var(
             "
@@ -565,7 +565,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isAdmin() 
+    public function isAdmin()
     {
         if (isset($_SESSION["userData"]) && (int)$_SESSION["userData"]["is_admin"]) {
             return true;
@@ -584,7 +584,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isLoggedIn() 
+    public function isLoggedIn()
     {
         if (isset($_SESSION["userData"])) {
             return true;
@@ -605,7 +605,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function logOut() 
+    public function logOut()
     {
         // Execute owpUDF_On_logOut user defined function
         if (function_exists("owpUDF_On_logOut")) {
@@ -633,7 +633,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function refresh_user_session() 
+    public function refresh_user_session()
     {
         if ((int)$this->userID()) {
             $a1 = $this->get_user_record_noMeta(" WHERE tbl_ser.userID = " . (int)$this->userID());
@@ -657,7 +657,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function sanityCheck($redirect_url = "") 
+    public function sanityCheck($redirect_url = "")
     {
         if ((int)$this->userID()) {
             $query_sql = "
@@ -691,12 +691,12 @@ class OwpUsers
      *
      * @param int $userID Existing userID
      *
-     * @return string
+     * @return array
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function setLostPassUUID($userID) 
+    public function setLostPassUUID($userID)
     {
         $reset_pass_uuid = $this->owp_SupportMethods->uuid();
 
@@ -709,7 +709,38 @@ class OwpUsers
             LIMIT 1"
         );
 
-        return (string)$reset_pass_uuid;
+        return $this->get_user_info_row("WHERE tbl_users.userID = " . (int)$userID);
+    }
+
+    /**
+     * setLostPassUUIDViaEmail
+     *
+     * @method setLostPassUUIDViaEmail($email) Create a lost password recovery UUID token
+     * @access public
+     * @see    OwpUsers::getUserIDViaLostPassUUID()
+     * @see    OwpUsers::updatePassword()
+     *
+     * @param string $email Existing user email
+     *
+     * @return string
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function setLostPassUUIDViaEmail($email)
+    {
+        $reset_pass_uuid = $this->owp_SupportMethods->uuid();
+
+        $this->ezSqlDB->query(
+            "
+            UPDATE tbl_users
+            SET tbl_users.reset_pass_uuid = '" . (string)$reset_pass_uuid . "',
+                tbl_users.statusID = 4
+            WHERE tbl_users.email = '" . (string)$email . "'
+            LIMIT 1"
+        );
+
+        return $this->get_user_info_row("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
     }
 
     /**
@@ -727,7 +758,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function setStatusID($userID, $statusID) 
+    public function setStatusID($userID, $statusID)
     {
         $this->ezSqlDB->query(
             "
@@ -756,7 +787,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userData() 
+    public function userData()
     {
         if ($this->isLoggedIn()) {
             return $_SESSION["userData"];
@@ -778,7 +809,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userDataItem($item, $alternate_data = "", $append_to_item = "") 
+    public function userDataItem($item, $alternate_data = "", $append_to_item = "")
     {
         if ($this->userData() && isset($_SESSION["userData"][(string)$item])) {
             return (string)$_SESSION["userData"][(string)$item] . (strlen((string)$append_to_item) ? " " . $append_to_item : "");
@@ -797,7 +828,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userID() 
+    public function userID()
     {
         return (int)$this->userDataItem("userID", 0);
     }
@@ -820,7 +851,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updatePassword($password, $userID) 
+    public function updatePassword($password, $userID)
     {
         $new_hash = $this->genPasswdHash($password);
 
@@ -867,7 +898,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updateUser($userID, $data_array) 
+    public function updateUser($userID, $data_array)
     {
 
         if (!(int)$userID) {
@@ -979,7 +1010,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userExistsViaEmail($email) 
+    public function userExistsViaEmail($email)
     {
         $query_sql = "
             SELECT COUNT(*)
@@ -1002,7 +1033,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userLogin($email, $passwd) 
+    public function userLogin($email, $passwd)
     {
         $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
 
@@ -1035,7 +1066,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function userLoginCore($where_statement) 
+    private function userLoginCore($where_statement)
     {
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
@@ -1071,7 +1102,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userLoginViaToken($uuid) 
+    public function userLoginViaToken($uuid)
     {
         return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
     }
@@ -1087,7 +1118,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userLoginViaUserID($userID) 
+    public function userLoginViaUserID($userID)
     {
         return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
     }
@@ -1103,7 +1134,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updateLoginCount($userID) 
+    public function updateLoginCount($userID)
     {
         $this->ezSqlDB->query(
             "
@@ -1130,7 +1161,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) 
+    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0)
     {
         $this->ezSqlDB->query(
             "
@@ -1155,7 +1186,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function validate_password($passwd, $hash) 
+    private function validate_password($passwd, $hash)
     {
         $PasswordHash = new PasswordHash(8, false);
 
@@ -1174,7 +1205,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function validateStatusID($statusID) 
+    public function validateStatusID($statusID)
     {
         return (bool)$this->ezSqlDB->get_var(
             "

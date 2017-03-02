@@ -220,8 +220,8 @@ class OwpUsers_test extends TestCase
     {
         self::$owpUsers->logOut();
         $rowBefore = self::$owpUsers->get_user_record_byID_noMeta(self::$userID);
-        self::$lostPassUUID = self::$owpUsers->setLostPassUUID(self::$userID);
-        $rowAfter = self::$owpUsers->get_user_record_byID_noMeta(self::$userID);
+        $rowAfter = self::$owpUsers->setLostPassUUID(self::$userID);
+        self::$lostPassUUID = $rowAfter["reset_pass_uuid"];
 
         $this->assertNotEquals($rowBefore["reset_pass_uuid"], $rowAfter["reset_pass_uuid"]);
     }
@@ -232,7 +232,7 @@ class OwpUsers_test extends TestCase
      */
     public function testGetUserIDViaLostPassUUID()
     {
-        $lpUserID = self::$owpUsers->getUserIDViaLostPassUUID(self::$lostPassUUID);
+        $lpUserID = (int)self::$owpUsers->getUserIDViaLostPassUUID(self::$lostPassUUID);
         $this->assertEquals($lpUserID, self::$userID);
     }
 

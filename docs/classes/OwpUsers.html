@@ -93,6 +93,7 @@
 <li class="method public "><a href="#method_refresh_user_session" title="refresh_user_session() :: refresh_user_session"><span class="description">refresh_user_session</span><pre>refresh_user_session()</pre></a></li>
 <li class="method public "><a href="#method_sanityCheck" title="sanityCheck() :: sanityCheck"><span class="description">sanityCheck</span><pre>sanityCheck()</pre></a></li>
 <li class="method public "><a href="#method_setLostPassUUID" title="setLostPassUUID() :: setLostPassUUID"><span class="description">setLostPassUUID</span><pre>setLostPassUUID()</pre></a></li>
+<li class="method public "><a href="#method_setLostPassUUIDViaEmail" title="setLostPassUUIDViaEmail() :: setLostPassUUIDViaEmail"><span class="description">setLostPassUUIDViaEmail</span><pre>setLostPassUUIDViaEmail()</pre></a></li>
 <li class="method public "><a href="#method_setStatusID" title="setStatusID() :: setStatusID"><span class="description">setStatusID</span><pre>setStatusID()</pre></a></li>
 <li class="method public "><a href="#method_updateLoginCount" title="updateLoginCount() :: updateLoginCount"><span class="description">updateLoginCount</span><pre>updateLoginCount()</pre></a></li>
 <li class="method public "><a href="#method_updatePassword" title="updatePassword() :: updatePassword"><span class="description">updatePassword</span><pre>updatePassword()</pre></a></li>
@@ -726,7 +727,7 @@
 </div>
 <a id="method_setLostPassUUID"></a><div class="element clickable method public method_setLostPassUUID " data-toggle="collapse" data-target=".method_setLostPassUUID .collapse" title="public">
 <h2>setLostPassUUID</h2>
-<pre>setLostPassUUID(integer $userID) : string</pre>
+<pre>setLostPassUUID(integer $userID) : array</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -760,6 +761,46 @@
 <div class="subelement argument">
 <h4>$userID</h4>
 <code>integer</code><p>Existing userID</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
+<a id="method_setLostPassUUIDViaEmail"></a><div class="element clickable method public method_setLostPassUUIDViaEmail " data-toggle="collapse" data-target=".method_setLostPassUUIDViaEmail .collapse" title="public">
+<h2>setLostPassUUIDViaEmail</h2>
+<pre>setLostPassUUIDViaEmail(string $email) : string</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Create a lost password recovery UUID token</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5COwpUsers::getUserIDViaLostPassUUID()"></a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5COwpUsers::updatePassword()"></a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$email</h4>
+<code>string</code><p>Existing user email</p></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>string</code></div>
 </div></div>
@@ -1442,7 +1483,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-01T12:06:43-08:00.<br></footer></div>
+            generated on 2017-03-01T21:10:59-05:00.<br></footer></div>
 </div>
 </body>
 </html>
