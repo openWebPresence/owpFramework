@@ -1,3 +1,6 @@
+OwpException_test
+ [x] Exception
+
 OwpUsers_test
  [x] Add user from in valid data
  [x] Add user from valid data

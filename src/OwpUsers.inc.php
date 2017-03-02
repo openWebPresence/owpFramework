@@ -24,6 +24,13 @@
 use Hautelook\Phpass\PasswordHash;
 
 /**
+ * Class OwpUserException
+ */
+class OwpUserException extends OwpException
+{
+}
+
+/**
  * OpenWebPresence User Support Library
  */
 class OwpUsers
@@ -1029,13 +1036,19 @@ class OwpUsers
      * @param  string $email  Valid user email address
      * @param  string $passwd Valid user password
      * @return boolean
+     * @throws OwpUserException User status information
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
     public function userLogin($email, $passwd)
     {
-        $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
+        try {
+            $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
+        }
+        catch (OwpUserException $e) {
+            throw $e;
+        }
 
         if ($exists) {
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
@@ -1062,6 +1075,7 @@ class OwpUsers
      * @access private
      * @return boolean
      * @param  string $where_statement Where statement to be using within the user row query
+     * @throws OwpUserException OwpUserException custom status handling
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -1076,6 +1090,22 @@ class OwpUsers
         $get_user_info_row = $this->get_user_info_row($where_statement);
 
         if ($get_user_info_row) {
+
+            $statusInfo = (array)$this->ezSqlDB->get_row(
+                "
+                SELECT * FROM tbl_users_status
+                WHERE tbl_users_status.statusID = " . (int)$get_user_info_row["statusID"] . "
+                LIMIT 1"
+            );
+
+            if(!$statusInfo) {
+                throw new OwpUserException("Invalid user status ID.", 911);
+            }
+
+            if($statusInfo["canLogin"] === 0) {
+                throw new OwpUserException("Your account " . $statusInfo["status_label"], $statusInfo["statusID"]);
+            }
+
             $_SESSION["userData"] = $get_user_info_row;
 
             $this->updateLoginCount((int)$get_user_info_row["userID"]);
@@ -1098,13 +1128,19 @@ class OwpUsers
      * @access public
      * @param  string $uuid User UUID token created with the record, not related to the lost password UUID
      * @return boolean
+     * @throws OwpUserException User status information
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
     public function userLoginViaToken($uuid)
     {
-        return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
+        try {
+            return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
+        }
+        catch (OwpUserException $e) {
+            throw $e;
+        }
     }
 
     /**
@@ -1114,13 +1150,19 @@ class OwpUsers
      * @access public
      * @param  int $userID Existing userID
      * @return boolean
+     * @throws OwpUserException User status information
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
     public function userLoginViaUserID($userID)
     {
-        return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
+        try {
+            return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
+        }
+        catch (OwpUserException $e) {
+            throw $e;
+        }
     }
 
     /**

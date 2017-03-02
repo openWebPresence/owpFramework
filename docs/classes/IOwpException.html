@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>OpenWebPresence - owpFramework » \OwpEzSqlMysqli</title>
+<title>OpenWebPresence - owpFramework » \IOwpException</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -75,87 +75,153 @@
 <ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list"><li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_MySQLFirephp" title="MySQLFirephp() :: MySQLFirephp()"><span class="description">MySQLFirephp()</span><pre>MySQLFirephp()</pre></a></li>
-<li class="method public "><a href="#method_MySQLFirephpGetLastMysqlError" title="MySQLFirephpGetLastMysqlError() :: MySQLFirephpGetLastMysqlError()"><span class="description">MySQLFirephpGetLastMysqlError()</span><pre>MySQLFirephpGetLastMysqlError()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: IOwpException constructor."><span class="description">IOwpException constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___toString" title="__toString() :: __toString"><span class="description">__toString</span><pre>__toString()</pre></a></li>
+<li class="method public "><a href="#method_getCode" title="getCode() :: getCode"><span class="description">getCode</span><pre>getCode()</pre></a></li>
+<li class="method public "><a href="#method_getFile" title="getFile() :: getFile"><span class="description">getFile</span><pre>getFile()</pre></a></li>
+<li class="method public "><a href="#method_getLine" title="getLine() :: getLine"><span class="description">getLine</span><pre>getLine()</pre></a></li>
+<li class="method public "><a href="#method_getMessage" title="getMessage() :: getMessage"><span class="description">getMessage</span><pre>getMessage()</pre></a></li>
+<li class="method public "><a href="#method_getTrace" title="getTrace() :: getTrace"><span class="description">getTrace</span><pre>getTrace()</pre></a></li>
+<li class="method public "><a href="#method_getTraceAsString" title="getTraceAsString() :: getTraceAsString"><span class="description">getTraceAsString</span><pre>getTraceAsString()</pre></a></li>
 </ul>
 </li></ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\OwpEzSqlMysqli"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\IOwpException"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/OwpEzSqlMysqli.html">OwpEzSqlMysqli</a>
+<span class="divider">\</span><a href="../classes/IOwpException.html">IOwpException</a>
 </li>
 </ul>
-<div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">This class integrates FirePHP debugging into the EzSQL MySQLi (not MySQL) abstraction layer.</p>
+<div xmlns:php="http://php.net/xsl" class="element interface">
+<p class="short_description">Interface IOwpException</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/OwpEzSqlMysqli.html">OwpEzSqlMysqli</a></td>
+<td><a href="../packages/IOwpException.html">IOwpException</a></td>
 </tr></table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_MySQLFirephp"></a><div class="element clickable method public method_MySQLFirephp " data-toggle="collapse" data-target=".method_MySQLFirephp .collapse" title="public">
-<h2>MySQLFirephp()</h2>
-<pre>MySQLFirephp(string $title<code> = "ezSql Debug"</code>) </pre>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>IOwpException constructor.</h2>
+<pre>__construct(null $message<code> = null</code>, integer $code<code> = 0</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>method</th>
-<td>Integrate FirePHP debugging into the EzSQL MySQLi abstraction layer.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
+<td>Class constructor</td>
+</tr></table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$title</h4>
-<code>string</code><p>Optional title.</p></div>
+<h4>$message</h4>
+<code>null</code>
+</div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>integer</code>
+</div>
 </div></div>
 </div>
-<a id="method_MySQLFirephpGetLastMysqlError"></a><div class="element clickable method public method_MySQLFirephpGetLastMysqlError " data-toggle="collapse" data-target=".method_MySQLFirephpGetLastMysqlError .collapse" title="public">
-<h2>MySQLFirephpGetLastMysqlError()</h2>
-<pre>MySQLFirephpGetLastMysqlError() : mixed</pre>
+<a id="method___toString"></a><div class="element clickable method public method___toString " data-toggle="collapse" data-target=".method___toString .collapse" title="public">
+<h2>__toString</h2>
+<pre>__toString() : mixed</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
+<table class="table table-bordered"><tr>
 <th>method</th>
-<td>Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
+<td>Formatted string for display</td>
+</tr></table>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Last recorded MySQL Error</div>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getCode"></a><div class="element clickable method public method_getCode " data-toggle="collapse" data-target=".method_getCode .collapse" title="public">
+<h2>getCode</h2>
+<pre>getCode() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>User-defined Exception code</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getFile"></a><div class="element clickable method public method_getFile " data-toggle="collapse" data-target=".method_getFile .collapse" title="public">
+<h2>getFile</h2>
+<pre>getFile() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>Source filename</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getLine"></a><div class="element clickable method public method_getLine " data-toggle="collapse" data-target=".method_getLine .collapse" title="public">
+<h2>getLine</h2>
+<pre>getLine() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>Source line</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getMessage"></a><div class="element clickable method public method_getMessage " data-toggle="collapse" data-target=".method_getMessage .collapse" title="public">
+<h2>getMessage</h2>
+<pre>getMessage() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>User-defined Exception message</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getTrace"></a><div class="element clickable method public method_getTrace " data-toggle="collapse" data-target=".method_getTrace .collapse" title="public">
+<h2>getTrace</h2>
+<pre>getTrace() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>An array of the backtrace()</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_getTraceAsString"></a><div class="element clickable method public method_getTraceAsString " data-toggle="collapse" data-target=".method_getTraceAsString .collapse" title="public">
+<h2>getTraceAsString</h2>
+<pre>getTraceAsString() : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered"><tr>
+<th>method</th>
+<td>Formatted string of trace</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
 </div></div>
 </div>
 </div>

@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>OpenWebPresence - owpFramework » \OwpEzSqlMysqli</title>
+<title>OpenWebPresence - owpFramework » \OwpException</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -72,91 +72,161 @@
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
 </div>
-<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list"><li class="nav-header">
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
+<li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method_MySQLFirephp" title="MySQLFirephp() :: MySQLFirephp()"><span class="description">MySQLFirephp()</span><pre>MySQLFirephp()</pre></a></li>
-<li class="method public "><a href="#method_MySQLFirephpGetLastMysqlError" title="MySQLFirephpGetLastMysqlError() :: MySQLFirephpGetLastMysqlError()"><span class="description">MySQLFirephpGetLastMysqlError()</span><pre>MySQLFirephpGetLastMysqlError()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: OwpException constructor."><span class="description">OwpException constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method___toString" title="__toString() :: __toString"><span class="description">__toString</span><pre>__toString()</pre></a></li>
 </ul>
-</li></ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header protected">» Protected
+                    <ul>
+<li class="property protected "><a href="#property_code" title="$code() :: "><span class="description">User-defined exception code</span><pre>$code</pre></a></li>
+<li class="property protected "><a href="#property_file" title="$file() :: "><span class="description">Source filename of exception</span><pre>$file</pre></a></li>
+<li class="property protected "><a href="#property_line" title="$line() :: "><span class="description">Source line of exception</span><pre>$line</pre></a></li>
+<li class="property protected "><a href="#property_message" title="$message() :: "><span class="description">Exception message</span><pre>$message</pre></a></li>
+</ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_string" title="$string() :: "><span class="description">Unknown</span><pre>$string</pre></a></li>
+<li class="property private "><a href="#property_trace" title="$trace() :: "><span class="description">Unknown</span><pre>$trace</pre></a></li>
+</ul>
+</li>
+</ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\OwpEzSqlMysqli"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\OwpException"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/OwpEzSqlMysqli.html">OwpEzSqlMysqli</a>
+<span class="divider">\</span><a href="../classes/OwpException.html">OwpException</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">This class integrates FirePHP debugging into the EzSQL MySQLi (not MySQL) abstraction layer.</p>
+<p class="short_description">Class OwpException</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/OwpEzSqlMysqli.html">OwpEzSqlMysqli</a></td>
+<td><a href="../packages/IOwpException.html">IOwpException</a></td>
 </tr></table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
-<a id="method_MySQLFirephp"></a><div class="element clickable method public method_MySQLFirephp " data-toggle="collapse" data-target=".method_MySQLFirephp .collapse" title="public">
-<h2>MySQLFirephp()</h2>
-<pre>MySQLFirephp(string $title<code> = "ezSql Debug"</code>) </pre>
+<a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
+<h2>OwpException constructor.</h2>
+<pre>__construct(null $message<code> = null</code>, integer $code<code> = 0</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Integrate FirePHP debugging into the EzSQL MySQLi abstraction layer.</td>
+<td>Class constructor</td>
 </tr>
 <tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>inherited_from</th>
+<td>\IOwpException::__construct()</td>
 </tr>
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$title</h4>
-<code>string</code><p>Optional title.</p></div>
+<h4>$message</h4>
+<code>null</code>
+</div>
+<div class="subelement argument">
+<h4>$code</h4>
+<code>integer</code>
+</div>
 </div></div>
 </div>
-<a id="method_MySQLFirephpGetLastMysqlError"></a><div class="element clickable method public method_MySQLFirephpGetLastMysqlError " data-toggle="collapse" data-target=".method_MySQLFirephpGetLastMysqlError .collapse" title="public">
-<h2>MySQLFirephpGetLastMysqlError()</h2>
-<pre>MySQLFirephpGetLastMysqlError() : mixed</pre>
+<a id="method___toString"></a><div class="element clickable method public method___toString " data-toggle="collapse" data-target=".method___toString .collapse" title="public">
+<h2>__toString</h2>
+<pre>__toString() : string</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Integrate FirePHP debugging into the EzSQL MySQLi obstraction layer.</td>
+<td>Return a string response.</td>
 </tr>
 <tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>inherited_from</th>
+<td>\IOwpException::__toString()</td>
 </tr>
 </table>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Last recorded MySQL Error</div>
+<div class="subelement response"><code>string</code></div>
 </div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_code"> </a><div class="element clickable property protected property_code" data-toggle="collapse" data-target=".property_code .collapse" title="protected">
+<h2>User-defined exception code</h2>
+<pre>$code : integer</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>0</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_file"> </a><div class="element clickable property protected property_file" data-toggle="collapse" data-target=".property_file .collapse" title="protected">
+<h2>Source filename of exception</h2>
+<pre>$file : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_line"> </a><div class="element clickable property protected property_line" data-toggle="collapse" data-target=".property_line .collapse" title="protected">
+<h2>Source line of exception</h2>
+<pre>$line : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_message"> </a><div class="element clickable property protected property_message" data-toggle="collapse" data-target=".property_message .collapse" title="protected">
+<h2>Exception message</h2>
+<pre>$message : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>'Unknown exception'</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_string"> </a><div class="element clickable property private property_string" data-toggle="collapse" data-target=".property_string .collapse" title="private">
+<h2>Unknown</h2>
+<pre>$string : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_trace"> </a><div class="element clickable property private property_trace" data-toggle="collapse" data-target=".property_trace .collapse" title="private">
+<h2>Unknown</h2>
+<pre>$trace : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>

@@ -3,8 +3,8 @@ PHPUnit 5.7.15 by Sebastian Bergmann and contributors.
 Runtime:       PHP 5.6.30-1+deb.sury.org~xenial+1
 Configuration: /mnt/hgfs/www/owp-framework/phpunit.xml
 
-.....................                                             21 / 21 (100%)
+......................                                            22 / 22 (100%)
 
-Time: 655 ms, Memory: 5.75MB
+Time: 673 ms, Memory: 5.75MB
 
-OK (21 tests, 21 assertions)
+OK (22 tests, 22 assertions)
