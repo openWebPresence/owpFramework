@@ -411,6 +411,11 @@ class OwpBaseFramework
                 throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
             }
             break;
+        case "jsAssets":
+        case "cssAssets":
+            $fileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", $this->requested_action . "cssAssets.inc.php"));
+            include $fileLocation;
+                break;
         }
     }
 }
