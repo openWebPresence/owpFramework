@@ -417,7 +417,7 @@ class OwpBaseFramework
         case "cssAssets":
             $fileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "Owp" . $this->requested_action . ".inc.php"));
             include $fileLocation;
-                break;
+            break;
         }
     }
 }
