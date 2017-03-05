@@ -24,18 +24,6 @@ use PHPUnit\Framework\TestCase;
 
 class OwpCms_test extends TestCase
 {
-    public static $db = null;
-
-    public static function setUpBeforeClass()
-    {
-        /*
-		 * Init the database class
-		 */
-        self::$db = new OwpEzSqlMysql(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
-        self::$db->use_disk_cache = false;
-        self::$db->cache_queries = false;
-        self::$db->hide_errors();
-    }
 
     /**
      * @covers OwpCms::__set
@@ -43,11 +31,11 @@ class OwpCms_test extends TestCase
      */
     public function testSetGet()
     {
-        $OwpSettings =  new OwpCms();
-        $OwpSettings->WhatDoISay = array("HelloILoveYou");
+        $OwpCms =  new OwpCms();
+        $OwpCms->WhatDoISay = array("HelloILoveYou");
 
         $this->assertEquals(
-            $OwpSettings->WhatDoISay,
+            $OwpCms->WhatDoISay,
             array("HelloILoveYou")
         );
     }
@@ -60,8 +48,28 @@ class OwpCms_test extends TestCase
      */
     public function testDeleteGet()
     {
-        $OwpSettings =  new OwpCms();
-        unset($OwpSettings->WhatDoISay);
-        $getMe = $OwpSettings->WhatDoISay;
+        $OwpCms =  new OwpCms();
+        unset($OwpCms->WhatDoISay);
+        $getMe = $OwpCms->WhatDoISay;
+    }
+
+    /**
+     * @covers OwpCms::__set
+     * @covers OwpCms::__get
+     * @covers OwpCms::macroReplace()
+     * @depends testSetGet
+     */
+    public function testMacroReplace()
+    {
+        $testArray = array("owpVariable" => "test", "phpUnit" => "Rocks");
+        $OwpCms =  new OwpCms();
+        $OwpCms->MyTestMacro = "The is my {{owpVariable}} macro! Sweet {{phpUnit}}";
+        $getMe = $OwpCms->macroReplace($OwpCms->MyTestMacro, $testArray);
+        unset($OwpCms->MyTestMacro);
+
+        $this->assertEquals(
+            "The is my test macro! Sweet Rocks",
+            $getMe
+        );
     }
 }

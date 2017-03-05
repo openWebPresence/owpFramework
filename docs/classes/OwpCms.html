@@ -84,6 +84,8 @@
 <li class="method public "><a href="#method___unset" title="__unset() :: __unset"><span class="description">__unset</span><pre>__unset()</pre></a></li>
 <li class="method public "><a href="#method_deleteModDataItem" title="deleteModDataItem() :: deleteModDataItem"><span class="description">deleteModDataItem</span><pre>deleteModDataItem()</pre></a></li>
 <li class="method public "><a href="#method_getModDataItem" title="getModDataItem() :: getModDataItem"><span class="description">getModDataItem</span><pre>getModDataItem()</pre></a></li>
+<li class="method public "><a href="#method_macroKeyList" title="macroKeyList() :: macroKeyList"><span class="description">macroKeyList</span><pre>macroKeyList()</pre></a></li>
+<li class="method public "><a href="#method_macroReplace" title="macroReplace() :: macroReplace"><span class="description">macroReplace</span><pre>macroReplace()</pre></a></li>
 <li class="method public "><a href="#method_setModDataItem" title="setModDataItem() :: setModDataItem"><span class="description">setModDataItem</span><pre>setModDataItem()</pre></a></li>
 </ul>
 </li>
@@ -97,7 +99,10 @@
 <li class="nav-header protected">» Protected
                     <ul>
 <li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">Data storage array</span><pre>$ezSqlDB</pre></a></li>
+<li class="property protected "><a href="#property_replacementAssociativeArray" title="$replacementAssociativeArray() :: "><span class="description">Data storage array</span><pre>$replacementAssociativeArray</pre></a></li>
 <li class="property protected "><a href="#property_settings_data" title="$settings_data() :: "><span class="description">Data storage array</span><pre>$settings_data</pre></a></li>
+<li class="property protected "><a href="#property_srArrayk" title="$srArrayk() :: "><span class="description">Macro Keys with double braces</span><pre>$srArrayk</pre></a></li>
+<li class="property protected "><a href="#property_srArrayv" title="$srArrayv() :: "><span class="description">Macro values</span><pre>$srArrayv</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -380,6 +385,74 @@
 <code>mixed</code>Array value</div>
 </div></div>
 </div>
+<a id="method_macroKeyList"></a><div class="element clickable method public method_macroKeyList " data-toggle="collapse" data-target=".method_macroKeyList .collapse" title="public">
+<h2>macroKeyList</h2>
+<pre>macroKeyList() : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Returns the macro keys as a list for display.</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
+<a id="method_macroReplace"></a><div class="element clickable method public method_macroReplace " data-toggle="collapse" data-target=".method_macroReplace .collapse" title="public">
+<h2>macroReplace</h2>
+<pre>macroReplace(string $stringData, array $replacementAssociativeArray) : string</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Provides a macro replacement method the the cms content.</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$stringData</h4>
+<code>string</code><p>Mod data array key</p></div>
+<div class="subelement argument">
+<h4>$replacementAssociativeArray</h4>
+<code>array</code><p>Replacement data array key</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\InvalidArgumentException</code></th>
+<td>Arguments are not the correct data types.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>string</code></div>
+</div></div>
+</div>
 <a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem " data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
 <h2>setModDataItem</h2>
 <pre>setModDataItem(string $itemName, mixed $itemValue) : mixed</pre>
@@ -459,9 +532,39 @@
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_replacementAssociativeArray"> </a><div class="element clickable property protected property_replacementAssociativeArray" data-toggle="collapse" data-target=".property_replacementAssociativeArray .collapse" title="protected">
+<h2>Data storage array</h2>
+<pre>$replacementAssociativeArray : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 <a id="property_settings_data"> </a><div class="element clickable property protected property_settings_data" data-toggle="collapse" data-target=".property_settings_data .collapse" title="protected">
 <h2>Data storage array</h2>
 <pre>$settings_data : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_srArrayk"> </a><div class="element clickable property protected property_srArrayk" data-toggle="collapse" data-target=".property_srArrayk .collapse" title="protected">
+<h2>Macro Keys with double braces</h2>
+<pre>$srArrayk : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_srArrayv"> </a><div class="element clickable property protected property_srArrayv" data-toggle="collapse" data-target=".property_srArrayv .collapse" title="protected">
+<h2>Macro values</h2>
+<pre>$srArrayv : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
@@ -476,7 +579,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-02T17:32:27-05:00.<br></footer></div>
+            generated on 2017-03-05T10:44:35-05:00.<br></footer></div>
 </div>
 </body>
 </html>

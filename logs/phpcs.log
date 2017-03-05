@@ -1,30 +1,31 @@
 Changing into directory /mnt/hgfs/www/owp-framework/src
-Processing OwpAjax.inc.php [PHP => 185 tokens in 40 lines]... DONE in 24ms (0 fixable violations)
-Processing OwpBaseFramework.inc.php [PHP => 2762 tokens in 423 lines]... DONE in 183ms (1 fixable violations)
-	=> Fixing file: 1/1 violations remaining                                                                                	=> Fixing file: 1/1 violations remaining [made 1 pass]...                                                                                 	=> Fixing file: 1/1 violations remaining [made 2 passes]...                                                                                 	=> Fixing file: 0/1 violations remaining [made 3 passes]... [32mDONE[0m in 579ms
-Processing OwpCms.inc.php [PHP => 1597 tokens in 263 lines]... DONE in 107ms (0 fixable violations)
-Processing OwpDefaultMod.inc.php [PHP => 338 tokens in 53 lines]... DONE in 24ms (0 fixable violations)
-Processing OwpDkim.inc.php [PHP => 1254 tokens in 201 lines]... DONE in 81ms (0 fixable violations)
-Processing OwpException.inc.php [PHP => 782 tokens in 157 lines]... DONE in 48ms (0 fixable violations)
-Processing OwpEzSqlMysqli.inc.php [PHP => 504 tokens in 79 lines]... DONE in 34ms (0 fixable violations)
-Processing OwpEzSqlMysql.inc.php [PHP => 649 tokens in 100 lines]... DONE in 44ms (0 fixable violations)
+Processing OwpAjax.inc.php [PHP => 185 tokens in 40 lines]... DONE in 16ms (0 fixable violations)
+Processing OwpBaseFramework.inc.php [PHP => 2762 tokens in 423 lines]... DONE in 198ms (0 fixable violations)
+Processing OwpCms.inc.php [PHP => 2071 tokens in 332 lines]... DONE in 140ms (6 fixable violations)
+	=> Fixing file: 6/6 violations remaining                                                                                	=> Fixing file: 6/6 violations remaining [made 1 pass]...                                                                                 	=> Fixing file: 1/6 violations remaining [made 2 passes]...                                                                                 	=> Fixing file: 0/6 violations remaining [made 3 passes]... [32mDONE[0m in 447ms
+Processing OwpDefaultMod.inc.php [PHP => 338 tokens in 53 lines]... DONE in 36ms (0 fixable violations)
+Processing OwpDkim.inc.php [PHP => 1254 tokens in 201 lines]... DONE in 99ms (0 fixable violations)
+Processing OwpException.inc.php [PHP => 782 tokens in 157 lines]... DONE in 52ms (0 fixable violations)
+Processing OwpEzSqlMysqli.inc.php [PHP => 504 tokens in 79 lines]... DONE in 35ms (0 fixable violations)
+Processing OwpEzSqlMysql.inc.php [PHP => 649 tokens in 100 lines]... DONE in 52ms (0 fixable violations)
 Processing OwpFirePHP.inc.php [PHP => 225 tokens in 45 lines]... DONE in 15ms (0 fixable violations)
-Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 92ms (0 fixable violations)
-Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 53ms (0 fixable violations)
-Processing OwpPasswordValidator.inc.php [PHP => 1055 tokens in 160 lines]... DONE in 75ms (0 fixable violations)
-Processing OwpSettings.inc.php [PHP => 1568 tokens in 258 lines]... DONE in 104ms (0 fixable violations)
-Processing OwpStdObject.inc.php [PHP => 424 tokens in 70 lines]... DONE in 29ms (0 fixable violations)
-Processing OwpSupportMethods.inc.php [PHP => 618 tokens in 110 lines]... DONE in 38ms (0 fixable violations)
-Processing OwpUsers.inc.php [PHP => 8177 tokens in 1283 lines]... DONE in 291ms (0 fixable violations)
+Processing OwpMessaging.inc.php [PHP => 1458 tokens in 199 lines]... DONE in 96ms (0 fixable violations)
+Processing OwpMod.inc.php [PHP => 908 tokens in 170 lines]... DONE in 65ms (0 fixable violations)
+Processing OwpPasswordValidator.inc.php [PHP => 1055 tokens in 160 lines]... DONE in 74ms (0 fixable violations)
+Processing OwpSettings.inc.php [PHP => 1568 tokens in 258 lines]... DONE in 109ms (0 fixable violations)
+Processing OwpStdObject.inc.php [PHP => 424 tokens in 70 lines]... DONE in 32ms (0 fixable violations)
+Processing OwpSupportMethods.inc.php [PHP => 618 tokens in 110 lines]... DONE in 42ms (0 fixable violations)
+Processing OwpUsers.inc.php [PHP => 8177 tokens in 1283 lines]... DONE in 508ms (0 fixable violations)
 Patched 1 file
-Time: 2.37 secs; Memory: 17.5Mb
+Time: 2.79 secs; Memory: 17.5Mb
 
 Changing into directory /mnt/hgfs/www/owp-framework/tests
-Processing OwpCms_test.php [PHP => 395 tokens in 67 lines]... DONE in 17ms (0 fixable violations)
-Processing OwpException_test.php [PHP => 178 tokens in 39 lines]... DONE in 7ms (0 fixable violations)
-Processing OwpPasswordValidator_test.php [PHP => 434 tokens in 80 lines]... DONE in 15ms (0 fixable violations)
-Processing OwpSettings_test.php [PHP => 395 tokens in 67 lines]... DONE in 22ms (0 fixable violations)
-Processing OwpUsers_test.php [PHP => 2227 tokens in 319 lines]... DONE in 146ms (0 fixable violations)
-No fixable errors were found
-Time: 495ms; Memory: 8.25Mb
+Processing OwpCms_test.php [PHP => 428 tokens in 75 lines]... DONE in 48ms (1 fixable violations)
+	=> Fixing file: 1/1 violations remaining                                                                                	=> Fixing file: 1/1 violations remaining [made 1 pass]...                                                                                 	=> Fixing file: 0/1 violations remaining [made 2 passes]... [32mDONE[0m in 77ms
+Processing OwpException_test.php [PHP => 178 tokens in 39 lines]... DONE in 12ms (0 fixable violations)
+Processing OwpPasswordValidator_test.php [PHP => 434 tokens in 80 lines]... DONE in 24ms (0 fixable violations)
+Processing OwpSettings_test.php [PHP => 395 tokens in 67 lines]... DONE in 45ms (0 fixable violations)
+Processing OwpUsers_test.php [PHP => 2227 tokens in 319 lines]... DONE in 136ms (0 fixable violations)
+Patched 1 file
+Time: 869ms; Memory: 8.25Mb
 

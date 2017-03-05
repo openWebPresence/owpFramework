@@ -25,6 +25,7 @@ OwpSettings_test
 OwpCms_test
  [x] Set get
  [x] Delete get
+ [x] Macro replace
 
 OwpPasswordValidator_test
  [x] Validate pass

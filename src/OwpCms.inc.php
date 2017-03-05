@@ -37,6 +37,21 @@ class OwpCms
     static protected $ezSqlDB = array();
 
     /**
+     * @var array $srArrayk Macro Keys with double braces
+     */
+    static protected $srArrayk = array();
+
+    /**
+     * @var array $srArrayv Macro values
+     */
+    static protected $srArrayv = array();
+
+    /**
+     * @var array $replacementAssociativeArray Data storage array
+     */
+    static protected $replacementAssociativeArray = array();
+
+    /**
      * Constructor.
      *
      * @method mixed __construct()
@@ -201,6 +216,59 @@ class OwpCms
             return self::$settings_data[$itemName];
         } else {
             throw new InvalidArgumentException("CMS data item " . $itemName . " does not exist.", 20);
+        }
+    }
+
+    /**
+     * macroKeyList
+     *
+     * @method mixed macroKeyList() Returns the macro keys as a list for display.
+     * @access public
+     *
+     * @return string
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function macroKeyList()
+    {
+        $response = "";
+        foreach(self::$replacementAssociativeArray as $rAAk => $rAAv) {
+            $response .= "<li>" . strtolower($rAAk) . "</li>";
+        }
+        return (string)$response;
+    }
+
+    /**
+     * macroReplace
+     *
+     * @method mixed macroReplace($stringData, $replacementAssociativeArray) Provides a macro replacement method the the cms content.
+     * @access public
+     *
+     * @param  string $stringData                  Mod data array key
+     * @param  array  $replacementAssociativeArray Replacement data array key
+     * @throws InvalidArgumentException Arguments are not the correct data types.
+     * @return string
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function macroReplace($stringData, $replacementAssociativeArray)
+    {
+        if(is_string($stringData) && is_array($replacementAssociativeArray) && array_diff_key($replacementAssociativeArray, array_keys(array_keys($replacementAssociativeArray)))) {
+            self::$replacementAssociativeArray = $replacementAssociativeArray;
+            self::$srArrayk = array();
+            self::$srArrayv = array();
+            foreach(self::$replacementAssociativeArray as $rAAk => $rAAv) {
+                self::$srArrayk[] = "{{" . $rAAk . "}}";
+                self::$srArrayv[] = $rAAv;
+
+            }
+            return str_replace(self::$srArrayk, self::$srArrayv, $stringData);
+        }
+        else
+            {
+            throw new InvalidArgumentException("Arguments are not the correct data types.");
         }
     }
 
