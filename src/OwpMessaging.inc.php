@@ -62,28 +62,20 @@ class OwpMessaging
      */
     public function sendEmailDirect($data_array)
     {
-
-        if($this->validateData($data_array)) {
-            throw new InvalidArgumentException($this->errors);
-        }
-
         try {
             $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
             list($to_addy_info) = imap_rfc822_parse_adrlist($email_to_clean, "");
             $dns_get_mx = dns_get_record($to_addy_info->host, DNS_MX);
             $ip = gethostbyname($dns_get_mx[0]["target"]);
             $message_sent = $this->sendCore($data_array, (string)$ip);
+        } catch (InvalidArgumentException $e) {
+            throw new InvalidArgumentException("OwpMessaging->sendEmailDirect(): Caught InvalidArgumentException: ". $e->getMessage());
         } catch (Exception $e) {
-            throw new Exception("'Caught exception: ". $e->getMessage());
-        }
-
-        if(!$message_sent) {
-            throw new InvalidArgumentException($this->errors);
+            throw new Exception("OwpMessaging->sendEmailDirect(): Caught Exception: ". $e->getMessage());
         }
 
         return $message_sent;
     }
-
 
     /**
      * sendEmailViaSMTP()
@@ -101,18 +93,13 @@ class OwpMessaging
      */
     public function sendEmailViaSMTP($data_array)
     {
-        if($this->validateData($data_array)) {
-            throw new InvalidArgumentException($this->errors);
-        }
 
         try {
             $message_sent = $this->sendCore($data_array, (string)getenv("smtp_hostname"));
+        } catch (InvalidArgumentException $e) {
+            throw new InvalidArgumentException("OwpMessaging->sendEmailViaSMTP(): Caught InvalidArgumentException: ". $e->getMessage());
         } catch (Exception $e) {
-            throw new Exception("'Caught exception: ". $e->getMessage());
-        }
-
-        if(!$message_sent) {
-            throw new InvalidArgumentException($this->errors);
+            throw new Exception("OwpMessaging->sendEmailViaSMTP(): Caught Exception: ". $e->getMessage());
         }
 
         return $message_sent;
@@ -133,20 +120,30 @@ class OwpMessaging
      */
     private function sendCore($data_array, $smtp_hostname)
     {
+
+        try {
+            $this->validateData($data_array);
+        } catch (InvalidArgumentException $e) {
+            throw new InvalidArgumentException("OwpMessaging->sendCore(): Caught InvalidArgumentException: ". $e->getMessage());
+        }
+
         $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
 
         $mail = new PHPMailer;
 
         $mail->isSMTP();
         $mail->Host = $smtp_hostname;
-        $mail->SMTPAuth = (bool)getenv("smtp_hostname");
-        if((bool)getenv("smtp_hostname")) {
+
+        if(in_array(getenv("smtp_auth"),array("yes","true",1))) {
+            $mail->SMTPAuth = true;
             $mail->Username = (string)getenv("smtp_username");
             $mail->Password = (string)getenv("smtp_password");
         }
-        if((string)getenv("smtp_secure") != "none") {
+
+        if(in_array(getenv("smtp_secure"),array("ssl","tls"))) {
             $mail->SMTPSecure = (string)getenv("smtp_secure");
         }
+
         $mail->Port = (string)getenv("smtp_port");
 
         $mail->XMailer = "OpenWebPresence-1.0";
@@ -200,7 +197,7 @@ class OwpMessaging
         $missing_columns = array_diff($required_variables, array_keys($data_array));
 
         if($missing_columns) {
-            throw new InvalidArgumentException("The following columns are missing: " . implode(", ", $missing_columns));
+            throw new InvalidArgumentException("OwpMessaging->validateData() : The following columns are missing: " . implode(", ", $missing_columns));
         }
 
         return true;
