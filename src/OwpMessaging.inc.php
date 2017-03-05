@@ -41,7 +41,7 @@ class OwpMessaging
      *
      * @param string $root_path The root file path.
      */
-    function __construct($root_path) 
+    function __construct($root_path)
     {
         $this->root_path = $root_path;
     }
@@ -54,54 +54,32 @@ class OwpMessaging
      * @return boolean
      * @param  array $data_array Mailer data array.
      *
-     * @throws InvalidArgumentException Missing required argument.
+     * @throws InvalidArgumentException Missing required argument
+     * @throws Exception Meage send failure.
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    public function sendEmailDirect($data_array) 
+    public function sendEmailDirect($data_array)
     {
 
         if($this->validateData($data_array)) {
             throw new InvalidArgumentException($this->errors);
         }
 
-        $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
+        try {
+            $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
+            list($to_addy_info) = imap_rfc822_parse_adrlist($email_to_clean, "");
+            $dns_get_mx = dns_get_record($to_addy_info->host, DNS_MX);
+            $ip = gethostbyname($dns_get_mx[0]["target"]);
+            $message_sent = $this->sendCore($data_array, (string)$ip);
+        } catch (Exception $e) {
+            throw new Exception("'Caught exception: ". $e->getMessage());
+        }
 
-        $mail = new PHPMailer;
-        $mail->IsSMTP();
-
-        list($to_addy_info) = imap_rfc822_parse_adrlist($email_to_clean, "");
-        $dns_get_mx = dns_get_record($to_addy_info->host, DNS_MX);
-        $ip = gethostbyname($dns_get_mx[0]["target"]);
-
-        $mail->Host = $ip;
-
-        $mail->XMailer = "OpenWebPresence-1.0";
-        $mail->Helo = $data_array["sender_domain"];
-        $mail->Hostname = $data_array["sender_domain"];
-
-        $mail->From = $data_array["email_from"];
-        $mail->FromName = $data_array["email_from_name"];
-        $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
-        $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
-
-        $mail->DKIM_domain = $_ENV["DKIM_domain"];
-        $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
-        $mail->DKIM_selector = $_ENV["DKIM_selector"];
-        $mail->DKIM_passphrase = $_ENV["DKIM_passphrase"];
-        $mail->DKIM_identity = $_ENV["DKIM_identity"];
-
-        $mail->WordWrap = 50;
-        $mail->IsHTML(true);
-
-        $mail->Subject = $data_array["subject"];
-        $mail->Body    = $data_array["message_body"];
-
-        $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for " . $data_array["sender_domain"]. ".");
-        $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
-
-        $message_sent = (boolean)($mail->Send()?true:false);
+        if(!$message_sent) {
+            throw new InvalidArgumentException($this->errors);
+        }
 
         return $message_sent;
     }
@@ -115,33 +93,61 @@ class OwpMessaging
      * @return boolean
      * @param  array $data_array Mailer data array.
      *
-     * @throws InvalidArgumentException Missing required argument.
+     * @throws InvalidArgumentException Missing required argument
+     * @throws Exception Meage send failure.
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    public function sendEmailViaSMTP($data_array) 
+    public function sendEmailViaSMTP($data_array)
     {
-
         if($this->validateData($data_array)) {
             throw new InvalidArgumentException($this->errors);
         }
 
+        try {
+            $message_sent = $this->sendCore($data_array, (string)getenv("smtp_hostname"));
+        } catch (Exception $e) {
+            throw new Exception("'Caught exception: ". $e->getMessage());
+        }
+
+        if(!$message_sent) {
+            throw new InvalidArgumentException($this->errors);
+        }
+
+        return $message_sent;
+    }
+
+    /**
+     * sendCore()
+     *
+     * @method boolean sendCore($data_array, $smtp_hostname) Core PHPMailer library.
+     * @access private
+     * @return boolean
+     * @param  array  $data_array    Mailer data array.
+     * @param  String $smtp_hostname hostname to send to.
+     * @throws Exception Mail end failure.
+     *
+     * @author  Brian Tafoya
+     * @version 1.0
+     */
+    private function sendCore($data_array, $smtp_hostname)
+    {
         $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
 
         $mail = new PHPMailer;
 
         $mail->isSMTP();
-        $mail->Host = (string)$_ENV["smtp_hostname"];
-        $mail->SMTPAuth = (bool)$_ENV["smtp_hostname"];
-        if((bool)$_ENV["smtp_hostname"]) {
-            $mail->Username = (string)$_ENV["smtp_username"];
-            $mail->Password = (string)$_ENV["smtp_password"];
+        $mail->Host = $smtp_hostname;
+        $mail->SMTPAuth = (bool)getenv("smtp_hostname");
+        if((bool)getenv("smtp_hostname")) {
+            $mail->Username = (string)getenv("smtp_username");
+            $mail->Password = (string)getenv("smtp_password");
         }
-        if((string)$_ENV["smtp_secure"] != "none") {
-            $mail->SMTPSecure = (string)$_ENV["smtp_secure"];
+        if((string)getenv("smtp_secure") != "none") {
+            $mail->SMTPSecure = (string)getenv("smtp_secure");
         }
-        $mail->Port = (string)$_ENV["smtp_port"];
+        $mail->Port = (string)getenv("smtp_port");
 
         $mail->XMailer = "OpenWebPresence-1.0";
         $mail->Helo = $data_array["sender_domain"];
@@ -152,11 +158,11 @@ class OwpMessaging
         $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
         $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
 
-        $mail->DKIM_domain = $_ENV["DKIM_domain"];
-        $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . $_ENV["DKIM_private"] . '.htkeyprivate';
-        $mail->DKIM_selector = $_ENV["DKIM_selector"];
-        $mail->DKIM_passphrase = $_ENV["DKIM_passphrase"];
-        $mail->DKIM_identity = $_ENV["DKIM_identity"];
+        $mail->DKIM_domain = getenv("DKIM_domain");
+        $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . getenv("DKIM_private") . '.htkeyprivate';
+        $mail->DKIM_selector = getenv("DKIM_selector");
+        $mail->DKIM_passphrase = getenv("DKIM_passphrase");
+        $mail->DKIM_identity = getenv("DKIM_identity");
 
         $mail->WordWrap = 50;
         $mail->IsHTML(true);
@@ -169,7 +175,11 @@ class OwpMessaging
 
         $message_sent = (boolean)($mail->Send()?true:false);
 
-        return $message_sent;
+        if(!$message_sent) {
+            throw new Exception($mail->ErrorInfo);
+        }
+
+        return true;
     }
 
     /**
@@ -183,17 +193,17 @@ class OwpMessaging
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function validateData($data_array) 
+    private function validateData($data_array)
     {
         $required_variables = array("sender_domain", "subject", "message_body", "email_to", "email_to_name", "email_from", "email_from_name", "reply_to");
 
         $missing_columns = array_diff($required_variables, array_keys($data_array));
 
         if($missing_columns) {
-            $this->errors[] = array("message"=>"The following columns are missing.","details"=>$missing_columns);
+            throw new InvalidArgumentException("The following columns are missing: " . implode(", ", $missing_columns));
         }
 
-        return ($this->errors?false:true);
+        return true;
     }
 }
 

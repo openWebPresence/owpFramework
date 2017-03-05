@@ -82,7 +82,10 @@
 </ul>
 </li>
 <li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_validateData" title="validateData() :: validateData"><span class="description">validateData</span><pre>validateData()</pre></a></li></ul>
+                    <ul>
+<li class="method private "><a href="#method_sendCore" title="sendCore() :: sendCore()"><span class="description">sendCore()</span><pre>sendCore()</pre></a></li>
+<li class="method private "><a href="#method_validateData" title="validateData() :: validateData"><span class="description">validateData</span><pre>validateData()</pre></a></li>
+</ul>
 </li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
@@ -153,10 +156,16 @@
 <h4>$data_array</h4>
 <code>array</code><p>Mailer data array.</p></div>
 <h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th><code>\InvalidArgumentException</code></th>
-<td>Missing required argument.</td>
-</tr></table>
+<td>Missing required argument</td>
+</tr>
+<tr>
+<th><code>\Exception</code></th>
+<td>Meage send failure.</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
@@ -190,9 +199,55 @@
 <h4>$data_array</h4>
 <code>array</code><p>Mailer data array.</p></div>
 <h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
+<table class="table table-bordered">
+<tr>
 <th><code>\InvalidArgumentException</code></th>
-<td>Missing required argument.</td>
+<td>Missing required argument</td>
+</tr>
+<tr>
+<th><code>\Exception</code></th>
+<td>Meage send failure.</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
+<a id="method_sendCore"></a><div class="element clickable method private method_sendCore " data-toggle="collapse" data-target=".method_sendCore .collapse" title="private">
+<h2>sendCore()</h2>
+<pre>sendCore(array $data_array, String $smtp_hostname) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Core PHPMailer library.</td>
+</tr>
+<tr>
+<th>access</th>
+<td>private</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$data_array</h4>
+<code>array</code><p>Mailer data array.</p></div>
+<div class="subelement argument">
+<h4>$smtp_hostname</h4>
+<code>String</code><p>hostname to send to.</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Mail end failure.</td>
 </tr></table>
 <h3>Returns</h3>
 <div class="subelement response"><code>boolean</code></div>
@@ -259,7 +314,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-05T10:44:39-05:00.<br></footer></div>
+            generated on 2017-03-05T18:05:51-05:00.<br></footer></div>
 </div>
 </body>
 </html>

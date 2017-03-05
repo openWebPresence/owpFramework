@@ -5,6 +5,6 @@ Configuration: /mnt/hgfs/www/owp-framework/phpunit.xml
 
 .......................                                           23 / 23 (100%)
 
-Time: 925 ms, Memory: 5.75MB
+Time: 423 ms, Memory: 5.75MB
 
 OK (23 tests, 23 assertions)
