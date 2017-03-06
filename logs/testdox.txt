@@ -1,3 +1,6 @@
+OwpMessaging_test
+ [x] Send email via s m t p
+
 OwpException_test
  [x] Exception
 

@@ -2,6 +2,7 @@
 <phpunit bootstrap="bootstrap.php">
     <testsuites>
         <testsuite name="OwpUsers">
+            <file>tests/OwpMessaging_test.php</file>
             <file>tests/OwpException_test.php</file>
             <file>tests/OwpUsers_test.php</file>
             <file>tests/OwpSettings_test.php</file>

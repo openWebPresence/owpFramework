@@ -1726,7 +1726,7 @@
     </class>
     <source>eJyNVU1v4zYQvftXDIwekkAbJ3spsN2mUWx6TawsCZK8aVAUgT5oi11ZFEgqrlHsf+8MLTuJ0UMFAxaHM+/NvOFQn3/r6m40uboawRVEnWgfRRFrYURbCkj7rlPaQiALnes9fACFHjtRdIPHdam2GEix96Xq9lpuagsfb25u0ffjze3PHjxombeQ5Wu1z6+dY5eX3/ONAIBo182lFvEidht5b2ul0f4uCD4X1r3cF2Q9vBPxnQt6EdpI1WLQ7fWNszSyFK0h/CXPziy1tZ35NJlQHUb1GktQejMZHMwEIyCrBUVi1c54KC63YqNQgnONngeNngeNBr72O7iH+Aa6M9nOgQYZpycVL8rL/5BwcIuF3krjCpcGaqFFsYeNRnlE5cFaCwFqDWWd643wwCrI2z10KBUGKNRTtrLdQA7UNPK0NcIYtba7XAt0riA3RpUSy66gUmW/Fai8Jb61bISBC4sqjdMhYnzpSCqRNyBboL3jFuwkdrW3gHVaLUvC8NCpbPqKcjhuN3IrBwYKdxoYAu0NVkB5erBVlVzTv3BldX3RSFN7UEmCLnqLRkNG1ziP6pjggTKiaQhBYt6u1tfsnA+xdCSoHSRyvLsam/SuEpRo3esWKYWLqRRK5hj/EqUlC7mvVdOoHZVWqraSVJH5NLSNjlZeqBcBr9PSKov5HvKgLnSvrR22TJ1jAYUYVENy1Dh/U5OmHIzF7ktsAB1HIj2v9fqYxIJBGs2zRz9hwFOIk+gbn7EZjP0U12MPHnm2iFYZoEfih9kTRHPwwyf4ysOZB+z3OGFpClECfBkHnKGNh9NgNePhF3jAuDDC6eE4QwiaRY5wgOIsJbAlS6YLXPoPPODZkwdznoWEOUdQH2I/yfh0FfgJxKskjlKG9DOEDXk4T5CFLVmYXSMr2oB9wwWkCz8IHJW/wuwTl980ip8S/mWRwSIKZgyNDwwz8x8CdqDCoqaBz5cezPyl/4W5qAhREuc2ZPe4YM6EfD7+phmPQipjGoVZgksPq0yyU+gjT5kHfsJTEmSeRAhPcmJE5EAwLmQHFJL6fUfQhdarlL3mMmN+gFgpBb91ppZORsfrO6PjUzY4uXhA8L7SOL0GhhsWh7PoNxs6l7ip3PUDeP/A8QI6YB3CXy9mEH9b0VYnmNE/I7rXHCM9VzAj3GFxtN1vBU51BS9KVvD87Kh5u1YXlyePvCwFMrkZLk9WLSxOGORa5/tzzOPn4f9+HIaw4wfCfR6cbeL+D8w40a27k96nCc7lUCs9Q15/nAz0jKVhbV40ohrDr3fwE43vh7uNsIP14tJ77686N5hn3tHB+tb7z1/c64/Rj9G/FpRa6g==</source>
   </file>
-  <file path="OwpMessaging.inc.php" generated-path="OwpMessaging.inc.html" hash="f7afdb56847b63518e57021bdb88dfd7" package="OwpMessaging">
+  <file path="OwpMessaging.inc.php" generated-path="OwpMessaging.inc.html" hash="b4f19482e8f13cd98d1b726b733dfd2d" package="OwpMessaging">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -1817,28 +1817,28 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="102" package="OwpMessaging">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="94" package="OwpMessaging">
         <name>sendEmailViaSMTP</name>
         <full_name>\OwpMessaging::sendEmailViaSMTP()</full_name>
-        <docblock line="102">
+        <docblock line="94">
           <description>sendEmailViaSMTP()</description>
           <long-description></long-description>
-          <tag name="method" line="102" description="Send email via mail server using the PHPMailer library." method_name="sendEmailViaSMTP"/>
-          <tag name="access" line="102" description="public"/>
-          <tag name="return" line="102" description="" type="boolean">
+          <tag name="method" line="94" description="Send email via mail server using the PHPMailer library." method_name="sendEmailViaSMTP"/>
+          <tag name="access" line="94" description="public"/>
+          <tag name="return" line="94" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="102" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
+          <tag name="param" line="94" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
             <type>array</type>
           </tag>
-          <tag name="throws" line="102" description="Missing required argument" type="\InvalidArgumentException">
+          <tag name="throws" line="94" description="Missing required argument" type="\InvalidArgumentException">
             <type>\InvalidArgumentException</type>
           </tag>
-          <tag name="throws" line="102" description="Meage send failure." type="\Exception">
+          <tag name="throws" line="94" description="Meage send failure." type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="102" description="Brian Tafoya"/>
-          <tag name="version" line="102" description="1.0"/>
+          <tag name="author" line="94" description="Brian Tafoya"/>
+          <tag name="version" line="94" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$data_array</name>
@@ -1846,28 +1846,28 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="134" package="OwpMessaging">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="121" package="OwpMessaging">
         <name>sendCore</name>
         <full_name>\OwpMessaging::sendCore()</full_name>
-        <docblock line="134">
+        <docblock line="121">
           <description>sendCore()</description>
           <long-description></long-description>
-          <tag name="method" line="134" description="Core PHPMailer library." method_name="sendCore"/>
-          <tag name="access" line="134" description="private"/>
-          <tag name="return" line="134" description="" type="boolean">
+          <tag name="method" line="121" description="Core PHPMailer library." method_name="sendCore"/>
+          <tag name="access" line="121" description="private"/>
+          <tag name="return" line="121" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="134" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
+          <tag name="param" line="121" description="&lt;p&gt;Mailer data array.&lt;/p&gt;" type="array" variable="$data_array">
             <type>array</type>
           </tag>
-          <tag name="param" line="134" description="&lt;p&gt;hostname to send to.&lt;/p&gt;" type="String" variable="$smtp_hostname">
+          <tag name="param" line="121" description="&lt;p&gt;hostname to send to.&lt;/p&gt;" type="String" variable="$smtp_hostname">
             <type>String</type>
           </tag>
-          <tag name="throws" line="134" description="Mail end failure." type="\Exception">
+          <tag name="throws" line="121" description="Mail end failure." type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="134" description="Brian Tafoya"/>
-          <tag name="version" line="134" description="1.0"/>
+          <tag name="author" line="121" description="Brian Tafoya"/>
+          <tag name="version" line="121" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$data_array</name>
@@ -1904,7 +1904,7 @@
         </argument>
       </method>
     </class>
-    <source>eJztGWtv2zjye38FVwhQu3CctMDhFu0mu4qt1ML6BUtp2isKgZZom1dZ1JJUst7F/veboR62ZDntFT3gPqxhwOJw3i8O5Z9+Tjfps4sXL56RF2SWsuSeLeeSKZaEjHhZmgqpyZgvJZU7ck4EYDyyZVpg9EOxBUKk/SUU6U7y9UaTV5eXLwH31eXLf/bIjeQ0IT5diR3tG8SUhp/pmhFCZo/phClF1zxZmy2a6Y2QsFMjIz8ttXn4ZYnQ/BlFXxuiByYVFwkQvexfGkjMQ5YolDBx/QZko3WqXl9coCVKZBKMEHJ9USCoC6Ag/oYhJdhtgLl5VLO1ACc0vRQUXgoKLxXyks/EfFBeIa7huCajwpGDyo+dsNvixAJtzuSWK2M4V2TDJFvuyFqCe1jUIyvJGBErEm6oXLMe0YLQZEdScBUQCPAnT8DphBIMG2LqDbBRYqUfqWSAHBGqlAg5mB2RSITZloHnNcpb8Zgp0tHgJcsrKKyuERIxGhOeENwrt8gjh6hmmoCdWvIQefQAKYyzCHUot2O+5YUEJDc+UMg0U2AB6tkjWxHxFf4yY1aaLWOuNj0ScWS9zDQAFQJN4HpoxwUklGJxjBw46G1s3WtncFBKig7VhYuM3McNBKlmCbholckERDJDEwlwmZH4bxZqhCD6SsSxeETTQpFEHC1Sr4uwYWrRpXhgZF8vidCgb64HRiHdh7bYUhsKBixZ4TUQDj6mBzZJ1EFpiD6HAGA6otCmrf1SiZFDvNmtf28vHOJ6ZL6YvXOHzpBYtgdrq0fuXX80u/MJYCzsqf+BzG6JPf1AfnWnwx5x3s8XjueR2YK4k/nYdQDmTgfju6E7fUtugG46g+pxoYaAqT8zAgtWruMhs4mzGIxgad+4Y9f/0CO3rj9FnrfA1CZze+G7g7uxvSDzu8V85jkgfghsp+70dgFSnIkz9fsgFWDEeQcL4o3s8diIsu9A+4XRbzCbf1i4b0c+Gc3GQweANw5oZt+MnVwUGDUY2+6kR4b2xH7rGKoZcFkYtEK7+5FjQCDPhu/Ad2dTNGMwm/oLWPbAyoVfkd67ntMj9sL10CG3ixmwR3cCxcwwAbqpk3NBV9cjAii4vvOcvS5Dxx4DLw+JD5ExpBfPygbuY/qEMVQuSaV44BHkxrbssJCX0qSDeExvJd2yRyE/Q9XlvT3TPOZ/INp8NJ9QKHGZ887Z1Vr1n8+eYWszQvGDTZhKQqWkO3LGpBRSEQd/cliBdWF+Tc2GFdpVjtLpvmlninUNSp1JIXSQUr0xJYQr04cIgvp1AZI/QNc6JLkiSRbHxxIGUCRaZqEWsuRRCU8p+OgbxK+yxLQ4EgRhyb6zp+8apD9zEvicYcmfXx/qukd+Y9D+OtIbzovI2UKQhlxC42mqvmXQUSOyFCJmcG40sDtnEdU0MG7vEg82CcNdaKK4He/KPgYrDu0l0c8hixBBMQmHLfRjdAliVKlSplG/0oGGIcM0NNGuoJJp6J+lZg1flwm0V48U3BGS7x6FSW+keFTETR5ozCNbrs1B5fwestREYYKdFNSV7LcM7INjrUBpcjggYTieoNfICuRnpnHWpZaDSv1gLtO2GEjMOHKc+VWCPBWXIkuqNOGrTpEpxk7I7yEg10i6B1mFH2MXSdjjSeeULPNS7L6pyP/aC9bQG+p8z0y2BFoEoUmvK6wEzWQA5Xqo0EerRLQ+YX8f+84i8Oyp67v/cgJnYrvjA5H4gbMcvACMaRTtAp6sRBe48y1NA7kKf3z1CopCKgbbMketa9IjltXgeBYlKlgzHWx/B07lArwtZFSXdH69EUrDKTD1gsn7JhueAvkay0rp5S6B5tk5YP3x8tNHS+Okpa1PTdK8/7IAoq2xuHOXY+wHQrJDh/VIJ283XZB3GA0Cw2e4IZ19ip6x09Heh9d6PqAZThisBL0mVh+Iz69B1byfs063PfCQcT/UlP/f5FfREWqSqrZ3su+949Sb+PNO92tbX0lwqvc9cPp3j6tL/b49ri0AjaPw/6nHfUvVQk2x5KFjqa1OA+wU2Ces7t+V3D7AGEd+TQEfe/ys5uIuQYyvKdR8Mvz+lVrReMW4WNOPVA8wWJmS06L/RGliG/r+hVlMxbXK/KJnm8Pqdz3692xN570yGVhFsbl/fs1V3vPfNDdGoC4WaU33IywktjMzYXcw5Kfq9c1h4TyJ2ayjQtAdnCEm3FftrSEr9o+GlZx8DvctuJpFp8jTYt+qleGhzm1UioUZvqYhP1wRKxEJPrZqj27yDPIpBUpWbeJLG/C14Sn9Yc86Cv/59fuivEC/xpuxc0hm6zjqLBYY9cO0w6SGdIwEoCTWp9ZMKULzNF2T8FaKbZMoz/EV7LRIQoJpi6Q9UWBy4JjSjiL4gunqeMBtrbGC0XFdAJsFS+OdLzqn6lTi/pN12hKp4a/upPBVPhab4B5ArWNdzG7ZhK6Or7198rwq/QCRL54DrMa7oIbEBeT+Rn9muwL0vF2cYjHDu31TyRJ+Uk2osHQjqWJNyv3OKVoewbHH9a5JWcLbMv8eqvleUrxj/OPyiK2rRv5k3NEyYy20XvHusZnQObglvW5EtMNlg6A8tZew3VYAcFEaZEqL7YhRKJWO9f7cBoPsJXQzC25e5tUTfClRAiZAjq+N89EaXztZELKnCq4P00yLR78g9GQ11v1UH+U6xXHf7ZQeBFU63Z/Rv69XNFY1L/8Xs9PBsJQzNm/AXLzFPjUvodxTY9LhHHxiUKqNyl3yrliaq0t5DVD4Cj2qpg9avBNkXxyQnpyE8jkImC5ZpUW0Z9k6XH3nGebkPaE5t5Q3I2yAnC7x/4vyxWMjFSGVy9qBx1pVwLoaaw6e8/ZbAUwG1lYVQtVs6/mZ396CUMTZNqkUCyK+ggvRsea9Yh/an6pfjup522T8DVO/5Tf+zsg1xL9CCuavTWnzbRqLiHXQyN6R3K9Of9j9D4MMtLQ=</source>
+    <source>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</source>
   </file>
   <file path="OwpMod.inc.php" generated-path="OwpMod.inc.html" hash="65f025fb1ffa1c8f5000027603e78930" package="OwpMod">
     <docblock line="0">

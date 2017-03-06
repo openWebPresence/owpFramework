@@ -6,3 +6,6 @@ ini_set('display_startup_errors', '1');
 define("ROOT_PATH", dirname(__FILE__).DIRECTORY_SEPARATOR);
 
 include("vendor/autoload.php");
+
+$dotenv = new Dotenv\Dotenv(ROOT_PATH, '.env');
+$dotenv->load();
