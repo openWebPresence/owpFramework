@@ -71,7 +71,7 @@ class OwpMessaging_test extends TestCase
         sleep(2);
 
         $client = new \GuzzleHttp\Client();
-        $res = $client->request('GET', 'http://mailcatch.spamisspam.com/?uuid=' . self::$uuid);
+        $res = $client->request('GET', 'http://mailcatch.spamisspam.com/json?uuid=' . self::$uuid);
 
         $response = json_decode((string)$res->getBody(), true);
 
