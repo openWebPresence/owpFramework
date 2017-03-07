@@ -40,7 +40,6 @@ class OwpSupportMethods
         return md5(uniqid(rand()+MicroTime(), 1));
     }
 
-
     /**
      * randomPasswordAlphaNum
      *
@@ -69,7 +68,6 @@ class OwpSupportMethods
         return (string)$password;
     }
 
-
     /**
      * GetUserIP
      *
@@ -89,7 +87,6 @@ class OwpSupportMethods
         }
     }
 
-
     /**
      * includeIfExists
      *
@@ -106,5 +103,17 @@ class OwpSupportMethods
         if (file_exists($file)) {
             return include $file;
         }
+    }
+
+    /**
+     * filterAction
+     *
+     * @method filterAction($action) Includes file if it exists.
+     * @access public
+     * @param $action
+     * @return string
+     */
+    static function filterAction($action) {
+        return (string)preg_replace("/[^A-Za-z0-9_-]/", "", $action);
     }
 }
