@@ -40,13 +40,13 @@ class OwpDefaultMod extends OwpMod
      */
     public function __construct($frameworkObject, $modFileIncludeName, $modFileLocation)
     {
-        $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
+        $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
+        $this->root_path = $frameworkObject["frameworkVariables"]["root_path"];
+        $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
+        $this->uuid = $frameworkObject["frameworkVariables"]["uuid"];
+        $this->PhpConsole = $frameworkObject["PhpConsole"];
         $this->userClass = $frameworkObject["userClass"];
-        $this->current_web_root = $frameworkObject["current_web_root"];
-        $this->root_path = $frameworkObject["root_path"];
-        $this->requested_action = $frameworkObject["requested_action"];
-        $this->uuid = $frameworkObject["uuid"];
 
         throw new Exception("Missing UserDefinedModClass. [Class: " . $modFileIncludeName . "] (" . $modFileLocation. ")");
     }

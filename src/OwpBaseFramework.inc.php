@@ -28,188 +28,31 @@
 class OwpBaseFramework
 {
 
-    /**
-     * @var string $root_path Set the root file path.
-     */
-    public $root_path = null;
-
-    /**
-     * @var array $debugging Debugging array.
-     */
-    public $debugging = null;
-
-    /**
-     * @var boolean $debug Is debugging enabled by default.
-     */
-    public $debug = false;
-
-    /**
-     * @var int $userID UserID.
-     */
-    public $userID = 0;
-
-    /**
-     * @var string $uuid Unique uuid().
-     */
-    public $uuid = null;
-
-    /**
-     * @var object $ezSqlDB The ezSQL Database Object.
-     */
-    protected $ezSqlDB;
-
-    /**
-     * @var string $current_web_root The web root url.
-     */
-    protected $current_web_root;
-
-    /**
-     * @var object $OwpSupportMethods OpenWebPresence support methods.
-     */
-    protected $OwpSupportMethods;
-
-    /**
-     * @var string $default_action Default action.
-     */
-    public $default_action = "home";
-
-    /**
-     * @var string $requested_action The requested action.
-     */
-    public $requested_action = "home";
-
-    /**
-     * @var string $modMethods Mod methods object.
-     */
-    public $modMethods = null;
-
-    /**
-     * @var string $modAvailableMethods Mod methods available.
-     */
-    public $modAvailableMethods = array();
-
-    /**
-     * @var object $mod_data Modifier method data storage.
-     */
-    protected $mod_data;
-
-    /**
-     * @var string $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS Database credentials.
-     */
-    protected $DB_HOST, $DB_NAME, $DB_USER, $DB_PASS = null;
-
-    /**
-     * @var string $THEME Active theme.
-     */
-    protected $THEME = null;
-
-    /**
-     * @var object $ezSqlDB ezSQL Database Object.
-     */
-    protected $userClass;
-
-    /**
-     * @var object $PhpConsole PhpConsole Object.
-     */
-    public $PhpConsole;
-
-    /**
-     * @var object $frameworkObject Framework Class Object.
-     */
-    public $frameworkObject;
 
     /**
      * Constructor
      *
      * @method void __construct()
      * @access public
-     * @param  string $root_path        The app root file path.
-     * @param  string $current_web_root The current web root.
-     * @param  object $PhpConsole       PhpConsole debugger object.
+     * @global  string $root_path        The app root file path.
+     * @global  string $current_web_root The current web root.
+     * @global  object $PhpConsole       PhpConsole debugger object.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($root_path, $current_web_root, $PhpConsole)
+    public function __construct($frameworkObject)
     {
+        $this->frameworkObject = $frameworkObject;
 
-        /*
-		 * Set the root path
-		 */
-        $this->root_path = $root_path;
-
-        /*
-        * Set the root path
-        */
-        $this->current_web_root = $current_web_root;
-
-        /*
-        * PhpConsole
-        */
-        $this->PhpConsole = $PhpConsole;
-
-        /*
-		 * Set the requested action
-		 */
-        $this->requested_action = (isset($_GET["_route_"])?$_GET["_route_"]:$this->default_action);
-
-        /*
-         * Open Web Presence Helper methods
-         */
-        $this->OwpSupportMethods = new OwpSupportMethods();
-
-        /*
-         * Generate $uuid based on OwpSupportMethods->uuid().
-         */
-        $this->uuid = $this->OwpSupportMethods->uuid();
-
-        $this->DB_HOST = $_ENV["DB_HOST"];
-        $this->DB_NAME = $_ENV["DB_NAME"];
-        $this->DB_USER = $_ENV["DB_USER"];
-        $this->DB_PASS = $_ENV["DB_PASS"];
-        $this->THEME = $_ENV["THEME"];
-
-        /*
-		 * Init the debugger
-		 */
-        $this->debug = ((int)$_ENV["ISDEV"]?true:false);
-
-        /*
-		 * Init the database class
-		 */
-        $this->ezSqlDB = new OwpEzSqlMysql($this->DB_USER, $this->DB_PASS, $this->DB_NAME, $this->DB_HOST);
-        $this->ezSqlDB->use_disk_cache = false;
-        $this->ezSqlDB->cache_queries = false;
-        $this->ezSqlDB->hide_errors();
-
-        $this->mod_data = new OwpMod();
-
-        /*
-         * Create an object reference to pass to user defined class libraries.
-         */
-        $this->frameworkObject = array(
-            "ezSqlDB" => (object)$this->ezSqlDB,
-            "mod_data" => (array)$this->mod_data,
-            "current_web_root" => (string)$this->current_web_root,
-            "root_path" => (string)$this->root_path,
-            "OwpSupportMethods" => (object)$this->OwpSupportMethods,
-            "requested_action" => (string)$this->requested_action,
-            "uuid" => (string)$this->uuid,
-            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper(),
-            "PhpConsole" => $this->PhpConsole
-        );
-
-        /*
-         * Load the user class
-         */
-        $this->userClass = new OwpUsers($this->frameworkObject);
-
-        /*
-         * Add it to the $frameworkObject array.
-         */
-        $this->frameworkObject["userClass"] = $this->userClass;
-
-        $this->PhpConsole->debug(array("requested_action"=>(string)$this->requested_action), 'debug');
+        $this->ezSqlDB = $frameworkObject["ezSqlDB"];
+        $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
+        $this->root_path = $frameworkObject["frameworkVariables"]["root_path"];
+        $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
+        $this->uuid = $frameworkObject["frameworkVariables"]["uuid"];
+        $this->PhpConsole = $frameworkObject["PhpConsole"];
+        $this->userClass = $frameworkObject["userClass"];
+        $this->THEME = $frameworkObject["frameworkVariables"]["theme"];
 
         if(!in_array($this->requested_action, array("ajax", "jsAssets", "cssAssets"))) {
             /*
@@ -223,39 +66,13 @@ class OwpBaseFramework
             } else {
                 $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
             }
+
+            /*
             if(class_exists($modFileIncludeName)) {
                 $this->modAvailableMethods = get_class_methods($this->modMethods);
             }
+            */
         }
-    }
-
-    /**
-     * Debug
-     *
-     * @method void __debugInfo()
-     * @access public
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function __debugInfo() 
-    {
-        return [
-            "requested_action" => $this->requested_action,
-            "default_action" => $this->default_action,
-            "MySQL_Errors" => $this->ezSqlDB->captured_errors,
-            "UserClass" => $this->userClass,
-            "root_path" => $this->root_path,
-            "current_web_root" => $this->current_web_root,
-            "mod_data" => $this->mod_data,
-            "theme" => $this->THEME,
-            "_ENV" => $_ENV,
-            "_POST" => $_POST,
-            "_GET" => $_GET,
-            "_SESSION" => $_SESSION,
-            "_SERVER" => $_SERVER,
-            "uuid" => $this->uuid,
-        ];
     }
 
     /**

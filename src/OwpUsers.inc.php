@@ -99,13 +99,11 @@ class OwpUsers
      */
     public function __construct($frameworkObject)
     {
-        $this->owp_SupportMethods = $frameworkObject["OwpSupportMethods"];
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
-        $this->current_web_root = $frameworkObject["current_web_root"];
-        $this->root_path = $frameworkObject["root_path"];
-        $this->requested_action = $frameworkObject["requested_action"];
-        $this->uuid = $frameworkObject["uuid"];
-        $this->SqueakyMindsPhpHelper = $frameworkObject["SqueakyMindsPhpHelper"];
+        $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
+        $this->root_path = $frameworkObject["frameworkVariables"]["root_path"];
+        $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
+        $this->uuid = $frameworkObject["frameworkVariables"]["uuid"];
         $this->PhpConsole = $frameworkObject["PhpConsole"];
     }
 
