@@ -182,6 +182,8 @@ class OwpBaseFramework
         $this->ezSqlDB->cache_queries = false;
         $this->ezSqlDB->hide_errors();
 
+        $this->mod_data = new OwpMod();
+
         /*
          * Create an object reference to pass to user defined class libraries.
          */
@@ -208,13 +210,6 @@ class OwpBaseFramework
         $this->frameworkObject["userClass"] = $this->userClass;
 
         $this->PhpConsole->debug(array("requested_action"=>(string)$this->requested_action), 'debug');
-
-        /*
-         * Dynamic OwpCommon include
-         */
-        $modCommonFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpCommon.inc.php"));
-        include $modCommonFileLocation;
-        $this->OwpCommon = new OwpCommon($this->frameworkObject);
 
         if(!in_array($this->requested_action, array("ajax", "jsAssets", "cssAssets"))) {
             /*
@@ -338,11 +333,11 @@ class OwpBaseFramework
     }
 
     /**
-     * loadNav()
+     * mod()
      *
-     * @method void loadNav() Loads the nav based on the template setting.
+     * @method void mod() Loads the nav based on the template setting.
      * @access protected
-     * @uses   $this->loadTemplate()
+     * @uses   $this->mod()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -365,7 +360,6 @@ class OwpBaseFramework
                 $this->debugging["mods"][] = array($tk,$tv);
                 include $tv;
                 $tmpClass = new $class_name($this->frameworkObject);
-                $this->mod_data = $tmpClass->process();
             }
         }
     }
