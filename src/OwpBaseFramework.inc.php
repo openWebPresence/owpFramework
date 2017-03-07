@@ -34,9 +34,11 @@ class OwpBaseFramework
      *
      * @method void __construct()
      * @access public
+     * @param object $frameworkObject Data and method oject created by the OwpFramework.
      * @global  string $root_path        The app root file path.
      * @global  string $current_web_root The current web root.
      * @global  object $PhpConsole       PhpConsole debugger object.
+     * @uses OwpFramework
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0

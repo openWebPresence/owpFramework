@@ -31,6 +31,7 @@ class OwpMod
      */
     private  $mod_data = array();
 
+
     /**
      * __debugInfo
      *
@@ -42,12 +43,14 @@ class OwpMod
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __debugInfo() 
+    public function __debugInfo()
     {
         return [
-            'mod_data' => $this->mod_data,
-        ];
-    }
+                'mod_data' => $this->mod_data,
+               ];
+
+    }//end __debugInfo()
+
 
     /**
      * __get
@@ -67,7 +70,9 @@ class OwpMod
     public function __get($itemName)
     {
         return $this->getModDataItem($itemName);
-    }
+
+    }//end __get()
+
 
     /**
      * __isset
@@ -86,7 +91,9 @@ class OwpMod
     {
         PC::debug($itemName, 'OwpMod->__isset()');
         return isset($this->mod_data[$itemName]);
-    }
+
+    }//end __isset()
+
 
     /**
      * __set
@@ -105,7 +112,9 @@ class OwpMod
     public function __set($itemName, $itemValue)
     {
         return $this->setModDataItem($itemName, $itemValue);
-    }
+
+    }//end __set()
+
 
     /**
      * __unset
@@ -123,7 +132,9 @@ class OwpMod
         if(isset($this->mod_data[$itemName])) {
             unset($this->mod_data[$itemName]);
         }
-    }
+
+    }//end __unset()
+
 
     /**
      * getModDataItem
@@ -140,15 +151,17 @@ class OwpMod
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function getModDataItem($itemName) 
+    public function getModDataItem($itemName)
     {
         PC::debug(array("itemName" => $itemName), 'OwpMod->getModDataItem()');
         if(isset($this->mod_data[$itemName])) {
             return $this->mod_data[$itemName];
         } else {
-            throw new InvalidArgumentException("Mod data item " . $itemName . " does not exist.", 20);
+            throw new InvalidArgumentException("Mod data item ".$itemName." does not exist.", 20);
         }
-    }
+
+    }//end getModDataItem()
+
 
     /**
      * setModDataItem
@@ -164,10 +177,13 @@ class OwpMod
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function setModDataItem($itemName, $itemValue) 
+    public function setModDataItem($itemName, $itemValue)
     {
         PC::debug(array("itemName" => $itemName, "itemValue" => $itemValue), 'OwpMod->setModDataItem()');
         $this->mod_data[$itemName] = $itemValue;
         return $this->mod_data[$itemName];
-    }
-}
+
+    }//end setModDataItem()
+
+
+}//end class

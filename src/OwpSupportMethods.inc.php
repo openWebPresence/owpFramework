@@ -25,6 +25,8 @@
  */
 class OwpSupportMethods
 {
+
+
     /**
      * uuid
      *
@@ -37,8 +39,10 @@ class OwpSupportMethods
      */
     static public function uuid()
     {
-        return md5(uniqid(rand()+MicroTime(), 1));
-    }
+        return md5(uniqid((rand() + MicroTime()), 1));
+
+    }//end uuid()
+
 
     /**
      * randomPasswordAlphaNum
@@ -53,20 +57,22 @@ class OwpSupportMethods
      */
     static public function randomPasswordAlphaNum($length)
     {
-        $alphabets = range('A', 'Z');
+        $alphabets       = range('A', 'Z');
         $alphabets_lower = range('a', 'z');
-        $numbers = range('0', '9');
-        $final_array = array_merge($alphabets, $numbers, $alphabets_lower);
+        $numbers         = range('0', '9');
+        $final_array     = array_merge($alphabets, $numbers, $alphabets_lower);
 
         $password = '';
 
         while($length--) {
-            $key = array_rand($final_array);
+            $key       = array_rand($final_array);
             $password .= $final_array[$key];
         }
 
-        return (string)$password;
-    }
+        return (string) $password;
+
+    }//end randomPasswordAlphaNum()
+
 
     /**
      * GetUserIP
@@ -78,14 +84,16 @@ class OwpSupportMethods
      * @author  Brian Tafoya
      * @version 1.0
      */
-    static public function GetUserIP() 
+    static public function GetUserIP()
     {
         if(isset($_SERVER) && isset($_SERVER['REMOTE_ADDR'])) {
             return $_SERVER['REMOTE_ADDR'];
         } else {
             return "127.0.0.1";
         }
-    }
+
+    }//end GetUserIP()
+
 
     /**
      * includeIfExists
@@ -103,17 +111,23 @@ class OwpSupportMethods
         if (file_exists($file)) {
             return include $file;
         }
-    }
+
+    }//end includeIfExists()
+
 
     /**
      * filterAction
      *
      * @method filterAction($action) Includes file if it exists.
      * @access public
-     * @param $action
+     * @param  $action
      * @return string
      */
-    static function filterAction($action) {
-        return (string)preg_replace("/[^A-Za-z0-9_-]/", "", $action);
-    }
-}
+    static function filterAction($action)
+    {
+        return (string) preg_replace("/[^A-Za-z0-9_-]/", "", $action);
+
+    }//end filterAction()
+
+
+}//end class

@@ -26,6 +26,8 @@
  */
 interface OwpAjax
 {
+
+
     /**
      * processAction()
      *
@@ -37,4 +39,6 @@ interface OwpAjax
      * @version 1.0
      */
     public function processAction($frameworkObject);
-}
+
+
+}//end interface

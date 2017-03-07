@@ -25,6 +25,8 @@
  */
 class OwpEzSqlMysql extends ezSQL_mysql
 {
+
+
     /**
      * Debug
      *
@@ -39,13 +41,15 @@ class OwpEzSqlMysql extends ezSQL_mysql
     public function __debugInfo()
     {
         return [
-            "EZSQL_VERSION" => EZSQL_VERSION,
-            "Last Error" => $this->last_error,
-            "Last Query" => $this->last_query,
-            "Last Col Info" => $this->col_info,
-            "Last Result" => ($this->last_result?$this->get_results(null, ARRAY_A):"No Results"),
-        ];
-    }
+                "EZSQL_VERSION" => EZSQL_VERSION,
+                "Last Error"    => $this->last_error,
+                "Last Query"    => $this->last_query,
+                "Last Col Info" => $this->col_info,
+                "Last Result"   => ($this->last_result ? $this->get_results(null, ARRAY_A) : "No Results"),
+               ];
+
+    }//end __debugInfo()
+
 
     /**
      * MySQLFirephp()
@@ -62,21 +66,44 @@ class OwpEzSqlMysql extends ezSQL_mysql
     {
 
         $table   = array();
-        $table[] = array('Item', 'Detail');
-        if (! $this->debug_called ) {
-            $table[] = array('EZSQL_VERSION', EZSQL_VERSION);
+        $table[] = array(
+                    'Item',
+                    'Detail',
+                   );
+        if (! $this->debug_called) {
+            $table[] = array(
+                        'EZSQL_VERSION',
+                        EZSQL_VERSION,
+                       );
         }
-        if ($this->last_error ) {
-            $table[] = array('Last Error', $this->last_error);
+
+        if ($this->last_error) {
+            $table[] = array(
+                        'Last Error',
+                        $this->last_error,
+                       );
         }
-        $table[] = array('Query [' . $this->num_queries . ']', $this->last_query);
-        if ($this->col_info ) {
-            $table[] = array('Col Info', $this->col_info);
+
+        $table[] = array(
+                    'Query ['.$this->num_queries.']',
+                    $this->last_query,
+                   );
+        if ($this->col_info) {
+            $table[] = array(
+                        'Col Info',
+                        $this->col_info,
+                       );
         }
-        $table[] = array('Last Result', ($this->last_result?$this->get_results(null, ARRAY_A):"No Results"));
+
+        $table[] = array(
+                    'Last Result',
+                    ($this->last_result ? $this->get_results(null, ARRAY_A) : "No Results"),
+                   );
 
         $this->debug_called = true;
-    }
+
+    }//end MySQLFirephp()
+
 
     /**
      * MySQLFirephpGetLastMysqlError()
@@ -96,5 +123,8 @@ class OwpEzSqlMysql extends ezSQL_mysql
         } else {
             return null;
         }
-    }
-}
+
+    }//end MySQLFirephpGetLastMysqlError()
+
+
+}//end class

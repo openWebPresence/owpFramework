@@ -100,6 +100,7 @@ class OwpPasswordValidator
      */
     static public $constraint;
 
+
     /**
      * validate
      *
@@ -119,14 +120,16 @@ class OwpPasswordValidator
         if (null === $value || '' === $value) {
             return false;
         }
+
         $stringValue = (string) $value;
-        if (function_exists('grapheme_strlen') && 'UTF-8' ===  self::$constraint->charset) {
+        if (function_exists('grapheme_strlen') && 'UTF-8' === self::$constraint->charset) {
             $length = grapheme_strlen($stringValue);
-        } elseif (function_exists('mb_strlen')) {
+        } else if (function_exists('mb_strlen')) {
             $length = mb_strlen($stringValue,  self::$constraint->charset);
         } else {
             $length = strlen($stringValue);
         }
+
         if(self::$constraint->minLength > 0 && ($length < self::$constraint->minLength))
             self::addViolation(self::$tooShortMessage);
         if($constraint->maxLength > 0 && ($length > self::$constraint->maxLength))
@@ -140,8 +143,10 @@ class OwpPasswordValidator
         if($constraint->requireNonAlphanumeric && ctype_alnum($stringValue))
             self::addViolation(self::$missingNonAlphanumericMessage);
 
-        return (self::$violations?self::$violations:false);
-    }
+        return (self::$violations ? self::$violations : false);
+
+    }//end validate()
+
 
     /**
      * addViolation
@@ -155,6 +160,9 @@ class OwpPasswordValidator
      */
     static private function addViolation($violation)
     {
-        self::$violations[] = str_replace(array("{{minlength}}","{{maxlength}}"), array(self::$constraint->minLength,self::$constraint->maxLength,), $violation);
-    }
-}
+        self::$violations[] = str_replace(array("{{minlength}}", "{{maxlength}}"), array(self::$constraint->minLength, self::$constraint->maxLength), $violation);
+
+    }//end addViolation()
+
+
+}//end class

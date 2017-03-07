@@ -27,6 +27,7 @@
 class OwpDkim
 {
 
+
     /**
      * createDkimRecords
      *
@@ -40,13 +41,13 @@ class OwpDkim
      * @author  Brian Tafoya
      * @version 1.0
      */
-    static public function createDkimRecords($domain, $file_path) 
+    static public function createDkimRecords($domain, $file_path)
     {
 
         $throw = OwpDkim::createPath($file_path);
 
         if(!$throw) {
-            throw new Exception("Unable to create the DKIM directory; " . $file_path);
+            throw new Exception("Unable to create the DKIM directory; ".$file_path);
         }
 
         $files = OwpDkim::keyFileNamePath($domain);
@@ -55,15 +56,17 @@ class OwpDkim
 
         $dkim_selector = 'owp._domainkey';
 
-        $dkim_record =  'v=DKIM1; k=rsa; p=' . str_replace(array("-----BEGIN PUBLIC KEY-----","-----END PUBLIC KEY-----","\n"), "", $keys["publickey"]);
+        $dkim_record = 'v=DKIM1; k=rsa; p='.str_replace(array("-----BEGIN PUBLIC KEY-----", "-----END PUBLIC KEY-----", "\n"), "", $keys["publickey"]);
 
-        $spf_text = 'v=spf1 a mx a:' . $domain . ' ~all';
+        $spf_text = 'v=spf1 a mx a:'.$domain.' ~all';
 
-        file_put_contents($file_path . $files["public_key_filename"], $keys["publickey"]);
-        file_put_contents($file_path . $files["private_key_filename"], $keys["privatekey"]);
+        file_put_contents($file_path.$files["public_key_filename"], $keys["publickey"]);
+        file_put_contents($file_path.$files["private_key_filename"], $keys["privatekey"]);
 
         return OwpDkim::generateInstructions($domain, $dkim_selector, $dkim_record, $spf_text, $keys, $file_path);
-    }
+
+    }//end createDkimRecords()
+
 
     /**
      * validateDkim
@@ -82,14 +85,16 @@ class OwpDkim
 
         $files = OwpDkim::keyFileNamePath($domain);
 
-        if(file_exists($file_path . $files["public_key_filename"]) && file_exists($file_path . $files["private_key_filename"])) {
+        if(file_exists($file_path.$files["public_key_filename"]) && file_exists($file_path.$files["private_key_filename"])) {
             return true;
         } else {
             ob_clean();
             echo OwpDkim::createDkimRecords($domain, $file_path);
             die();
         }
-    }
+
+    }//end validateDkim()
+
 
     /**
      * keyFileNamePath
@@ -102,15 +107,17 @@ class OwpDkim
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function keyFileNamePath($domain) 
+    private function keyFileNamePath($domain)
     {
         $files = array(
-            "public_key_filename" => $domain . '.htkeypublic_',
-            "private_key_filename" => $domain . '.htkeyprivate'
-        );
+                  "public_key_filename"  => $domain.'.htkeypublic_',
+                  "private_key_filename" => $domain.'.htkeyprivate',
+                 );
 
         return $files;
-    }
+
+    }//end keyFileNamePath()
+
 
     /**
      * generateKeys
@@ -126,22 +133,27 @@ class OwpDkim
     {
 
         $config = array(
-            "digest_alg" => "sha256",
-            "private_key_bits" => 1024,
-            "private_key_type" => OPENSSL_KEYTYPE_RSA
-        );
+                   "digest_alg"       => "sha256",
+                   "private_key_bits" => 1024,
+                   "private_key_type" => OPENSSL_KEYTYPE_RSA,
+                  );
 
         // Create the keypair
-        $res=openssl_pkey_new($config);
+        $res = openssl_pkey_new($config);
 
         // Get private key
         openssl_pkey_export($res, $privatekey);
 
         // Get public key
-        $publickey=openssl_pkey_get_details($res);
+        $publickey = openssl_pkey_get_details($res);
 
-        return array("privatekey"=>(string)$privatekey,"publickey"=>(string)$publickey["key"]);
-    }
+        return array(
+                "privatekey" => (string) $privatekey,
+                "publickey"  => (string) $publickey["key"],
+               );
+
+    }//end generateKeys()
+
 
     /**
      * generateInstructions
@@ -159,29 +171,31 @@ class OwpDkim
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path) 
+    private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path)
     {
 
         $instructions = "
-DKIM keys and record information has been generated for the domain " . $domain . ".\n
+DKIM keys and record information has been generated for the domain ".$domain.".\n
 \n
 DNS Records are as follows:\n
-- Record Type: TXT - Host Name: " . $dkim_selector . "." . $domain . " - Text: " . $dkim_record . "\n
-- Record Type: TXT - Host Name: blank - Text: " . $spf_record . "\n
+- Record Type: TXT - Host Name: ".$dkim_selector.".".$domain." - Text: ".$dkim_record."\n
+- Record Type: TXT - Host Name: blank - Text: ".$spf_record."\n
 \n\n
 For your records:\n
 _Private Key_\n\n
-" . $keys["privatekey"] . "\n\n
+".$keys["privatekey"]."\n\n
 _Public Key_\n\n
-" . $keys["publickey"] . "\n\n
+".$keys["publickey"]."\n\n
 
 All of the above information has been recorded in the below file path:\n
-" . $file_path . "\n\n\n";
+".$file_path."\n\n\n";
 
-        file_put_contents($file_path . "instructions.txt", $instructions);
+        file_put_contents($file_path."instructions.txt", $instructions);
 
         return $instructions;
-    }
+
+    }//end generateInstructions()
+
 
     /**
      * Recursively create a long directory path
@@ -191,11 +205,14 @@ All of the above information has been recorded in the below file path:\n
      * @param  string $path Path to create.
      * @return boolean
      */
-    private function createPath($path) 
+    private function createPath($path)
     {
         if (is_dir($path)) return true;
-        $prev_path = substr($path, 0, strrpos($path, '/', -2) + 1);
-        $return = OwpDkim::createPath($prev_path);
+        $prev_path = substr($path, 0, (strrpos($path, '/', -2) + 1));
+        $return    = OwpDkim::createPath($prev_path);
         return ($return && is_writable($prev_path)) ? mkdir($path) : false;
-    }
-}
+
+    }//end createPath()
+
+
+}//end class

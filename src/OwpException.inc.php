@@ -27,6 +27,7 @@
 interface IOwpException
 {
 
+
     /**
      * getMessage
      *
@@ -34,6 +35,7 @@ interface IOwpException
      * @return mixed
      */
     public function getMessage();
+
 
     /**
      * getCode
@@ -43,6 +45,7 @@ interface IOwpException
      */
     public function getCode();
 
+
     /**
      * getFile
      *
@@ -50,6 +53,7 @@ interface IOwpException
      * @return mixed
      */
     public function getFile();
+
 
     /**
      * getLine
@@ -59,6 +63,7 @@ interface IOwpException
      */
     public function getLine();
 
+
     /**
      * getTrace
      *
@@ -66,6 +71,7 @@ interface IOwpException
      * @return mixed
      */
     public function getTrace();
+
 
     /**
      * getTraceAsString
@@ -75,6 +81,7 @@ interface IOwpException
      */
     public function getTraceAsString();
 
+
     /**
      * __toString
      *
@@ -82,6 +89,7 @@ interface IOwpException
      * @return mixed
      */
     public function __toString();
+
 
     /**
      * IOwpException constructor.
@@ -91,7 +99,10 @@ interface IOwpException
      * @param  int  $code
      */
     public function __construct($message = null, $code = 0);
-}
+
+
+}//end interface
+
 
 /**
  * Class OwpException
@@ -128,6 +139,7 @@ abstract class OwpException extends Exception implements IOwpException
      */
     private $trace;
 
+
     /**
      * OwpException constructor.
      *
@@ -138,10 +150,13 @@ abstract class OwpException extends Exception implements IOwpException
     public function __construct($message = null, $code = 0)
     {
         if (!$message) {
-            throw new $this('Unknown '. get_class($this));
+            throw new $this('Unknown '.get_class($this));
         }
+
         parent::__construct($message, $code);
-    }
+
+    }//end __construct()
+
 
     /**
      * __toString
@@ -151,7 +166,9 @@ abstract class OwpException extends Exception implements IOwpException
      */
     public function __toString()
     {
-        return get_class($this) . " '{$this->message}' in {$this->file}({$this->line})\n"
-            . "{$this->getTraceAsString()}";
-    }
-}
+        return get_class($this)." '{$this->message}' in {$this->file}({$this->line})\n"."{$this->getTraceAsString()}";
+
+    }//end __toString()
+
+
+}//end class

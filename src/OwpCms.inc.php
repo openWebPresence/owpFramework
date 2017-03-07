@@ -51,6 +51,7 @@ class OwpCms
      */
     static protected $replacementAssociativeArray = array();
 
+
     /**
      * Constructor.
      *
@@ -65,15 +66,17 @@ class OwpCms
         $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
 
         /*
-         * Init the database class
+            * Init the database class
          */
         self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
-        self::$ezSqlDB->cache_queries = false;
+        self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
 
         self::loadSettings();
-    }
+
+    }//end __construct()
+
 
     /**
      * __debugInfo
@@ -89,9 +92,11 @@ class OwpCms
     public function __debugInfo()
     {
         return [
-            'settings_data' => self::$settings_data,
-        ];
-    }
+                'settings_data' => self::$settings_data,
+               ];
+
+    }//end __debugInfo()
+
 
     /**
      * __get
@@ -111,7 +116,9 @@ class OwpCms
     public function __get($itemName)
     {
         return self::getModDataItem($itemName);
-    }
+
+    }//end __get()
+
 
     /**
      * __isset
@@ -129,7 +136,9 @@ class OwpCms
     public function __isset($itemName)
     {
         return isset(self::$settings_data[$itemName]);
-    }
+
+    }//end __isset()
+
 
     /**
      * __set
@@ -148,7 +157,9 @@ class OwpCms
     public function __set($itemName, $itemValue)
     {
         return self::setModDataItem($itemName, $itemValue);
-    }
+
+    }//end __set()
+
 
     /**
      * __unset
@@ -166,7 +177,9 @@ class OwpCms
         if(isset(self::$settings_data[$itemName])) {
             self::deleteModDataItem($itemName);
         }
-    }
+
+    }//end __unset()
+
 
     /**
      * deleteModDataItem
@@ -184,16 +197,18 @@ class OwpCms
     static public function deleteModDataItem($itemName)
     {
         self::$ezSqlDB->query('BEGIN');
-        self::$ezSqlDB->query("DELETE FROM tbl_content WHERE tbl_content.content_name = '" . self::$ezSqlDB->escape($itemName) . "' LIMIT 1");
+        self::$ezSqlDB->query("DELETE FROM tbl_content WHERE tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."' LIMIT 1");
         if (self::$ezSqlDB->query('COMMIT') !== false) {
             self::loadSettings();
         } else {
             self::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("SQL error while attempting to update " . $itemName . ": " . self::$ezSqlDB->last_error);
+            throw new Exception("SQL error while attempting to update ".$itemName.": ".self::$ezSqlDB->last_error);
         }
 
         return true;
-    }
+
+    }//end deleteModDataItem()
+
 
     /**
      * getModDataItem
@@ -215,9 +230,11 @@ class OwpCms
         if(isset(self::$settings_data[$itemName])) {
             return self::$settings_data[$itemName];
         } else {
-            throw new InvalidArgumentException("CMS data item " . $itemName . " does not exist.", 20);
+            throw new InvalidArgumentException("CMS data item ".$itemName." does not exist.", 20);
         }
-    }
+
+    }//end getModDataItem()
+
 
     /**
      * macroKeyList
@@ -234,10 +251,13 @@ class OwpCms
     {
         $response = "";
         foreach(self::$replacementAssociativeArray as $rAAk => $rAAv) {
-            $response .= "<li>" . strtolower($rAAk) . "</li>";
+            $response .= "<li>".strtolower($rAAk)."</li>";
         }
-        return (string)$response;
-    }
+
+        return (string) $response;
+
+    }//end macroKeyList()
+
 
     /**
      * macroReplace
@@ -260,17 +280,19 @@ class OwpCms
             self::$srArrayk = array();
             self::$srArrayv = array();
             foreach(self::$replacementAssociativeArray as $rAAk => $rAAv) {
-                self::$srArrayk[] = "{{" . $rAAk . "}}";
+                self::$srArrayk[] = "{{".$rAAk."}}";
                 self::$srArrayv[] = $rAAv;
-
             }
+
             return str_replace(self::$srArrayk, self::$srArrayv, $stringData);
         }
         else
             {
             throw new InvalidArgumentException("Arguments are not the correct data types.");
         }
-    }
+
+    }//end macroReplace()
+
 
     /**
      * setModDataItem
@@ -293,8 +315,8 @@ class OwpCms
             "
 			REPLACE INTO tbl_content
 			SET
-				tbl_content.content_name = '" . self::$ezSqlDB->escape($itemName) . "',
-				tbl_content.content_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "',
+				tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."',
+				tbl_content.content_value = '".self::$ezSqlDB->escape(json_encode($itemValue))."',
 				tbl_content.content_last_updated = SYSDATE(),
 				tbl_content.content_last_updated_by_userID = 0
 		"
@@ -303,11 +325,13 @@ class OwpCms
             self::loadSettings();
         } else {
             self::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("SQL error while attempting to update " . $itemName . ": " . self::$ezSqlDB->last_error);
+            throw new Exception("SQL error while attempting to update ".$itemName.": ".self::$ezSqlDB->last_error);
         }
 
         return self::$settings_data[$itemName];
-    }
+
+    }//end setModDataItem()
+
 
     /**
      * loadSettings
@@ -320,12 +344,15 @@ class OwpCms
      */
     static private function loadSettings()
     {
-        $tmp  = self::$ezSqlDB->get_results("SELECT * FROM tbl_content ORDER BY tbl_content.content_name");
+        $tmp = self::$ezSqlDB->get_results("SELECT * FROM tbl_content ORDER BY tbl_content.content_name");
         self::$settings_data = array();
         if($tmp) {
             foreach ($tmp as $t) {
                 self::$settings_data[$t->content_name] = json_decode($t->content_value, true);
             }
         }
-    }
-}
+
+    }//end loadSettings()
+
+
+}//end class

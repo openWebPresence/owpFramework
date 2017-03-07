@@ -26,6 +26,7 @@
 class OwpStdObject
 {
 
+
     /**
      * __construct
      *
@@ -36,14 +37,16 @@ class OwpStdObject
      * @author  Brian Tafoya
      * @version 1.0
      */
-    public function __construct(array $arguments = array()) 
+    public function __construct(array $arguments = array())
     {
         if (!empty($arguments)) {
             foreach ($arguments as $property => $argument) {
                 $this->{$property} = $argument;
             }
         }
-    }
+
+    }//end __construct()
+
 
     /**
      * __call
@@ -58,7 +61,7 @@ class OwpStdObject
      * @author  Brian Tafoya
      * @version 1.0
      */
-    public function __call($method, $arguments) 
+    public function __call($method, $arguments)
     {
         $arguments = array_merge(array("stdObject" => $this), $arguments);
         if (isset($this->{$method}) && is_callable($this->{$method})) {
@@ -66,5 +69,8 @@ class OwpStdObject
         } else {
             throw new Exception("Fatal error: Call to undefined method stdObject::{$method}()");
         }
-    }
-}
+
+    }//end __call()
+
+
+}//end class

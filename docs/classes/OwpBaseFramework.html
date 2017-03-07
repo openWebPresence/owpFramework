@@ -29,6 +29,7 @@
 <li><a href="../packages/OwpEzSqlMysql.html"><i class="icon-folder-open"></i> OwpEzSqlMysql</a></li>
 <li><a href="../packages/OwpEzSqlMysqli.html"><i class="icon-folder-open"></i> OwpEzSqlMysqli</a></li>
 <li><a href="../packages/OwpFirePHP.html"><i class="icon-folder-open"></i> OwpFirePHP</a></li>
+<li><a href="../packages/OwpFramework.html"><i class="icon-folder-open"></i> OwpFramework</a></li>
 <li><a href="../packages/OwpMessaging.html"><i class="icon-folder-open"></i> OwpMessaging</a></li>
 <li><a href="../packages/OwpMod.html"><i class="icon-folder-open"></i> OwpMod</a></li>
 <li><a href="../packages/OwpPasswordValidator.html"><i class="icon-folder-open"></i> OwpPasswordValidator</a></li>
@@ -77,7 +78,6 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: Debug"><span class="description">Debug</span><pre>__debugInfo()</pre></a></li>
 <li class="method public "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
@@ -90,36 +90,6 @@
 <li class="method private "><a href="#method_loadHeader" title="loadHeader() :: loadHeader()"><span class="description">loadHeader()</span><pre>loadHeader()</pre></a></li>
 <li class="method private "><a href="#method_loadNav" title="loadNav() :: loadNav()"><span class="description">loadNav()</span><pre>loadNav()</pre></a></li>
 <li class="method private "><a href="#method_loadTemplate" title="loadTemplate() :: loadTemplate()"><span class="description">loadTemplate()</span><pre>loadTemplate()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header">
-<i title="Properties" class="icon-custom icon-property"></i> Properties
-                    <ul>
-<li class="property public "><a href="#property_PhpConsole" title="$PhpConsole() :: "><span class="description">PhpConsole Object.</span><pre>$PhpConsole</pre></a></li>
-<li class="property public "><a href="#property_debug" title="$debug() :: "><span class="description">Is debugging enabled by default.</span><pre>$debug</pre></a></li>
-<li class="property public "><a href="#property_debugging" title="$debugging() :: "><span class="description">Debugging array.</span><pre>$debugging</pre></a></li>
-<li class="property public "><a href="#property_default_action" title="$default_action() :: "><span class="description">Default action.</span><pre>$default_action</pre></a></li>
-<li class="property public "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework Class Object.</span><pre>$frameworkObject</pre></a></li>
-<li class="property public "><a href="#property_modAvailableMethods" title="$modAvailableMethods() :: "><span class="description">Mod methods available.</span><pre>$modAvailableMethods</pre></a></li>
-<li class="property public "><a href="#property_modMethods" title="$modMethods() :: "><span class="description">Mod methods object.</span><pre>$modMethods</pre></a></li>
-<li class="property public "><a href="#property_requested_action" title="$requested_action() :: "><span class="description">The requested action.</span><pre>$requested_action</pre></a></li>
-<li class="property public "><a href="#property_root_path" title="$root_path() :: "><span class="description">Set the root file path.</span><pre>$root_path</pre></a></li>
-<li class="property public "><a href="#property_userID" title="$userID() :: "><span class="description">UserID.</span><pre>$userID</pre></a></li>
-<li class="property public "><a href="#property_uuid" title="$uuid() :: "><span class="description">Unique uuid().</span><pre>$uuid</pre></a></li>
-</ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul>
-<li class="property protected "><a href="#property_DB_HOST" title="$DB_HOST() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_HOST</pre></a></li>
-<li class="property protected "><a href="#property_DB_NAME" title="$DB_NAME() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_NAME</pre></a></li>
-<li class="property protected "><a href="#property_DB_PASS" title="$DB_PASS() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_PASS</pre></a></li>
-<li class="property protected "><a href="#property_DB_USER" title="$DB_USER() :: "><span class="description">$DB_NAME, $DB_USER, $DB_PASS Database credentials.</span><pre>$DB_USER</pre></a></li>
-<li class="property protected "><a href="#property_OwpSupportMethods" title="$OwpSupportMethods() :: "><span class="description">OpenWebPresence support methods.</span><pre>$OwpSupportMethods</pre></a></li>
-<li class="property protected "><a href="#property_THEME" title="$THEME() :: "><span class="description">Active theme.</span><pre>$THEME</pre></a></li>
-<li class="property protected "><a href="#property_current_web_root" title="$current_web_root() :: "><span class="description">The web root url.</span><pre>$current_web_root</pre></a></li>
-<li class="property protected "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">The ezSQL Database Object.</span><pre>$ezSqlDB</pre></a></li>
-<li class="property protected "><a href="#property_mod_data" title="$mod_data() :: "><span class="description">Modifier method data storage.</span><pre>$mod_data</pre></a></li>
-<li class="property protected "><a href="#property_userClass" title="$userClass() :: "><span class="description">ezSQL Database Object.</span><pre>$userClass</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -145,7 +115,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
 <h2>Constructor</h2>
-<pre>__construct(string $root_path, string $current_web_root, object $PhpConsole) </pre>
+<pre>__construct(object $frameworkObject) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -157,6 +127,22 @@
 <tr>
 <th>access</th>
 <td>public</td>
+</tr>
+<tr>
+<th>global</th>
+<td>string $root_path        The app root file path.</td>
+</tr>
+<tr>
+<th>global</th>
+<td>string $current_web_root The current web root.</td>
+</tr>
+<tr>
+<th>global</th>
+<td>object $PhpConsole       PhpConsole debugger object.</td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="OwpFramework"></a></td>
 </tr>
 <tr>
 <th>author</th>
@@ -169,40 +155,8 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$root_path</h4>
-<code>string</code><p>The app root file path.</p></div>
-<div class="subelement argument">
-<h4>$current_web_root</h4>
-<code>string</code><p>The current web root.</p></div>
-<div class="subelement argument">
-<h4>$PhpConsole</h4>
-<code>object</code><p>PhpConsole debugger object.</p></div>
-</div></div>
-</div>
-<a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo " data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
-<h2>Debug</h2>
-<pre>__debugInfo() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
+<h4>$frameworkObject</h4>
+<code>object</code><p>Data and method oject created by the OwpFramework.</p></div>
 </div></div>
 </div>
 <a id="method_processAction"></a><div class="element clickable method public method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="public">
@@ -417,218 +371,6 @@
 <code>string</code><p>Sub Directory</p></div>
 </div></div>
 </div>
-<h3>
-<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_PhpConsole"> </a><div class="element clickable property public property_PhpConsole" data-toggle="collapse" data-target=".property_PhpConsole .collapse" title="public">
-<h2>PhpConsole Object.</h2>
-<pre>$PhpConsole : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_debug"> </a><div class="element clickable property public property_debug" data-toggle="collapse" data-target=".property_debug .collapse" title="public">
-<h2>Is debugging enabled by default.</h2>
-<pre>$debug : boolean</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>false</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_debugging"> </a><div class="element clickable property public property_debugging" data-toggle="collapse" data-target=".property_debugging .collapse" title="public">
-<h2>Debugging array.</h2>
-<pre>$debugging : array</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_default_action"> </a><div class="element clickable property public property_default_action" data-toggle="collapse" data-target=".property_default_action .collapse" title="public">
-<h2>Default action.</h2>
-<pre>$default_action : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>"home"</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_frameworkObject"> </a><div class="element clickable property public property_frameworkObject" data-toggle="collapse" data-target=".property_frameworkObject .collapse" title="public">
-<h2>Framework Class Object.</h2>
-<pre>$frameworkObject : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_modAvailableMethods"> </a><div class="element clickable property public property_modAvailableMethods" data-toggle="collapse" data-target=".property_modAvailableMethods .collapse" title="public">
-<h2>Mod methods available.</h2>
-<pre>$modAvailableMethods : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>array()</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_modMethods"> </a><div class="element clickable property public property_modMethods" data-toggle="collapse" data-target=".property_modMethods .collapse" title="public">
-<h2>Mod methods object.</h2>
-<pre>$modMethods : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_requested_action"> </a><div class="element clickable property public property_requested_action" data-toggle="collapse" data-target=".property_requested_action .collapse" title="public">
-<h2>The requested action.</h2>
-<pre>$requested_action : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>"home"</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_root_path"> </a><div class="element clickable property public property_root_path" data-toggle="collapse" data-target=".property_root_path .collapse" title="public">
-<h2>Set the root file path.</h2>
-<pre>$root_path : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_userID"> </a><div class="element clickable property public property_userID" data-toggle="collapse" data-target=".property_userID .collapse" title="public">
-<h2>UserID.</h2>
-<pre>$userID : integer</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>0</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_uuid"> </a><div class="element clickable property public property_uuid" data-toggle="collapse" data-target=".property_uuid .collapse" title="public">
-<h2>Unique uuid().</h2>
-<pre>$uuid : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_DB_HOST"> </a><div class="element clickable property protected property_DB_HOST" data-toggle="collapse" data-target=".property_DB_HOST .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
-<pre>$DB_HOST : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_DB_NAME"> </a><div class="element clickable property protected property_DB_NAME" data-toggle="collapse" data-target=".property_DB_NAME .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
-<pre>$DB_NAME : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_DB_PASS"> </a><div class="element clickable property protected property_DB_PASS" data-toggle="collapse" data-target=".property_DB_PASS .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
-<pre>$DB_PASS : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_DB_USER"> </a><div class="element clickable property protected property_DB_USER" data-toggle="collapse" data-target=".property_DB_USER .collapse" title="protected">
-<h2>$DB_NAME, $DB_USER, $DB_PASS Database credentials.</h2>
-<pre>$DB_USER : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_OwpSupportMethods"> </a><div class="element clickable property protected property_OwpSupportMethods" data-toggle="collapse" data-target=".property_OwpSupportMethods .collapse" title="protected">
-<h2>OpenWebPresence support methods.</h2>
-<pre>$OwpSupportMethods : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_THEME"> </a><div class="element clickable property protected property_THEME" data-toggle="collapse" data-target=".property_THEME .collapse" title="protected">
-<h2>Active theme.</h2>
-<pre>$THEME : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"><code>null</code></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_current_web_root"> </a><div class="element clickable property protected property_current_web_root" data-toggle="collapse" data-target=".property_current_web_root .collapse" title="protected">
-<h2>The web root url.</h2>
-<pre>$current_web_root : string</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_ezSqlDB"> </a><div class="element clickable property protected property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="protected">
-<h2>The ezSQL Database Object.</h2>
-<pre>$ezSqlDB : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_mod_data"> </a><div class="element clickable property protected property_mod_data" data-toggle="collapse" data-target=".property_mod_data .collapse" title="protected">
-<h2>Modifier method data storage.</h2>
-<pre>$mod_data : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
-<a id="property_userClass"> </a><div class="element clickable property protected property_userClass" data-toggle="collapse" data-target=".property_userClass .collapse" title="protected">
-<h2>ezSQL Database Object.</h2>
-<pre>$userClass : object</pre>
-<div class="row collapse"><div class="detail-description">
-<h3>Default</h3>
-<div class="subelement argument"></div>
-</div></div>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
-</div>
 </div>
 </div>
 </div>
@@ -636,7 +378,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-07T05:26:39-05:00.<br></footer></div>
+            generated on 2017-03-07T18:48:41-05:00.<br></footer></div>
 </div>
 </body>
 </html>

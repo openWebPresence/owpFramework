@@ -25,6 +25,8 @@
  */
 class OwpFirePHP extends FirePHP
 {
+
+
     /**
      * Debug
      *
@@ -35,11 +37,14 @@ class OwpFirePHP extends FirePHP
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __debugInfo() 
+    public function __debugInfo()
     {
         return [
-            "isEnabled" => $this->getEnabled(),
-            "options" => $this->getOptions(),
-        ];
-    }
-}
+                "isEnabled" => $this->getEnabled(),
+                "options"   => $this->getOptions(),
+               ];
+
+    }//end __debugInfo()
+
+
+}//end class

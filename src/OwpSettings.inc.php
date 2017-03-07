@@ -36,6 +36,7 @@ class OwpSettings
      */
     static public $ezSqlDB = array();
 
+
     /**
      * Constructor.
      *
@@ -50,15 +51,17 @@ class OwpSettings
         $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
 
         /*
-         * Init the database class
+            * Init the database class
          */
         self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
-        self::$ezSqlDB->cache_queries = false;
+        self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
 
         self::loadSettings();
-    }
+
+    }//end __construct()
+
 
     /**
      * __debugInfo
@@ -74,9 +77,11 @@ class OwpSettings
     public function __debugInfo()
     {
         return [
-            'settings_data' => self::$settings_data,
-        ];
-    }
+                'settings_data' => self::$settings_data,
+               ];
+
+    }//end __debugInfo()
+
 
     /**
      * __get
@@ -96,7 +101,9 @@ class OwpSettings
     public function __get($itemName)
     {
         return self::getModDataItem($itemName);
-    }
+
+    }//end __get()
+
 
     /**
      * __isset
@@ -114,7 +121,9 @@ class OwpSettings
     public function __isset($itemName)
     {
         return isset(self::$settings_data[$itemName]);
-    }
+
+    }//end __isset()
+
 
     /**
      * __set
@@ -131,7 +140,9 @@ class OwpSettings
     public function __set($itemName, $itemValue)
     {
         self::setModDataItem($itemName, $itemValue);
-    }
+
+    }//end __set()
+
 
     /**
      * __unset
@@ -149,7 +160,9 @@ class OwpSettings
         if(isset(self::$settings_data[$itemName])) {
             self::deleteModDataItem($itemName);
         }
-    }
+
+    }//end __unset()
+
 
     /**
      * deleteModDataItem
@@ -167,16 +180,18 @@ class OwpSettings
     static public function deleteModDataItem($itemName)
     {
         self::$ezSqlDB->query('BEGIN');
-        self::$ezSqlDB->query("DELETE FROM tbl_settings WHERE tbl_settings.setting_name = '" . self::$ezSqlDB->escape($itemName) . "' LIMIT 1");
+        self::$ezSqlDB->query("DELETE FROM tbl_settings WHERE tbl_settings.setting_name = '".self::$ezSqlDB->escape($itemName)."' LIMIT 1");
         if (self::$ezSqlDB->query('COMMIT') !== false) {
             self::loadSettings();
         } else {
             self::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("SQL error while attempting to update " . $itemName . ": " . self::$ezSqlDB->last_error);
+            throw new Exception("SQL error while attempting to update ".$itemName.": ".self::$ezSqlDB->last_error);
         }
 
         return true;
-    }
+
+    }//end deleteModDataItem()
+
 
     /**
      * getModDataItem
@@ -198,9 +213,11 @@ class OwpSettings
         if(isset(self::$settings_data[$itemName])) {
             return self::$settings_data[$itemName];
         } else {
-            throw new InvalidArgumentException("Data item " . $itemName . " does not exist.", 20);
+            throw new InvalidArgumentException("Data item ".$itemName." does not exist.", 20);
         }
-    }
+
+    }//end getModDataItem()
+
 
     /**
      * setModDataItem
@@ -222,8 +239,8 @@ class OwpSettings
             "
 			REPLACE INTO tbl_settings
 			SET
-				tbl_settings.setting_name = '" . self::$ezSqlDB->escape($itemName) . "',
-				tbl_settings.setting_value = '" . self::$ezSqlDB->escape(json_encode($itemValue)) . "',
+				tbl_settings.setting_name = '".self::$ezSqlDB->escape($itemName)."',
+				tbl_settings.setting_value = '".self::$ezSqlDB->escape(json_encode($itemValue))."',
 				tbl_settings.setting_last_updated = SYSDATE(),
 				tbl_settings.setting_last_updated_by_userID = 0
 		"
@@ -232,9 +249,11 @@ class OwpSettings
             self::loadSettings();
         } else {
             self::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("SQL error while attempting to update " . $itemName . ": " . self::$ezSqlDB->last_error);
+            throw new Exception("SQL error while attempting to update ".$itemName.": ".self::$ezSqlDB->last_error);
         }
-    }
+
+    }//end setModDataItem()
+
 
     /**
      * loadSettings
@@ -247,12 +266,15 @@ class OwpSettings
      */
     static private function loadSettings()
     {
-        $tmp  = self::$ezSqlDB->get_results("SELECT * FROM tbl_settings ORDER BY tbl_settings.setting_name");
+        $tmp = self::$ezSqlDB->get_results("SELECT * FROM tbl_settings ORDER BY tbl_settings.setting_name");
         self::$settings_data = array();
         if($tmp) {
             foreach ($tmp as $t) {
                 self::$settings_data[$t->setting_name] = json_decode($t->setting_value, true);
             }
         }
-    }
-}
+
+    }//end loadSettings()
+
+
+}//end class

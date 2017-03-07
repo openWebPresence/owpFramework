@@ -25,7 +25,8 @@
  * OwpFramework Bootstrap Class.
  * Open Presence Framework Class Bootstrap.
  */
-class OwpFramework {
+class OwpFramework
+{
 
     /**
      * @var string $root_path Set the root file path.
@@ -102,85 +103,98 @@ class OwpFramework {
      */
     public $frameworkObject;
 
+
+    /**
+     * Constructor
+     *
+     * @method void __construct()
+     * @access public
+     * @param  string $root_path        The app root file path.
+     * @param  string $current_web_root The current web root.
+     * @param  object $PhpConsole       PhpConsole debugger object.
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
     public function __construct($root_path, $current_web_root, $PhpConsole)
     {
-        /**
-         * Set the root path
+        /*
+            * Set the root path
          */
         $this->root_path = $root_path;
 
-        /**
-        * Set the current web root
+        /*
+            * Set the current web root
         */
         $this->current_web_root = $current_web_root;
 
-        /**
-         * Set the requested action
+        /*
+            * Set the requested action
          */
-        $this->requested_action = (isset($_GET["_route_"])?$_GET["_route_"]:$this->default_action);
+        $this->requested_action = (isset($_GET["_route_"]) ? $_GET["_route_"] : $this->default_action);
 
-        /**
-         * Generate $uuid based on OwpSupportMethods->uuid().
+        /*
+            * Generate $uuid based on OwpSupportMethods->uuid().
          */
         $this->uuid = OwpSupportMethods::uuid();
 
-        /**
-         * Set the theme
+        /*
+            * Set the theme
          */
         $this->theme = $_ENV["THEME"];
 
-        /**
-         * Init the debugger
+        /*
+            * Init the debugger
          */
-        $this->debug = ((int)$_ENV["ISDEV"]?true:false);
+        $this->debug = ((int) $_ENV["ISDEV"] ? true : false);
 
-        /**
-         * Init the database class
+        /*
+            * Init the database class
          */
         $this->ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         $this->ezSqlDB->use_disk_cache = false;
-        $this->ezSqlDB->cache_queries = false;
+        $this->ezSqlDB->cache_queries  = false;
         $this->ezSqlDB->hide_errors();
 
-        /**
-         * PhpConsole
+        /*
+            * PhpConsole
          */
         $this->PhpConsole = $PhpConsole;
 
-        /**
-         * Create the frameworkObject
+        /*
+            * Create the frameworkObject
          */
         $this->frameworkObject = array(
-            "frameworkVariables" => array(
-                "theme" => $this->theme,
-                "current_web_root" => (string)$this->current_web_root,
-                "root_path" => (string)$this->root_path,
-                "requested_action" => (string)$this->requested_action,
-                "uuid" => (string)$this->uuid
-            ),
-            "ezSqlDB" => (object)$this->ezSqlDB,
-            "mod_data" => new OwpMod(),
-            "PhpConsole" => (object)$this->PhpConsole
-        );
+                                  "frameworkVariables" => array(
+                                                           "theme"            => $this->theme,
+                                                           "current_web_root" => (string) $this->current_web_root,
+                                                           "root_path"        => (string) $this->root_path,
+                                                           "requested_action" => (string) $this->requested_action,
+                                                           "uuid"             => (string) $this->uuid,
+                                                          ),
+                                  "ezSqlDB"            => (object) $this->ezSqlDB,
+                                  "mod_data"           => new OwpMod(),
+                                  "PhpConsole"         => (object) $this->PhpConsole,
+                                 );
 
-        /**
-         * Load the user class
+        /*
+            * Load the user class
          */
         $this->userClass = new OwpUsers($this->frameworkObject);
 
-        /**
-         * Add it to the $frameworkObject array.
+        /*
+            * Add it to the $frameworkObject array.
          */
-        $this->frameworkObject["userClass"] = (object)$this->userClass;
+        $this->frameworkObject["userClass"] = (object) $this->userClass;
 
-        PC::debug($this->frameworkObject, 'frameworkObject');
-    }
+    }//end __construct()
+
 
     /**
      * __get($name)
      *
      * @method __GET($name) Getter
-     * @param $name
+     * @param  $name
      * @return mixed
      */
     public function __get($name)
@@ -190,7 +204,9 @@ class OwpFramework {
         } else {
             throw new InvalidArgumentException($name." does not exist!");
         }
-    }
+
+    }//end __get()
+
 
     /**
      * getFrameworkObject().
@@ -199,16 +215,19 @@ class OwpFramework {
      * @method getFrameworkObject() Return the entire framework object for reference.
      * @return array|object
      */
-    public function getFrameworkObject() {
+    public function getFrameworkObject()
+    {
         return $this->frameworkObject;
-    }
+
+    }//end getFrameworkObject()
+
 
     /**
      * Debug
      *
      * @method void __debugInfo()
      * @access public
-     * @return
+     * @return object
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -216,5 +235,8 @@ class OwpFramework {
     public function __debugInfo()
     {
         return $this->frameworkObject;
-    }
-}
+
+    }//end __debugInfo()
+
+
+}//end class

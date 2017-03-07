@@ -36,6 +36,7 @@ class OwpMessaging
      */
     private $root_path = null;
 
+
     /**
      * Constructor.
      *
@@ -44,7 +45,9 @@ class OwpMessaging
     function __construct($root_path)
     {
         $this->root_path = $root_path;
-    }
+
+    }//end __construct()
+
 
     /**
      * sendEmailDirect
@@ -63,19 +66,21 @@ class OwpMessaging
     public function sendEmailDirect($data_array)
     {
         try {
-            $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
+            $email_to_clean     = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
             list($to_addy_info) = imap_rfc822_parse_adrlist($email_to_clean, "");
-            $dns_get_mx = dns_get_record($to_addy_info->host, DNS_MX);
-            $ip = gethostbyname($dns_get_mx[0]["target"]);
-            $message_sent = $this->sendCore($data_array, (string)$ip);
+            $dns_get_mx         = dns_get_record($to_addy_info->host, DNS_MX);
+            $ip           = gethostbyname($dns_get_mx[0]["target"]);
+            $message_sent = $this->sendCore($data_array, (string) $ip);
         } catch (InvalidArgumentException $e) {
-            throw new InvalidArgumentException("OwpMessaging->sendEmailDirect(): Caught InvalidArgumentException: ". $e->getMessage());
+            throw new InvalidArgumentException("OwpMessaging->sendEmailDirect(): Caught InvalidArgumentException: ".$e->getMessage());
         } catch (Exception $e) {
-            throw new Exception("OwpMessaging->sendEmailDirect(): Caught Exception: ". $e->getMessage());
+            throw new Exception("OwpMessaging->sendEmailDirect(): Caught Exception: ".$e->getMessage());
         }
 
         return $message_sent;
-    }
+
+    }//end sendEmailDirect()
+
 
     /**
      * sendEmailViaSMTP()
@@ -95,15 +100,17 @@ class OwpMessaging
     {
 
         try {
-            $message_sent = $this->sendCore($data_array, (string)getenv("smtp_hostname"));
+            $message_sent = $this->sendCore($data_array, (string) getenv("smtp_hostname"));
         } catch (InvalidArgumentException $e) {
-            throw new InvalidArgumentException("OwpMessaging->sendEmailViaSMTP(): Caught InvalidArgumentException: ". $e->getMessage());
+            throw new InvalidArgumentException("OwpMessaging->sendEmailViaSMTP(): Caught InvalidArgumentException: ".$e->getMessage());
         } catch (Exception $e) {
-            throw new Exception("OwpMessaging->sendEmailViaSMTP(): Caught Exception: ". $e->getMessage());
+            throw new Exception("OwpMessaging->sendEmailViaSMTP(): Caught Exception: ".$e->getMessage());
         }
 
         return $message_sent;
-    }
+
+    }//end sendEmailViaSMTP()
+
 
     /**
      * sendCore()
@@ -124,7 +131,7 @@ class OwpMessaging
         try {
             $this->validateData($data_array);
         } catch (InvalidArgumentException $e) {
-            throw new InvalidArgumentException("OwpMessaging->sendCore(): Caught InvalidArgumentException: ". $e->getMessage());
+            throw new InvalidArgumentException("OwpMessaging->sendCore(): Caught InvalidArgumentException: ".$e->getMessage());
         }
 
         $email_to_clean = filter_var($data_array["email_to"], FILTER_SANITIZE_EMAIL);
@@ -135,33 +142,33 @@ class OwpMessaging
             $mail->isSMTP();
             $mail->Host = $smtp_hostname;
 
-            if(in_array(getenv("smtp_auth"), array("yes","true",1))) {
+            if(in_array(getenv("smtp_auth"), array("yes", "true", 1))) {
                 $mail->SMTPAuth = true;
-                $mail->Username = (string)getenv("smtp_username");
-                $mail->Password = (string)getenv("smtp_password");
+                $mail->Username = (string) getenv("smtp_username");
+                $mail->Password = (string) getenv("smtp_password");
             }
 
-            if(in_array(getenv("smtp_secure"), array("ssl","tls"))) {
-                $mail->SMTPSecure = (string)getenv("smtp_secure");
+            if(in_array(getenv("smtp_secure"), array("ssl", "tls"))) {
+                $mail->SMTPSecure = (string) getenv("smtp_secure");
             }
 
-            $mail->Port = (string)getenv("smtp_port");
+            $mail->Port = (string) getenv("smtp_port");
 
-            $mail->XMailer = "OpenWebPresence-1.0";
-            $mail->Helo = $data_array["sender_domain"];
+            $mail->XMailer  = "OpenWebPresence-1.0";
+            $mail->Helo     = $data_array["sender_domain"];
             $mail->Hostname = $data_array["sender_domain"];
 
-            $mail->From = $data_array["email_from"];
+            $mail->From     = $data_array["email_from"];
             $mail->FromName = $data_array["email_from_name"];
             $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
             $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
 
-            if(in_array(getenv("DKIM_active"), array("yes","true",1))) {
-                $mail->DKIM_domain = getenv("DKIM_domain");
-                $mail->DKIM_private = $this->root_path . 'PHPMailer_DKIM/' . getenv("DKIM_private") . '.htkeyprivate';
-                $mail->DKIM_selector = getenv("DKIM_selector");
+            if(in_array(getenv("DKIM_active"), array("yes", "true", 1))) {
+                $mail->DKIM_domain     = getenv("DKIM_domain");
+                $mail->DKIM_private    = $this->root_path.'PHPMailer_DKIM/'.getenv("DKIM_private").'.htkeyprivate';
+                $mail->DKIM_selector   = getenv("DKIM_selector");
                 $mail->DKIM_passphrase = getenv("DKIM_passphrase");
-                $mail->DKIM_identity = getenv("DKIM_identity");
+                $mail->DKIM_identity   = getenv("DKIM_identity");
             }
 
             $mail->WordWrap = 50;
@@ -170,17 +177,18 @@ class OwpMessaging
             $mail->Subject = $data_array["subject"];
             $mail->Body    = $data_array["message_body"];
 
-            $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for " . $data_array["sender_domain"]. ".");
+            $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for ".$data_array["sender_domain"].".");
             $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
 
-            return (boolean)($mail->Send()?true:false);
-
+            return (boolean) ($mail->Send() ? true : false);
         } catch (phpmailerException $e) {
             throw new Exception($e->getMessage());
         } catch (Exception $e) {
             throw new Exception($e->getMessage());
-        }
-    }
+        }//end try
+
+    }//end sendCore()
+
 
     /**
      * validateData
@@ -195,15 +203,26 @@ class OwpMessaging
      */
     private function validateData($data_array)
     {
-        $required_variables = array("sender_domain", "subject", "message_body", "email_to", "email_to_name", "email_from", "email_from_name", "reply_to");
+        $required_variables = array(
+                               "sender_domain",
+                               "subject",
+                               "message_body",
+                               "email_to",
+                               "email_to_name",
+                               "email_from",
+                               "email_from_name",
+                               "reply_to",
+                              );
 
         $missing_columns = array_diff($required_variables, array_keys($data_array));
 
         if($missing_columns) {
-            throw new InvalidArgumentException("OwpMessaging->validateData() : The following columns are missing: " . implode(", ", $missing_columns));
+            throw new InvalidArgumentException("OwpMessaging->validateData() : The following columns are missing: ".implode(", ", $missing_columns));
         }
 
         return true;
-    }
-}
 
+    }//end validateData()
+
+
+}//end class

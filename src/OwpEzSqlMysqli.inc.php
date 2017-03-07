@@ -26,6 +26,7 @@
 class OwpEzSqlMysqli extends ezSQL_mysqli
 {
 
+
     /**
      * MySQLFirephp()
      *
@@ -39,23 +40,46 @@ class OwpEzSqlMysqli extends ezSQL_mysqli
      */
     public function MySQLFirephp($title = "ezSql Debug")
     {
-            
+
         $table   = array();
-        $table[] = array('Item', 'Detail');
-        if (! $this->debug_called ) {
-            $table[] = array('EZSQL_VERSION', EZSQL_VERSION);
+        $table[] = array(
+                    'Item',
+                    'Detail',
+                   );
+        if (! $this->debug_called) {
+            $table[] = array(
+                        'EZSQL_VERSION',
+                        EZSQL_VERSION,
+                       );
         }
-        if ($this->last_error ) {
-            $table[] = array('Last Error', $this->last_error);
+
+        if ($this->last_error) {
+            $table[] = array(
+                        'Last Error',
+                        $this->last_error,
+                       );
         }
-        $table[] = array('Query [' . $this->num_queries . ']', $this->last_query);
-        if ($this->col_info ) {
-            $table[] = array('Col Info', $this->col_info);
+
+        $table[] = array(
+                    'Query ['.$this->num_queries.']',
+                    $this->last_query,
+                   );
+        if ($this->col_info) {
+            $table[] = array(
+                        'Col Info',
+                        $this->col_info,
+                       );
         }
-        $table[] = array('Last Result', ($this->last_result?$this->get_results(null, ARRAY_A):"No Results"));
+
+        $table[] = array(
+                    'Last Result',
+                    ($this->last_result ? $this->get_results(null, ARRAY_A) : "No Results"),
+                   );
 
         $this->debug_called = true;
-    }
+
+    }//end MySQLFirephp()
+
 
     /**
      * MySQLFirephpGetLastMysqlError()
@@ -75,5 +99,8 @@ class OwpEzSqlMysqli extends ezSQL_mysqli
         } else {
             return null;
         }
-    }
-}
+
+    }//end MySQLFirephpGetLastMysqlError()
+
+
+}//end class
