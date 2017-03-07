@@ -23,6 +23,8 @@
 
 use PHPUnit\Framework\TestCase;
 
+PhpConsole\Helper::register();
+
 if (!isset($_SESSION)) $_SESSION = array();
 
 class OwpUsers_test extends TestCase
@@ -92,17 +94,9 @@ class OwpUsers_test extends TestCase
             "phpUnit" => "uuid: " . self::$uuid
         );
 
-        self::$frameworkObject = array(
-            "ezSqlDB" => (object)self::$db,
-            "mod_data" => array(),
-            "current_web_root" => (string)self::$current_web_root,
-            "root_path" => (string)self::$root_path,
-            "OwpSupportMethods" => (object)$owp_SupportMethods,
-            "requested_action" => (string)$requested_action,
-            "uuid" => (string)self::$uuid,
-            "SqueakyMindsPhpHelper" => new SqueakyMindsPhpHelper(),
-            "PhpConsole" => PhpConsole\Handler::getInstance()
-        );
+        $OwpFramework = new OwpFramework((string)self::$root_path, (string)self::$current_web_root, PhpConsole\Handler::getInstance());
+
+        self::$frameworkObject = $OwpFramework->getFrameworkObject();
 
         self::$owpUsers = new OwpUsers(self::$frameworkObject);
     }

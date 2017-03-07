@@ -200,7 +200,7 @@ class OwpUsers
                 tbl_users.user_last_login_datetime = SYSDATE(),
                 tbl_users.login_count = 0,
                 tbl_users.welcome_email_sent = " . (int)$data_array["welcome_email_sent"] . ",
-                tbl_users.uuid = '" . $this->SqueakyMindsPhpHelper->uuid() . "',
+                tbl_users.uuid = '" . OwpSupportMethods::uuid() . "',
                 tbl_users.reset_pass_uuid = NULL,
                 tbl_users.user_ip = NULL";
 
@@ -703,7 +703,7 @@ class OwpUsers
      */
     public function setLostPassUUID($userID)
     {
-        $reset_pass_uuid = $this->owp_SupportMethods->uuid();
+        $reset_pass_uuid = OwpSupportMethods::uuid();
 
         $this->ezSqlDB->query(
             "
@@ -734,7 +734,7 @@ class OwpUsers
      */
     public function setLostPassUUIDViaEmail($email)
     {
-        $reset_pass_uuid = $this->owp_SupportMethods->uuid();
+        $reset_pass_uuid = OwpSupportMethods::uuid();
 
         $this->ezSqlDB->query(
             "
