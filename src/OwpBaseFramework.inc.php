@@ -66,7 +66,13 @@ class OwpBaseFramework
                 include $modFileLocation;
                 $this->modMethods = new $modFileIncludeName($this->frameworkObject);
             } else {
-                $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
+                try {
+                    $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
+                } catch (Exception $e) {
+                    $this->fourohfour($e);
+                    die();
+                }
+
             }
 
             /*
@@ -147,6 +153,8 @@ class OwpBaseFramework
                 return true;
             }
         }
+
+        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "pages", "404.inc.php")));
 
         return false;
     }
@@ -232,5 +240,22 @@ class OwpBaseFramework
             include $fileLocation;
             break;
         }
+    }
+
+    /**
+     * fourohfour()
+     *
+     * @method void fourohfour() When all else goes to shit!
+     * @access private
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    private function fourohfour($e) {
+        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "header.inc.php")));
+        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "nav.inc.php")));
+        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "pages", "404.inc.php")));
+        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "footer.inc.php")));
+        throw new Exception($e->getMessage());
     }
 }
