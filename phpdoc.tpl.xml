@@ -6,6 +6,7 @@
         <markers>
             <item>TODO</item>
             <item>FIXME</item>
+            <item>todo</item>
         </markers>
         <extensions>
             <extension>php</extension>

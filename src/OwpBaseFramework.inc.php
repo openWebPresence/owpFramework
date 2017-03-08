@@ -29,7 +29,7 @@ class OwpBaseFramework
 {
 
     /**
-     * @var array $LoadedClasses
+     * @var array $LoadedClasses Object holder for dynamically loaded classes
      */
     public $LoadedClasses = array();
 
