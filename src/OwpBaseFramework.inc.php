@@ -28,6 +28,10 @@
 class OwpBaseFramework
 {
 
+    /**
+     * @var array $LoadedClasses
+     */
+    public $LoadedClasses = array();
 
     /**
      * Constructor
@@ -45,6 +49,8 @@ class OwpBaseFramework
      */
     public function __construct($frameworkObject)
     {
+        $actionsConfig = null;
+
         $this->frameworkObject = $frameworkObject;
 
         $this->ezSqlDB = $frameworkObject["ezSqlDB"];
@@ -55,140 +61,76 @@ class OwpBaseFramework
         $this->PhpConsole = $frameworkObject["PhpConsole"];
         $this->userClass = $frameworkObject["userClass"];
         $this->THEME = $frameworkObject["frameworkVariables"]["theme"];
+        $this->actionsConfigFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"actionsConfig.inc.php"));
 
-        if(!in_array($this->requested_action, array("ajax", "jsAssets", "cssAssets"))) {
-            /*
-             * Dynamic Owp_request_ include
-             */
-            $modFileIncludeName = "Owp" . ucwords(strtolower($this->requested_action));
-            $modFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"mod", $modFileIncludeName . ".inc.php"));
-            if (file_exists($modFileLocation)) {
-                include $modFileLocation;
-                $this->modMethods = new $modFileIncludeName($this->frameworkObject);
-            } else {
-                try {
-                    $this->modMethods = new OwpDefaultMod($this->frameworkObject, $modFileIncludeName, $modFileLocation);
-                } catch (Exception $e) {
-                    $this->fourohfour($e);
-                    die();
+        $frameworkObject["PhpConsole"]->Debug($this->actionsConfigFileLocation, "actionsConfigFileLocation");
+
+        $this->actionsConfig = [
+            "404" => [
+                "view" => [
+                    "app/themes/default/common/header.inc.php",
+                    "app/themes/default/common/nav.inc.php",
+                    "app/themes/default/pages/404.inc.php",
+                    "app/themes/default/common/footer.inc.php"
+                ],
+                "mod" => [
+                ],
+                "js" => [
+                ],
+                "css" => [
+                ],
+                "permissions" => [
+                    "isUser" => 0,
+                    "isAdmin" => 0,
+                ]
+            ]
+        ];
+
+        switch($this->requested_action) {
+            default:
+                if (file_exists($this->actionsConfigFileLocation)) {
+                    include $this->actionsConfigFileLocation;
+                    $frameworkObject["PhpConsole"]->Debug($actionsConfig, "actionsConfig");
+                    $this->actionsConfig = $actionsConfig;
+                    $this->processAction($this->requested_action);
+                } else {
+                    $this->processAction("404");
                 }
-
-            }
-
-            /*
-            if(class_exists($modFileIncludeName)) {
-                $this->modAvailableMethods = get_class_methods($this->modMethods);
-            }
-            */
+                break;
+            case "ajaxDefault":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes","default","lib","OwpAjaxUdf.inc.php")));
+                break;
+            case "jsAssetsDefault":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes","default","lib","OwpjsAssets.inc.php")));
+                break;
+            case "cssAssetsDefault":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes","default","lib","OwpcssAssets.inc.php")));
+                break;
+            case "ajax":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php")));
+                break;
+            case "jsAssets":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpjsAssets.inc.php")));
+                break;
+            case "cssAssets":
+                include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpcssAssets.inc.php")));
+                break;
         }
     }
 
     /**
-     * loadFooter()
+     * getActionData()
      *
-     * @method void loadFooter() Loads the footer based on the template setting.
-     * @access private
-     * @uses   $this->loadTemplate
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    private function loadFooter()
-    {
-        $this->loadTemplate("footer", "common");
-    }
-
-    /**
-     * loadHeader()
-     *
-     * @method void loadHeader() Loads the header based on the template setting.
-     * @access private
-     * @uses   $this->loadTemplate
+     * @method getActionData() Returns action data
+     * @param $action
+     * @return mixed
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function loadHeader()
+    private function getActionData($action)
     {
-        $this->loadTemplate("header", "common");
-    }
-
-    /**
-     * loadNav()
-     *
-     * @method void loadNav() Loads the nav based on the template setting.
-     * @access private
-     * @uses   $this->loadTemplate
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    private function loadNav()
-    {
-        $this->loadTemplate("nav", "common");
-    }
-
-    /**
-     * loadTemplate()
-     *
-     * @method  void loadTemplate($template_name,$sub_dir) Loads the template based on the template setting.
-     * @access  private
-     * @param   string $template_name Template Name.
-     * @param   string $sub_dir       Sub Directory
-     * @returns boolean Loaded status
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    private function loadTemplate($template_name,$sub_dir = "pages")
-    {
-        $template = array();
-        $template["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], "view", $sub_dir, $template_name . ".inc.php"));
-        $template["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', 'default', "view", $sub_dir, $template_name . ".inc.php"));
-
-        foreach($template as $tk => $tv) {
-            if(file_exists($tv)) {
-                $this->debugging["templates"][] = array($tk,$tv);
-                include $tv;
-                return true;
-            }
-        }
-
-        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "pages", "404.inc.php")));
-
-        return false;
-    }
-
-    /**
-     * mod()
-     *
-     * @method void mod() Loads the nav based on the template setting.
-     * @access protected
-     * @uses   $this->mod()
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    protected function mod()
-    {
-        $class_name = "owp_mod_" . $this->requested_action;
-
-        $mods["theme_functions"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', "owpFunctions.inc.php"));
-        if(file_exists($mods["theme_functions"])) {
-            include $mods["theme_functions"];
-        }
-
-        $mods = array();
-        $mods["theme"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'mods', 'pages', $class_name . ".inc.php"));
-        $mods["default"] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'mods', 'pages', $class_name . ".inc.php"));
-
-        foreach($mods as $tk => $tv) {
-            if(file_exists($tv)) {
-                $this->debugging["mods"][] = array($tk,$tv);
-                include $tv;
-                $tmpClass = new $class_name($this->frameworkObject);
-            }
-        }
+        return (isset($this->actionsConfig[$action])?$this->actionsConfig[$action]:false);
     }
 
     /**
@@ -196,66 +138,46 @@ class OwpBaseFramework
      *
      * @method void processAction() Process the framework action.
      * @access private
-     * @uses   $this->mod()
-     * @uses   $this->loadTemplate()
-     * @uses   $this->loadHeader()
-     * @uses   $this->loadNav()
-     * @uses   $this->loadFooter();
-     * @uses   OwpAjaxUdf::processAction();
-     * @throws Exception User class OwpAjaxUdf() does not exist.
+     * @param string $action
+     * @throws Exception Include does not exist.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function processAction()
+    private function processAction($action)
     {
+        $actionData = $this->getActionData($action);
 
+        $mod_includes = array();
+        $mod_includes[] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'lib', "owpFunctions.inc.php"));
 
-        switch($this->requested_action) {
-        default:
-            $this->mod();
-            $this->loadHeader();
-            $this->loadNav();
-            $this->loadTemplate($this->requested_action);
-            $this->loadFooter();
-            break;
-        case "ajax":
-
-            /*
-            * Dynamic OwpAjaxUdf include
-            */
-            $modAjaxFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "OwpAjaxUdf.inc.php"));
-            include $modAjaxFileLocation;
-
-            if(class_exists("OwpAjaxUdf")) {
-                $OwpAjaxUdf = new OwpAjaxUdf();
-                $OwpAjaxUdf->processAction($this->frameworkObject);
-            } else {
-                throw new Exception("User class OwpAjaxUdf() does not exist.", 911);
-            }
-            break;
-        case "jsAssets":
-        case "cssAssets":
-            $fileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "lib", "Owp" . $this->requested_action . ".inc.php"));
-            include $fileLocation;
-            break;
+        if($actionData && $actionData["mod"]) {
+            $mod_includes = array_merge($mod_includes, $actionData["mod"]);
         }
-    }
 
-    /**
-     * fourohfour()
-     *
-     * @method void fourohfour() When all else goes to shit!
-     * @access private
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    private function fourohfour($e) {
-        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "header.inc.php")));
-        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "nav.inc.php")));
-        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "pages", "404.inc.php")));
-        include ($this->root_path . join(DIRECTORY_SEPARATOR, array("app", "themes", $this->THEME, "view", "common", "footer.inc.php")));
-        throw new Exception($e->getMessage());
+        if($mod_includes) { foreach($mod_includes as $mi) {
+            if(file_exists($mi)) {
+                $classes = OwpSupportMethods::file_get_php_classes($mi);
+                include $mi;
+                foreach($classes as $class_name) {
+                    $this->LoadedClasses[$class_name] = new $class_name($this->frameworkObject);
+                }
+            } else {
+                throw new Exception("Mod include " . $mi . " not found!", 911);
+            }
+        }}
+
+        $view_includes = array();
+        if($actionData && $actionData["view"]) {
+            $view_includes = array_merge($view_includes, $actionData["view"]);
+        }
+
+        if($view_includes) { foreach($view_includes as $vi) {
+            if(file_exists($vi)) {
+                include $vi;
+            } else {
+                throw new Exception("View include " . $vi . " not found!", 911);
+            }
+        }}
     }
 }
