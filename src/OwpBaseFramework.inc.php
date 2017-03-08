@@ -61,41 +61,11 @@ class OwpBaseFramework
         $this->PhpConsole = $frameworkObject["PhpConsole"];
         $this->userClass = $frameworkObject["userClass"];
         $this->THEME = $frameworkObject["frameworkVariables"]["theme"];
-        $this->actionsConfigFileLocation = $this->root_path . join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"actionsConfig.inc.php"));
-
-        $frameworkObject["PhpConsole"]->Debug($this->actionsConfigFileLocation, "actionsConfigFileLocation");
-
-        $this->actionsConfig = [
-            "404" => [
-                "view" => [
-                    "app/themes/default/common/header.inc.php",
-                    "app/themes/default/common/nav.inc.php",
-                    "app/themes/default/pages/404.inc.php",
-                    "app/themes/default/common/footer.inc.php"
-                ],
-                "mod" => [
-                ],
-                "js" => [
-                ],
-                "css" => [
-                ],
-                "permissions" => [
-                    "isUser" => 0,
-                    "isAdmin" => 0,
-                ]
-            ]
-        ];
+        $this->actionsConfig = $frameworkObject["actionsConfig"];
 
         switch($this->requested_action) {
             default:
-                if (file_exists($this->actionsConfigFileLocation)) {
-                    include $this->actionsConfigFileLocation;
-                    $frameworkObject["PhpConsole"]->Debug($actionsConfig, "actionsConfig");
-                    $this->actionsConfig = $actionsConfig;
-                    $this->processAction($this->requested_action);
-                } else {
-                    $this->processAction("404");
-                }
+                $this->processAction($this->requested_action);
                 break;
             case "ajaxDefault":
                 include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes","default","lib","OwpAjaxUdf.inc.php")));
@@ -147,6 +117,12 @@ class OwpBaseFramework
     private function processAction($action)
     {
         $actionData = $this->getActionData($action);
+
+        if(!$actionData) {
+            $actionData = $this->getActionData("404");
+        }
+
+        $this->PhpConsole->debug($actionData, "OwpBaseFramework->processAction()->actionData");
 
         $mod_includes = array();
         $mod_includes[] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'lib', "owpFunctions.inc.php"));

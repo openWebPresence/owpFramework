@@ -112,6 +112,7 @@ class OwpFramework
      * @param  string $root_path        The app root file path.
      * @param  string $current_web_root The current web root.
      * @param  object $PhpConsole       PhpConsole debugger object.
+     * @throws Exception Missing theme config directive file.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -127,11 +128,6 @@ class OwpFramework
             * Set the current web root
         */
         $this->current_web_root = $current_web_root;
-
-        /*
-            * Set the requested action
-         */
-        $this->requested_action = (isset($_GET["_route_"]) ? $_GET["_route_"] : $this->default_action);
 
         /*
             * Generate $uuid based on OwpSupportMethods->uuid().
@@ -162,8 +158,54 @@ class OwpFramework
         $this->PhpConsole = $PhpConsole;
 
         /*
-            * Create the frameworkObject
+            * Default Request Definition
          */
+        $this->defaultRequest = [
+                                 "none"    => "home",
+                                 "isUser"  => "home",
+                                 "isAdmin" => "home",
+                                ];
+
+        /*
+            * Default Action Definition
+         */
+        $this->actionsConfig = [
+                                "404" => [
+                                          "view"        => [
+                                                            "app/themes/default/common/header.inc.php",
+                                                            "app/themes/default/common/nav.inc.php",
+                                                            "app/themes/default/pages/404.inc.php",
+                                                            "app/themes/default/common/footer.inc.php",
+                                                           ],
+                                          "mod"         => [],
+                                          "js"          => [],
+                                          "css"         => [],
+                                          "permissions" => [
+                                                            "isUser"  => 0,
+                                                            "isAdmin" => 0,
+                                                           ],
+                                         ],
+                               ];
+
+        /*
+            * ActionsConfigFileLocation
+         */
+        $actionsConfig = null;
+        $defaultAction = null;
+        $this->actionsConfigFileLocation = $this->root_path.join(DIRECTORY_SEPARATOR, array("app", "themes", $this->theme, "actionsConfig.inc.php"));
+
+        if (file_exists($this->actionsConfigFileLocation)) {
+            include $this->actionsConfigFileLocation;
+            $this->PhpConsole->Debug($actionsConfig, "actionsConfig");
+            $this->actionsConfig = $actionsConfig;
+            $this->defaultAction = $defaultAction;
+        } else {
+            throw new Exception("Missing ".$this->actionsConfigFileLocation."!", 911);
+        }
+
+        /*
+            * Create the frameworkObject
+        */
         $this->frameworkObject = array(
                                   "frameworkVariables" => array(
                                                            "theme"            => $this->theme,
@@ -186,6 +228,27 @@ class OwpFramework
             * Add it to the $frameworkObject array.
          */
         $this->frameworkObject["userClass"] = (object) $this->userClass;
+
+        /*
+            * Set the requested action
+         */
+        if($this->userClass->isLoggedIn()) {
+            if($this->userClass->isAdmin()) {
+                $this->default_action = $this->defaultRequest["isAdmin"];
+            } else {
+                $this->default_action = $this->defaultRequest["isUser"];
+            }
+        } else {
+            $this->default_action = $this->defaultRequest["none"];
+        }
+
+        $this->requested_action = (isset($_GET["_route_"]) ? OwpSupportMethods::filterAction($_GET["_route_"]) : $this->default_action);
+
+        $this->frameworkObject["frameworkVariables"]["requested_action"] = (string) $this->requested_action;
+        $this->frameworkObject["actionsConfig"] = (array) $this->actionsConfig;
+        $this->frameworkObject["defaultAction"] = (array) $this->defaultAction;
+
+        $this->PhpConsole->debug($this->frameworkObject, "OwpFramework->frameworkObject");
 
     }//end __construct()
 
