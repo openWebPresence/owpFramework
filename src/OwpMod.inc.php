@@ -89,7 +89,6 @@ class OwpMod
      */
     public function __isset($itemName)
     {
-        PC::debug($itemName, 'OwpMod->__isset()');
         return isset($this->mod_data[$itemName]);
 
     }//end __isset()
@@ -153,7 +152,6 @@ class OwpMod
      */
     public function getModDataItem($itemName)
     {
-        PC::debug(array("itemName" => $itemName), 'OwpMod->getModDataItem()');
         if(isset($this->mod_data[$itemName])) {
             return $this->mod_data[$itemName];
         } else {
@@ -179,7 +177,6 @@ class OwpMod
      */
     public function setModDataItem($itemName, $itemValue)
     {
-        PC::debug(array("itemName" => $itemName, "itemValue" => $itemValue), 'OwpMod->setModDataItem()');
         $this->mod_data[$itemName] = $itemValue;
         return $this->mod_data[$itemName];
 
