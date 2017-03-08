@@ -148,15 +148,15 @@ class OwpMessaging
         }
 
         if(in_array(getenv("smtp_secure"), array("ssl", "tls"))) {
-            $mail->SMTPSecure = (string) getenv("smtp_secure");
-            $mail->SMTPOptions = array (
-                'ssl' => array(
-                    'verify_peer'  => false,
-                    'allow_self_signed' => true,
-                    'verify_peer_name' => false,
-                    'cafile' => '/etc/ssl/ca_cert.pem',
-                )
-            );
+            $mail->SMTPSecure  = (string) getenv("smtp_secure");
+            $mail->SMTPOptions = array(
+                                  'ssl' => array(
+                                            'verify_peer'       => false,
+                                            'allow_self_signed' => true,
+                                            'verify_peer_name'  => false,
+                                            'cafile'            => '/etc/ssl/ca_cert.pem',
+                                           ),
+                                 );
         }
 
         $mail->Port = (string) getenv("smtp_port");
@@ -169,7 +169,6 @@ class OwpMessaging
         $mail->FromName = $data_array["email_from_name"];
         $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
         // $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
-
         if(in_array(getenv("DKIM_active"), array("yes", "true", 1))) {
             $mail->DKIM_domain     = getenv("DKIM_domain");
             $mail->DKIM_private    = $this->root_path.'PHPMailer_DKIM/'.getenv("DKIM_private").'.htkeyprivate';
@@ -192,6 +191,7 @@ class OwpMessaging
         } else {
             return true;
         }
+
     }//end sendCore()
 
 

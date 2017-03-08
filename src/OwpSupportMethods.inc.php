@@ -129,38 +129,48 @@ class OwpSupportMethods
 
     }//end filterAction()
 
+
     /**
      * file_get_php_classes
      *
      * @method file_get_php_classes($filepath) Get classes from a file.
-     * @param $filepath
+     * @param  $filepath
      * @return array
      */
-    static function file_get_php_classes($filepath) {
+    static function file_get_php_classes($filepath)
+    {
         $php_code = file_get_contents($filepath);
-        $classes = OwpSupportMethods::get_php_classes($php_code);
+        $classes  = OwpSupportMethods::get_php_classes($php_code);
         return $classes;
-    }
+
+    }//end file_get_php_classes()
+
 
     /**
      * get_php_classes
      *
      * @method get_php_classes($php_code) Get classes froma string.
-     * @param $php_code
+     * @param  $php_code
      * @return array
      */
-    static function get_php_classes($php_code) {
+    static function get_php_classes($php_code)
+    {
         $classes = array();
-        $tokens = token_get_all($php_code);
-        $count = count($tokens);
+        $tokens  = token_get_all($php_code);
+        $count   = count($tokens);
         for ($i = 2; $i < $count; $i++) {
-            if (   $tokens[$i - 2][0] === T_CLASS
-                && $tokens[$i - 1][0] === T_WHITESPACE
-                && $tokens[$i][0] === T_STRING) {
+            if ($tokens[($i - 2)][0] === T_CLASS
+                && $tokens[($i - 1)][0] === T_WHITESPACE
+                && $tokens[$i][0] === T_STRING
+            ) {
                 $class_name = $tokens[$i][1];
-                $classes[] = $class_name;
+                $classes[]  = $class_name;
             }
         }
+
         return $classes;
-    }
+
+    }//end get_php_classes()
+
+
 }//end class

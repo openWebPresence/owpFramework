@@ -1,41 +1,41 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testsuites>
-  <testsuite name="OwpUsers" tests="24" assertions="24" failures="0" errors="0" time="4.612542">
-    <testsuite name="OwpMessaging_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpMessaging_test.php" tests="1" assertions="1" failures="0" errors="0" time="4.142343">
-      <testcase name="testSendEmailViaSMTP" class="OwpMessaging_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpMessaging_test.php" line="48" assertions="1" time="4.142343"/>
+  <testsuite name="OwpUsers" tests="24" assertions="24" failures="0" errors="0" time="3.405330">
+    <testsuite name="OwpMessaging_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpMessaging_test.php" tests="1" assertions="1" failures="0" errors="0" time="3.152965">
+      <testcase name="testSendEmailViaSMTP" class="OwpMessaging_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpMessaging_test.php" line="48" assertions="1" time="3.152965"/>
     </testsuite>
-    <testsuite name="OwpException_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpException_test.php" tests="1" assertions="1" failures="0" errors="0" time="0.018240">
-      <testcase name="testException" class="OwpException_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpException_test.php" line="35" assertions="1" time="0.018240"/>
+    <testsuite name="OwpException_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpException_test.php" tests="1" assertions="1" failures="0" errors="0" time="0.001397">
+      <testcase name="testException" class="OwpException_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpException_test.php" line="35" assertions="1" time="0.001397"/>
     </testsuite>
-    <testsuite name="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" tests="15" assertions="15" failures="0" errors="0" time="0.331338">
-      <testcase name="testAddUserFromInValidData" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="118" assertions="1" time="0.000812"/>
-      <testcase name="testAddUserFromValidData" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="128" assertions="1" time="0.042534"/>
-      <testcase name="testValidateUserPassword" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="142" assertions="1" time="0.031575"/>
-      <testcase name="testUserLoginViaUserID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="157" assertions="1" time="0.005974"/>
-      <testcase name="testLogOut" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="179" assertions="1" time="0.000621"/>
-      <testcase name="testUserLogin" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="191" assertions="1" time="0.024023"/>
-      <testcase name="testIsLoggedIn" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="201" assertions="1" time="0.030387"/>
-      <testcase name="testUpdatePassword" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="212" assertions="1" time="0.061427"/>
-      <testcase name="testSetLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="227" assertions="1" time="0.062004"/>
-      <testcase name="testGetUserIDViaLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="241" assertions="1" time="0.001006"/>
-      <testcase name="testClearLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="252" assertions="1" time="0.011586"/>
-      <testcase name="testUpdateUser" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="266" assertions="1" time="0.006956"/>
-      <testcase name="testUserExistsViaEmail" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="288" assertions="1" time="0.002265"/>
-      <testcase name="testUpdateLoginCount" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="297" assertions="1" time="0.029622"/>
-      <testcase name="testDeleteUser" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="309" assertions="1" time="0.020546"/>
+    <testsuite name="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" tests="15" assertions="15" failures="0" errors="0" time="0.187703">
+      <testcase name="testAddUserFromInValidData" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="118" assertions="1" time="0.000827"/>
+      <testcase name="testAddUserFromValidData" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="128" assertions="1" time="0.048718"/>
+      <testcase name="testValidateUserPassword" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="142" assertions="1" time="0.017793"/>
+      <testcase name="testUserLoginViaUserID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="157" assertions="1" time="0.009206"/>
+      <testcase name="testLogOut" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="179" assertions="1" time="0.000462"/>
+      <testcase name="testUserLogin" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="191" assertions="1" time="0.025180"/>
+      <testcase name="testIsLoggedIn" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="201" assertions="1" time="0.001679"/>
+      <testcase name="testUpdatePassword" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="212" assertions="1" time="0.036951"/>
+      <testcase name="testSetLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="227" assertions="1" time="0.023219"/>
+      <testcase name="testGetUserIDViaLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="241" assertions="1" time="0.001001"/>
+      <testcase name="testClearLostPassUUID" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="252" assertions="1" time="0.006258"/>
+      <testcase name="testUpdateUser" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="266" assertions="1" time="0.004099"/>
+      <testcase name="testUserExistsViaEmail" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="288" assertions="1" time="0.000817"/>
+      <testcase name="testUpdateLoginCount" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="297" assertions="1" time="0.005854"/>
+      <testcase name="testDeleteUser" class="OwpUsers_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpUsers_test.php" line="309" assertions="1" time="0.005638"/>
     </testsuite>
-    <testsuite name="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" tests="2" assertions="2" failures="0" errors="0" time="0.037007">
-      <testcase name="testSetGet" class="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" line="44" assertions="1" time="0.030500"/>
-      <testcase name="testDeleteGet" class="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" line="61" assertions="1" time="0.006507"/>
+    <testsuite name="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" tests="2" assertions="2" failures="0" errors="0" time="0.013415">
+      <testcase name="testSetGet" class="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" line="44" assertions="1" time="0.007966"/>
+      <testcase name="testDeleteGet" class="OwpSettings_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpSettings_test.php" line="61" assertions="1" time="0.005449"/>
     </testsuite>
-    <testsuite name="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" tests="3" assertions="3" failures="0" errors="0" time="0.081162">
-      <testcase name="testSetGet" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="32" assertions="1" time="0.052668"/>
-      <testcase name="testDeleteGet" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="49" assertions="1" time="0.016193"/>
-      <testcase name="testMacroReplace" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="62" assertions="1" time="0.012301"/>
+    <testsuite name="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" tests="3" assertions="3" failures="0" errors="0" time="0.046611">
+      <testcase name="testSetGet" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="32" assertions="1" time="0.026940"/>
+      <testcase name="testDeleteGet" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="49" assertions="1" time="0.004992"/>
+      <testcase name="testMacroReplace" class="OwpCms_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpCms_test.php" line="62" assertions="1" time="0.014679"/>
     </testsuite>
-    <testsuite name="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" tests="2" assertions="2" failures="0" errors="0" time="0.002452">
-      <testcase name="testValidatePass" class="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" line="32" assertions="1" time="0.001728"/>
-      <testcase name="testValidatePass2" class="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" line="58" assertions="1" time="0.000724"/>
+    <testsuite name="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" tests="2" assertions="2" failures="0" errors="0" time="0.003240">
+      <testcase name="testValidatePass" class="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" line="32" assertions="1" time="0.002474"/>
+      <testcase name="testValidatePass2" class="OwpPasswordValidator_test" file="/mnt/hgfs/www/dev.144stockexchange.com/owp-framework/tests/OwpPasswordValidator_test.php" line="58" assertions="1" time="0.000766"/>
     </testsuite>
   </testsuite>
 </testsuites>

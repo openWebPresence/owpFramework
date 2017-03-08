@@ -47,7 +47,7 @@
 <a href="#reports" class="dropdown-toggle" data-toggle="dropdown">
                                     Reports <b class="caret"></b></a><ul class="dropdown-menu">
 <li><a href="../errors.html"><i class="icon-remove-sign"></i> Errors 
-                <span class="label label-info">0</span></a></li>
+                <span class="label label-info">1</span></a></li>
 <li><a href="../markers.html"><i class="icon-map-marker"></i> Markers 
                 <ul></ul></a></li>
 <li><a href="../deprecated.html"><i class="icon-stop"></i> Deprecated elements 
@@ -76,21 +76,17 @@
 <ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
-                    <ul>
-<li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
-</ul>
-</li>
-<li class="nav-header protected">» Protected
-                    <ul><li class="method protected "><a href="#method_mod" title="mod() :: mod()"><span class="description">mod()</span><pre>mod()</pre></a></li></ul>
+                    <ul><li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li></ul>
 </li>
 <li class="nav-header private">» Private
                     <ul>
-<li class="method private "><a href="#method_loadFooter" title="loadFooter() :: loadFooter()"><span class="description">loadFooter()</span><pre>loadFooter()</pre></a></li>
-<li class="method private "><a href="#method_loadHeader" title="loadHeader() :: loadHeader()"><span class="description">loadHeader()</span><pre>loadHeader()</pre></a></li>
-<li class="method private "><a href="#method_loadNav" title="loadNav() :: loadNav()"><span class="description">loadNav()</span><pre>loadNav()</pre></a></li>
-<li class="method private "><a href="#method_loadTemplate" title="loadTemplate() :: loadTemplate()"><span class="description">loadTemplate()</span><pre>loadTemplate()</pre></a></li>
+<li class="method private "><a href="#method_getActionData" title="getActionData() :: getActionData()"><span class="description">getActionData()</span><pre>getActionData()</pre></a></li>
+<li class="method private "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul><li class="property public "><a href="#property_LoadedClasses" title="$LoadedClasses() :: "><span class="description"></span><pre>$LoadedClasses</pre></a></li></ul>
 </li>
 </ul>
 </div>
@@ -159,9 +155,35 @@
 <code>object</code><p>Data and method oject created by the OwpFramework.</p></div>
 </div></div>
 </div>
-<a id="method_processAction"></a><div class="element clickable method public method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="public">
+<a id="method_getActionData"></a><div class="element clickable method private method_getActionData " data-toggle="collapse" data-target=".method_getActionData .collapse" title="private">
+<h2>getActionData()</h2>
+<pre>getActionData($action) : mixed</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Returns action data</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$action</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>mixed</code></div>
+</div></div>
+</div>
+<a id="method_processAction"></a><div class="element clickable method private method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="private">
 <h2>processAction()</h2>
-<pre>processAction() </pre>
+<pre>processAction(string $action) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -175,185 +197,6 @@
 <td>private</td>
 </tr>
 <tr>
-<th>uses</th>
-<td><a href="%24this-&gt;mod()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadTemplate()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadHeader()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadNav()"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadFooter();"></a></td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="OwpAjaxUdf::processAction();"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>User class OwpAjaxUdf() does not exist.</td>
-</tr></table>
-</div></div>
-</div>
-<a id="method_mod"></a><div class="element clickable method protected method_mod " data-toggle="collapse" data-target=".method_mod .collapse" title="protected">
-<h2>mod()</h2>
-<pre>mod() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Loads the nav based on the template setting.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>protected</td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;mod()"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method_loadFooter"></a><div class="element clickable method private method_loadFooter " data-toggle="collapse" data-target=".method_loadFooter .collapse" title="private">
-<h2>loadFooter()</h2>
-<pre>loadFooter() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Loads the footer based on the template setting.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadTemplate"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method_loadHeader"></a><div class="element clickable method private method_loadHeader " data-toggle="collapse" data-target=".method_loadHeader .collapse" title="private">
-<h2>loadHeader()</h2>
-<pre>loadHeader() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Loads the header based on the template setting.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadTemplate"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method_loadNav"></a><div class="element clickable method private method_loadNav " data-toggle="collapse" data-target=".method_loadNav .collapse" title="private">
-<h2>loadNav()</h2>
-<pre>loadNav() </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Loads the nav based on the template setting.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>uses</th>
-<td><a href="%24this-&gt;loadTemplate"></a></td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-</div></div>
-</div>
-<a id="method_loadTemplate"></a><div class="element clickable method private method_loadTemplate " data-toggle="collapse" data-target=".method_loadTemplate .collapse" title="private">
-<h2>loadTemplate()</h2>
-<pre>loadTemplate(string $template_name, string $sub_dir<code> = "pages"</code>) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Loads the template based on the template setting.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>returns</th>
-<td>boolean Loaded status</td>
-</tr>
-<tr>
 <th>author</th>
 <td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
 </tr>
@@ -364,12 +207,27 @@
 </table>
 <h3>Parameters</h3>
 <div class="subelement argument">
-<h4>$template_name</h4>
-<code>string</code><p>Template Name.</p></div>
-<div class="subelement argument">
-<h4>$sub_dir</h4>
-<code>string</code><p>Sub Directory</p></div>
+<h4>$action</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Include does not exist.</td>
+</tr></table>
 </div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_LoadedClasses"> </a><div class="element clickable property public property_LoadedClasses" data-toggle="collapse" data-target=".property_LoadedClasses .collapse" title="public">
+<h2>$LoadedClasses</h2>
+<pre>$LoadedClasses : array</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>array()</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
 </div>
@@ -378,7 +236,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-07T18:48:41-05:00.<br></footer></div>
+            generated on 2017-03-08T14:03:23-05:00.<br></footer></div>
 </div>
 </body>
 </html>
