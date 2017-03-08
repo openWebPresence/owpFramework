@@ -138,60 +138,60 @@ class OwpMessaging
 
         $mail = new PHPMailer;
 
-        try {
-            $mail->isSMTP();
-            $mail->Host = $smtp_hostname;
+        $mail->isSMTP();
+        $mail->Host = $smtp_hostname;
 
-            if(in_array(getenv("smtp_auth"), array("yes", "true", 1))) {
-                $mail->SMTPAuth = true;
-                $mail->Username = (string) getenv("smtp_username");
-                $mail->Password = (string) getenv("smtp_password");
-            }
+        if(in_array(getenv("smtp_auth"), array("yes", "true", 1))) {
+            $mail->SMTPAuth = true;
+            $mail->Username = (string) getenv("smtp_username");
+            $mail->Password = (string) getenv("smtp_password");
+        }
 
-            if(in_array(getenv("smtp_secure"), array("ssl", "tls"))) {
-                $mail->SMTPSecure = (string) getenv("smtp_secure");
-            }
+        if(in_array(getenv("smtp_secure"), array("ssl", "tls"))) {
+            $mail->SMTPSecure = (string) getenv("smtp_secure");
+            $mail->SMTPOptions = array (
+                'ssl' => array(
+                    'verify_peer'  => false,
+                    'allow_self_signed' => true,
+                    'verify_peer_name' => false,
+                    'cafile' => '/etc/ssl/ca_cert.pem',
+                )
+            );
+        }
 
-            $mail->Port = (string) getenv("smtp_port");
+        $mail->Port = (string) getenv("smtp_port");
 
-            $mail->XMailer  = "OpenWebPresence-1.0";
-            $mail->Helo     = $data_array["sender_domain"];
-            $mail->Hostname = $data_array["sender_domain"];
+        $mail->XMailer  = "OpenWebPresence-1.0";
+        $mail->Helo     = gethostname();
+        $mail->Hostname = gethostname();
 
-            $mail->From     = $data_array["email_from"];
-            $mail->FromName = $data_array["email_from_name"];
-            $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
-            $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
+        $mail->From     = $data_array["email_from"];
+        $mail->FromName = $data_array["email_from_name"];
+        $mail->AddAddress($email_to_clean, $data_array["email_to_name"]);
+        // $mail->AddReplyTo(filter_var($data_array["reply_to"], FILTER_SANITIZE_EMAIL));
 
-            if(in_array(getenv("DKIM_active"), array("yes", "true", 1))) {
-                $mail->DKIM_domain     = getenv("DKIM_domain");
-                $mail->DKIM_private    = $this->root_path.'PHPMailer_DKIM/'.getenv("DKIM_private").'.htkeyprivate';
-                $mail->DKIM_selector   = getenv("DKIM_selector");
-                $mail->DKIM_passphrase = getenv("DKIM_passphrase");
-                $mail->DKIM_identity   = getenv("DKIM_identity");
-            }
+        if(in_array(getenv("DKIM_active"), array("yes", "true", 1))) {
+            $mail->DKIM_domain     = getenv("DKIM_domain");
+            $mail->DKIM_private    = $this->root_path.'PHPMailer_DKIM/'.getenv("DKIM_private").'.htkeyprivate';
+            $mail->DKIM_selector   = getenv("DKIM_selector");
+            $mail->DKIM_passphrase = getenv("DKIM_passphrase");
+            $mail->DKIM_identity   = getenv("DKIM_identity");
+        }
 
-            $mail->WordWrap = 50;
-            $mail->IsHTML(true);
+        $mail->WordWrap = 50;
+        $mail->IsHTML(true);
 
-            $mail->Subject = $data_array["subject"];
-            $mail->Body    = $data_array["message_body"];
+        $mail->Subject = $data_array["subject"];
+        $mail->Body    = $data_array["message_body"];
 
-            $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for ".$data_array["sender_domain"].".");
-            $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
+        $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for ".$data_array["sender_domain"].".");
+        $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
 
-            if(!$mail->send()) {
-                throw new Exception($mail->ErrorInfo);
-            } else {
-                return true;
-            }
-
-        } catch (phpmailerException $e) {
-            throw new Exception($e->getMessage());
-        } catch (Exception $e) {
-            throw new Exception($e->getMessage());
-        }//end try
-
+        if(!$mail->send()) {
+            throw new Exception($mail->ErrorInfo);
+        } else {
+            return true;
+        }
     }//end sendCore()
 
 
