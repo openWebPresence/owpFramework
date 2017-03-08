@@ -180,7 +180,12 @@ class OwpMessaging
             $mail->addCustomHeader("X-AntiAbuse", "This is a solicited email for ".$data_array["sender_domain"].".");
             $mail->addCustomHeader("X-AntiAbuse", $data_array["email_from"]);
 
-            return (boolean) ($mail->Send() ? true : false);
+            if(!$mail->send()) {
+                throw new Exception($mail->ErrorInfo);
+            } else {
+                return true;
+            }
+
         } catch (phpmailerException $e) {
             throw new Exception($e->getMessage());
         } catch (Exception $e) {
