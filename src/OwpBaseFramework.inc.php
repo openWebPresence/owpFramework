@@ -78,6 +78,8 @@ class OwpBaseFramework
                 break;
             case "ajax":
                 include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php")));
+                $OwpAjaxUdf = new OwpAjaxUdf();
+                $OwpAjaxUdf->processAction($frameworkObject);
                 break;
             case "jsAssets":
                 include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpjsAssets.inc.php")));
