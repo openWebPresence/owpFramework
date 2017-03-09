@@ -80,13 +80,27 @@
 </li>
 <li class="nav-header private">» Private
                     <ul>
+<li class="method private "><a href="#method_checkActionPermissions" title="checkActionPermissions() :: checkActionPermissions()"><span class="description">checkActionPermissions()</span><pre>checkActionPermissions()</pre></a></li>
 <li class="method private "><a href="#method_getActionData" title="getActionData() :: getActionData()"><span class="description">getActionData()</span><pre>getActionData()</pre></a></li>
 <li class="method private "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
-                    <ul><li class="property public "><a href="#property_LoadedClasses" title="$LoadedClasses() :: "><span class="description">Object holder for dynamically loaded classes</span><pre>$LoadedClasses</pre></a></li></ul>
+                    <ul>
+<li class="property public "><a href="#property_LoadedClasses" title="$LoadedClasses() :: "><span class="description">Object holder for dynamically loaded classes</span><pre>$LoadedClasses</pre></a></li>
+<li class="property public "><a href="#property_PhpConsole" title="$PhpConsole() :: "><span class="description">Phpconsole object</span><pre>$PhpConsole</pre></a></li>
+<li class="property public "><a href="#property_THEME" title="$THEME() :: "><span class="description">The app theme</span><pre>$THEME</pre></a></li>
+<li class="property public "><a href="#property_actionsConfig" title="$actionsConfig() :: "><span class="description">Theme specific actions configuration</span><pre>$actionsConfig</pre></a></li>
+<li class="property public "><a href="#property_actualAction" title="$actualAction() :: "><span class="description">Action finally processed after permissions are verified</span><pre>$actualAction</pre></a></li>
+<li class="property public "><a href="#property_current_web_root" title="$current_web_root() :: "><span class="description">The current web root</span><pre>$current_web_root</pre></a></li>
+<li class="property public "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">Database object</span><pre>$ezSqlDB</pre></a></li>
+<li class="property public "><a href="#property_frameworkObject" title="$frameworkObject() :: "><span class="description">Framework object</span><pre>$frameworkObject</pre></a></li>
+<li class="property public "><a href="#property_requested_action" title="$requested_action() :: "><span class="description">The user action requested</span><pre>$requested_action</pre></a></li>
+<li class="property public "><a href="#property_root_path" title="$root_path() :: "><span class="description">The app root path</span><pre>$root_path</pre></a></li>
+<li class="property public "><a href="#property_userClass" title="$userClass() :: "><span class="description">The user object</span><pre>$userClass</pre></a></li>
+<li class="property public "><a href="#property_uuid" title="$uuid() :: "><span class="description">The request's uuid</span><pre>$uuid</pre></a></li>
+</ul>
 </li>
 </ul>
 </div>
@@ -153,6 +167,32 @@
 <div class="subelement argument">
 <h4>$frameworkObject</h4>
 <code>object</code><p>Data and method oject created by the OwpFramework.</p></div>
+</div></div>
+</div>
+<a id="method_checkActionPermissions"></a><div class="element clickable method private method_checkActionPermissions " data-toggle="collapse" data-target=".method_checkActionPermissions .collapse" title="private">
+<h2>checkActionPermissions()</h2>
+<pre>checkActionPermissions($action) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Returns action data</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$action</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
 <a id="method_getActionData"></a><div class="element clickable method private method_getActionData " data-toggle="collapse" data-target=".method_getActionData .collapse" title="private">
@@ -229,6 +269,116 @@
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
+<a id="property_PhpConsole"> </a><div class="element clickable property public property_PhpConsole" data-toggle="collapse" data-target=".property_PhpConsole .collapse" title="public">
+<h2>Phpconsole object</h2>
+<pre>$PhpConsole : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_THEME"> </a><div class="element clickable property public property_THEME" data-toggle="collapse" data-target=".property_THEME .collapse" title="public">
+<h2>The app theme</h2>
+<pre>$THEME : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_actionsConfig"> </a><div class="element clickable property public property_actionsConfig" data-toggle="collapse" data-target=".property_actionsConfig .collapse" title="public">
+<h2>Theme specific actions configuration</h2>
+<pre>$actionsConfig : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_actualAction"> </a><div class="element clickable property public property_actualAction" data-toggle="collapse" data-target=".property_actualAction .collapse" title="public">
+<h2>Action finally processed after permissions are verified</h2>
+<pre>$actualAction : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_current_web_root"> </a><div class="element clickable property public property_current_web_root" data-toggle="collapse" data-target=".property_current_web_root .collapse" title="public">
+<h2>The current web root</h2>
+<pre>$current_web_root : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_ezSqlDB"> </a><div class="element clickable property public property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="public">
+<h2>Database object</h2>
+<pre>$ezSqlDB : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_frameworkObject"> </a><div class="element clickable property public property_frameworkObject" data-toggle="collapse" data-target=".property_frameworkObject .collapse" title="public">
+<h2>Framework object</h2>
+<pre>$frameworkObject : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_requested_action"> </a><div class="element clickable property public property_requested_action" data-toggle="collapse" data-target=".property_requested_action .collapse" title="public">
+<h2>The user action requested</h2>
+<pre>$requested_action : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_root_path"> </a><div class="element clickable property public property_root_path" data-toggle="collapse" data-target=".property_root_path .collapse" title="public">
+<h2>The app root path</h2>
+<pre>$root_path : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_userClass"> </a><div class="element clickable property public property_userClass" data-toggle="collapse" data-target=".property_userClass .collapse" title="public">
+<h2>The user object</h2>
+<pre>$userClass : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_uuid"> </a><div class="element clickable property public property_uuid" data-toggle="collapse" data-target=".property_uuid .collapse" title="public">
+<h2>The request's uuid</h2>
+<pre>$uuid : string</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -236,7 +386,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-08T16:14:37-05:00.<br></footer></div>
+            generated on 2017-03-09T01:49:19-05:00.<br></footer></div>
 </div>
 </body>
 </html>

@@ -45,7 +45,7 @@
     </interface>
     <source>eJyNVVGP4jYQfudXjFZ92F2lZPdeKl1P7QYwi9WQREk4uk8nJzHEtyGO7HAcqvrfO2PCcovuoQgJPJ75Zr5vPPanP7u6G/n39yO4h7iT7VoWiZFWtqWEbN912vQQqsIIc4RfQaPHQRbd4DEu9Q4DKfap1N3RqG3dw4eHh0f0/fDw+JsHE6NEC7nY6KMYO8dOlK9iKwEgPnTBV/HdWcW+r7VB47sI+FT07s9TQdbTf8r6hwv6Jo1VusWgx/GDszSqlK0l8CXPryx133f2o+8TCav3BuvXZusPDtbHCMhrSZFI2RlPzEQvtxr5Xwv0ZRDoyyDQkK99BfehfEO6K82ugQYNp28S3pZ3P9FvcEuk2SnriCsLtTSyOMLWoDyy8mBjpAS9gbIWZis96DWI9ggdSoUBGvVUrWq3IIA6Rp59jTBWb/qDMBKdKxDW6lIh7QoqXe53EpXvKd9GNdLCbY8q3WRDxM2dS1JJ0YBqgfbOW3BQ2NV9D8izN6okDA+dymZfUQ3n7Ubt1JCBwp0GlkD3FhlQnR7sdKU29CsdrW5fNMrWHlSKoIt9j0ZLRtc4j3j4eKCsbBpCUFi343qpzvlQlo4E7QeJXN5DjU16xwQl2uxNiymli6k0SuYyfpVlTxZy3+im0QeiVuq2UsTIfhzaRkdLFPqbhMuotLrHek91UBe6S2uHLVsLJFDIQTVMjhqLHzgZqsH22H2FDaDjSEmvuY7PRSwYZPE8XwcpA55Bksaf+YzN4CbIcH3jwZrni3iVA3qkQZS/QDyHIHqBv3g084D9naQsyyBOgS+TkDO08WgarmY8eoYJxkUxTg/HGULQPHYJByjOMgJbsnS6wGUw4SHPXzyY8zwizDmCBpAEac6nqzBIIVmlSZwxTD9D2IhH8xSzsCWL8jFmRRuwz7iAbBGEoUsVrLD61NU3jZOXlD8vcljE4YyhccKwsmASslMqJDUNA770YBYsg2fmomJESZ3bUN16wZwJ8wX4neY8jojGNI7yFJceskzzt9A1z5gHQcozEmSexghPcmJE7EAwLmInFJL6fUfQhdarjF1qmbEgRKyMgn90ppb6o9H58s7p/Ci8A8xG4LlRu66RNLjWnQOB9yxNYafpLqzxwDXSnBAuMef7+B9EpQvMIdPnHjqjS2lt4Eb49m4wn3efdhIHuYKd+o4H9MoXktP6J3UI5/KGIkrn50a7fLN2wogdgDBGHOGXDS7kQZvX+DR48TrBATi9U0MVZYP31/i6xPMD83+flyHs/MS4B8bZfPd7KhLvhNZxuCJ9Xebd7yjpv74v2+rSo9F//iFesA==</source>
   </file>
-  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="acd696beaf3aceca0eb8b8c351026c65" package="OwpBaseFramework">
+  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="0d77965c3cb0509cc681854a0bdaf532" package="OwpBaseFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -67,35 +67,167 @@
         <long-description>It acts as the controller, logic, and view handler without extreme complexity of an entire MVC framework.</long-description>
         <tag name="package" line="28" description="OwpBaseFramework"/>
       </docblock>
-      <property static="false" visibility="public" namespace="" line="34" package="OwpBaseFramework">
+      <property static="false" visibility="public" namespace="" line="33" package="OwpBaseFramework">
+        <name>$actionsConfig</name>
+        <full_name>\OwpBaseFramework::actionsConfig</full_name>
+        <default></default>
+        <docblock line="33">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="33" description="&lt;p&gt;Theme specific actions configuration&lt;/p&gt;" type="object" variable="$actionsConfig">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="38" package="OwpBaseFramework">
+        <name>$actualAction</name>
+        <full_name>\OwpBaseFramework::actualAction</full_name>
+        <default></default>
+        <docblock line="38">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="38" description="&lt;p&gt;Action finally processed after permissions are verified&lt;/p&gt;" type="string" variable="$actualAction">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="43" package="OwpBaseFramework">
+        <name>$current_web_root</name>
+        <full_name>\OwpBaseFramework::current_web_root</full_name>
+        <default></default>
+        <docblock line="43">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="43" description="&lt;p&gt;The current web root&lt;/p&gt;" type="string" variable="$current_web_root">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="48" package="OwpBaseFramework">
+        <name>$ezSqlDB</name>
+        <full_name>\OwpBaseFramework::ezSqlDB</full_name>
+        <default></default>
+        <docblock line="48">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="48" description="&lt;p&gt;Database object&lt;/p&gt;" type="object" variable="$ezSqlDB">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="53" package="OwpBaseFramework">
+        <name>$frameworkObject</name>
+        <full_name>\OwpBaseFramework::frameworkObject</full_name>
+        <default></default>
+        <docblock line="53">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="53" description="&lt;p&gt;Framework object&lt;/p&gt;" type="object" variable="$frameworkObject">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="58" package="OwpBaseFramework">
         <name>$LoadedClasses</name>
         <full_name>\OwpBaseFramework::LoadedClasses</full_name>
         <default>array()</default>
-        <docblock line="34">
+        <docblock line="58">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="34" description="&lt;p&gt;Object holder for dynamically loaded classes&lt;/p&gt;" type="array" variable="$LoadedClasses">
+          <tag name="var" line="58" description="&lt;p&gt;Object holder for dynamically loaded classes&lt;/p&gt;" type="array" variable="$LoadedClasses">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="50" package="OwpBaseFramework">
-        <name>__construct</name>
-        <full_name>\OwpBaseFramework::__construct()</full_name>
-        <docblock line="50">
-          <description>Constructor</description>
+      <property static="false" visibility="public" namespace="" line="63" package="OwpBaseFramework">
+        <name>$PhpConsole</name>
+        <full_name>\OwpBaseFramework::PhpConsole</full_name>
+        <default></default>
+        <docblock line="63">
+          <description></description>
           <long-description></long-description>
-          <tag name="method" line="50" description="" method_name="__construct"/>
-          <tag name="access" line="50" description="public"/>
-          <tag name="param" line="50" description="&lt;p&gt;Data and method oject created by the OwpFramework.&lt;/p&gt;" type="object" variable="$frameworkObject">
+          <tag name="var" line="63" description="&lt;p&gt;Phpconsole object&lt;/p&gt;" type="object" variable="$PhpConsole">
             <type>object</type>
           </tag>
-          <tag name="global" line="50" description="string $root_path        The app root file path."/>
-          <tag name="global" line="50" description="string $current_web_root The current web root."/>
-          <tag name="global" line="50" description="object $PhpConsole       PhpConsole debugger object."/>
-          <tag name="uses" line="50" description="" link="OwpFramework"/>
-          <tag name="author" line="50" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="50" description="1.0"/>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="68" package="OwpBaseFramework">
+        <name>$requested_action</name>
+        <full_name>\OwpBaseFramework::requested_action</full_name>
+        <default></default>
+        <docblock line="68">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="68" description="&lt;p&gt;The user action requested&lt;/p&gt;" type="string" variable="$requested_action">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="73" package="OwpBaseFramework">
+        <name>$root_path</name>
+        <full_name>\OwpBaseFramework::root_path</full_name>
+        <default></default>
+        <docblock line="73">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="73" description="&lt;p&gt;The app root path&lt;/p&gt;" type="string" variable="$root_path">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="78" package="OwpBaseFramework">
+        <name>$THEME</name>
+        <full_name>\OwpBaseFramework::THEME</full_name>
+        <default></default>
+        <docblock line="78">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="78" description="&lt;p&gt;The app theme&lt;/p&gt;" type="string" variable="$THEME">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="83" package="OwpBaseFramework">
+        <name>$userClass</name>
+        <full_name>\OwpBaseFramework::userClass</full_name>
+        <default></default>
+        <docblock line="83">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="83" description="&lt;p&gt;The user object&lt;/p&gt;" type="object" variable="$userClass">
+            <type>object</type>
+          </tag>
+        </docblock>
+      </property>
+      <property static="false" visibility="public" namespace="" line="88" package="OwpBaseFramework">
+        <name>$uuid</name>
+        <full_name>\OwpBaseFramework::uuid</full_name>
+        <default></default>
+        <docblock line="88">
+          <description></description>
+          <long-description></long-description>
+          <tag name="var" line="88" description="&lt;p&gt;The request's uuid&lt;/p&gt;" type="string" variable="$uuid">
+            <type>string</type>
+          </tag>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="104" package="OwpBaseFramework">
+        <name>__construct</name>
+        <full_name>\OwpBaseFramework::__construct()</full_name>
+        <docblock line="104">
+          <description>Constructor</description>
+          <long-description></long-description>
+          <tag name="method" line="104" description="" method_name="__construct"/>
+          <tag name="access" line="104" description="public"/>
+          <tag name="param" line="104" description="&lt;p&gt;Data and method oject created by the OwpFramework.&lt;/p&gt;" type="object" variable="$frameworkObject">
+            <type>object</type>
+          </tag>
+          <tag name="global" line="104" description="string $root_path        The app root file path."/>
+          <tag name="global" line="104" description="string $current_web_root The current web root."/>
+          <tag name="global" line="104" description="object $PhpConsole       PhpConsole debugger object."/>
+          <tag name="uses" line="104" description="" link="OwpFramework"/>
+          <tag name="author" line="104" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="104" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$frameworkObject</name>
@@ -103,19 +235,19 @@
           <type>object</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="101" package="OwpBaseFramework">
-        <name>getActionData</name>
-        <full_name>\OwpBaseFramework::getActionData()</full_name>
-        <docblock line="101">
-          <description>getActionData()</description>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="160" package="OwpBaseFramework">
+        <name>checkActionPermissions</name>
+        <full_name>\OwpBaseFramework::checkActionPermissions()</full_name>
+        <docblock line="160">
+          <description>checkActionPermissions()</description>
           <long-description></long-description>
-          <tag name="method" line="101" description="Returns action data" method_name="getActionData"/>
-          <tag name="param" line="101" description="" type="" variable="$action"/>
-          <tag name="return" line="101" description="" type="mixed">
-            <type>mixed</type>
+          <tag name="method" line="160" description="Returns action data" method_name="checkActionPermissions"/>
+          <tag name="param" line="160" description="" type="" variable="$action"/>
+          <tag name="return" line="160" description="" type="boolean">
+            <type>boolean</type>
           </tag>
-          <tag name="author" line="101" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="101" description="1.0"/>
+          <tag name="author" line="160" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="160" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$action</name>
@@ -123,22 +255,42 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="117" package="OwpBaseFramework">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="189" package="OwpBaseFramework">
+        <name>getActionData</name>
+        <full_name>\OwpBaseFramework::getActionData()</full_name>
+        <docblock line="189">
+          <description>getActionData()</description>
+          <long-description></long-description>
+          <tag name="method" line="189" description="Returns action data" method_name="getActionData"/>
+          <tag name="param" line="189" description="" type="" variable="$action"/>
+          <tag name="return" line="189" description="" type="mixed">
+            <type>mixed</type>
+          </tag>
+          <tag name="author" line="189" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="189" description="1.0"/>
+        </docblock>
+        <argument line="0" by_reference="false">
+          <name>$action</name>
+          <default></default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="205" package="OwpBaseFramework">
         <name>processAction</name>
         <full_name>\OwpBaseFramework::processAction()</full_name>
-        <docblock line="117">
+        <docblock line="205">
           <description>processAction()</description>
           <long-description></long-description>
-          <tag name="method" line="117" description="Process the framework action." method_name="processAction"/>
-          <tag name="access" line="117" description="private"/>
-          <tag name="param" line="117" description="" type="string" variable="$action">
+          <tag name="method" line="205" description="Process the framework action." method_name="processAction"/>
+          <tag name="access" line="205" description="private"/>
+          <tag name="param" line="205" description="" type="string" variable="$action">
             <type>string</type>
           </tag>
-          <tag name="throws" line="117" description="Include does not exist." type="\Exception">
+          <tag name="throws" line="205" description="Include does not exist." type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="117" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="117" description="1.0"/>
+          <tag name="author" line="205" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="205" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$action</name>
@@ -147,7 +299,7 @@
         </argument>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <file path="OwpCms.inc.php" generated-path="OwpCms.inc.html" hash="38d13314a6071d13b6bc264c8342cc51" package="OwpCms">
     <docblock line="0">
@@ -1403,7 +1555,7 @@
     </class>
     <source>eJyNVU1v4zYQvftXDIwekkAbJ3spsN2mUWw6FlaWBEleNyiKQB+0xa4sCiQV11j0v3eGkp2Nm0MFAxaH8+bNvOFQn39rq3Y0uboawRWELW/WPI8U17wpOCRd20plwBe5ytQBPoBEjz3P28HjupA7BBL2vpDtQYltZeDjzc0t+n68uf3ZgQclsgbSbCMP2bV1bLPiW7blABDu27lQPFpEdiPrTCUV2t+A4HNu7Mt9Ttb+nYjvLOiFKy1kg6Db6xtrqUXBG03xl156ZqmMafWnyYTq0LJTWIJU28ngoCeIgLTihMSqrbEvLjN8K1GCc42eB42eB40GvuYb2If4Broz2c4DDTJOTypeFJfvSDi4RVzthLaFCw0VVzw/wFahPLx0YKM4B7mBosrUljtgJGTNAVqUCgES9RSNaLaQATWNPE2FYbTcmH2mODqXkGktC4Fll1DKottxVN4Q30bUXMOFQZXGyYAYX1qSkmc1iAZo77gFe4Fd7QxgnUaJgmI46FTUXUk5HLdrsRMDA8GtBpqCdhoroDwd2MlSbOif27LaLq+FrhwoBYXOO4NGTUbbOIfqmOCB0ryuKYLAvG2tr9lZH2JpSVAzSGR59xU26U0lKNGmUw1ScospJUpmGf/ihSELuW9kXcs9lVbIphRUkf40tI2OVpbLFw6v09JIg/n2eVAX2tfWDlu6yrCAnA+qITlqnP1Qk6IctMHuC2wAHUciPa/1+pjEgkESztO1GzPwEoji8Ks3YzMYuwmuxw6svXQRrlJAj9gN0icI5+AGT/DFC2YOsN+jmCUJhDF4y8j3GNq8YOqvZl7wCA+IC0KcHg9nCIOmoSUcQnksoWBLFk8XuHQfPN9LnxyYe2lAMecY1IXIjVNvuvLdGKJVHIUJQ/oZhg28YB4jC1uyIL1GVrQB+4oLSBau71sqd4XZxza/aRg9xd7jIoVF6M8YGh8YZuY++KynwqKmvustHZi5S/eRWVSIUWLrNmS3XjBrQj4Xf9PUCwMqYxoGaYxLB6uM0xN07SXMATf2EhJkHocYnuRERGiDIC5gfRSS+m1H0IXWq4S95jJjro+xEgL/6EwtnYyO13dKx6eocXLxgOB9pXB6NQw3LA5n3m23dC5xU9rrB/D+geMF1Mfq4a8XM/C/DW/KU5jR99FoRDeb5aTnCmYUeVgcbfc7jnNdwosUJTw/W3Kv2ciLy5NHVhQcuewUFyer4gZnDDKlssN5zOMH4v9+HgbY8RNhPxDWNrH/PTPOdGNvpXfS/N774zOk9cfJcHzGQrMmy2tejuHXO/iJZvjD3ZabwXpx6fwXI1s7oWN8f4MJe/s7mD9/6WX/ZzLBdpylOhoNZtu90b8+s2c+</source>
   </file>
-  <file path="OwpFramework.inc.php" generated-path="OwpFramework.inc.html" hash="93f132fbea4a3e94ea0da9af761e5ec9" package="OwpFramework">
+  <file path="OwpFramework.inc.php" generated-path="OwpFramework.inc.html" hash="53c1c96a116491a470d09856afd07135" package="OwpFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -1644,15 +1796,15 @@
           <type>object</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="263" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="273" package="OwpFramework">
         <name>__get</name>
         <full_name>\OwpFramework::__get()</full_name>
-        <docblock line="263">
+        <docblock line="273">
           <description>__get($name)</description>
           <long-description></long-description>
-          <tag name="method" line="263" description="Getter" method_name="__GET"/>
-          <tag name="param" line="263" description="" type="" variable="$name"/>
-          <tag name="return" line="263" description="" type="mixed">
+          <tag name="method" line="273" description="Getter" method_name="__GET"/>
+          <tag name="param" line="273" description="" type="" variable="$name"/>
+          <tag name="return" line="273" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -1662,36 +1814,36 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="281" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="291" package="OwpFramework">
         <name>getFrameworkObject</name>
         <full_name>\OwpFramework::getFrameworkObject()</full_name>
-        <docblock line="281">
+        <docblock line="291">
           <description>getFrameworkObject().</description>
           <long-description>Return the entire framework object for reference.</long-description>
-          <tag name="method" line="281" description="Return the entire framework object for reference." method_name="getFrameworkObject"/>
-          <tag name="return" line="281" description="" type="array|object">
+          <tag name="method" line="291" description="Return the entire framework object for reference." method_name="getFrameworkObject"/>
+          <tag name="return" line="291" description="" type="array|object">
             <type>array</type>
             <type>object</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="298" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="308" package="OwpFramework">
         <name>__debugInfo</name>
         <full_name>\OwpFramework::__debugInfo()</full_name>
-        <docblock line="298">
+        <docblock line="308">
           <description>Debug</description>
           <long-description></long-description>
-          <tag name="method" line="298" description="" method_name="__debugInfo"/>
-          <tag name="access" line="298" description="public"/>
-          <tag name="return" line="298" description="" type="object">
+          <tag name="method" line="308" description="" method_name="__debugInfo"/>
+          <tag name="access" line="308" description="public"/>
+          <tag name="return" line="308" description="" type="object">
             <type>object</type>
           </tag>
-          <tag name="author" line="298" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="298" description="1.0"/>
+          <tag name="author" line="308" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="308" description="1.0"/>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <file path="OwpMessaging.inc.php" generated-path="OwpMessaging.inc.html" hash="9783bc6d47d0d4fb80cb5b7f46d82e25" package="OwpMessaging">
     <docblock line="0">

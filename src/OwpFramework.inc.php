@@ -257,7 +257,8 @@ class OwpFramework
                 "requested_action"=>$this->requested_action,
                 "actionsConfigFileLocation"=>$this->actionsConfigFileLocation,
                 "actionsConfig"=>$this->actionsConfig
-            ), "OwpFramework->__construct");
+            ), "OwpFramework->__construct"
+        );
 
     }//end __construct()
 
