@@ -65,7 +65,9 @@ class OwpBaseFramework
 
         switch($this->requested_action) {
             default:
-                $this->processAction($this->requested_action);
+                $hasPermission = $this->checkActionPermissions($this->requested_action);
+
+                $this->processAction(($hasPermission?$this->requested_action:$frameworkObject["frameworkVariables"]["default_action"]));
                 break;
             case "ajaxDefault":
                 include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes","default","lib","OwpAjaxUdf.inc.php")));
@@ -87,6 +89,31 @@ class OwpBaseFramework
             case "cssAssets":
                 include ($this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpcssAssets.inc.php")));
                 break;
+        }
+    }
+
+    /**
+     * checkActionPermissions()
+     *
+     * @method checkActionPermissions() Returns action data
+     * @param $action
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    private function checkActionPermissions($action)
+    {
+        $getActionData = $this->getActionData($action);
+
+        if($this->userClass->isLoggedIn()) {
+            if($this->userClass->isAdmin() && (int)$getActionData["isAdmin"]) {
+                return true;
+            } else {
+                return ((int)$getActionData["isUser"]?true:false);
+            }
+        } else {
+            false;
         }
     }
 

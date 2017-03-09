@@ -160,7 +160,7 @@ class OwpFramework
         /*
             * Default Request Definition
          */
-        $this->defaultRequest = [
+        $this->defaultAction = [
                                  "none"    => "home",
                                  "isUser"  => "home",
                                  "isAdmin" => "home",
@@ -196,7 +196,6 @@ class OwpFramework
 
         if (file_exists($this->actionsConfigFileLocation)) {
             include $this->actionsConfigFileLocation;
-            $this->PhpConsole->Debug($actionsConfig, "actionsConfig");
             $this->actionsConfig = $actionsConfig;
             $this->defaultAction = $defaultAction;
         } else {
@@ -234,21 +233,31 @@ class OwpFramework
          */
         if($this->userClass->isLoggedIn()) {
             if($this->userClass->isAdmin()) {
-                $this->default_action = $this->defaultRequest["isAdmin"];
+                $this->default_action = $this->defaultAction["isAdmin"];
             } else {
-                $this->default_action = $this->defaultRequest["isUser"];
+                $this->default_action = $this->defaultAction["isUser"];
             }
         } else {
-            $this->default_action = $this->defaultRequest["none"];
+            $this->default_action = $this->defaultAction["none"];
         }
 
         $this->requested_action = (isset($_GET["_route_"]) ? OwpSupportMethods::filterAction($_GET["_route_"]) : $this->default_action);
 
         $this->frameworkObject["frameworkVariables"]["requested_action"] = (string) $this->requested_action;
+        $this->frameworkObject["frameworkVariables"]["default_action"] = (string) $this->default_action;
         $this->frameworkObject["actionsConfig"] = (array) $this->actionsConfig;
         $this->frameworkObject["defaultAction"] = (array) $this->defaultAction;
 
-        $this->PhpConsole->debug($this->frameworkObject, "OwpFramework->frameworkObject");
+        $this->PhpConsole->debug(
+            array(
+                "frameworkObject"=>$this->frameworkObject,
+                "defaultAction"=>$this->defaultAction,
+                "userClass"=>$this->userClass->userData(),
+                "default_action"=>$this->default_action,
+                "requested_action"=>$this->requested_action,
+                "actionsConfigFileLocation"=>$this->actionsConfigFileLocation,
+                "actionsConfig"=>$this->actionsConfig
+            ), "OwpFramework->__construct");
 
     }//end __construct()
 
