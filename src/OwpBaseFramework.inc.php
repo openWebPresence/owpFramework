@@ -211,7 +211,7 @@ class OwpBaseFramework
         }
 
         $mod_includes = array();
-        $mod_includes[] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'lib', "owpFunctions.inc.php"));
+        $mod_includes[] = $this->root_path . join(DIRECTORY_SEPARATOR, array('app', 'themes', $_ENV["THEME"], 'lib', "OwpFunctions.inc.php"));
 
         if($actionData && $actionData["mod"]) {
             $mod_includes = array_merge($mod_includes, $actionData["mod"]);
