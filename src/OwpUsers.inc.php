@@ -545,6 +545,27 @@ class OwpUsers
 
 
     /**
+     * get_user_record_byUUID_noMeta
+     *
+     * @method array get_user_record_byUUID_noMeta($uuid) Retrieve base user data without any meta data by uuid
+     * @access public
+     *
+     * @param string $uuid Existing UUID
+     *
+     * @return array User array, false of failure
+     * @uses   OwpUsers::get_user_record_noMeta()
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function get_user_record_byUUID_noMeta($uuid)
+    {
+        return $this->get_user_record_noMeta(" WHERE tbl_users.uuid = '".$uuid."'");
+
+    }//end get_user_record_byUUID_noMeta()
+
+
+    /**
      * get_user_record_noMeta
      *
      * @method array get_user_record_noMeta($where_clause) Retrieve base user data without any meta data by WHERE statement

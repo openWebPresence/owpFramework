@@ -88,6 +88,7 @@
 <li class="method public "><a href="#method_get_user_record_byEMAIL" title="get_user_record_byEMAIL() :: get_user_record_byEMAIL"><span class="description">get_user_record_byEMAIL</span><pre>get_user_record_byEMAIL()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_byID" title="get_user_record_byID() :: get_user_record_byID"><span class="description">get_user_record_byID</span><pre>get_user_record_byID()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_byID_noMeta" title="get_user_record_byID_noMeta() :: get_user_record_byID_noMeta"><span class="description">get_user_record_byID_noMeta</span><pre>get_user_record_byID_noMeta()</pre></a></li>
+<li class="method public "><a href="#method_get_user_record_byUUID_noMeta" title="get_user_record_byUUID_noMeta() :: get_user_record_byUUID_noMeta"><span class="description">get_user_record_byUUID_noMeta</span><pre>get_user_record_byUUID_noMeta()</pre></a></li>
 <li class="method public "><a href="#method_get_user_record_noMeta" title="get_user_record_noMeta() :: get_user_record_noMeta"><span class="description">get_user_record_noMeta</span><pre>get_user_record_noMeta()</pre></a></li>
 <li class="method public "><a href="#method_isAdmin" title="isAdmin() :: isAdmin"><span class="description">isAdmin</span><pre>isAdmin()</pre></a></li>
 <li class="method public "><a href="#method_isLoggedIn" title="isLoggedIn() :: isLoggedIn"><span class="description">isLoggedIn</span><pre>isLoggedIn()</pre></a></li>
@@ -543,6 +544,43 @@
 <div class="subelement argument">
 <h4>$userID</h4>
 <code>integer</code><p>Existing userID</p></div>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>User array, false of failure</div>
+</div></div>
+</div>
+<a id="method_get_user_record_byUUID_noMeta"></a><div class="element clickable method public method_get_user_record_byUUID_noMeta " data-toggle="collapse" data-target=".method_get_user_record_byUUID_noMeta .collapse" title="public">
+<h2>get_user_record_byUUID_noMeta</h2>
+<pre>get_user_record_byUUID_noMeta(string $uuid) : array</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Retrieve base user data without any meta data by uuid</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>uses</th>
+<td><a href="OwpUsers::get_user_record_noMeta()"></a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$uuid</h4>
+<code>string</code><p>Existing UUID</p></div>
 <h3>Returns</h3>
 <div class="subelement response">
 <code>array</code>User array, false of failure</div>
@@ -1541,7 +1579,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-03-09T01:49:19-05:00.<br></footer></div>
+            generated on 2017-03-20T12:54:13-04:00.<br></footer></div>
 </div>
 </body>
 </html>
