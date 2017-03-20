@@ -1204,10 +1204,10 @@ class OwpUsers
                 "
                 SELECT * FROM tbl_users_status
                 WHERE tbl_users_status.statusID = ".(int) $get_user_info_row["statusID"]."
-                LIMIT 1"
-            , ARRAY_A);
+                LIMIT 1", ARRAY_A
+            );
 
-            $this->PhpConsole->debug($statusInfo,"OwpUsers->userLoginCore()->statusInfo");
+            $this->PhpConsole->debug($statusInfo, "OwpUsers->userLoginCore()->statusInfo");
 
             if(!$statusInfo) {
                 throw new OwpUserException("Invalid user status ID.", 911);

@@ -150,7 +150,49 @@ class OwpUsers_test extends TestCase
     }
 
     /**
-     * @depends testAddUserFromValidData
+     * @depends testValidateUserPassword
+     * @covers OwpUsers::get_user_record_byID
+     * @covers OwpUsers::get_user_record_byUUID_noMeta
+     */
+    public function testCheckUserValidated()
+    {
+        $rowBefore = self::$owpUsers->get_user_record_byID(self::$userID);
+        $recordExists = self::$owpUsers->get_user_record_byUUID_noMeta($rowBefore["uuid"]);
+
+        $this->assertEquals(
+            true,
+            ($recordExists?true:false)
+        );
+    }
+
+    /**
+     * @depends testCheckUserValidated
+     * @covers OwpUsers::updateUser
+     * @covers OwpUsers::get_user_record_byID
+     */
+    public function testUpdateUserValidated()
+    {
+        $dataArray = array(
+            "statusID"=>2,
+            "uuid"=>null
+        );
+
+        self::$getUserTestData["statusID"] = 2;
+
+        self::$owpUsers->updateUser(self::$userID, $dataArray);
+
+        $rowAfter = self::$owpUsers->get_user_record_byID(self::$userID);
+
+        $this->assertEquals(
+            $dataArray, array(
+                "statusID"=>2,
+                "uuid"=>null
+            )
+        );
+    }
+
+    /**
+     * @depends testUpdateUserValidated
      * @covers OwpUsers::userLoginViaUserID
      * @covers OwpUsers::userData
      */

@@ -19,14 +19,14 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpStdObject.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpUsers.inc.php
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.320s
-Preparing template "responsive"                                    ..    0.095s
+Load cache                                                         ..    0.113s
+Preparing template "responsive"                                    ..    0.028s
 Preparing 13 transformations                                       ..    0.000s
-Build "elements" index                                             ..    0.002s
-Replace textual FQCNs with object aliases                          ..    0.037s
+Build "elements" index                                             ..    0.001s
+Replace textual FQCNs with object aliases                          ..    0.030s
 Resolve @link and @see tags in descriptions                        ..    0.002s
-Enriches inline example tags with their sources                    ..    0.004s
-Build "packages" index                                             ..    0.012s
+Enriches inline example tags with their sources                    ..    0.001s
+Build "packages" index                                             ..    0.010s
 Build "namespaces" index and add namespaces to "elements"          ..    0.001s
 Collect all markers embedded in tags                               ..    0.001s
 Transform analyzed project into artifacts                          .. 
@@ -48,5 +48,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   3.739s
-Analyze results and write report to log                            ..    0.002s
+   1.928s
+Analyze results and write report to log                            ..    0.001s

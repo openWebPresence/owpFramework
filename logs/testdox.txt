@@ -8,6 +8,8 @@ OwpUsers_test
  [x] Add user from in valid data
  [x] Add user from valid data
  [x] Validate user password
+ [x] Check user validated
+ [x] Update user validated
  [x] User login via user i d
  [x] Log out
  [x] User login
