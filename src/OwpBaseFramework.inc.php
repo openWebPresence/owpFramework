@@ -205,9 +205,11 @@ class OwpBaseFramework
     private function processAction($action)
     {
         $actionData = $this->getActionData($action);
+        $this->PhpConsole->debug($actionData, "OwpBaseFramework->processAction()->getActionData(" . $action . ")");
 
         if(!$actionData) {
             $actionData = $this->getActionData("404");
+            $this->PhpConsole->debug($actionData, "OwpBaseFramework->processAction()->getActionData(404)");
         }
 
         $mod_includes = array();
