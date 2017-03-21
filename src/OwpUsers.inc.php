@@ -690,7 +690,12 @@ class OwpUsers
 
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
-            $this->PhpConsole->debug("unset", 'logOut->userData');
+            $this->PhpConsole->debug("unset", 'logOut->session->userData');
+        }
+
+        if (isset($_COOKIE["owpSite"])) {
+            unset($_COOKIE["owpSite"]);
+            $this->PhpConsole->debug("unset", 'logOut->cookie->owpSite');
         }
 
         return (boolean) isset($_SESSION["userData"]);
@@ -711,7 +716,7 @@ class OwpUsers
     public function refresh_user_session()
     {
         if ((int) $this->userID()) {
-            $a1 = $this->get_user_record_noMeta(" WHERE tbl_ser.userID = ".(int) $this->userID());
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int) $this->userID());
             $a2 = $this->getUserMetaData((int) $this->userID());
             $_SESSION["userData"] = array_merge($a1, $a2);
 
@@ -721,6 +726,85 @@ class OwpUsers
         return false;
 
     }//end refresh_user_session()
+
+
+    /**
+     * rememberMe
+     *
+     * @method rememberMe() Load the user's profile based on the remember me cookie if the hash matches
+     * @access public
+     * @param  string $set_Session Set the user session on success
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function rememberMe($set_Session = true)
+    {
+        if (!(int) $this->userID()) {
+
+            if(!SqueakyMindsPhpHelper::cookievar("owpSite")) {
+                return false;
+            }
+
+            $owpSite = json_decode(SqueakyMindsPhpHelper::cookievar("owpSite"), true);
+
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int)$owpSite["id"]);
+
+            if(!$a1) {
+                return false;
+            }
+
+            $PasswordHash = new PasswordHash(8, false);
+
+            $matches = $PasswordHash->CheckPassword($a1["rememberme"], $a1["rememberme_hash"]);
+
+            if(!$matches) {
+                return false;
+            }
+
+            if($set_Session) {
+                $a2 = $this->getUserMetaData((int)$owpSite["id"]);
+                $_SESSION["userData"] = array_merge($a1, $a2);
+            }
+
+            return true;
+        }
+
+        return false;
+
+    }//end rememberMe()
+
+
+    /**
+     * rememberMeSet
+     *
+     * @method rememberMeSet() Set the remember me cookie
+     * @access public
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function rememberMeSet() 
+    {
+        $uuid = SqueakyMindsPhpHelper::uuid();
+        $new_hash = $this->genPasswdHash($uuid);
+
+        $value = json_encode(array("id"=>$this->userID(),"rememberme"=>$uuid));
+        $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
+        setcookie("owpSite", $value, strtotime('+30 days'), "/", $domain, false);
+
+        $this->ezSqlDB->query(
+            "
+                UPDATE tbl_users
+                SET tbl_users.rememberme_hash = '".(string)$new_hash."'
+                WHERE tbl_users.userID = ".(int) $this->userID()."
+                LIMIT 1"
+        );
+
+        return $this->rememberMe(false);
+    }//end rememberMeSet()
 
 
     /**

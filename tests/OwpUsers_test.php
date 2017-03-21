@@ -91,7 +91,8 @@ class OwpUsers_test extends TestCase
             'is_admin' => null,
             'hide_ads' => null,
             'is_dev' => null,
-            "phpUnit" => "uuid: " . self::$uuid
+            "phpUnit" => "uuid: " . self::$uuid,
+            'rememberme_hash' => null
         );
 
         $OwpFramework = new OwpFramework((string)self::$root_path, (string)self::$current_web_root, PhpConsole\Handler::getInstance());

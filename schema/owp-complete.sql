@@ -10,7 +10,7 @@ Target Server Type    : MYSQL
 Target Server Version : 50717
 File Encoding         : 65001
 
-Date: 2017-03-02 15:13:53
+Date: 2017-03-21 16:00:23
 */
 
 SET FOREIGN_KEY_CHECKS=0;
@@ -25,7 +25,7 @@ CREATE TABLE `tbl_content` (
   `content_last_updated` date NOT NULL,
   `content_last_updated_by_userID` int(15) NOT NULL,
   PRIMARY KEY (`content_name`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_content
@@ -67,6 +67,7 @@ CREATE TABLE `tbl_users` (
   `welcome_email_sent` tinyint(1) NOT NULL,
   `reset_pass_uuid` varchar(35) DEFAULT NULL,
   `user_ip` varchar(20) DEFAULT NULL,
+  `rememberme_hash` varchar(200) DEFAULT NULL,
   PRIMARY KEY (`userID`),
   UNIQUE KEY `email` (`email`) USING BTREE,
   KEY `uuid` (`uuid`) USING BTREE,
@@ -76,7 +77,7 @@ CREATE TABLE `tbl_users` (
 -- ----------------------------
 -- Records of tbl_users
 -- ----------------------------
-INSERT INTO `tbl_users` VALUES ('1', '$2a$08$AjMKPO9lS3VOcuFJPgrdUuLltnEZO1d8/QKJJxD4c44NQG782qA3C', '2017-01-01 01:00:00', '2017-01-01 01:00:00', '2017-01-01 01:00:00', '0', '10', 'system@system', 'System', 'User', null, '0', null, null);
+INSERT INTO `tbl_users` VALUES ('1', '$2a$08$AjMKPO9lS3VOcuFJPgrdUuLltnEZO1d8/QKJJxD4c44NQG782qA3C', '2017-01-01 01:00:00', '2017-01-01 01:00:00', '2017-01-01 01:00:00', '0', '10', 'system@system', 'System', 'User', null, '0', null, null, null);
 
 -- ----------------------------
 -- Table structure for `tbl_users_meta_data`
