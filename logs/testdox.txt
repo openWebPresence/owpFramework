@@ -1,3 +1,6 @@
+GetConfigItem_test
+ [x] Get config item
+
 OwpMessaging_test
  [x] Send email via s m t p
 

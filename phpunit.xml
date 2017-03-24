@@ -1,7 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <phpunit bootstrap="bootstrap.php">
     <testsuites>
-        <testsuite name="OwpUsers">
+        <testsuite name="OwpFramework">
+            <file>tests/OwpConfig_test.php</file>
             <file>tests/OwpMessaging_test.php</file>
             <file>tests/OwpException_test.php</file>
             <file>tests/OwpUsers_test.php</file>
