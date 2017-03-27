@@ -370,7 +370,6 @@ class OwpUsers
             // unset the session if the user being deleted is logged in.
             if ((int) $this->userID() === (int) $userID && isset($_SESSION["userData"])) {
                 unset($_SESSION["userData"]);
-                $this->PhpConsole->debug("unset", 'deleteUser->userData');
             }
 
             return true;
@@ -690,12 +689,12 @@ class OwpUsers
 
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
-            $this->PhpConsole->debug("unset", 'logOut->session->userData');
         }
 
         if (isset($_COOKIE["owpSite"])) {
+            $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
+            setcookie("owpSite", "", 0, "/", $domain, false);
             unset($_COOKIE["owpSite"]);
-            $this->PhpConsole->debug("unset", 'logOut->cookie->owpSite');
         }
 
         return (boolean) isset($_SESSION["userData"]);
@@ -740,6 +739,7 @@ class OwpUsers
      */
     public function rememberMe()
     {
+
         if (!(int) $this->userID()) {
 
             if(!SqueakyMindsPhpHelper::cookievar("owpSite")) {
@@ -748,7 +748,7 @@ class OwpUsers
 
             $owpSite = json_decode(SqueakyMindsPhpHelper::cookievar("owpSite"), true);
 
-            $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int)$owpSite["id"]);
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_users.userID = ".(int)$owpSite["id"]);
 
             if(!$a1) {
                 return false;
@@ -756,12 +756,13 @@ class OwpUsers
 
             $PasswordHash = new PasswordHash(8, false);
 
-            $matches = $PasswordHash->CheckPassword($a1["rememberme"], $a1["rememberme_hash"]);
+            $matches = $PasswordHash->CheckPassword((string)$owpSite["rememberme"], $a1["rememberme_hash"]);
 
             if(!$matches) {
                 return false;
             }
 
+            $this->userLoginViaUserID((int)$owpSite["id"]);
             return true;
         }
 
@@ -1240,13 +1241,10 @@ class OwpUsers
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
 
             if ($val_pass === true) {
-                $this->PhpConsole->debug($_SESSION["userData"], 'userLogin->userData');
-
                 return $this->userID();
             } else {
                 if (isset($_SESSION["userData"])) {
                     unset($_SESSION["userData"]);
-                    $this->PhpConsole->debug("unset", 'userLogin->userData');
                 }
             }
         }
@@ -1272,7 +1270,6 @@ class OwpUsers
     {
         if (isset($_SESSION["userData"])) {
             unset($_SESSION["userData"]);
-            $this->PhpConsole->debug("unset", 'userLoginCore->userData');
         }
 
         $get_user_info_row = $this->get_user_info_row($where_statement);
@@ -1284,8 +1281,6 @@ class OwpUsers
                 WHERE tbl_users_status.statusID = ".(int) $get_user_info_row["statusID"]."
                 LIMIT 1", ARRAY_A
             );
-
-            $this->PhpConsole->debug($statusInfo, "OwpUsers->userLoginCore()->statusInfo");
 
             if(!$statusInfo) {
                 throw new OwpUserException("Invalid user status ID.", 911);

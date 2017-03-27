@@ -222,6 +222,7 @@ class OwpFramework
             * Load the user class
          */
         $this->userClass = new OwpUsers($this->frameworkObject);
+        $this->userClass->rememberMe();
 
         /*
             * Add it to the $frameworkObject array.
@@ -247,18 +248,6 @@ class OwpFramework
         $this->frameworkObject["frameworkVariables"]["default_action"] = (string) $this->default_action;
         $this->frameworkObject["actionsConfig"] = (array) $this->actionsConfig;
         $this->frameworkObject["defaultAction"] = (array) $this->defaultAction;
-
-        $this->PhpConsole->debug(
-            array(
-                "frameworkObject"=>$this->frameworkObject,
-                "defaultAction"=>$this->defaultAction,
-                "userClass"=>$this->userClass->userData(),
-                "default_action"=>$this->default_action,
-                "requested_action"=>$this->requested_action,
-                "actionsConfigFileLocation"=>$this->actionsConfigFileLocation,
-                "actionsConfig"=>$this->actionsConfig
-            ), "OwpFramework->__construct"
-        );
 
     }//end __construct()
 
