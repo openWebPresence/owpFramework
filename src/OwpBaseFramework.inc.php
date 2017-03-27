@@ -205,11 +205,9 @@ class OwpBaseFramework
     private function processAction($action)
     {
         $actionData = $this->getActionData($action);
-        $this->PhpConsole->debug($actionData, "OwpBaseFramework->processAction()->getActionData(" . $action . ")");
 
         if(!$actionData) {
             $actionData = $this->getActionData("404");
-            $this->PhpConsole->debug($actionData, "OwpBaseFramework->processAction()->getActionData(404)");
         }
 
         $mod_includes = array();
@@ -219,7 +217,9 @@ class OwpBaseFramework
             $mod_includes = array_merge($mod_includes, $actionData["mod"]);
         }
 
-        if($mod_includes) { foreach($mod_includes as $mi) {
+        if($mod_includes)
+        {
+            foreach($mod_includes as $mi) {
                 if(file_exists($mi)) {
                     $classes = OwpSupportMethods::file_get_php_classes($mi);
                     include $mi;
@@ -229,10 +229,8 @@ class OwpBaseFramework
                 } else {
                     throw new Exception("Mod include " . $mi . " not found!", 911);
                 }
+            }
         }
-        }
-
-        $this->PhpConsole->debug(array("LoadedClasses"=>$this->LoadedClasses), "OwpBaseFramework->processAction()");
 
         $view_includes = array();
         if($actionData && $actionData["view"]) {
