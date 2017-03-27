@@ -633,7 +633,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isAdmin()
+    static public function isAdmin()
     {
         if (isset($_SESSION["userData"]) && (int) $_SESSION["userData"]["is_admin"]) {
             return true;
@@ -654,7 +654,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function isLoggedIn()
+    static public function isLoggedIn()
     {
         if (isset($_SESSION["userData"])) {
             return true;
@@ -952,9 +952,9 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userData()
+    static public function userData()
     {
-        if ($this->isLoggedIn()) {
+        if (self::isLoggedIn()) {
             return $_SESSION["userData"];
         } else {
             return false;

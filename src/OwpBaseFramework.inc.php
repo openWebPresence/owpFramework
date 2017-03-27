@@ -217,8 +217,7 @@ class OwpBaseFramework
             $mod_includes = array_merge($mod_includes, $actionData["mod"]);
         }
 
-        if($mod_includes)
-        {
+        if($mod_includes) {
             foreach($mod_includes as $mi) {
                 if(file_exists($mi)) {
                     $classes = OwpSupportMethods::file_get_php_classes($mi);
