@@ -733,13 +733,12 @@ class OwpUsers
      *
      * @method rememberMe() Load the user's profile based on the remember me cookie if the hash matches
      * @access public
-     * @param  string $set_Session Set the user session on success
      * @return boolean
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function rememberMe($set_Session = true)
+    public function rememberMe()
     {
         if (!(int) $this->userID()) {
 
@@ -761,11 +760,6 @@ class OwpUsers
 
             if(!$matches) {
                 return false;
-            }
-
-            if($set_Session) {
-                $a2 = $this->getUserMetaData((int)$owpSite["id"]);
-                $_SESSION["userData"] = array_merge($a1, $a2);
             }
 
             return true;
@@ -803,7 +797,7 @@ class OwpUsers
                 LIMIT 1"
         );
 
-        return $this->rememberMe(false);
+        return $this->rememberMe();
     }//end rememberMeSet()
 
 
