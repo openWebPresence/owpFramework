@@ -172,7 +172,7 @@ class OwpBaseFramework
                 return ((int)$getActionData["permissions"]["isUser"]?true:false);
             }
         } else {
-            false;
+            return false;
         }
     }
 

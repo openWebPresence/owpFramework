@@ -763,6 +763,7 @@ class OwpUsers
             }
 
             $this->userLoginViaUserID((int)$owpSite["id"]);
+            $_SESSION["rememberMe"] = true;
             return true;
         }
 
