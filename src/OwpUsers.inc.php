@@ -997,9 +997,9 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userID()
+    static public function userID()
     {
-        return (int) $this->userDataItem("userID", 0);
+        return (int) self::userDataItem("userID", 0);
 
     }//end userID()
 
