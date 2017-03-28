@@ -116,11 +116,23 @@ class OwpBaseFramework
         $this->THEME = (string)$frameworkObject["frameworkVariables"]["theme"];
         $this->actionsConfig = (array)$frameworkObject["actionsConfig"];
         $this->actualAction = $this->requested_action;
+    }
 
+    /**
+     * action() Triggers the framework logic.
+     *
+     * @method void action()
+     * @access public
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function action()
+    {
         switch($this->requested_action) {
         default:
             $hasPermission = $this->checkActionPermissions($this->requested_action);
-            $this->actualAction = ($hasPermission?$this->requested_action:$frameworkObject["frameworkVariables"]["default_action"]);
+            $this->actualAction = ($hasPermission?$this->requested_action:$this->frameworkObject["frameworkVariables"]["default_action"]);
 
             $this->processAction($this->actualAction);
             break;
@@ -136,7 +148,7 @@ class OwpBaseFramework
         case "ajax":
             include $this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpAjaxUdf.inc.php"));
             $OwpAjaxUdf = new OwpAjaxUdf();
-            $OwpAjaxUdf->processAction($frameworkObject);
+            $OwpAjaxUdf->processAction($this->frameworkObject);
             break;
         case "jsAssets":
             include $this->root_path.join(DIRECTORY_SEPARATOR, array("app","themes",$this->THEME,"lib","OwpjsAssets.inc.php"));

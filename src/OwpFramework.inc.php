@@ -132,7 +132,8 @@ class OwpFramework
         /*
             * Generate $uuid based on OwpSupportMethods->uuid().
          */
-        $this->uuid = OwpSupportMethods::uuid();
+        $_SESSION["uuid"] = OwpSupportMethods::uuid();
+        $this->uuid = $_SESSION["uuid"];
 
         /*
             * Set the theme
