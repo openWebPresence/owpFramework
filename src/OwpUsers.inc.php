@@ -976,9 +976,9 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function userDataItem($item, $alternate_data = "", $append_to_item = "")
+    static public function userDataItem($item, $alternate_data = "", $append_to_item = "")
     {
-        if ($this->userData() && isset($_SESSION["userData"][(string) $item])) {
+        if (self::userData() && isset($_SESSION["userData"][(string) $item])) {
             return (string) $_SESSION["userData"][(string) $item].(strlen((string) $append_to_item) ? " ".$append_to_item : "");
         } else {
             return (string) $alternate_data.(strlen((string) $append_to_item) ? " ".$append_to_item : "");
