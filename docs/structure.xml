@@ -45,7 +45,7 @@
     </interface>
     <source>eJyNVVGP4jYQfudXjFZ92F2lZPdeKl1P7QYwi9WQREk4uk8nJzHEtyGO7HAcqvrfO2PCcovuoQgJPJ75Zr5vPPanP7u6G/n39yO4h7iT7VoWiZFWtqWEbN912vQQqsIIc4RfQaPHQRbd4DEu9Q4DKfap1N3RqG3dw4eHh0f0/fDw+JsHE6NEC7nY6KMYO8dOlK9iKwEgPnTBV/HdWcW+r7VB47sI+FT07s9TQdbTf8r6hwv6Jo1VusWgx/GDszSqlK0l8CXPryx133f2o+8TCav3BuvXZusPDtbHCMhrSZFI2RlPzEQvtxr5Xwv0ZRDoyyDQkK99BfehfEO6K82ugQYNp28S3pZ3P9FvcEuk2SnriCsLtTSyOMLWoDyy8mBjpAS9gbIWZis96DWI9ggdSoUBGvVUrWq3IIA6Rp59jTBWb/qDMBKdKxDW6lIh7QoqXe53EpXvKd9GNdLCbY8q3WRDxM2dS1JJ0YBqgfbOW3BQ2NV9D8izN6okDA+dymZfUQ3n7Ubt1JCBwp0GlkD3FhlQnR7sdKU29CsdrW5fNMrWHlSKoIt9j0ZLRtc4j3j4eKCsbBpCUFi343qpzvlQlo4E7QeJXN5DjU16xwQl2uxNiymli6k0SuYyfpVlTxZy3+im0QeiVuq2UsTIfhzaRkdLFPqbhMuotLrHek91UBe6S2uHLVsLJFDIQTVMjhqLHzgZqsH22H2FDaDjSEmvuY7PRSwYZPE8XwcpA55Bksaf+YzN4CbIcH3jwZrni3iVA3qkQZS/QDyHIHqBv3g084D9naQsyyBOgS+TkDO08WgarmY8eoYJxkUxTg/HGULQPHYJByjOMgJbsnS6wGUw4SHPXzyY8zwizDmCBpAEac6nqzBIIVmlSZwxTD9D2IhH8xSzsCWL8jFmRRuwz7iAbBGEoUsVrLD61NU3jZOXlD8vcljE4YyhccKwsmASslMqJDUNA770YBYsg2fmomJESZ3bUN16wZwJ8wX4neY8jojGNI7yFJceskzzt9A1z5gHQcozEmSexghPcmJE7EAwLmInFJL6fUfQhdarjF1qmbEgRKyMgn90ppb6o9H58s7p/Ci8A8xG4LlRu66RNLjWnQOB9yxNYafpLqzxwDXSnBAuMef7+B9EpQvMIdPnHjqjS2lt4Eb49m4wn3efdhIHuYKd+o4H9MoXktP6J3UI5/KGIkrn50a7fLN2wogdgDBGHOGXDS7kQZvX+DR48TrBATi9U0MVZYP31/i6xPMD83+flyHs/MS4B8bZfPd7KhLvhNZxuCJ9Xebd7yjpv74v2+rSo9F//iFesA==</source>
   </file>
-  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="3252a0a6ef6cebd63bc4610b61361257" package="OwpBaseFramework">
+  <file path="OwpBaseFramework.inc.php" generated-path="OwpBaseFramework.inc.html" hash="fdfd4979901f92509ce5d65677478908" package="OwpBaseFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -311,7 +311,7 @@
         </argument>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <file path="OwpCms.inc.php" generated-path="OwpCms.inc.html" hash="38d13314a6071d13b6bc264c8342cc51" package="OwpCms">
     <docblock line="0">
@@ -1626,7 +1626,7 @@
     </class>
     <source>eJyNVU1v4zYQvftXDIwekkAbJ3spsN2mUWw6FlaWBEleNyiKQB+0xa4sCiQV11j0v3eGkp2Nm0MFAxaH8+bNvOFQn39rq3Y0uboawRWELW/WPI8U17wpOCRd20plwBe5ytQBPoBEjz3P28HjupA7BBL2vpDtQYltZeDjzc0t+n68uf3ZgQclsgbSbCMP2bV1bLPiW7blABDu27lQPFpEdiPrTCUV2t+A4HNu7Mt9Ttb+nYjvLOiFKy1kg6Db6xtrqUXBG03xl156ZqmMafWnyYTq0LJTWIJU28ngoCeIgLTihMSqrbEvLjN8K1GCc42eB42eB40GvuYb2If4Broz2c4DDTJOTypeFJfvSDi4RVzthLaFCw0VVzw/wFahPLx0YKM4B7mBosrUljtgJGTNAVqUCgES9RSNaLaQATWNPE2FYbTcmH2mODqXkGktC4Fll1DKottxVN4Q30bUXMOFQZXGyYAYX1qSkmc1iAZo77gFe4Fd7QxgnUaJgmI46FTUXUk5HLdrsRMDA8GtBpqCdhoroDwd2MlSbOif27LaLq+FrhwoBYXOO4NGTUbbOIfqmOCB0ryuKYLAvG2tr9lZH2JpSVAzSGR59xU26U0lKNGmUw1ScospJUpmGf/ihSELuW9kXcs9lVbIphRUkf40tI2OVpbLFw6v09JIg/n2eVAX2tfWDlu6yrCAnA+qITlqnP1Qk6IctMHuC2wAHUciPa/1+pjEgkESztO1GzPwEoji8Ks3YzMYuwmuxw6svXQRrlJAj9gN0icI5+AGT/DFC2YOsN+jmCUJhDF4y8j3GNq8YOqvZl7wCA+IC0KcHg9nCIOmoSUcQnksoWBLFk8XuHQfPN9LnxyYe2lAMecY1IXIjVNvuvLdGKJVHIUJQ/oZhg28YB4jC1uyIL1GVrQB+4oLSBau71sqd4XZxza/aRg9xd7jIoVF6M8YGh8YZuY++KynwqKmvustHZi5S/eRWVSIUWLrNmS3XjBrQj4Xf9PUCwMqYxoGaYxLB6uM0xN07SXMATf2EhJkHocYnuRERGiDIC5gfRSS+m1H0IXWq4S95jJjro+xEgL/6EwtnYyO13dKx6eocXLxgOB9pXB6NQw3LA5n3m23dC5xU9rrB/D+geMF1Mfq4a8XM/C/DW/KU5jR99FoRDeb5aTnCmYUeVgcbfc7jnNdwosUJTw/W3Kv2ciLy5NHVhQcuewUFyer4gZnDDKlssN5zOMH4v9+HgbY8RNhPxDWNrH/PTPOdGNvpXfS/N774zOk9cfJcHzGQrMmy2tejuHXO/iJZvjD3ZabwXpx6fwXI1s7oWN8f4MJe/s7mD9/6WX/ZzLBdpylOhoNZtu90b8+s2c+</source>
   </file>
-  <file path="OwpFramework.inc.php" generated-path="OwpFramework.inc.html" hash="76bc4cdd1786b2b12e4a7340ad7044c1" package="OwpFramework">
+  <file path="OwpFramework.inc.php" generated-path="OwpFramework.inc.html" hash="84f865f551a09dd617ca4d79259700de" package="OwpFramework">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -1867,15 +1867,15 @@
           <type>object</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="262" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="263" package="OwpFramework">
         <name>__get</name>
         <full_name>\OwpFramework::__get()</full_name>
-        <docblock line="262">
+        <docblock line="263">
           <description>__get($name)</description>
           <long-description></long-description>
-          <tag name="method" line="262" description="Getter" method_name="__GET"/>
-          <tag name="param" line="262" description="" type="" variable="$name"/>
-          <tag name="return" line="262" description="" type="mixed">
+          <tag name="method" line="263" description="Getter" method_name="__GET"/>
+          <tag name="param" line="263" description="" type="" variable="$name"/>
+          <tag name="return" line="263" description="" type="mixed">
             <type>mixed</type>
           </tag>
         </docblock>
@@ -1885,36 +1885,36 @@
           <type/>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="280" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="281" package="OwpFramework">
         <name>getFrameworkObject</name>
         <full_name>\OwpFramework::getFrameworkObject()</full_name>
-        <docblock line="280">
+        <docblock line="281">
           <description>getFrameworkObject().</description>
           <long-description>Return the entire framework object for reference.</long-description>
-          <tag name="method" line="280" description="Return the entire framework object for reference." method_name="getFrameworkObject"/>
-          <tag name="return" line="280" description="" type="array|object">
+          <tag name="method" line="281" description="Return the entire framework object for reference." method_name="getFrameworkObject"/>
+          <tag name="return" line="281" description="" type="array|object">
             <type>array</type>
             <type>object</type>
           </tag>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="297" package="OwpFramework">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="298" package="OwpFramework">
         <name>__debugInfo</name>
         <full_name>\OwpFramework::__debugInfo()</full_name>
-        <docblock line="297">
+        <docblock line="298">
           <description>Debug</description>
           <long-description></long-description>
-          <tag name="method" line="297" description="" method_name="__debugInfo"/>
-          <tag name="access" line="297" description="public"/>
-          <tag name="return" line="297" description="" type="object">
+          <tag name="method" line="298" description="" method_name="__debugInfo"/>
+          <tag name="access" line="298" description="public"/>
+          <tag name="return" line="298" description="" type="object">
             <type>object</type>
           </tag>
-          <tag name="author" line="297" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="297" description="1.0"/>
+          <tag name="author" line="298" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="298" description="1.0"/>
         </docblock>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <file path="OwpMessaging.inc.php" generated-path="OwpMessaging.inc.html" hash="9783bc6d47d0d4fb80cb5b7f46d82e25" package="OwpMessaging">
     <docblock line="0">
@@ -3062,7 +3062,7 @@
     </class>
     <source>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</source>
   </file>
-  <file path="OwpUsers.inc.php" generated-path="OwpUsers.inc.html" hash="e7723bd12417a33e81d14e58a3a8b452" package="OwpUsers">
+  <file path="OwpUsers.inc.php" generated-path="OwpUsers.inc.html" hash="e5870f4e0ac7e7eed0753c9493f3680a" package="OwpUsers">
     <docblock line="0">
       <description>OpenWebPresence Support Library - openwebpresence.com</description>
       <long-description></long-description>
@@ -3073,17 +3073,25 @@
       <tag name="license" line="0" description="MIT" link="http://opensource.org/licenses/MIT"/>
       <tag name="license" line="0" description="The MIT License" link="https://opensource.org/licenses/MIT"/>
       <tag name="category" line="0" description="OpenWebPresence_Support_Library"/>
-      <tag name="link" line="0" description="OpenWebPresence&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="http://openwebpresence.com"/>
+      <tag name="link" line="0" description="OpenWebPresence" link="http://openwebpresence.com"/>
+      <tag name="uses" line="0" description="EzSQL Database Abstraction" link="https://github.com/ezSQL/ezSQL"/>
+      <tag name="uses" line="0" description="Openwall Phpass, modernized" link="https://github.com/hautelook/phpass"/>
+      <tag name="uses" line="0" description="EmailValidator&#10;&#10;Copyright (c) 2017, Brian Tafoya&#10;&#10;Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the &quot;Software&quot;), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:&#10;&#10;The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.&#10;&#10;THE SOFTWARE IS PROVIDED &quot;AS IS&quot;, WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE." link="https://github.com/egulias/EmailValidator"/>
     </docblock>
     <namespace-alias name="PasswordHash">\Hautelook\Phpass\PasswordHash</namespace-alias>
-    <class final="false" abstract="false" namespace="" line="29" package="OwpUsers">
+    <namespace-alias name="EmailValidator">\Egulias\EmailValidator\EmailValidator</namespace-alias>
+    <namespace-alias name="DNSCheckValidation">\Egulias\EmailValidator\Validation\DNSCheckValidation</namespace-alias>
+    <namespace-alias name="MultipleValidationWithAnd">\Egulias\EmailValidator\Validation\MultipleValidationWithAnd</namespace-alias>
+    <namespace-alias name="RFCValidation">\Egulias\EmailValidator\Validation\RFCValidation</namespace-alias>
+    <namespace-alias name="SpoofCheckValidation">\Egulias\EmailValidator\Validation\SpoofCheckValidation</namespace-alias>
+    <class final="false" abstract="false" namespace="" line="37" package="OwpUsers">
       <extends>\OwpException</extends>
       <name>OwpUserException</name>
       <full_name>\OwpUserException</full_name>
-      <docblock line="29">
+      <docblock line="37">
         <description>Class OwpUserException</description>
         <long-description></long-description>
-        <tag name="package" line="29" description="OwpUsers"/>
+        <tag name="package" line="37" description="OwpUsers"/>
         <tag name="inherited_from" description="\OwpException" refers="\OwpException" link="/classes/OwpException.html"/>
       </docblock>
       <property static="false" visibility="protected" namespace="" line="115" package="IOwpException">
@@ -3200,148 +3208,148 @@
         <inherited_from>\OwpException</inherited_from>
       </method>
     </class>
-    <class final="false" abstract="false" namespace="" line="37" package="OwpUsers">
+    <class final="false" abstract="false" namespace="" line="45" package="OwpUsers">
       <extends/>
       <name>OwpUsers</name>
       <full_name>\OwpUsers</full_name>
-      <docblock line="37">
+      <docblock line="45">
         <description>OpenWebPresence User Support Library</description>
         <long-description></long-description>
-        <tag name="package" line="37" description="OwpUsers"/>
+        <tag name="package" line="45" description="OwpUsers"/>
       </docblock>
-      <property static="false" visibility="public" namespace="" line="43" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="51" package="OwpUsers">
         <name>$errors</name>
         <full_name>\OwpUsers::errors</full_name>
         <default>false</default>
-        <docblock line="43">
+        <docblock line="51">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="43" description="&lt;p&gt;Error array&lt;/p&gt;" type="array" variable="$errors">
+          <tag name="var" line="51" description="&lt;p&gt;Error array&lt;/p&gt;" type="array" variable="$errors">
             <type>array</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="public" namespace="" line="48" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="56" package="OwpUsers">
         <name>$userID</name>
         <full_name>\OwpUsers::userID</full_name>
         <default>0</default>
-        <docblock line="48">
+        <docblock line="56">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="48" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="var" line="56" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="" line="53" package="OwpUsers">
+      <property static="false" visibility="protected" namespace="" line="61" package="OwpUsers">
         <name>$ezSqlDB</name>
         <full_name>\OwpUsers::ezSqlDB</full_name>
         <default></default>
-        <docblock line="53">
+        <docblock line="61">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="53" description="&lt;p&gt;ezSQL Database Object&lt;/p&gt;" type="object" variable="$ezSqlDB">
+          <tag name="var" line="61" description="&lt;p&gt;ezSQL Database Object&lt;/p&gt;" type="object" variable="$ezSqlDB">
             <type>object</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="" line="58" package="OwpUsers">
+      <property static="false" visibility="protected" namespace="" line="66" package="OwpUsers">
         <name>$current_web_root</name>
         <full_name>\OwpUsers::current_web_root</full_name>
         <default></default>
-        <docblock line="58">
+        <docblock line="66">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="58" description="&lt;p&gt;The web root url&lt;/p&gt;" type="string" variable="$current_web_root">
+          <tag name="var" line="66" description="&lt;p&gt;The web root url&lt;/p&gt;" type="string" variable="$current_web_root">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="public" namespace="" line="63" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="71" package="OwpUsers">
         <name>$root_path</name>
         <full_name>\OwpUsers::root_path</full_name>
         <default></default>
-        <docblock line="63">
+        <docblock line="71">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="63" description="&lt;p&gt;Set the root file path.&lt;/p&gt;" type="string" variable="$root_path">
+          <tag name="var" line="71" description="&lt;p&gt;Set the root file path.&lt;/p&gt;" type="string" variable="$root_path">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="public" namespace="" line="68" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="76" package="OwpUsers">
         <name>$uuid</name>
         <full_name>\OwpUsers::uuid</full_name>
         <default></default>
-        <docblock line="68">
+        <docblock line="76">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="68" description="&lt;p&gt;Set the root file path.&lt;/p&gt;" type="string" variable="$uuid">
+          <tag name="var" line="76" description="&lt;p&gt;Set the root file path.&lt;/p&gt;" type="string" variable="$uuid">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="public" namespace="" line="73" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="81" package="OwpUsers">
         <name>$requested_action</name>
         <full_name>\OwpUsers::requested_action</full_name>
         <default></default>
-        <docblock line="73">
+        <docblock line="81">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="73" description="&lt;p&gt;Requested action.&lt;/p&gt;" type="string" variable="$requested_action">
+          <tag name="var" line="81" description="&lt;p&gt;Requested action.&lt;/p&gt;" type="string" variable="$requested_action">
             <type>string</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="" line="78" package="OwpUsers">
+      <property static="false" visibility="protected" namespace="" line="86" package="OwpUsers">
         <name>$owp_SupportMethods</name>
         <full_name>\OwpUsers::owp_SupportMethods</full_name>
         <default></default>
-        <docblock line="78">
+        <docblock line="86">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="78" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="object" variable="$owp_SupportMethods">
+          <tag name="var" line="86" description="&lt;p&gt;OpenWebPresence support methods&lt;/p&gt;" type="object" variable="$owp_SupportMethods">
             <type>object</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="protected" namespace="" line="83" package="OwpUsers">
+      <property static="false" visibility="protected" namespace="" line="91" package="OwpUsers">
         <name>$SqueakyMindsPhpHelper</name>
         <full_name>\OwpUsers::SqueakyMindsPhpHelper</full_name>
         <default></default>
-        <docblock line="83">
+        <docblock line="91">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="83" description="&lt;p&gt;SqueakyMindsPhpHelper support methods&lt;/p&gt;" type="object" variable="$SqueakyMindsPhpHelper">
+          <tag name="var" line="91" description="&lt;p&gt;SqueakyMindsPhpHelper support methods&lt;/p&gt;" type="object" variable="$SqueakyMindsPhpHelper">
             <type>object</type>
           </tag>
         </docblock>
       </property>
-      <property static="false" visibility="public" namespace="" line="88" package="OwpUsers">
+      <property static="false" visibility="public" namespace="" line="96" package="OwpUsers">
         <name>$PhpConsole</name>
         <full_name>\OwpUsers::PhpConsole</full_name>
         <default></default>
-        <docblock line="88">
+        <docblock line="96">
           <description></description>
           <long-description></long-description>
-          <tag name="var" line="88" description="&lt;p&gt;PhpConsole object.&lt;/p&gt;" type="object" variable="$PhpConsole">
+          <tag name="var" line="96" description="&lt;p&gt;PhpConsole object.&lt;/p&gt;" type="object" variable="$PhpConsole">
             <type>object</type>
           </tag>
         </docblock>
       </property>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="102" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="110" package="OwpUsers">
         <name>__construct</name>
         <full_name>\OwpUsers::__construct()</full_name>
-        <docblock line="102">
+        <docblock line="110">
           <description>Constructor</description>
           <long-description></long-description>
-          <tag name="method" line="102" description="" method_name="__construct"/>
-          <tag name="access" line="102" description="public"/>
-          <tag name="param" line="102" description="&lt;p&gt;owp_SupportMethods Object&lt;/p&gt;" type="object" variable="$frameworkObject">
+          <tag name="method" line="110" description="" method_name="__construct"/>
+          <tag name="access" line="110" description="public"/>
+          <tag name="param" line="110" description="&lt;p&gt;owp_SupportMethods Object&lt;/p&gt;" type="object" variable="$frameworkObject">
             <type>object</type>
           </tag>
-          <tag name="author" line="102" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="102" description="1.0"/>
+          <tag name="author" line="110" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="110" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$frameworkObject</name>
@@ -3349,43 +3357,43 @@
           <type>object</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="126" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="134" package="OwpUsers">
         <name>__debugInfo</name>
         <full_name>\OwpUsers::__debugInfo()</full_name>
-        <docblock line="126">
+        <docblock line="134">
           <description>Debug</description>
           <long-description></long-description>
-          <tag name="method" line="126" description="" method_name="__debugInfo"/>
-          <tag name="access" line="126" description="public"/>
-          <tag name="uses" line="126" description="" link="$this-&gt;isAdmin()"/>
-          <tag name="uses" line="126" description="" link="$this-&gt;userData()"/>
-          <tag name="uses" line="126" description="" link="$this-&gt;userID()"/>
-          <tag name="author" line="126" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="126" description="1.0"/>
+          <tag name="method" line="134" description="" method_name="__debugInfo"/>
+          <tag name="access" line="134" description="public"/>
+          <tag name="uses" line="134" description="" link="$this-&gt;isAdmin()"/>
+          <tag name="uses" line="134" description="" link="$this-&gt;userData()"/>
+          <tag name="uses" line="134" description="" link="$this-&gt;userID()"/>
+          <tag name="author" line="134" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="134" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="154" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="162" package="OwpUsers">
         <name>addUser</name>
         <full_name>\OwpUsers::addUser()</full_name>
-        <docblock line="154">
+        <docblock line="162">
           <description>addUser</description>
           <long-description></long-description>
-          <tag name="method" line="154" description="Create a user record" method_name="addUser"/>
-          <tag name="access" line="154" description="public"/>
-          <tag name="param" line="154" description="&lt;p&gt;User array used to create the user's record. (&quot;email&quot;, &quot;passwd&quot;, &quot;first_name&quot;, &quot;last_name&quot;, &quot;statusID&quot;, &quot;welcome_email_sent&quot;, &quot;uuid&quot;)&lt;/p&gt;" type="array" variable="$data_array">
+          <tag name="method" line="162" description="Create a user record" method_name="addUser"/>
+          <tag name="access" line="162" description="public"/>
+          <tag name="param" line="162" description="&lt;p&gt;User array used to create the user's record. (&quot;email&quot;, &quot;passwd&quot;, &quot;first_name&quot;, &quot;last_name&quot;, &quot;statusID&quot;, &quot;welcome_email_sent&quot;, &quot;uuid&quot;)&lt;/p&gt;" type="array" variable="$data_array">
             <type>array</type>
           </tag>
-          <tag name="return" line="154" description="userID" type="integer">
+          <tag name="return" line="162" description="userID" type="integer">
             <type>integer</type>
           </tag>
-          <tag name="throws" line="154" description="Thrown when the provided argument is not valid user data, code 20" type="\InvalidArgumentException">
+          <tag name="throws" line="162" description="Thrown when the provided argument is not valid user data, code 20" type="\InvalidArgumentException">
             <type>\InvalidArgumentException</type>
           </tag>
-          <tag name="throws" line="154" description="Thrown on standard failures, code 10, UDF failures code 30" type="\Exception">
+          <tag name="throws" line="162" description="Thrown on standard failures, code 10, UDF failures code 30" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="154" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="154" description="1.0"/>
+          <tag name="author" line="162" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="162" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$data_array</name>
@@ -3393,25 +3401,25 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="303" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="318" package="OwpUsers">
         <name>clearLostPassUUID</name>
         <full_name>\OwpUsers::clearLostPassUUID()</full_name>
-        <docblock line="303">
+        <docblock line="318">
           <description>clearLostPassUUID</description>
           <long-description></long-description>
-          <tag name="method" line="303" description="Reset the lost pass UUID and set the statusID, for example when a lost password request has been completed" method_name="clearLostPassUUID"/>
-          <tag name="access" line="303" description="public"/>
-          <tag name="param" line="303" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="318" description="Reset the lost pass UUID and set the statusID, for example when a lost password request has been completed" method_name="clearLostPassUUID"/>
+          <tag name="access" line="318" description="public"/>
+          <tag name="param" line="318" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="param" line="303" description="&lt;p&gt;New user statusID&lt;/p&gt;" type="integer" variable="$statusID">
+          <tag name="param" line="318" description="&lt;p&gt;New user statusID&lt;/p&gt;" type="integer" variable="$statusID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="303" description="" type="boolean">
+          <tag name="return" line="318" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="303" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="303" description="1.0"/>
+          <tag name="author" line="318" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="318" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3424,25 +3432,25 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="332" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="347" package="OwpUsers">
         <name>deleteUser</name>
         <full_name>\OwpUsers::deleteUser()</full_name>
-        <docblock line="332">
+        <docblock line="347">
           <description>deleteUser</description>
           <long-description></long-description>
-          <tag name="method" line="332" description="Permanently remove a user record." method_name="deleteUser"/>
-          <tag name="access" line="332" description="public"/>
-          <tag name="param" line="332" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="347" description="Permanently remove a user record." method_name="deleteUser"/>
+          <tag name="access" line="347" description="public"/>
+          <tag name="param" line="347" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="332" description="Success or failure" type="boolean">
+          <tag name="return" line="347" description="Success or failure" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="332" description="Thrown on UDF failures code 30" type="\Exception">
+          <tag name="throws" line="347" description="Thrown on UDF failures code 30" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="332" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="332" description="1.0"/>
+          <tag name="author" line="347" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="347" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3450,22 +3458,22 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="398" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="413" package="OwpUsers">
         <name>genPasswdHash</name>
         <full_name>\OwpUsers::genPasswdHash()</full_name>
-        <docblock line="398">
+        <docblock line="413">
           <description>genPasswdHash</description>
           <long-description></long-description>
-          <tag name="method" line="398" description="Generate a password hash" method_name="genPasswdHash"/>
-          <tag name="param" line="398" description="&lt;p&gt;User's password&lt;/p&gt;" type="string" variable="$password">
+          <tag name="method" line="413" description="Generate a password hash" method_name="genPasswdHash"/>
+          <tag name="param" line="413" description="&lt;p&gt;User's password&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="return" line="398" description="Hashed password" type="string">
+          <tag name="return" line="413" description="Hashed password" type="string">
             <type>string</type>
           </tag>
-          <tag name="access" line="398" description="public"/>
-          <tag name="author" line="398" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="398" description="1.0"/>
+          <tag name="access" line="413" description="public"/>
+          <tag name="author" line="413" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="413" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$password</name>
@@ -3473,22 +3481,22 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="420" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="435" package="OwpUsers">
         <name>get_user_info_row</name>
         <full_name>\OwpUsers::get_user_info_row()</full_name>
-        <docblock line="420">
+        <docblock line="435">
           <description>get_user_info_row</description>
           <long-description></long-description>
-          <tag name="method" line="420" description="Retrieve a user's data based on a dynamic WHERE statement" method_name="get_user_info_row"/>
-          <tag name="access" line="420" description="private"/>
-          <tag name="param" line="420" description="&lt;p&gt;The string WHERE statement used in tbl_users select&lt;/p&gt;" type="string" variable="$where_clause">
+          <tag name="method" line="435" description="Retrieve a user's data based on a dynamic WHERE statement" method_name="get_user_info_row"/>
+          <tag name="access" line="435" description="private"/>
+          <tag name="param" line="435" description="&lt;p&gt;The string WHERE statement used in tbl_users select&lt;/p&gt;" type="string" variable="$where_clause">
             <type>string</type>
           </tag>
-          <tag name="return" line="420" description="User array or false on failure" type="mixed">
+          <tag name="return" line="435" description="User array or false on failure" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="author" line="420" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="420" description="1.0"/>
+          <tag name="author" line="435" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="435" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$where_clause</name>
@@ -3496,22 +3504,22 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="446" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="461" package="OwpUsers">
         <name>getUserMetaData</name>
         <full_name>\OwpUsers::getUserMetaData()</full_name>
-        <docblock line="446">
+        <docblock line="461">
           <description>getUserMetaData</description>
           <long-description></long-description>
-          <tag name="method" line="446" description="Get only the user meta data" method_name="getUserMetaData"/>
-          <tag name="access" line="446" description="public"/>
-          <tag name="param" line="446" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="461" description="Get only the user meta data" method_name="getUserMetaData"/>
+          <tag name="access" line="461" description="public"/>
+          <tag name="param" line="461" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="446" description="" type="array">
+          <tag name="return" line="461" description="" type="array">
             <type>array</type>
           </tag>
-          <tag name="author" line="446" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="446" description="1.0"/>
+          <tag name="author" line="461" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="461" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3519,22 +3527,22 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="486" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="501" package="OwpUsers">
         <name>get_user_record_byEMAIL</name>
         <full_name>\OwpUsers::get_user_record_byEMAIL()</full_name>
-        <docblock line="486">
+        <docblock line="501">
           <description>get_user_record_byEMAIL</description>
           <long-description></long-description>
-          <tag name="method" line="486" description="Retrieve a user's data (with meta) based on email, without setting a session" method_name="get_user_record_byEMAIL"/>
-          <tag name="access" line="486" description="public"/>
-          <tag name="param" line="486" description="&lt;p&gt;The string Existing Email&lt;/p&gt;" type="string" variable="$email">
+          <tag name="method" line="501" description="Retrieve a user's data (with meta) based on email, without setting a session" method_name="get_user_record_byEMAIL"/>
+          <tag name="access" line="501" description="public"/>
+          <tag name="param" line="501" description="&lt;p&gt;The string Existing Email&lt;/p&gt;" type="string" variable="$email">
             <type>string</type>
           </tag>
-          <tag name="return" line="486" description="User array or false on failure" type="mixed">
+          <tag name="return" line="501" description="User array or false on failure" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="author" line="486" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="486" description="1.0"/>
+          <tag name="author" line="501" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="501" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$email</name>
@@ -3542,22 +3550,22 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="512" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="527" package="OwpUsers">
         <name>get_user_record_byID</name>
         <full_name>\OwpUsers::get_user_record_byID()</full_name>
-        <docblock line="512">
+        <docblock line="527">
           <description>get_user_record_byID</description>
           <long-description></long-description>
-          <tag name="method" line="512" description="Retrieve a user's data (with meta) based on userID, without setting a session" method_name="get_user_record_byID"/>
-          <tag name="access" line="512" description="public"/>
-          <tag name="param" line="512" description="&lt;p&gt;The string Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="527" description="Retrieve a user's data (with meta) based on userID, without setting a session" method_name="get_user_record_byID"/>
+          <tag name="access" line="527" description="public"/>
+          <tag name="param" line="527" description="&lt;p&gt;The string Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="512" description="User array or false on failure" type="mixed">
+          <tag name="return" line="527" description="User array or false on failure" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="author" line="512" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="512" description="1.0"/>
+          <tag name="author" line="527" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="527" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3565,23 +3573,23 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="539" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="554" package="OwpUsers">
         <name>get_user_record_byID_noMeta</name>
         <full_name>\OwpUsers::get_user_record_byID_noMeta()</full_name>
-        <docblock line="539">
+        <docblock line="554">
           <description>get_user_record_byID_noMeta</description>
           <long-description></long-description>
-          <tag name="method" line="539" description="Retrieve base user data without any meta data by userID" method_name="get_user_record_byID_noMeta"/>
-          <tag name="access" line="539" description="public"/>
-          <tag name="param" line="539" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="554" description="Retrieve base user data without any meta data by userID" method_name="get_user_record_byID_noMeta"/>
+          <tag name="access" line="554" description="public"/>
+          <tag name="param" line="554" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="539" description="User array, false of failure" type="array">
+          <tag name="return" line="554" description="User array, false of failure" type="array">
             <type>array</type>
           </tag>
-          <tag name="uses" line="539" description="" link="OwpUsers::get_user_record_noMeta()"/>
-          <tag name="author" line="539" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="539" description="1.0"/>
+          <tag name="uses" line="554" description="" link="OwpUsers::get_user_record_noMeta()"/>
+          <tag name="author" line="554" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="554" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3589,23 +3597,23 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="560" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="575" package="OwpUsers">
         <name>get_user_record_byUUID_noMeta</name>
         <full_name>\OwpUsers::get_user_record_byUUID_noMeta()</full_name>
-        <docblock line="560">
+        <docblock line="575">
           <description>get_user_record_byUUID_noMeta</description>
           <long-description></long-description>
-          <tag name="method" line="560" description="Retrieve base user data without any meta data by uuid" method_name="get_user_record_byUUID_noMeta"/>
-          <tag name="access" line="560" description="public"/>
-          <tag name="param" line="560" description="&lt;p&gt;Existing UUID&lt;/p&gt;" type="string" variable="$uuid">
+          <tag name="method" line="575" description="Retrieve base user data without any meta data by uuid" method_name="get_user_record_byUUID_noMeta"/>
+          <tag name="access" line="575" description="public"/>
+          <tag name="param" line="575" description="&lt;p&gt;Existing UUID&lt;/p&gt;" type="string" variable="$uuid">
             <type>string</type>
           </tag>
-          <tag name="return" line="560" description="User array, false of failure" type="array">
+          <tag name="return" line="575" description="User array, false of failure" type="array">
             <type>array</type>
           </tag>
-          <tag name="uses" line="560" description="" link="OwpUsers::get_user_record_noMeta()"/>
-          <tag name="author" line="560" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="560" description="1.0"/>
+          <tag name="uses" line="575" description="" link="OwpUsers::get_user_record_noMeta()"/>
+          <tag name="author" line="575" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="575" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$uuid</name>
@@ -3613,22 +3621,22 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="580" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="595" package="OwpUsers">
         <name>get_user_record_noMeta</name>
         <full_name>\OwpUsers::get_user_record_noMeta()</full_name>
-        <docblock line="580">
+        <docblock line="595">
           <description>get_user_record_noMeta</description>
           <long-description></long-description>
-          <tag name="method" line="580" description="Retrieve base user data without any meta data by WHERE statement" method_name="get_user_record_noMeta"/>
-          <tag name="access" line="580" description="public"/>
-          <tag name="param" line="580" description="&lt;p&gt;The string WHERE statement used in tbl_users select&lt;/p&gt;" type="string" variable="$where_clause">
+          <tag name="method" line="595" description="Retrieve base user data without any meta data by WHERE statement" method_name="get_user_record_noMeta"/>
+          <tag name="access" line="595" description="public"/>
+          <tag name="param" line="595" description="&lt;p&gt;The string WHERE statement used in tbl_users select&lt;/p&gt;" type="string" variable="$where_clause">
             <type>string</type>
           </tag>
-          <tag name="return" line="580" description="User array, false of failure" type="array">
+          <tag name="return" line="595" description="User array, false of failure" type="array">
             <type>array</type>
           </tag>
-          <tag name="author" line="580" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="580" description="1.0"/>
+          <tag name="author" line="595" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="595" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$where_clause</name>
@@ -3636,23 +3644,23 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="613" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="628" package="OwpUsers">
         <name>getUserIDViaLostPassUUID</name>
         <full_name>\OwpUsers::getUserIDViaLostPassUUID()</full_name>
-        <docblock line="613">
+        <docblock line="628">
           <description>getUserIDViaLostPassUUID</description>
           <long-description></long-description>
-          <tag name="method" line="613" description="Get the userID via the lost UUID token, previously set by setLostPassUUID()" method_name="getUserIDViaLostPassUUID"/>
-          <tag name="access" line="613" description="public"/>
-          <tag name="see" line="613" description="" link="\OwpUsers::setLostPassUUID"/>
-          <tag name="param" line="613" description="&lt;p&gt;UUID token usually sent via email for validation&lt;/p&gt;" type="string" variable="$reset_pass_uuid">
+          <tag name="method" line="628" description="Get the userID via the lost UUID token, previously set by setLostPassUUID()" method_name="getUserIDViaLostPassUUID"/>
+          <tag name="access" line="628" description="public"/>
+          <tag name="see" line="628" description="" link="\OwpUsers::setLostPassUUID"/>
+          <tag name="param" line="628" description="&lt;p&gt;UUID token usually sent via email for validation&lt;/p&gt;" type="string" variable="$reset_pass_uuid">
             <type>string</type>
           </tag>
-          <tag name="return" line="613" description="" type="integer">
+          <tag name="return" line="628" description="" type="integer">
             <type>integer</type>
           </tag>
-          <tag name="author" line="613" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="613" description="1.0"/>
+          <tag name="author" line="628" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="628" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$reset_pass_uuid</name>
@@ -3660,112 +3668,112 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="636" package="OwpUsers">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="651" package="OwpUsers">
         <name>isAdmin</name>
         <full_name>\OwpUsers::isAdmin()</full_name>
-        <docblock line="636">
+        <docblock line="651">
           <description>isAdmin</description>
           <long-description></long-description>
-          <tag name="method" line="636" description="Returns true if the user is flagged as an admin" method_name="isAdmin"/>
-          <tag name="access" line="636" description="public"/>
-          <tag name="return" line="636" description="" type="boolean">
+          <tag name="method" line="651" description="Returns true if the user is flagged as an admin" method_name="isAdmin"/>
+          <tag name="access" line="651" description="public"/>
+          <tag name="return" line="651" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="636" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="636" description="1.0"/>
+          <tag name="author" line="651" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="651" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="657" package="OwpUsers">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="672" package="OwpUsers">
         <name>isLoggedIn</name>
         <full_name>\OwpUsers::isLoggedIn()</full_name>
-        <docblock line="657">
+        <docblock line="672">
           <description>isLoggedIn</description>
           <long-description></long-description>
-          <tag name="method" line="657" description="Returns true if a valid user session exists" method_name="isLoggedIn"/>
-          <tag name="access" line="657" description="public"/>
-          <tag name="return" line="657" description="" type="boolean">
+          <tag name="method" line="672" description="Returns true if a valid user session exists" method_name="isLoggedIn"/>
+          <tag name="access" line="672" description="public"/>
+          <tag name="return" line="672" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="657" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="657" description="1.0"/>
+          <tag name="author" line="672" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="672" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="680" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="695" package="OwpUsers">
         <name>logOut</name>
         <full_name>\OwpUsers::logOut()</full_name>
-        <docblock line="680">
+        <docblock line="695">
           <description>logOut</description>
           <long-description></long-description>
-          <tag name="method" line="680" description="Log the user out, clearing the user session" method_name="logOut"/>
-          <tag name="access" line="680" description="public"/>
-          <tag name="return" line="680" description="" type="boolean">
+          <tag name="method" line="695" description="Log the user out, clearing the user session" method_name="logOut"/>
+          <tag name="access" line="695" description="public"/>
+          <tag name="return" line="695" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="680" description="Thrown on UDF failures code 30" type="\Exception">
+          <tag name="throws" line="695" description="Thrown on UDF failures code 30" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="680" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="680" description="1.0"/>
+          <tag name="author" line="695" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="695" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="715" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="730" package="OwpUsers">
         <name>refresh_user_session</name>
         <full_name>\OwpUsers::refresh_user_session()</full_name>
-        <docblock line="715">
+        <docblock line="730">
           <description>refresh_user_session</description>
           <long-description></long-description>
-          <tag name="method" line="715" description="Refresh the session data from the user's record" method_name="refresh_user_session"/>
-          <tag name="access" line="715" description="public"/>
-          <tag name="return" line="715" description="" type="boolean">
+          <tag name="method" line="730" description="Refresh the session data from the user's record" method_name="refresh_user_session"/>
+          <tag name="access" line="730" description="public"/>
+          <tag name="return" line="730" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="715" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="715" description="1.0"/>
+          <tag name="author" line="730" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="730" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="740" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="755" package="OwpUsers">
         <name>rememberMe</name>
         <full_name>\OwpUsers::rememberMe()</full_name>
-        <docblock line="740">
+        <docblock line="755">
           <description>rememberMe</description>
           <long-description></long-description>
-          <tag name="method" line="740" description="Load the user's profile based on the remember me cookie if the hash matches" method_name="rememberMe"/>
-          <tag name="access" line="740" description="public"/>
-          <tag name="return" line="740" description="" type="boolean">
+          <tag name="method" line="755" description="Load the user's profile based on the remember me cookie if the hash matches" method_name="rememberMe"/>
+          <tag name="access" line="755" description="public"/>
+          <tag name="return" line="755" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="740" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="740" description="1.0"/>
+          <tag name="author" line="755" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="755" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="785" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="800" package="OwpUsers">
         <name>rememberMeSet</name>
         <full_name>\OwpUsers::rememberMeSet()</full_name>
-        <docblock line="785">
+        <docblock line="800">
           <description>rememberMeSet</description>
           <long-description></long-description>
-          <tag name="method" line="785" description="Set the remember me cookie" method_name="rememberMeSet"/>
-          <tag name="access" line="785" description="public"/>
-          <tag name="return" line="785" description="" type="boolean">
+          <tag name="method" line="800" description="Set the remember me cookie" method_name="rememberMeSet"/>
+          <tag name="access" line="800" description="public"/>
+          <tag name="return" line="800" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="785" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="785" description="1.0"/>
+          <tag name="author" line="800" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="800" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="817" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="832" package="OwpUsers">
         <name>sanityCheck</name>
         <full_name>\OwpUsers::sanityCheck()</full_name>
-        <docblock line="817">
+        <docblock line="832">
           <description>sanityCheck</description>
           <long-description></long-description>
-          <tag name="method" line="817" description="Validate that the user session still exists, if not redirect them" method_name="sanityCheck"/>
-          <tag name="access" line="817" description="public"/>
-          <tag name="param" line="817" description="&lt;p&gt;(optional) URL to redirect to should the user sanity check show the user is not logged in&lt;/p&gt;" type="string" variable="$redirect_url">
+          <tag name="method" line="832" description="Validate that the user session still exists, if not redirect them" method_name="sanityCheck"/>
+          <tag name="access" line="832" description="public"/>
+          <tag name="param" line="832" description="&lt;p&gt;(optional) URL to redirect to should the user sanity check show the user is not logged in&lt;/p&gt;" type="string" variable="$redirect_url">
             <type>string</type>
           </tag>
-          <tag name="author" line="817" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="817" description="1.0"/>
+          <tag name="author" line="832" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="832" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$redirect_url</name>
@@ -3773,24 +3781,24 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="859" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="874" package="OwpUsers">
         <name>setLostPassUUID</name>
         <full_name>\OwpUsers::setLostPassUUID()</full_name>
-        <docblock line="859">
+        <docblock line="874">
           <description>setLostPassUUID</description>
           <long-description></long-description>
-          <tag name="method" line="859" description="Create a lost password recovery UUID token" method_name="setLostPassUUID"/>
-          <tag name="access" line="859" description="public"/>
-          <tag name="see" line="859" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
-          <tag name="see" line="859" description="" link="\OwpUsers::updatePassword()"/>
-          <tag name="param" line="859" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="874" description="Create a lost password recovery UUID token" method_name="setLostPassUUID"/>
+          <tag name="access" line="874" description="public"/>
+          <tag name="see" line="874" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
+          <tag name="see" line="874" description="" link="\OwpUsers::updatePassword()"/>
+          <tag name="param" line="874" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="859" description="" type="array">
+          <tag name="return" line="874" description="" type="array">
             <type>array</type>
           </tag>
-          <tag name="author" line="859" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="859" description="1.0"/>
+          <tag name="author" line="874" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="874" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3798,24 +3806,24 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="892" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="907" package="OwpUsers">
         <name>setLostPassUUIDViaEmail</name>
         <full_name>\OwpUsers::setLostPassUUIDViaEmail()</full_name>
-        <docblock line="892">
+        <docblock line="907">
           <description>setLostPassUUIDViaEmail</description>
           <long-description></long-description>
-          <tag name="method" line="892" description="Create a lost password recovery UUID token" method_name="setLostPassUUIDViaEmail"/>
-          <tag name="access" line="892" description="public"/>
-          <tag name="see" line="892" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
-          <tag name="see" line="892" description="" link="\OwpUsers::updatePassword()"/>
-          <tag name="param" line="892" description="&lt;p&gt;Existing user email&lt;/p&gt;" type="string" variable="$email">
+          <tag name="method" line="907" description="Create a lost password recovery UUID token" method_name="setLostPassUUIDViaEmail"/>
+          <tag name="access" line="907" description="public"/>
+          <tag name="see" line="907" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
+          <tag name="see" line="907" description="" link="\OwpUsers::updatePassword()"/>
+          <tag name="param" line="907" description="&lt;p&gt;Existing user email&lt;/p&gt;" type="string" variable="$email">
             <type>string</type>
           </tag>
-          <tag name="return" line="892" description="" type="string">
+          <tag name="return" line="907" description="" type="string">
             <type>string</type>
           </tag>
-          <tag name="author" line="892" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="892" description="1.0"/>
+          <tag name="author" line="907" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="907" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$email</name>
@@ -3823,26 +3831,26 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="925" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="940" package="OwpUsers">
         <name>setStatusID</name>
         <full_name>\OwpUsers::setStatusID()</full_name>
-        <docblock line="925">
+        <docblock line="940">
           <description>setStatusID</description>
           <long-description></long-description>
-          <tag name="method" line="925" description="Set the user status ID" method_name="setStatusID"/>
-          <tag name="access" line="925" description="public"/>
-          <tag name="param" line="925" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="940" description="Set the user status ID" method_name="setStatusID"/>
+          <tag name="access" line="940" description="public"/>
+          <tag name="param" line="940" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="param" line="925" description="&lt;p&gt;Existing valid statusID&lt;/p&gt;" type="integer" variable="$statusID">
+          <tag name="param" line="940" description="&lt;p&gt;Existing valid statusID&lt;/p&gt;" type="integer" variable="$statusID">
             <type>integer</type>
           </tag>
-          <tag name="see" line="925" description="" link="\OwpUsers::validateStatusID()"/>
-          <tag name="throws" line="925" description="Thrown on UDF failures code 30" type="\Exception">
+          <tag name="see" line="940" description="" link="\OwpUsers::validateStatusID()"/>
+          <tag name="throws" line="940" description="Thrown on UDF failures code 30" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="925" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="925" description="1.0"/>
+          <tag name="author" line="940" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="940" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3855,43 +3863,43 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="956" package="OwpUsers">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="971" package="OwpUsers">
         <name>userData</name>
         <full_name>\OwpUsers::userData()</full_name>
-        <docblock line="956">
+        <docblock line="971">
           <description>userData</description>
           <long-description></long-description>
-          <tag name="method" line="956" description="Get user data for the logged in user" method_name="userData"/>
-          <tag name="access" line="956" description="public"/>
-          <tag name="return" line="956" description="User data array or false if it fails" type="mixed">
+          <tag name="method" line="971" description="Get user data for the logged in user" method_name="userData"/>
+          <tag name="access" line="971" description="public"/>
+          <tag name="return" line="971" description="User data array or false if it fails" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="author" line="956" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="956" description="1.0"/>
+          <tag name="author" line="971" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="971" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="980" package="OwpUsers">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="995" package="OwpUsers">
         <name>userDataItem</name>
         <full_name>\OwpUsers::userDataItem()</full_name>
-        <docblock line="980">
+        <docblock line="995">
           <description>userDataItem</description>
           <long-description></long-description>
-          <tag name="method" line="980" description="Get a user data item for the logged in user" method_name="userDataItem"/>
-          <tag name="access" line="980" description="public"/>
-          <tag name="param" line="980" description="&lt;p&gt;User data item column name&lt;/p&gt;" type="string" variable="$item">
+          <tag name="method" line="995" description="Get a user data item for the logged in user" method_name="userDataItem"/>
+          <tag name="access" line="995" description="public"/>
+          <tag name="param" line="995" description="&lt;p&gt;User data item column name&lt;/p&gt;" type="string" variable="$item">
             <type>string</type>
           </tag>
-          <tag name="param" line="980" description="&lt;p&gt;String info as an alternative to the userDataItem when it does not exist&lt;/p&gt;" type="string" variable="$alternate_data">
+          <tag name="param" line="995" description="&lt;p&gt;String info as an alternative to the userDataItem when it does not exist&lt;/p&gt;" type="string" variable="$alternate_data">
             <type>string</type>
           </tag>
-          <tag name="param" line="980" description="&lt;p&gt;String info to append to the userDataItem&lt;/p&gt;" type="string" variable="$append_to_item">
+          <tag name="param" line="995" description="&lt;p&gt;String info to append to the userDataItem&lt;/p&gt;" type="string" variable="$append_to_item">
             <type>string</type>
           </tag>
-          <tag name="return" line="980" description="userData" type="mixed">
+          <tag name="return" line="995" description="userData" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="author" line="980" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="980" description="1.0"/>
+          <tag name="author" line="995" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="995" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$item</name>
@@ -3909,45 +3917,45 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="1001" package="OwpUsers">
+      <method final="false" abstract="false" static="true" visibility="public" namespace="" line="1016" package="OwpUsers">
         <name>userID</name>
         <full_name>\OwpUsers::userID()</full_name>
-        <docblock line="1001">
+        <docblock line="1016">
           <description>userID</description>
           <long-description></long-description>
-          <tag name="method" line="1001" description="Return the current userID" method_name="userID"/>
-          <tag name="access" line="1001" description="public"/>
-          <tag name="return" line="1001" description="userID" type="integer">
+          <tag name="method" line="1016" description="Return the current userID" method_name="userID"/>
+          <tag name="access" line="1016" description="public"/>
+          <tag name="return" line="1016" description="userID" type="integer">
             <type>integer</type>
           </tag>
-          <tag name="author" line="1001" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1001" description="1.0"/>
+          <tag name="author" line="1016" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1016" description="1.0"/>
         </docblock>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1026" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1041" package="OwpUsers">
         <name>updatePassword</name>
         <full_name>\OwpUsers::updatePassword()</full_name>
-        <docblock line="1026">
+        <docblock line="1041">
           <description>updatePassword</description>
           <long-description></long-description>
-          <tag name="method" line="1026" description="Usually used in conjunction with getUserIDViaLostPassUUID() and setLostPassUUID() for lost passwords or to the user to updated their own passwrd" method_name="updatePassword"/>
-          <tag name="access" line="1026" description="public"/>
-          <tag name="see" line="1026" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
-          <tag name="see" line="1026" description="" link="\OwpUsers::setLostPassUUID()"/>
-          <tag name="param" line="1026" description="&lt;p&gt;New user password&lt;/p&gt;" type="string" variable="$password">
+          <tag name="method" line="1041" description="Usually used in conjunction with getUserIDViaLostPassUUID() and setLostPassUUID() for lost passwords or to the user to updated their own passwrd" method_name="updatePassword"/>
+          <tag name="access" line="1041" description="public"/>
+          <tag name="see" line="1041" description="" link="\OwpUsers::getUserIDViaLostPassUUID()"/>
+          <tag name="see" line="1041" description="" link="\OwpUsers::setLostPassUUID()"/>
+          <tag name="param" line="1041" description="&lt;p&gt;New user password&lt;/p&gt;" type="string" variable="$password">
             <type>string</type>
           </tag>
-          <tag name="param" line="1026" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="param" line="1041" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="throws" line="1026" description="Thrown on UDF failures code 30" type="\Exception">
+          <tag name="throws" line="1041" description="Thrown on UDF failures code 30" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="return" line="1026" description="" type="boolean">
+          <tag name="return" line="1041" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="1026" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1026" description="1.0"/>
+          <tag name="author" line="1041" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1041" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$password</name>
@@ -3960,31 +3968,31 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1078" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1093" package="OwpUsers">
         <name>updateUser</name>
         <full_name>\OwpUsers::updateUser()</full_name>
-        <docblock line="1078">
+        <docblock line="1093">
           <description>updateUser</description>
           <long-description></long-description>
-          <tag name="method" line="1078" description="Update an existing user record" method_name="updateUser"/>
-          <tag name="access" line="1078" description="public"/>
-          <tag name="param" line="1078" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="1093" description="Update an existing user record" method_name="updateUser"/>
+          <tag name="access" line="1093" description="public"/>
+          <tag name="param" line="1093" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="param" line="1078" description="&lt;p&gt;New user data&lt;/p&gt;" type="array" variable="$data_array">
+          <tag name="param" line="1093" description="&lt;p&gt;New user data&lt;/p&gt;" type="array" variable="$data_array">
             <type>array</type>
           </tag>
-          <tag name="return" line="1078" description="" type="boolean">
+          <tag name="return" line="1093" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="1078" description="Provided argument is now valid userID" type="\InvalidArgumentException">
+          <tag name="throws" line="1093" description="Provided argument is now valid userID" type="\InvalidArgumentException">
             <type>\InvalidArgumentException</type>
           </tag>
-          <tag name="throws" line="1078" description="" type="\Exception">
+          <tag name="throws" line="1093" description="" type="\Exception">
             <type>\Exception</type>
           </tag>
-          <tag name="author" line="1078" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1078" description="1.0"/>
+          <tag name="author" line="1093" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1093" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -3997,22 +4005,22 @@
           <type>array</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1206" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1221" package="OwpUsers">
         <name>userExistsViaEmail</name>
         <full_name>\OwpUsers::userExistsViaEmail()</full_name>
-        <docblock line="1206">
+        <docblock line="1221">
           <description>userExistsViaEmail</description>
           <long-description></long-description>
-          <tag name="method" line="1206" description="Check if user exists via email" method_name="userExistsViaEmail"/>
-          <tag name="access" line="1206" description="public"/>
-          <tag name="param" line="1206" description="&lt;p&gt;Valid user email address&lt;/p&gt;" type="string" variable="$email">
+          <tag name="method" line="1221" description="Check if user exists via email" method_name="userExistsViaEmail"/>
+          <tag name="access" line="1221" description="public"/>
+          <tag name="param" line="1221" description="&lt;p&gt;Valid user email address&lt;/p&gt;" type="string" variable="$email">
             <type>string</type>
           </tag>
-          <tag name="return" line="1206" description="" type="boolean">
+          <tag name="return" line="1221" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="1206" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1206" description="1.0"/>
+          <tag name="author" line="1221" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1221" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$email</name>
@@ -4020,28 +4028,28 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1232" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1247" package="OwpUsers">
         <name>userLogin</name>
         <full_name>\OwpUsers::userLogin()</full_name>
-        <docblock line="1232">
+        <docblock line="1247">
           <description>userLogin</description>
           <long-description></long-description>
-          <tag name="method" line="1232" description="User login via email and password" method_name="userLogin"/>
-          <tag name="access" line="1232" description="public"/>
-          <tag name="param" line="1232" description="&lt;p&gt;Valid user email address&lt;/p&gt;" type="string" variable="$email">
+          <tag name="method" line="1247" description="User login via email and password" method_name="userLogin"/>
+          <tag name="access" line="1247" description="public"/>
+          <tag name="param" line="1247" description="&lt;p&gt;Valid user email address&lt;/p&gt;" type="string" variable="$email">
             <type>string</type>
           </tag>
-          <tag name="param" line="1232" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
+          <tag name="param" line="1247" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
             <type>string</type>
           </tag>
-          <tag name="return" line="1232" description="" type="boolean">
+          <tag name="return" line="1247" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="1232" description="User status information" type="\OwpUserException">
+          <tag name="throws" line="1247" description="User status information" type="\OwpUserException">
             <type>\OwpUserException</type>
           </tag>
-          <tag name="author" line="1232" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1232" description="1.0"/>
+          <tag name="author" line="1247" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1247" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$email</name>
@@ -4054,25 +4062,25 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="1270" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="1285" package="OwpUsers">
         <name>userLoginCore</name>
         <full_name>\OwpUsers::userLoginCore()</full_name>
-        <docblock line="1270">
+        <docblock line="1285">
           <description>userLoginCore</description>
           <long-description></long-description>
-          <tag name="method" line="1270" description="The core query method" method_name="userLoginCore"/>
-          <tag name="access" line="1270" description="private"/>
-          <tag name="return" line="1270" description="" type="boolean">
+          <tag name="method" line="1285" description="The core query method" method_name="userLoginCore"/>
+          <tag name="access" line="1285" description="private"/>
+          <tag name="return" line="1285" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="1270" description="&lt;p&gt;Where statement to be using within the user row query&lt;/p&gt;" type="string" variable="$where_statement">
+          <tag name="param" line="1285" description="&lt;p&gt;Where statement to be using within the user row query&lt;/p&gt;" type="string" variable="$where_statement">
             <type>string</type>
           </tag>
-          <tag name="throws" line="1270" description="OwpUserException custom status handling" type="\OwpUserException">
+          <tag name="throws" line="1285" description="OwpUserException custom status handling" type="\OwpUserException">
             <type>\OwpUserException</type>
           </tag>
-          <tag name="author" line="1270" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1270" description="1.0"/>
+          <tag name="author" line="1285" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1285" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$where_statement</name>
@@ -4080,25 +4088,25 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1323" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1338" package="OwpUsers">
         <name>userLoginViaToken</name>
         <full_name>\OwpUsers::userLoginViaToken()</full_name>
-        <docblock line="1323">
+        <docblock line="1338">
           <description>userLoginViaToken</description>
           <long-description></long-description>
-          <tag name="method" line="1323" description="User login via UUID token" method_name="userLoginViaToken"/>
-          <tag name="access" line="1323" description="public"/>
-          <tag name="param" line="1323" description="&lt;p&gt;User UUID token created with the record, not related to the lost password UUID&lt;/p&gt;" type="string" variable="$uuid">
+          <tag name="method" line="1338" description="User login via UUID token" method_name="userLoginViaToken"/>
+          <tag name="access" line="1338" description="public"/>
+          <tag name="param" line="1338" description="&lt;p&gt;User UUID token created with the record, not related to the lost password UUID&lt;/p&gt;" type="string" variable="$uuid">
             <type>string</type>
           </tag>
-          <tag name="return" line="1323" description="" type="boolean">
+          <tag name="return" line="1338" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="1323" description="User status information" type="\OwpUserException">
+          <tag name="throws" line="1338" description="User status information" type="\OwpUserException">
             <type>\OwpUserException</type>
           </tag>
-          <tag name="author" line="1323" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1323" description="1.0"/>
+          <tag name="author" line="1338" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1338" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$uuid</name>
@@ -4106,25 +4114,25 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1347" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1362" package="OwpUsers">
         <name>userLoginViaUserID</name>
         <full_name>\OwpUsers::userLoginViaUserID()</full_name>
-        <docblock line="1347">
+        <docblock line="1362">
           <description>userLoginViaUserID</description>
           <long-description></long-description>
-          <tag name="method" line="1347" description="User login via UserID" method_name="userLoginViaUserID"/>
-          <tag name="access" line="1347" description="public"/>
-          <tag name="param" line="1347" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="1362" description="User login via UserID" method_name="userLoginViaUserID"/>
+          <tag name="access" line="1362" description="public"/>
+          <tag name="param" line="1362" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="return" line="1347" description="" type="boolean">
+          <tag name="return" line="1362" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="throws" line="1347" description="User status information" type="\OwpUserException">
+          <tag name="throws" line="1362" description="User status information" type="\OwpUserException">
             <type>\OwpUserException</type>
           </tag>
-          <tag name="author" line="1347" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1347" description="1.0"/>
+          <tag name="author" line="1362" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1362" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -4132,19 +4140,19 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1370" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1385" package="OwpUsers">
         <name>updateLoginCount</name>
         <full_name>\OwpUsers::updateLoginCount()</full_name>
-        <docblock line="1370">
+        <docblock line="1385">
           <description>updateLoginCount</description>
           <long-description></long-description>
-          <tag name="method" line="1370" description="Updating the login counter as well as the user's current IP address" method_name="updateLoginCount"/>
-          <tag name="access" line="1370" description="public"/>
-          <tag name="param" line="1370" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="1385" description="Updating the login counter as well as the user's current IP address" method_name="updateLoginCount"/>
+          <tag name="access" line="1385" description="public"/>
+          <tag name="param" line="1385" description="&lt;p&gt;Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="author" line="1370" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1370" description="1.0"/>
+          <tag name="author" line="1385" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1385" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -4152,28 +4160,28 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1399" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1414" package="OwpUsers">
         <name>updateUserAdminRights</name>
         <full_name>\OwpUsers::updateUserAdminRights()</full_name>
-        <docblock line="1399">
+        <docblock line="1414">
           <description>updateUserAdminRights</description>
           <long-description></long-description>
-          <tag name="method" line="1399" description="Updating the login counter as well as the user's current IP address" method_name="updateUserAdminRights"/>
-          <tag name="access" line="1399" description="public"/>
-          <tag name="param" line="1399" description="&lt;p&gt;New or Existing userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="1414" description="Updating the login counter as well as the user's current IP address" method_name="updateUserAdminRights"/>
+          <tag name="access" line="1414" description="public"/>
+          <tag name="param" line="1414" description="&lt;p&gt;New or Existing userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="param" line="1399" description="&lt;p&gt;(optional) Designate as an admin&lt;/p&gt;" type="integer" variable="$is_admin">
+          <tag name="param" line="1414" description="&lt;p&gt;(optional) Designate as an admin&lt;/p&gt;" type="integer" variable="$is_admin">
             <type>integer</type>
           </tag>
-          <tag name="param" line="1399" description="&lt;p&gt;(optional) Hide ads&lt;/p&gt;" type="integer" variable="$hide_ads">
+          <tag name="param" line="1414" description="&lt;p&gt;(optional) Hide ads&lt;/p&gt;" type="integer" variable="$hide_ads">
             <type>integer</type>
           </tag>
-          <tag name="param" line="1399" description="&lt;p&gt;(optional) Enable dev features&lt;/p&gt;" type="integer" variable="$is_dev">
+          <tag name="param" line="1414" description="&lt;p&gt;(optional) Enable dev features&lt;/p&gt;" type="integer" variable="$is_dev">
             <type>integer</type>
           </tag>
-          <tag name="author" line="1399" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1399" description="1.0"/>
+          <tag name="author" line="1414" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1414" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -4196,25 +4204,25 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="1426" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="private" namespace="" line="1441" package="OwpUsers">
         <name>validate_password</name>
         <full_name>\OwpUsers::validate_password()</full_name>
-        <docblock line="1426">
+        <docblock line="1441">
           <description>validate_password</description>
           <long-description></long-description>
-          <tag name="method" line="1426" description="Validate the passed password against the user hash supplied" method_name="validate_password"/>
-          <tag name="access" line="1426" description="private"/>
-          <tag name="return" line="1426" description="" type="mixed">
+          <tag name="method" line="1441" description="Validate the passed password against the user hash supplied" method_name="validate_password"/>
+          <tag name="access" line="1441" description="private"/>
+          <tag name="return" line="1441" description="" type="mixed">
             <type>mixed</type>
           </tag>
-          <tag name="param" line="1426" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
+          <tag name="param" line="1441" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
             <type>string</type>
           </tag>
-          <tag name="param" line="1426" description="&lt;p&gt;Existing user hash for user record&lt;/p&gt;" type="string" variable="$hash">
+          <tag name="param" line="1441" description="&lt;p&gt;Existing user hash for user record&lt;/p&gt;" type="string" variable="$hash">
             <type>string</type>
           </tag>
-          <tag name="author" line="1426" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1426" description="1.0"/>
+          <tag name="author" line="1441" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1441" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$passwd</name>
@@ -4227,23 +4235,23 @@
           <type>string</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1447" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1462" package="OwpUsers">
         <name>validateStatusID</name>
         <full_name>\OwpUsers::validateStatusID()</full_name>
-        <docblock line="1447">
+        <docblock line="1462">
           <description>validateStatusID</description>
           <long-description></long-description>
-          <tag name="method" line="1447" description="" method_name="validateStatusID"/>
-          <tag name="access" line="1447" description="public"/>
-          <tag name="return" line="1447" description="" type="boolean">
+          <tag name="method" line="1462" description="" method_name="validateStatusID"/>
+          <tag name="access" line="1462" description="public"/>
+          <tag name="return" line="1462" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="param" line="1447" description="&lt;p&gt;status ID to validate&lt;/p&gt;" type="integer" variable="$statusID">
+          <tag name="param" line="1462" description="&lt;p&gt;status ID to validate&lt;/p&gt;" type="integer" variable="$statusID">
             <type>integer</type>
           </tag>
-          <tag name="see" line="1447" description="" link="\OwpUsers::setStatusID()"/>
-          <tag name="author" line="1447" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1447" description="1.0"/>
+          <tag name="see" line="1462" description="" link="\OwpUsers::setStatusID()"/>
+          <tag name="author" line="1462" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1462" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$statusID</name>
@@ -4251,25 +4259,25 @@
           <type>integer</type>
         </argument>
       </method>
-      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1471" package="OwpUsers">
+      <method final="false" abstract="false" static="false" visibility="public" namespace="" line="1486" package="OwpUsers">
         <name>validateUserPassword</name>
         <full_name>\OwpUsers::validateUserPassword()</full_name>
-        <docblock line="1471">
+        <docblock line="1486">
           <description>validateUserPassword</description>
           <long-description></long-description>
-          <tag name="method" line="1471" description="Validate user password via userID" method_name="userLogin"/>
-          <tag name="access" line="1471" description="public"/>
-          <tag name="param" line="1471" description="&lt;p&gt;Valid userID&lt;/p&gt;" type="integer" variable="$userID">
+          <tag name="method" line="1486" description="Validate user password via userID" method_name="userLogin"/>
+          <tag name="access" line="1486" description="public"/>
+          <tag name="param" line="1486" description="&lt;p&gt;Valid userID&lt;/p&gt;" type="integer" variable="$userID">
             <type>integer</type>
           </tag>
-          <tag name="param" line="1471" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
+          <tag name="param" line="1486" description="&lt;p&gt;Valid user password&lt;/p&gt;" type="string" variable="$passwd">
             <type>string</type>
           </tag>
-          <tag name="return" line="1471" description="" type="boolean">
+          <tag name="return" line="1486" description="" type="boolean">
             <type>boolean</type>
           </tag>
-          <tag name="author" line="1471" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
-          <tag name="version" line="1471" description="1.0"/>
+          <tag name="author" line="1486" description="Brian Tafoya" link="mailto:btafoya@briantafoya.com"/>
+          <tag name="version" line="1486" description="1.0"/>
         </docblock>
         <argument line="0" by_reference="false">
           <name>$userID</name>
@@ -4283,7 +4291,7 @@
         </argument>
       </method>
     </class>
-    <source>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</source>
+    <source>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</source>
   </file>
   <package name="IOwpException" full_name="IOwpException"/>
   <package name="OwpAjax" full_name="OwpAjax"/>

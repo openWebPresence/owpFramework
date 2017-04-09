@@ -10,6 +10,9 @@
  * @license   https://opensource.org/licenses/MIT The MIT License
  * @category  OpenWebPresence_Support_Library
  * @link      http://openwebpresence.com OpenWebPresence
+ * @uses      https://github.com/ezSQL/ezSQL EzSQL Database Abstraction
+ * @uses      https://github.com/hautelook/phpass Openwall Phpass, modernized
+ * @uses      https://github.com/egulias/EmailValidator EmailValidator
  *
  * Copyright (c) 2017, Brian Tafoya
  *
@@ -22,6 +25,11 @@
 
 
 use Hautelook\Phpass\PasswordHash;
+use Egulias\EmailValidator\EmailValidator;
+use Egulias\EmailValidator\Validation\DNSCheckValidation;
+use Egulias\EmailValidator\Validation\MultipleValidationWithAnd;
+use Egulias\EmailValidator\Validation\RFCValidation;
+use Egulias\EmailValidator\Validation\SpoofCheckValidation;
 
 /**
  * Class OwpUserException
@@ -177,7 +185,16 @@ class OwpUsers
             }
         }
 
-        if (!filter_var($data_array["email"], FILTER_VALIDATE_EMAIL)) {
+        $validator = new EmailValidator();
+        $multipleValidations = new MultipleValidationWithAnd(
+            [
+            new RFCValidation(),
+            new DNSCheckValidation(),
+            new SpoofCheckValidation()
+            ]
+        );
+
+        if (!$validator->isValid($data_array["email"], $multipleValidations)) {
             throw new Exception("Invalid Email: ".(string) $data_array["email"]);
         }
 
