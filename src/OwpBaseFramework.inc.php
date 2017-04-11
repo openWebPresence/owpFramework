@@ -207,14 +207,14 @@ class OwpBaseFramework
      * processAction()
      *
      * @method void processAction() Process the framework action.
-     * @access private
+     * @access public
      * @param  string $action
      * @throws Exception Include does not exist.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    private function processAction($action)
+    public function processAction($action)
     {
         $actionData = $this->getActionData($action);
 
