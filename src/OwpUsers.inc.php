@@ -1169,9 +1169,17 @@ class OwpUsers
 
         $this->ezSqlDB->query($query_sql);
 
+        $meta_key_exclude = array(
+            "full_name",
+            "hide_ads",
+            "is_admin",
+            "is_dev"
+        );
+
         if ($meta_keys && is_array($meta_keys)) {
             foreach ($meta_keys as $dk => $dv) {
-                $query_sql = "
+                if(!in_array($dk,$meta_key_exclude)) {
+                    $query_sql = "
                     REPLACE INTO tbl_users_meta_data
                     SET
                         tbl_users_meta_data.key_name = '".(string) $dk."',
@@ -1179,7 +1187,8 @@ class OwpUsers
                         tbl_users_meta_data.userID = ".(int) $userID.",
                         tbl_users_meta_data.updated_ts = SYSDATE()";
 
-                $this->ezSqlDB->query($query_sql);
+                    $this->ezSqlDB->query($query_sql);
+                }
             }
         }
 
