@@ -34,6 +34,7 @@
 <li><a href="../packages/OwpMessaging.html"><i class="icon-folder-open"></i> OwpMessaging</a></li>
 <li><a href="../packages/OwpMod.html"><i class="icon-folder-open"></i> OwpMod</a></li>
 <li><a href="../packages/OwpPasswordValidator.html"><i class="icon-folder-open"></i> OwpPasswordValidator</a></li>
+<li><a href="../packages/OwpPostmark.html"><i class="icon-folder-open"></i> OwpPostmark</a></li>
 <li><a href="../packages/OwpSettings.html"><i class="icon-folder-open"></i> OwpSettings</a></li>
 <li><a href="../packages/OwpStdObject.html"><i class="icon-folder-open"></i> OwpStdObject</a></li>
 <li><a href="../packages/OwpSupportMethods.html"><i class="icon-folder-open"></i> OwpSupportMethods</a></li>
@@ -80,13 +81,13 @@
                     <ul>
 <li class="method public "><a href="#method___construct" title="__construct() :: Constructor"><span class="description">Constructor</span><pre>__construct()</pre></a></li>
 <li class="method public "><a href="#method_action" title="action() :: action() Triggers the framework logic."><span class="description">action() Triggers the framework logic.</span><pre>action()</pre></a></li>
+<li class="method public "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header private">» Private
                     <ul>
 <li class="method private "><a href="#method_checkActionPermissions" title="checkActionPermissions() :: checkActionPermissions()"><span class="description">checkActionPermissions()</span><pre>checkActionPermissions()</pre></a></li>
 <li class="method private "><a href="#method_getActionData" title="getActionData() :: getActionData()"><span class="description">getActionData()</span><pre>getActionData()</pre></a></li>
-<li class="method private "><a href="#method_processAction" title="processAction() :: processAction()"><span class="description">processAction()</span><pre>processAction()</pre></a></li>
 </ul>
 </li>
 <li class="nav-header">
@@ -199,6 +200,42 @@
 </table>
 </div></div>
 </div>
+<a id="method_processAction"></a><div class="element clickable method public method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="public">
+<h2>processAction()</h2>
+<pre>processAction(string $action) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Process the framework action.</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$action</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Include does not exist.</td>
+</tr></table>
+</div></div>
+</div>
 <a id="method_checkActionPermissions"></a><div class="element clickable method private method_checkActionPermissions " data-toggle="collapse" data-target=".method_checkActionPermissions .collapse" title="private">
 <h2>checkActionPermissions()</h2>
 <pre>checkActionPermissions($action) : boolean</pre>
@@ -249,42 +286,6 @@
 <div class="subelement argument"><h4>$action</h4></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>mixed</code></div>
-</div></div>
-</div>
-<a id="method_processAction"></a><div class="element clickable method private method_processAction " data-toggle="collapse" data-target=".method_processAction .collapse" title="private">
-<h2>processAction()</h2>
-<pre>processAction(string $action) </pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Process the framework action.</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$action</h4>
-<code>string</code>
-</div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>Include does not exist.</td>
-</tr></table>
 </div></div>
 </div>
 <h3>
@@ -416,7 +417,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-04-08T22:32:24-04:00.<br></footer></div>
+            generated on 2017-04-12T15:51:23-04:00.<br></footer></div>
 </div>
 </body>
 </html>

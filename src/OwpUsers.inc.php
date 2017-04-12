@@ -1178,7 +1178,7 @@ class OwpUsers
 
         if ($meta_keys && is_array($meta_keys)) {
             foreach ($meta_keys as $dk => $dv) {
-                if(!in_array($dk,$meta_key_exclude)) {
+                if(!in_array($dk, $meta_key_exclude)) {
                     $query_sql = "
                     REPLACE INTO tbl_users_meta_data
                     SET

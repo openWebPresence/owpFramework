@@ -3,7 +3,7 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta name="viewport" content="width=device-width; initial-scale=1.0; maximum-scale=1.0; user-scalable=0;">
 <meta charset="utf-8">
-<title>OpenWebPresence - owpFramework » \OwpSettings</title>
+<title>OpenWebPresence - owpFramework » \OwpPostmark</title>
 <meta name="author" content="Mike van Riel">
 <meta name="description" content="">
 <link href="../css/template.css" rel="stylesheet" media="all">
@@ -79,51 +79,53 @@
 <li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
-<li class="method public "><a href="#method___construct" title="__construct() :: Constructor."><span class="description">Constructor.</span><pre>__construct()</pre></a></li>
-<li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: __debugInfo"><span class="description">__debugInfo</span><pre>__debugInfo()</pre></a></li>
-<li class="method public "><a href="#method___get" title="__get() :: __get"><span class="description">__get</span><pre>__get()</pre></a></li>
-<li class="method public "><a href="#method___isset" title="__isset() :: __isset"><span class="description">__isset</span><pre>__isset()</pre></a></li>
-<li class="method public "><a href="#method___set" title="__set() :: __set"><span class="description">__set</span><pre>__set()</pre></a></li>
-<li class="method public "><a href="#method___unset" title="__unset() :: __unset"><span class="description">__unset</span><pre>__unset()</pre></a></li>
-<li class="method public "><a href="#method_deleteModDataItem" title="deleteModDataItem() :: deleteModDataItem"><span class="description">deleteModDataItem</span><pre>deleteModDataItem()</pre></a></li>
-<li class="method public "><a href="#method_getModDataItem" title="getModDataItem() :: getModDataItem"><span class="description">getModDataItem</span><pre>getModDataItem()</pre></a></li>
-<li class="method public "><a href="#method_setModDataItem" title="setModDataItem() :: setModDataItem"><span class="description">setModDataItem</span><pre>setModDataItem()</pre></a></li>
+<li class="method public "><a href="#method___construct" title="__construct() :: OwpPostmark constructor."><span class="description">OwpPostmark constructor.</span><pre>__construct()</pre></a></li>
+<li class="method public "><a href="#method_attachment" title="attachment() :: Add Attachment Method"><span class="description">Add Attachment Method</span><pre>attachment()</pre></a></li>
+<li class="method public "><a href="#method_bcc" title="bcc() :: Set BCC To Method"><span class="description">Set BCC To Method</span><pre>bcc()</pre></a></li>
+<li class="method public "><a href="#method_cc" title="cc() :: Set CC To Method"><span class="description">Set CC To Method</span><pre>cc()</pre></a></li>
+<li class="method public "><a href="#method_html_message" title="html_message() :: Set HTML Message Method"><span class="description">Set HTML Message Method</span><pre>html_message()</pre></a></li>
+<li class="method public "><a href="#method_plain_message" title="plain_message() :: Set PLAIN Text Message Method"><span class="description">Set PLAIN Text Message Method</span><pre>plain_message()</pre></a></li>
+<li class="method public "><a href="#method_send" title="send() :: Send method"><span class="description">Send method</span><pre>send()</pre></a></li>
+<li class="method public "><a href="#method_subject" title="subject() :: Set Subject Method"><span class="description">Set Subject Method</span><pre>subject()</pre></a></li>
+<li class="method public "><a href="#method_tag" title="tag() :: Set Tag Method"><span class="description">Set Tag Method</span><pre>tag()</pre></a></li>
+<li class="method public "><a href="#method_to" title="to() :: Set Send To Method"><span class="description">Set Send To Method</span><pre>to()</pre></a></li>
 </ul>
-</li>
-<li class="nav-header private">» Private
-                    <ul><li class="method private "><a href="#method_loadSettings" title="loadSettings() :: loadSettings"><span class="description">loadSettings</span><pre>loadSettings()</pre></a></li></ul>
 </li>
 <li class="nav-header">
 <i title="Properties" class="icon-custom icon-property"></i> Properties
-                    <ul><li class="property public "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">Data storage array</span><pre>$ezSqlDB</pre></a></li></ul>
+                    <ul></ul>
 </li>
-<li class="nav-header protected">» Protected
-                    <ul><li class="property protected "><a href="#property_settings_data" title="$settings_data() :: "><span class="description">Data storage array</span><pre>$settings_data</pre></a></li></ul>
+<li class="nav-header private">» Private
+                    <ul>
+<li class="property private "><a href="#property_api_key" title="$api_key() :: "><span class="description">Postmarkapp API Key</span><pre>$api_key</pre></a></li>
+<li class="property private "><a href="#property_attachment_count" title="$attachment_count() :: "><span class="description">Attachment Counter</span><pre>$attachment_count</pre></a></li>
+<li class="property private "><a href="#property_data" title="$data() :: "><span class="description">Data array</span><pre>$data</pre></a></li>
+</ul>
 </li>
 </ul>
 </div>
 <div class="span8">
-<a xmlns:php="http://php.net/xsl" id="\OwpSettings"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
+<a xmlns:php="http://php.net/xsl" id="\OwpPostmark"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
 <li>
 <a href="../index.html"><i title="Classes" class="icon-custom icon-class"></i></a><span class="divider">\</span>
 </li>
 <li class="active">
-<span class="divider">\</span><a href="../classes/OwpSettings.html">OwpSettings</a>
+<span class="divider">\</span><a href="../classes/OwpPostmark.html">OwpPostmark</a>
 </li>
 </ul>
 <div xmlns:php="http://php.net/xsl" class="element class">
-<p class="short_description">This class provides settings data management functionality.</p>
+<p class="short_description">This class provides Postmarkapp Functionality that just plain works.</p>
 <div class="details">
 <div class="long_description"></div>
 <table class="table table-bordered"><tr>
 <th>package</th>
-<td><a href="../packages/OwpSettings.html">OwpSettings</a></td>
+<td><a href="../packages/OwpPostmark.html">OwpPostmark</a></td>
 </tr></table>
 <h3>
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method___construct"></a><div class="element clickable method public method___construct " data-toggle="collapse" data-target=".method___construct .collapse" title="public">
-<h2>Constructor.</h2>
-<pre>__construct() </pre>
+<h2>OwpPostmark constructor.</h2>
+<pre>__construct($key, $from, string $reply<code> = ''</code>) </pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -137,330 +139,275 @@
 <td>public</td>
 </tr>
 </table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$key</h4></div>
+<div class="subelement argument"><h4>$from</h4></div>
+<div class="subelement argument">
+<h4>$reply</h4>
+<code>string</code>
+</div>
 </div></div>
 </div>
-<a id="method___debugInfo"></a><div class="element clickable method public method___debugInfo " data-toggle="collapse" data-target=".method___debugInfo .collapse" title="public">
-<h2>__debugInfo</h2>
-<pre>__debugInfo() : mixed</pre>
+<a id="method_attachment"></a><div class="element clickable method public method_attachment " data-toggle="collapse" data-target=".method_attachment .collapse" title="public">
+<h2>Add Attachment Method</h2>
+<pre>attachment($name, $content, $content_type) : \OwpPostmark</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td></td>
+<td>Add Attachment Method</td>
 </tr>
 <tr>
 <th>access</th>
 <td>public</td>
 </tr>
 <tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>settings_data</div>
-</div></div>
-</div>
-<a id="method___get"></a><div class="element clickable method public method___get " data-toggle="collapse" data-target=".method___get .collapse" title="public">
-<h2>__get</h2>
-<pre>__get(string $itemName) : mixed</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Add mod data by key</td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\InvalidArgumentException</code></th>
-<td>Mod data key does not exist, code 20</td>
-</tr></table>
+<div class="subelement argument"><h4>$name</h4></div>
+<div class="subelement argument"><h4>$content</h4></div>
+<div class="subelement argument"><h4>$content_type</h4></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Array value</div>
+<div class="subelement response"><code>\OwpPostmark</code></div>
 </div></div>
 </div>
-<a id="method___isset"></a><div class="element clickable method public method___isset " data-toggle="collapse" data-target=".method___isset .collapse" title="public">
-<h2>__isset</h2>
-<pre>__isset(string $itemName) : boolean</pre>
+<a id="method_bcc"></a><div class="element clickable method public method_bcc " data-toggle="collapse" data-target=".method_bcc .collapse" title="public">
+<h2>Set BCC To Method</h2>
+<pre>bcc($bcc) : \OwpPostmark</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Add mod data by key</td>
+<td>Set BCC To Method</td>
 </tr>
 <tr>
 <th>access</th>
 <td>public</td>
 </tr>
 <tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
+<div class="subelement argument"><h4>$bcc</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\OwpPostmark</code></div>
+</div></div>
+</div>
+<a id="method_cc"></a><div class="element clickable method public method_cc " data-toggle="collapse" data-target=".method_cc .collapse" title="public">
+<h2>Set CC To Method</h2>
+<pre>cc($cc) : \OwpPostmark</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Set CC To Method</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$cc</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\OwpPostmark</code></div>
+</div></div>
+</div>
+<a id="method_html_message"></a><div class="element clickable method public method_html_message " data-toggle="collapse" data-target=".method_html_message .collapse" title="public">
+<h2>Set HTML Message Method</h2>
+<pre>html_message($html) : \OwpPostmark</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Set HTML Message Method</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$html</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\OwpPostmark</code></div>
+</div></div>
+</div>
+<a id="method_plain_message"></a><div class="element clickable method public method_plain_message " data-toggle="collapse" data-target=".method_plain_message .collapse" title="public">
+<h2>Set PLAIN Text Message Method</h2>
+<pre>plain_message($msg) : \OwpPostmark</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Set PLAIN Text Message Method</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$msg</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\OwpPostmark</code></div>
+</div></div>
+</div>
+<a id="method_send"></a><div class="element clickable method public method_send " data-toggle="collapse" data-target=".method_send .collapse" title="public">
+<h2>Send method</h2>
+<pre>send() : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Send method</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+</table>
 <h3>Returns</h3>
 <div class="subelement response"><code>boolean</code></div>
 </div></div>
 </div>
-<a id="method___set"></a><div class="element clickable method public method___set " data-toggle="collapse" data-target=".method___set .collapse" title="public">
-<h2>__set</h2>
-<pre>__set(string $itemName, mixed $itemValue) </pre>
+<a id="method_subject"></a><div class="element clickable method public method_subject " data-toggle="collapse" data-target=".method_subject .collapse" title="public">
+<h2>Set Subject Method</h2>
+<pre>subject($subject) : \OwpPostmark</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Add mod data by key</td>
+<td>Set Subject Method</td>
 </tr>
 <tr>
 <th>access</th>
 <td>public</td>
 </tr>
 <tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-<div class="subelement argument">
-<h4>$itemValue</h4>
-<code>mixed</code><p>Mod data value</p></div>
+<div class="subelement argument"><h4>$subject</h4></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>\OwpPostmark</code></div>
 </div></div>
 </div>
-<a id="method___unset"></a><div class="element clickable method public method___unset " data-toggle="collapse" data-target=".method___unset .collapse" title="public">
-<h2>__unset</h2>
-<pre>__unset(string $itemName) </pre>
+<a id="method_tag"></a><div class="element clickable method public method_tag " data-toggle="collapse" data-target=".method_tag .collapse" title="public">
+<h2>Set Tag Method</h2>
+<pre>tag($tag) : \OwpPostmark</pre>
 <div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Add mod data by key</td>
+<td>Set Tag Method</td>
 </tr>
 <tr>
 <th>access</th>
 <td>public</td>
 </tr>
 <tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-</div></div>
-</div>
-<a id="method_deleteModDataItem"></a><div class="element clickable method public method_deleteModDataItem " data-toggle="collapse" data-target=".method_deleteModDataItem .collapse" title="public">
-<h2>deleteModDataItem</h2>
-<pre>deleteModDataItem(string $itemName) : boolean</pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Add mod data by key</td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>SQL exception</td>
-</tr></table>
+<div class="subelement argument"><h4>$tag</h4></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>boolean</code>Array value</div>
+<div class="subelement response"><code>\OwpPostmark</code></div>
 </div></div>
 </div>
-<a id="method_getModDataItem"></a><div class="element clickable method public method_getModDataItem " data-toggle="collapse" data-target=".method_getModDataItem .collapse" title="public">
-<h2>getModDataItem</h2>
-<pre>getModDataItem(string $itemName) : mixed</pre>
-<div class="labels"><span class="label">Static</span></div>
+<a id="method_to"></a><div class="element clickable method public method_to " data-toggle="collapse" data-target=".method_to .collapse" title="public">
+<h2>Set Send To Method</h2>
+<pre>to($to) : \OwpPostmark</pre>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
 <tr>
 <th>method</th>
-<td>Add mod data by key</td>
+<td>Set Send To Method</td>
 </tr>
 <tr>
 <th>access</th>
 <td>public</td>
 </tr>
 <tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
+<th>fluent</th>
+<td>This method is part of a fluent interface and will return the same instance</td>
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\InvalidArgumentException</code></th>
-<td>Mod data key does not exist, code 20</td>
-</tr></table>
+<div class="subelement argument"><h4>$to</h4></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>mixed</code>Array value</div>
-</div></div>
-</div>
-<a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem " data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
-<h2>setModDataItem</h2>
-<pre>setModDataItem(string $itemName, mixed $itemValue) </pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Add mod data by key</td>
-</tr>
-<tr>
-<th>access</th>
-<td>public</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$itemName</h4>
-<code>string</code><p>Mod data array key</p></div>
-<div class="subelement argument">
-<h4>$itemValue</h4>
-<code>mixed</code><p>Mod data value</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>SQL exception</td>
-</tr></table>
-</div></div>
-</div>
-<a id="method_loadSettings"></a><div class="element clickable method private method_loadSettings " data-toggle="collapse" data-target=".method_loadSettings .collapse" title="private">
-<h2>loadSettings</h2>
-<pre>loadSettings() </pre>
-<div class="labels"><span class="label">Static</span></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td>Add mod data by key</td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
+<div class="subelement response"><code>\OwpPostmark</code></div>
 </div></div>
 </div>
 <h3>
 <i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
-<a id="property_ezSqlDB"> </a><div class="element clickable property public property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="public">
-<h2>Data storage array</h2>
-<pre>$ezSqlDB : array</pre>
+<a id="property_api_key"> </a><div class="element clickable property private property_api_key" data-toggle="collapse" data-target=".property_api_key .collapse" title="private">
+<h2>Postmarkapp API Key</h2>
+<pre>$api_key : string</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
-<div class="subelement argument"><code>array()</code></div>
+<div class="subelement argument"></div>
 </div></div>
-<div class="labels"><span class="label">Static</span></div>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
-<a id="property_settings_data"> </a><div class="element clickable property protected property_settings_data" data-toggle="collapse" data-target=".property_settings_data .collapse" title="protected">
-<h2>Data storage array</h2>
-<pre>$settings_data : array</pre>
+<a id="property_attachment_count"> </a><div class="element clickable property private property_attachment_count" data-toggle="collapse" data-target=".property_attachment_count .collapse" title="private">
+<h2>Attachment Counter</h2>
+<pre>$attachment_count : integer</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"><code>0</code></div>
+</div></div>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
+<a id="property_data"> </a><div class="element clickable property private property_data" data-toggle="collapse" data-target=".property_data .collapse" title="private">
+<h2>Data array</h2>
+<pre>$data : array</pre>
 <div class="row collapse"><div class="detail-description">
 <h3>Default</h3>
 <div class="subelement argument"><code>array()</code></div>
 </div></div>
-<div class="labels"><span class="label">Static</span></div>
+<div class="labels"></div>
 <div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
 </div>
 </div>
