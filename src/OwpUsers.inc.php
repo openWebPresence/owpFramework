@@ -732,7 +732,15 @@ class OwpUsers
         if ((int) $this->userID()) {
             $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int) $this->userID());
             $a2 = $this->getUserMetaData((int) $this->userID());
-            $_SESSION["userData"] = array_merge($a1, $a2);
+            if($a2)
+            {
+                $_SESSION["userData"] = array_merge($a1, $a2);
+            }
+            else
+            {
+                $_SESSION["userData"] = $a1;
+            }
+
 
             return true;
         }
