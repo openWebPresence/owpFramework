@@ -113,7 +113,6 @@ class OwpBaseFramework
         $this->root_path = (string)$frameworkObject["frameworkVariables"]["root_path"];
         $this->requested_action = (string)$frameworkObject["frameworkVariables"]["requested_action"];
         $this->uuid = (string)$frameworkObject["frameworkVariables"]["uuid"];
-        $this->PhpConsole = (object)$frameworkObject["PhpConsole"];
         $this->userClass = (object)$frameworkObject["userClass"];
         $this->THEME = (string)$frameworkObject["frameworkVariables"]["theme"];
         $this->actionsConfig = (array)$frameworkObject["actionsConfig"];
