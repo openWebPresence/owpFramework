@@ -124,7 +124,7 @@ class OwpUsers
      * @access public
      * @uses   $this->isAdmin()
      * @uses   $this->userData()
-     * @uses   $this->userID()
+     * @uses    self::userID()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -135,7 +135,7 @@ class OwpUsers
                 "isAdmin"      => $this->isAdmin(),
                 "MySQL_Errors" => $this->ezSqlDB->captured_errors,
                 "userData"     => $this->userData(),
-                "userID"       => $this->userID(),
+                "userID"       =>  self::userID(),
                ];
 
     }//end __debugInfo()
@@ -383,7 +383,7 @@ class OwpUsers
             }
 
             // unset the session if the user being deleted is logged in.
-            if ((int) $this->userID() === (int) $userID && isset($_SESSION["userData"])) {
+            if ((int)  self::userID() === (int) $userID && isset($_SESSION["userData"])) {
                 unset($_SESSION["userData"]);
             }
 
@@ -696,7 +696,7 @@ class OwpUsers
     {
         // Execute owpUDF_On_logOut user defined function
         if (function_exists("owpUDF_On_logOut")) {
-            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int) $this->userID(), "db" => $this->ezSqlDB));
+            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)  self::userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_logOut) {
                 throw new Exception($owpUDF_On_logOut, 30);
             }
@@ -729,9 +729,9 @@ class OwpUsers
      */
     public function refresh_user_session()
     {
-        if ((int) $this->userID()) {
-            $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int) $this->userID());
-            $a2 = $this->getUserMetaData((int) $this->userID());
+        if ((int)  self::userID()) {
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_user.userID = ".(int)  self::userID());
+            $a2 = $this->getUserMetaData((int)  self::userID());
             if($a2)
             {
                 $_SESSION["userData"] = array_merge($a1, $a2);
@@ -763,7 +763,7 @@ class OwpUsers
     public function rememberMe()
     {
 
-        if (!(int) $this->userID()) {
+        if (!(int)  self::userID()) {
 
             if(!SqueakyMindsPhpHelper::cookievar("owpSite")) {
                 return false;
@@ -810,7 +810,7 @@ class OwpUsers
         $uuid = SqueakyMindsPhpHelper::uuid();
         $new_hash = $this->genPasswdHash($uuid);
 
-        $value = json_encode(array("id"=>$this->userID(),"rememberme"=>$uuid));
+        $value = json_encode(array("id"=> self::userID(),"rememberme"=>$uuid));
         $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
         setcookie("owpSite", $value, strtotime('+30 days'), "/", $domain, false);
 
@@ -818,7 +818,7 @@ class OwpUsers
             "
                 UPDATE tbl_users
                 SET tbl_users.rememberme_hash = '".(string)$new_hash."'
-                WHERE tbl_users.userID = ".(int) $this->userID()."
+                WHERE tbl_users.userID = ".(int)  self::userID()."
                 LIMIT 1"
         );
 
@@ -839,11 +839,11 @@ class OwpUsers
      */
     public function sanityCheck($redirect_url = "")
     {
-        if ((int) $this->userID()) {
+        if ((int)  self::userID()) {
             $query_sql = "
                 SELECT COUNT(*)
                 FROM tbl_users
-                WHERE tbl_users.userID = ".(int) $this->userID()."
+                WHERE tbl_users.userID = ".(int)  self::userID()."
                 LIMIT 1";
 
             $result = $this->ezSqlDB->get_var($query_sql);
@@ -957,7 +957,7 @@ class OwpUsers
 
         // Execute owpUDF_On_setStatusID user defined function
         if (function_exists("owpUDF_On_setStatusID")) {
-            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int) $this->userID(), "db" => $this->ezSqlDB));
+            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)  self::userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_setStatusID) {
                 throw new Exception($owpUDF_On_setStatusID, 30);
             }
@@ -1062,7 +1062,7 @@ class OwpUsers
 
         // Execute owpUDF_On_updatePassword user defined function
         if (function_exists("owpUDF_On_updatePassword")) {
-            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int) $this->userID(), "db" => $this->ezSqlDB));
+            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)  self::userID(), "db" => $this->ezSqlDB));
             if ($owpUDF_On_updatePassword) {
                 throw new Exception($owpUDF_On_updatePassword, 30);
             }
@@ -1274,7 +1274,7 @@ class OwpUsers
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
 
             if ($val_pass === true) {
-                return $this->userID();
+                return  self::userID();
             } else {
                 if (isset($_SESSION["userData"])) {
                     unset($_SESSION["userData"]);
