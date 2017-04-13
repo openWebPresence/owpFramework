@@ -60,19 +60,6 @@ class OwpCms
      */
     function __construct()
     {
-        $dotenv = new Dotenv\Dotenv(ROOT_PATH, '.env');
-        $dotenv->load();
-
-        $dotenv->required(['DB_HOST', 'DB_NAME', 'DB_USER', 'DB_PASS']);
-
-        /*
-            * Init the database class
-         */
-        self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
-        self::$ezSqlDB->use_disk_cache = false;
-        self::$ezSqlDB->cache_queries  = false;
-        self::$ezSqlDB->hide_errors();
-
         self::loadSettings();
 
     }//end __construct()
@@ -196,6 +183,10 @@ class OwpCms
      */
     static public function deleteModDataItem($itemName)
     {
+        if(!self::$ezSqlDB) {
+            self::loadSettings();
+        }
+
         self::$ezSqlDB->query('BEGIN');
         self::$ezSqlDB->query("DELETE FROM tbl_content WHERE tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."' LIMIT 1");
         if (self::$ezSqlDB->query('COMMIT') !== false) {
@@ -310,6 +301,10 @@ class OwpCms
      */
     static public function setModDataItem($itemName, $itemValue)
     {
+        if(!self::$ezSqlDB) {
+            self::loadSettings();
+        }
+
         self::$ezSqlDB->query('BEGIN');
         self::$ezSqlDB->query(
             "
@@ -344,6 +339,11 @@ class OwpCms
      */
     static private function loadSettings()
     {
+        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB->use_disk_cache = false;
+        self::$ezSqlDB->cache_queries  = false;
+        self::$ezSqlDB->hide_errors();
+
         $tmp = self::$ezSqlDB->get_results("SELECT * FROM tbl_content ORDER BY tbl_content.content_name");
         self::$settings_data = array();
         if($tmp) {

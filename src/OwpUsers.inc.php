@@ -102,19 +102,17 @@ class OwpUsers
      * @method void __construct()
      * @access public
      *
-     * @param object $frameworkObject owp_SupportMethods Object
-     *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($frameworkObject)
+    public function __construct()
     {
+        $frameworkObject = OwpFramework::$frameworkObject;
         $this->ezSqlDB          = $frameworkObject["ezSqlDB"];
         $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
         $this->root_path        = $frameworkObject["frameworkVariables"]["root_path"];
         $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
         $this->uuid       = $frameworkObject["frameworkVariables"]["uuid"];
-        $this->PhpConsole = $frameworkObject["PhpConsole"];
 
     }//end __construct()
 

@@ -33,23 +33,14 @@ class OwpDefaultMod extends OwpMod
      * @method mixed __construct()
      * @access public
      * @throws Exception Missing UserDefinedModClass.
-     * @param  array  $frameworkObject    OWP Objects and Data
      * @param  string $modFileIncludeName Dynamic Class Name
      * @param  string $modFileLocation    Dynamic Class file path.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($frameworkObject, $modFileIncludeName, $modFileLocation)
+    public function __construct($modFileIncludeName, $modFileLocation)
     {
-        $this->ezSqlDB          = $frameworkObject["ezSqlDB"];
-        $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
-        $this->root_path        = $frameworkObject["frameworkVariables"]["root_path"];
-        $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
-        $this->uuid       = $frameworkObject["frameworkVariables"]["uuid"];
-        $this->PhpConsole = $frameworkObject["PhpConsole"];
-        $this->userClass  = $frameworkObject["userClass"];
-
         throw new Exception("Missing UserDefinedModClass. [Class: ".$modFileIncludeName."] (".$modFileLocation.")");
 
     }//end __construct()

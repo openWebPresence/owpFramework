@@ -101,9 +101,11 @@ class OwpBaseFramework
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($frameworkObject)
+    public function __construct()
     {
         $actionsConfig = null;
+
+        $frameworkObject = OwpFramework::$frameworkObject;
 
         $this->frameworkObject = $frameworkObject;
         $this->ezSqlDB = (object)$frameworkObject["ezSqlDB"];

@@ -39,12 +39,10 @@ class OwpMessaging
 
     /**
      * Constructor.
-     *
-     * @param string $root_path The root file path.
      */
-    function __construct($root_path)
+    function __construct()
     {
-        $this->root_path = $root_path;
+        $this->root_path = ROOT_PATH;
 
     }//end __construct()
 

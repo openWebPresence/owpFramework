@@ -95,7 +95,7 @@ class OwpUsers_test extends TestCase
             'rememberme_hash' => null
         );
 
-        $OwpFramework = new OwpFramework((string)self::$root_path, (string)self::$current_web_root, PhpConsole\Handler::getInstance());
+        $OwpFramework = new OwpFramework();
 
         self::$frameworkObject = $OwpFramework->getFrameworkObject();
 

@@ -31,77 +31,92 @@ class OwpFramework
     /**
      * @var string $root_path Set the root file path.
      */
-    public $root_path = null;
+    static public $root_path = null;
 
     /**
      * @var array $debugging Debugging array.
      */
-    public $debugging = null;
+    static public $debugging = null;
 
     /**
      * @var boolean $debug Is debugging enabled by default.
      */
-    public $debug = false;
+    static public $debug = false;
 
     /**
      * @var int $userID UserID.
      */
-    public $userID = 0;
+    static public $userID = 0;
 
     /**
      * @var string $uuid Unique uuid().
      */
-    public $uuid = null;
+    static public $uuid = null;
 
     /**
      * @var object $ezSqlDB The ezSQL Database Object.
      */
-    protected $ezSqlDB;
+    static public $ezSqlDB;
 
     /**
      * @var string $current_web_root The web root url.
      */
-    protected $current_web_root;
+    static public $current_web_root;
 
     /**
      * @var object $OwpSupportMethods OpenWebPresence support methods.
      */
-    protected $OwpSupportMethods;
+    static public $OwpSupportMethods;
 
     /**
      * @var string $default_action Default action.
      */
-    public $default_action = "home";
+    static public $default_action = "home";
 
     /**
      * @var string $requested_action The requested action.
      */
-    public $requested_action;
+    static public $requested_action;
 
     /**
      * @var string $modMethods Mod methods object.
      */
-    public $modMethods = null;
+    static public $modMethods = null;
 
     /**
      * @var string $modAvailableMethods Mod methods available.
      */
-    public $modAvailableMethods = array();
+    static public $modAvailableMethods = array();
 
     /**
-     * @var string $THEME Active theme.
+     * @var string $theme Active theme.
      */
-    protected $THEME = null;
+    static public $theme = null;
 
     /**
      * @var object $ezSqlDB ezSQL Database Object.
      */
-    public $userClass;
+    static public $userClass;
 
     /**
      * @var object $frameworkObject Framework Class Object.
      */
-    public $frameworkObject;
+    static public $frameworkObject;
+
+    /**
+     * @var object $defaultAction Default function.
+     */
+    static public $defaultAction;
+
+    /**
+     * @var object $actionsConfig Default config.
+     */
+    static public $actionsConfig;
+
+    /**
+     * @var object $actionsConfig Default config.
+     */
+    static public  $actionsConfigFileLocation;
 
 
     /**
@@ -109,59 +124,68 @@ class OwpFramework
      *
      * @method void __construct()
      * @access public
-     * @param  string $root_path        The app root file path.
-     * @param  string $current_web_root The current web root.
-     * @param  object $PhpConsole       PhpConsole debugger object.
      * @throws Exception Missing theme config directive file.
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct($root_path, $current_web_root, $PhpConsole)
+    public function __construct()
     {
+        $this->build();
+    }//end __construct()
+
+
+    /**
+     * build
+     *
+     * @method void build() Builds the framework objects
+     * @return array|object
+     * @throws Exception
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function build()
+    {
+
         /*
             * Set the root path
          */
-        $this->root_path = $root_path;
+        self::$root_path = ROOT_PATH;
 
         /*
             * Set the current web root
         */
-        $this->current_web_root = $current_web_root;
+        self::$current_web_root = CURRENT_WEB_ROOT;
 
         /*
             * Generate $uuid based on OwpSupportMethods->uuid().
          */
         $_SESSION["uuid"] = OwpSupportMethods::uuid();
-        $this->uuid = $_SESSION["uuid"];
+        self::$uuid = $_SESSION["uuid"];
 
         /*
             * Set the theme
          */
-        $this->theme = $_ENV["THEME"];
+        self::$theme = $_ENV["THEME"];
 
         /*
             * Init the debugger
          */
-        $this->debug = ((int) $_ENV["ISDEV"] ? true : false);
+        self::$debug = ((int) $_ENV["ISDEV"] ? true : false);
 
         /*
             * Init the database class
          */
-        $this->ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
-        $this->ezSqlDB->use_disk_cache = false;
-        $this->ezSqlDB->cache_queries  = false;
-        $this->ezSqlDB->hide_errors();
-
-        /*
-            * PhpConsole
-         */
-        $this->PhpConsole = $PhpConsole;
+        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB->use_disk_cache = false;
+        self::$ezSqlDB->cache_queries  = false;
+        self::$ezSqlDB->hide_errors();
 
         /*
             * Default Request Definition
          */
-        $this->defaultAction = [
+        self::$defaultAction = [
                                  "none"    => "home",
                                  "isUser"  => "home",
                                  "isAdmin" => "home",
@@ -170,7 +194,7 @@ class OwpFramework
         /*
             * Default Action Definition
          */
-        $this->actionsConfig = [
+        self::$actionsConfig = [
                                 "404" => [
                                           "view"        => [
                                                             "app/themes/default/common/header.inc.php",
@@ -193,64 +217,65 @@ class OwpFramework
          */
         $actionsConfig = null;
         $defaultAction = null;
-        $this->actionsConfigFileLocation = $this->root_path.join(DIRECTORY_SEPARATOR, array("app", "themes", $this->theme, "actionsConfig.inc.php"));
+        self::$actionsConfigFileLocation = self::$root_path.join(DIRECTORY_SEPARATOR, array("app", "themes", self::$theme, "actionsConfig.inc.php"));
 
-        if (file_exists($this->actionsConfigFileLocation)) {
-            include $this->actionsConfigFileLocation;
-            $this->actionsConfig = $actionsConfig;
-            $this->defaultAction = $defaultAction;
+        if (file_exists(self::$actionsConfigFileLocation)) {
+            include  self::$actionsConfigFileLocation;
+            self::$actionsConfig = $actionsConfig;
+            self::$defaultAction = $defaultAction;
         } else {
-            throw new Exception("Missing ".$this->actionsConfigFileLocation."!", 911);
+            throw new Exception("Missing ". self::$actionsConfigFileLocation."!", 911);
         }
 
         /*
             * Create the frameworkObject
         */
-        $this->frameworkObject = array(
+        self::$frameworkObject = array(
                                   "frameworkVariables" => array(
-                                                           "theme"            => $this->theme,
-                                                           "current_web_root" => (string) $this->current_web_root,
-                                                           "root_path"        => (string) $this->root_path,
-                                                           "requested_action" => (string) $this->requested_action,
-                                                           "uuid"             => (string) $this->uuid,
+                                                           "theme"            => self::$theme,
+                                                           "current_web_root" => (string) self::$current_web_root,
+                                                           "root_path"        => (string) self::$root_path,
+                                                           "requested_action" => (string) self::$requested_action,
+                                                           "uuid"             => (string) self::$uuid,
                                                           ),
-                                  "ezSqlDB"            => (object) $this->ezSqlDB,
+                                  "ezSqlDB"            => (object) self::$ezSqlDB,
                                   "mod_data"           => new OwpMod(),
-                                  "PhpConsole"         => (object) $this->PhpConsole,
                                  );
 
         /*
             * Load the user class
          */
-        $this->userClass = new OwpUsers($this->frameworkObject);
-        $this->userClass->rememberMe();
+        self::$userClass = new OwpUsers(self::$frameworkObject);
+        self::$userClass->rememberMe();
 
         /*
             * Add it to the $frameworkObject array.
          */
-        $this->frameworkObject["userClass"] = (object) $this->userClass;
+        self::$frameworkObject["userClass"] = (object) self::$userClass;
 
         /*
             * Set the requested action
          */
-        if($this->userClass->isLoggedIn()) {
-            if($this->userClass->isAdmin()) {
-                $this->default_action = $this->defaultAction["isAdmin"];
+        if(self::$userClass->isLoggedIn()) {
+            if(self::$userClass->isAdmin()) {
+                self::$default_action = self::$defaultAction["isAdmin"];
             } else {
-                $this->default_action = $this->defaultAction["isUser"];
+                self::$default_action = self::$defaultAction["isUser"];
             }
         } else {
-            $this->default_action = $this->defaultAction["none"];
+            self::$default_action = self::$defaultAction["none"];
         }
 
-        $this->requested_action = (isset($_GET["_route_"]) ? OwpSupportMethods::filterAction($_GET["_route_"]) : $this->default_action);
+        self::$requested_action = (isset($_GET["_route_"]) ? OwpSupportMethods::filterAction($_GET["_route_"]) : self::$default_action);
 
-        $this->frameworkObject["frameworkVariables"]["requested_action"] = (string) $this->requested_action;
-        $this->frameworkObject["frameworkVariables"]["default_action"] = (string) $this->default_action;
-        $this->frameworkObject["actionsConfig"] = (array) $this->actionsConfig;
-        $this->frameworkObject["defaultAction"] = (array) $this->defaultAction;
+        self::$frameworkObject["frameworkVariables"]["requested_action"] = (string) self::$requested_action;
+        self::$frameworkObject["frameworkVariables"]["default_action"] = (string) self::$default_action;
+        self::$frameworkObject["actionsConfig"] = (array) self::$actionsConfig;
+        self::$frameworkObject["defaultAction"] = (array) self::$defaultAction;
 
-    }//end __construct()
+        return self::$frameworkObject;
+
+    }//end build()
 
 
     /**
@@ -262,11 +287,22 @@ class OwpFramework
      */
     public function __get($name)
     {
+        if(isset(self::$frameworkObject)) {
+            return self::$frameworkObject;
+        }
         if(isset($this->$name)) {
             return $this->$name;
-        } else {
-            throw new InvalidArgumentException($name." does not exist!");
         }
+
+        self::build();
+        if(isset(self::$frameworkObject)) {
+            return self::$frameworkObject;
+        }
+        if(isset($this->$name)) {
+            return $this->$name;
+        }
+
+        throw new InvalidArgumentException($name." does not exist!");
 
     }//end __get()
 
