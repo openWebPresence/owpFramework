@@ -107,13 +107,8 @@ class OwpUsers
      */
     public function __construct()
     {
-        $frameworkObject = OwpFramework::$frameworkObject;
-        OwpFramework::$ezSqlDB          = $frameworkObject["ezSqlDB"];
-        $this->current_web_root = $frameworkObject["frameworkVariables"]["current_web_root"];
-        $this->root_path        = $frameworkObject["frameworkVariables"]["root_path"];
-        $this->requested_action = $frameworkObject["frameworkVariables"]["requested_action"];
-        $this->uuid       = $frameworkObject["frameworkVariables"]["uuid"];
-
+        $this->current_web_root = CURRENT_WEB_ROOT;
+        $this->root_path        = ROOT_PATH;
     }//end __construct()
 
 
@@ -698,12 +693,13 @@ class OwpUsers
      */
     static public function getUserRecord($userID)
     {
-        $a1 = self::get_user_record_byID_noMeta($userID);
+        $OwpUsers = new OwpUsers();
+        $a1 = $OwpUsers->get_user_record_byID_noMeta($userID);
         if(!$a1) {
             return false;
         }
         unset($a1["passwd"]);
-        $a2 = self::getUserMetaData((int)$userID);
+        $a2 = $OwpUsers->getUserMetaData((int)$userID);
 
         return (array)array_merge($a1, $a2);
 
