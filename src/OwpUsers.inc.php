@@ -701,7 +701,7 @@ class OwpUsers
         unset($a1["passwd"]);
         $a2 = $OwpUsers->getUserMetaData((int)$userID);
 
-        return (array)array_merge($a1, $a2);
+        return OwpSupportMethods::OwpPCdebug((array)array_merge($a1, $a2),"OwpUsers.getUserRecord");
 
     }//end getUserRecord()
 
