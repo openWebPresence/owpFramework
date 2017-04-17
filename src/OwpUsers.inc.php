@@ -652,7 +652,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    static public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20)
+    static public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20, $page = 1)
     {
         $where = "";
 
@@ -677,7 +677,8 @@ class OwpUsers
             ORDER BY " . $orderBy . "
             LIMIT " . (int)$limit;
 
-        return OwpSupportMethods::OwpPCdebug(array("query_sql"=>$query_sql,"get_results"=>OwpFramework::$ezSqlDB->get_results($query_sql, ARRAY_A)), "OwpUsers.getUsers");
+        PC::debug($query_sql,"OwpUsers.getUsers.query_sql");
+        return OwpSupportMethods::OwpPCdebug(OwpFramework::$ezSqlDB->get_results($query_sql, ARRAY_A), "OwpUsers.getUsers.results");
 
     }//end getUsers()
 
