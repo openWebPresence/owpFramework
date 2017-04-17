@@ -24,13 +24,14 @@ CREATE TABLE `tbl_content` (
   `content_value` longtext NOT NULL,
   `content_last_updated` date NOT NULL,
   `content_last_updated_by_userID` int(15) NOT NULL,
+  `content_title` varchar(500) NOT NULL,
   PRIMARY KEY (`content_name`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 -- ----------------------------
 -- Records of tbl_content
 -- ----------------------------
-INSERT INTO `tbl_content` VALUES ('NewUserRegistrationMessageBody', '\"Welcome to OWP {{first_name}} {{last_name}}! Click on the following link to validate your account to continue. {{validation_link}}\"', '2017-03-01', '0');
+INSERT INTO `tbl_content` VALUES ('NewUserRegistrationMessageBody', '\"Welcome to OWP {{first_name}} {{last_name}}! Click on the following link to validate your account to continue. {{validation_link}}\"', '2017-03-01', '0', 'New User Registration Body');
 
 -- ----------------------------
 -- Table structure for `tbl_settings`

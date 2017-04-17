@@ -299,8 +299,10 @@ class OwpCms
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    static public function setModDataItem($itemName, $itemValue)
+    static public function setModDataItem($itemName, $itemValue, $itemTitle = "")
     {
+        $itemTitleFinal = (strlen($itemTitle)?$itemTitle:(isset(self::$settings_data[$itemName])?isset(self::$settings_data[$itemName]):$itemName));
+
         if(!self::$ezSqlDB) {
             self::loadSettings();
         }
@@ -311,6 +313,7 @@ class OwpCms
 			REPLACE INTO tbl_content
 			SET
 				tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."',
+				tbl_content.content_title = '".self::$ezSqlDB->escape($itemTitleFinal)."',
 				tbl_content.content_value = '".self::$ezSqlDB->escape(json_encode($itemValue))."',
 				tbl_content.content_last_updated = SYSDATE(),
 				tbl_content.content_last_updated_by_userID = 0
