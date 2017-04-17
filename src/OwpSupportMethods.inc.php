@@ -173,4 +173,17 @@ class OwpSupportMethods
     }//end get_php_classes()
 
 
+    /**
+     * OwpPCdebug
+     *
+     * @method OwpPCdebug($object, $tag) Debug method.
+     * @param  mixed $object Object to debug
+     * @param  string $tag Object tag
+     * @return mixed
+     */
+    static function OwpPCdebug($object, $tag)
+    {
+        PC::debug($object, $tag);
+        return $object;
+    }//end OwpPCdebug()
 }//end class

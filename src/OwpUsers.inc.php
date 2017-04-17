@@ -666,8 +666,7 @@ class OwpUsers
             ";
         }
 
-        return (array) OwpFramework::$ezSqlDB->get_results(
-            "
+        $query_sql = "
             SELECT
                 tbl_users.*,  
                 tbl_users_rights.is_admin,
@@ -676,8 +675,9 @@ class OwpUsers
             FROM tbl_users
             LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID " . $where . "
             ORDER BY " . $orderBy . "
-            LIMIT " . (int)$limit, ARRAY_A
-        );
+            LIMIT " . (int)$limit;
+
+        return OwpSupportMethods::OwpPCdebug(array("query_sql"=>$query_sql,"get_results"=>OwpFramework::$ezSqlDB->get_results($query_sql, ARRAY_A)), "OwpUsers.getUsers");
 
     }//end getUsers()
 
