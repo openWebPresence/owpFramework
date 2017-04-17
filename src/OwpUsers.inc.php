@@ -684,6 +684,33 @@ class OwpUsers
 
 
     /**
+     * getUserRecord
+     *
+     * @method int getUserRecord($userID) Get user record.
+     * @access public
+     *
+     * @param integer $userID UserID
+     *
+     * @return mixed
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function getUserRecord($userID)
+    {
+        $a1 = self::get_user_record_byID_noMeta($userID);
+        if(!$a1) {
+            return false;
+        }
+        unset($a1["passwd"]);
+        $a2 = self::getUserMetaData((int)$userID);
+
+        return (array)array_merge($a1, $a2);
+
+    }//end getUserRecord()
+
+
+    /**
      * isAdmin
      *
      * @method isAdmin() Returns true if the user is flagged as an admin
