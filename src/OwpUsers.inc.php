@@ -638,6 +638,51 @@ class OwpUsers
 
 
     /**
+     * getUsers
+     *
+     * @method int getUsers($q, $orderBy, $limit) Get the userID via the lost UUID token, previously set by setLostPassUUID()
+     * @access public
+     *
+     * @param string $q Search (optional)
+     * @param string $orderBy Order By (optional)
+     * @param integer $limit Limit (optional)
+     *
+     * @return array
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20)
+    {
+        $where = "";
+
+        if($q)
+        {
+            $where = "
+            WHERE
+                tbl_users.email LIKE '%" . OwpFramework::$ezSqlDB->escape($q) . "%'
+            OR
+                CONCAT(tbl_users.first_name, ' ', tbl_users.first_name) LIKE '%" . OwpFramework::$ezSqlDB->escape($q) . "%'
+            ";
+        }
+
+        return (array) OwpFramework::$ezSqlDB->get_results(
+            "
+            SELECT
+                tbl_users.*,  
+                tbl_users_rights.is_admin,
+                tbl_users_rights.hide_ads,
+                tbl_users_rights.is_dev
+            FROM tbl_users " . $where . "
+            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID
+            ORDER BY " . $orderBy . "
+            LIMIT " . (int)$limit, ARRAY_A
+        );
+
+    }//end getUsers()
+
+
+    /**
      * isAdmin
      *
      * @method isAdmin() Returns true if the user is flagged as an admin
