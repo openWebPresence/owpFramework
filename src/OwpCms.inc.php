@@ -202,6 +202,27 @@ class OwpCms
 
 
     /**
+     * getDataRow
+     *
+     * @method mixed getDataRow() Get CMS Data Row
+     * @access private
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static private function getDataRow($content_name)
+    {
+        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB->use_disk_cache = false;
+        self::$ezSqlDB->cache_queries  = false;
+        self::$ezSqlDB->hide_errors();
+
+        return self::$ezSqlDB->get_row("SELECT * FROM tbl_content WHERE tbl_content.content_name = '" . self::$ezSqlDB->escape($content_name) . "' LIMIT 1");
+
+    }//end getDataRow()
+
+
+    /**
      * getModDataItem
      *
      * @method mixed getModDataItem($itemName) Add mod data by key
@@ -320,7 +341,7 @@ class OwpCms
 				tbl_content.content_title = '".self::$ezSqlDB->escape($itemTitleFinal)."',
 				tbl_content.content_value = '".self::$ezSqlDB->escape(json_encode($itemValue))."',
 				tbl_content.content_last_updated = SYSDATE(),
-				tbl_content.content_last_updated_by_userID = 0
+				tbl_content.content_last_updated_by_userID = " . OwpUsers::userID() . "
 		"
         );
         if (self::$ezSqlDB->query('COMMIT') !== false) {
