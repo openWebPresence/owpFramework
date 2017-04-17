@@ -218,6 +218,10 @@ class OwpCms
      */
     static public function getModDataItem($itemName)
     {
+        if(!self::$settings_data) {
+            self::loadSettings();
+        }
+
         if(isset(self::$settings_data[$itemName])) {
             return self::$settings_data[$itemName];
         } else {
