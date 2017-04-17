@@ -673,8 +673,8 @@ class OwpUsers
                 tbl_users_rights.is_admin,
                 tbl_users_rights.hide_ads,
                 tbl_users_rights.is_dev
-            FROM tbl_users " . $where . "
-            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID
+            FROM tbl_users
+            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID " . $where . "
             ORDER BY " . $orderBy . "
             LIMIT " . (int)$limit, ARRAY_A
         );
