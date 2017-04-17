@@ -652,7 +652,7 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20)
+    static public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20)
     {
         $where = "";
 
