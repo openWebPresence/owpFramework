@@ -28,6 +28,47 @@ class OwpEzSqlMysql extends ezSQL_mysql
 
 
     /**
+     * debugPhpConsole
+     *
+     * @method void debugPhpConsole()
+     * @access public
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole") {
+        $debug = array("about"=>"ezSQL (v".EZSQL_VERSION.")");
+
+        if ( $this->last_error )
+        {
+            $debug["last_error"] = $this->last_error;
+        }
+
+        if ( $this->last_query )
+        {
+            $debug["last_query"] = $this->last_query;
+        }
+
+        if($this->captured_errors)
+        {
+            $debug["captured_errors"] = $this->captured_errors;
+        }
+
+        if($this->col_info)
+        {
+            $debug["col_info"] = $this->col_info;
+        }
+
+        if($this->last_result)
+        {
+            $debug["last_result"] = $this->get_results(null,ARRAY_N);
+        }
+
+        PC::debug($debug, $title);
+    }//end debugPhpConsole()
+
+
+    /**
      * Debug
      *
      * @method void __debugInfo()
