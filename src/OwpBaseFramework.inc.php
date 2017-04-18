@@ -109,8 +109,8 @@ class OwpBaseFramework
 
         $this->frameworkObject = $frameworkObject;
         $this->ezSqlDB = (object)$frameworkObject["ezSqlDB"];
-        $this->current_web_root = (string)$frameworkObject["frameworkVariables"]["current_web_root"];
-        $this->root_path = (string)$frameworkObject["frameworkVariables"]["root_path"];
+        $this->current_web_root = (string)CURRENT_WEB_ROOT;
+        $this->root_path = (string)ROOT_PATH;
         $this->requested_action = (string)$frameworkObject["frameworkVariables"]["requested_action"];
         $this->uuid = (string)$frameworkObject["frameworkVariables"]["uuid"];
         $this->userClass = (object)$frameworkObject["userClass"];
