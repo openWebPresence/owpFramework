@@ -119,7 +119,7 @@ class OwpUsers
      * @access public
      * @uses   $this->isAdmin()
      * @uses   $this->userData()
-     * @uses    self::userID()
+     * @uses   self::userID()
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -633,52 +633,6 @@ class OwpUsers
 
 
     /**
-     * getUsers
-     *
-     * @method int getUsers($q, $orderBy, $limit) Get the userID via the lost UUID token, previously set by setLostPassUUID()
-     * @access public
-     *
-     * @param string $q Search (optional)
-     * @param string $orderBy Order By (optional)
-     * @param integer $limit Limit (optional)
-     *
-     * @return array
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    static public function getUsers($q = "", $orderBy = "tbl_users.first_name, tbl_users.last_name", $limit = 20, $page = 1)
-    {
-        $where = "";
-
-        if($q)
-        {
-            $where = "
-            WHERE
-                tbl_users.email LIKE '%" . OwpFramework::$ezSqlDB->escape($q) . "%'
-            OR
-                CONCAT(tbl_users.first_name, ' ', tbl_users.first_name) LIKE '%" . OwpFramework::$ezSqlDB->escape($q) . "%'
-            ";
-        }
-
-        $query_sql = "
-            SELECT
-                tbl_users.*,  
-                tbl_users_rights.is_admin,
-                tbl_users_rights.hide_ads,
-                tbl_users_rights.is_dev
-            FROM tbl_users
-            LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID " . $where . "
-            ORDER BY " . $orderBy . "
-            LIMIT " . (int)$limit;
-
-        PC::debug($query_sql,"OwpUsers.getUsers.query_sql");
-        return OwpSupportMethods::OwpPCdebug(OwpFramework::$ezSqlDB->get_results($query_sql, ARRAY_A), "OwpUsers.getUsers.results");
-
-    }//end getUsers()
-
-
-    /**
      * getUserRecord
      *
      * @method int getUserRecord($userID) Get user record.
@@ -701,7 +655,7 @@ class OwpUsers
         unset($a1["passwd"]);
         $a2 = $OwpUsers->getUserMetaData((int)$userID);
 
-        return OwpSupportMethods::OwpPCdebug((array)array_merge($a1, $a2),"OwpUsers.getUserRecord");
+        return OwpSupportMethods::OwpPCdebug((array)array_merge($a1, $a2), "OwpUsers.getUserRecord");
 
     }//end getUserRecord()
 
@@ -805,8 +759,7 @@ class OwpUsers
             }
 
             $a2 = $this->getUserMetaData((int)self::userID());
-            if($a2)
-            {
+            if($a2) {
                 $_SESSION["userData"] = array_merge($a1, $a2);
             }
             else

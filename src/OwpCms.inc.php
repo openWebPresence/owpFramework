@@ -205,19 +205,23 @@ class OwpCms
      * getDataRow
      *
      * @method mixed getDataRow() Get CMS Data Row
-     * @access private
+     * @access public
+     *
+     * @param string $content_name Content Key
+     *
+     * @return array
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    static private function getDataRow($content_name)
+    static public function getDataRow($content_name)
     {
         self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
 
-        return self::$ezSqlDB->get_row("SELECT * FROM tbl_content WHERE tbl_content.content_name = '" . self::$ezSqlDB->escape($content_name) . "' LIMIT 1");
+        return self::$ezSqlDB->get_row("SELECT * FROM tbl_content WHERE tbl_content.content_name = '" . self::$ezSqlDB->escape($content_name) . "' LIMIT 1", ARRAY_A);
 
     }//end getDataRow()
 
@@ -313,11 +317,12 @@ class OwpCms
     /**
      * setModDataItem
      *
-     * @method mixed setModDataItem($itemName, $itemValue) Add mod data by key
+     * @method mixed setModDataItem($itemName, $itemValue, $itemTitle) Add mod data by key
      * @access public
      *
      * @param  string $itemName  Mod data array key
      * @param  mixed  $itemValue Mod data value
+     * @param  string $itemTitle optional Mod data value
      * @return mixed Array value
      * @throws Exception SQL exception
      *

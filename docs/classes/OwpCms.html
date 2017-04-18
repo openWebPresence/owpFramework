@@ -85,6 +85,7 @@
 <li class="method public "><a href="#method___set" title="__set() :: __set"><span class="description">__set</span><pre>__set()</pre></a></li>
 <li class="method public "><a href="#method___unset" title="__unset() :: __unset"><span class="description">__unset</span><pre>__unset()</pre></a></li>
 <li class="method public "><a href="#method_deleteModDataItem" title="deleteModDataItem() :: deleteModDataItem"><span class="description">deleteModDataItem</span><pre>deleteModDataItem()</pre></a></li>
+<li class="method public "><a href="#method_getDataRow" title="getDataRow() :: getDataRow"><span class="description">getDataRow</span><pre>getDataRow()</pre></a></li>
 <li class="method public "><a href="#method_getModDataItem" title="getModDataItem() :: getModDataItem"><span class="description">getModDataItem</span><pre>getModDataItem()</pre></a></li>
 <li class="method public "><a href="#method_macroKeyList" title="macroKeyList() :: macroKeyList"><span class="description">macroKeyList</span><pre>macroKeyList()</pre></a></li>
 <li class="method public "><a href="#method_macroReplace" title="macroReplace() :: macroReplace"><span class="description">macroReplace</span><pre>macroReplace()</pre></a></li>
@@ -349,6 +350,38 @@
 <code>mixed</code>Array value</div>
 </div></div>
 </div>
+<a id="method_getDataRow"></a><div class="element clickable method public method_getDataRow " data-toggle="collapse" data-target=".method_getDataRow .collapse" title="public">
+<h2>getDataRow</h2>
+<pre>getDataRow(string $content_name) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Get CMS Data Row</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$content_name</h4>
+<code>string</code><p>Content Key</p></div>
+<h3>Returns</h3>
+<div class="subelement response"><code>array</code></div>
+</div></div>
+</div>
 <a id="method_getModDataItem"></a><div class="element clickable method public method_getModDataItem " data-toggle="collapse" data-target=".method_getModDataItem .collapse" title="public">
 <h2>getModDataItem</h2>
 <pre>getModDataItem(string $itemName) : mixed</pre>
@@ -457,7 +490,7 @@
 </div>
 <a id="method_setModDataItem"></a><div class="element clickable method public method_setModDataItem " data-toggle="collapse" data-target=".method_setModDataItem .collapse" title="public">
 <h2>setModDataItem</h2>
-<pre>setModDataItem(string $itemName, mixed $itemValue) : mixed</pre>
+<pre>setModDataItem(string $itemName, mixed $itemValue, string $itemTitle<code> = ""</code>) : mixed</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -486,6 +519,9 @@
 <div class="subelement argument">
 <h4>$itemValue</h4>
 <code>mixed</code><p>Mod data value</p></div>
+<div class="subelement argument">
+<h4>$itemTitle</h4>
+<code>string</code><p>optional Mod data value</p></div>
 <h3>Exceptions</h3>
 <table class="table table-bordered"><tr>
 <th><code>\Exception</code></th>
@@ -581,7 +617,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-04-13T00:18:21-04:00.<br></footer></div>
+            generated on 2017-04-17T20:05:11-04:00.<br></footer></div>
 </div>
 </body>
 </html>

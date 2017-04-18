@@ -177,8 +177,8 @@ class OwpSupportMethods
      * OwpPCdebug
      *
      * @method OwpPCdebug($object, $tag) Debug method.
-     * @param  mixed $object Object to debug
-     * @param  string $tag Object tag
+     * @param  mixed  $object Object to debug
+     * @param  string $tag    Object tag
      * @return mixed
      */
     static function OwpPCdebug($object, $tag)
