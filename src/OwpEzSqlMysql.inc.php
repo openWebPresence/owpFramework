@@ -28,6 +28,12 @@ class OwpEzSqlMysql extends ezSQL_mysql
 
 
     /**
+     * @var object $ezSqlDB ezSQL Database Object
+     */
+    static private $ezSqlDB;
+
+
+    /**
      * debugPhpConsole
      *
      * @method void debugPhpConsole()
@@ -167,5 +173,46 @@ class OwpEzSqlMysql extends ezSQL_mysql
 
     }//end MySQLFirephpGetLastMysqlError()
 
+
+    /**
+     * executeSqlFile
+     *
+     * @method void executeSqlFile($filename) Execute SQL text file
+     * @param $filename
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function executeSqlFile($filename)
+    {
+        self::initDb();
+        $query_sql = self::$ezSqlDB->escape(file_get_contents($filename));
+        return self::$ezSqlDB->query($query_sql);
+    }//end executeSqlFile()
+
+
+    /**
+     * initDb
+     *
+     * @method initDb()
+     * @access public
+     * @return object
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    static public function initDb()
+    {
+        if(!self::$ezSqlDB)
+        {
+            self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+            self::$ezSqlDB->use_disk_cache = false;
+            self::$ezSqlDB->cache_queries  = false;
+            self::$ezSqlDB->hide_errors();
+        }
+
+        return self::$ezSqlDB;
+
+    }//end initDb()
 
 }//end class
