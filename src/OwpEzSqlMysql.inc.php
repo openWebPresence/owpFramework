@@ -59,7 +59,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
             $debug["col_info"] = $this->col_info;
         }
 
-        if($this->last_result)
+        if(!empty($this->last_result))
         {
             $debug["last_result"] = $this->get_results(null,ARRAY_N);
         }
