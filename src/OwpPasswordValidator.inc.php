@@ -117,10 +117,6 @@ class OwpPasswordValidator
     {
         self::$constraint = $constraint;
 
-        if (null === $value || '' === $value) {
-            return false;
-        }
-
         $stringValue = (string) $value;
         if (function_exists('grapheme_strlen') && 'UTF-8' === self::$constraint->charset) {
             $length = grapheme_strlen($stringValue);
