@@ -28,7 +28,6 @@
 <li><a href="../packages/OwpDefaultMod.html"><i class="icon-folder-open"></i> OwpDefaultMod</a></li>
 <li><a href="../packages/OwpDkim.html"><i class="icon-folder-open"></i> OwpDkim</a></li>
 <li><a href="../packages/OwpEzSqlMysql.html"><i class="icon-folder-open"></i> OwpEzSqlMysql</a></li>
-<li><a href="../packages/OwpEzSqlMysqli.html"><i class="icon-folder-open"></i> OwpEzSqlMysqli</a></li>
 <li><a href="../packages/OwpFramework.html"><i class="icon-folder-open"></i> OwpFramework</a></li>
 <li><a href="../packages/OwpMessaging.html"><i class="icon-folder-open"></i> OwpMessaging</a></li>
 <li><a href="../packages/OwpMod.html"><i class="icon-folder-open"></i> OwpMod</a></li>
@@ -103,6 +102,7 @@
 <li class="method public "><a href="#method_setLostPassUUIDViaEmail" title="setLostPassUUIDViaEmail() :: setLostPassUUIDViaEmail"><span class="description">setLostPassUUIDViaEmail</span><pre>setLostPassUUIDViaEmail()</pre></a></li>
 <li class="method public "><a href="#method_setStatusID" title="setStatusID() :: setStatusID"><span class="description">setStatusID</span><pre>setStatusID()</pre></a></li>
 <li class="method public "><a href="#method_updateLoginCount" title="updateLoginCount() :: updateLoginCount"><span class="description">updateLoginCount</span><pre>updateLoginCount()</pre></a></li>
+<li class="method public "><a href="#method_updateLostPassword" title="updateLostPassword() :: updateLostPassword"><span class="description">updateLostPassword</span><pre>updateLostPassword()</pre></a></li>
 <li class="method public "><a href="#method_updatePassword" title="updatePassword() :: updatePassword"><span class="description">updatePassword</span><pre>updatePassword()</pre></a></li>
 <li class="method public "><a href="#method_updateUser" title="updateUser() :: updateUser"><span class="description">updateUser</span><pre>updateUser()</pre></a></li>
 <li class="method public "><a href="#method_updateUserAdminRights" title="updateUserAdminRights() :: updateUserAdminRights"><span class="description">updateUserAdminRights</span><pre>updateUserAdminRights()</pre></a></li>
@@ -1011,6 +1011,54 @@
 <code>integer</code><p>Existing userID</p></div>
 </div></div>
 </div>
+<a id="method_updateLostPassword"></a><div class="element clickable method public method_updateLostPassword " data-toggle="collapse" data-target=".method_updateLostPassword .collapse" title="public">
+<h2>updateLostPassword</h2>
+<pre>updateLostPassword(string $password, string $uuid) : boolean</pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Usually used in conjunction with getUserIDViaLostPassUUID() and setLostPassUUID() for lost passwords or to the user to updated their own passwrd</td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5COwpUsers::getUserIDViaLostPassUUID()"></a></td>
+</tr>
+<tr>
+<th>see</th>
+<td><a href="%5COwpUsers::setLostPassUUID()"></a></td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$password</h4>
+<code>string</code><p>New user password</p></div>
+<div class="subelement argument">
+<h4>$uuid</h4>
+<code>string</code><p>Lost Pass UUID</p></div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Thrown on UDF failures code 30</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response"><code>boolean</code></div>
+</div></div>
+</div>
 <a id="method_updatePassword"></a><div class="element clickable method public method_updatePassword " data-toggle="collapse" data-target=".method_updatePassword .collapse" title="public">
 <h2>updatePassword</h2>
 <pre>updatePassword(string $password, integer $userID) : boolean</pre>
@@ -1672,7 +1720,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-04-17T20:05:11-04:00.<br></footer></div>
+            generated on 2017-04-19T21:10:59-04:00.<br></footer></div>
 </div>
 </body>
 </html>

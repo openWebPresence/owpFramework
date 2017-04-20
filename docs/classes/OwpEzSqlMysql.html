@@ -28,7 +28,6 @@
 <li><a href="../packages/OwpDefaultMod.html"><i class="icon-folder-open"></i> OwpDefaultMod</a></li>
 <li><a href="../packages/OwpDkim.html"><i class="icon-folder-open"></i> OwpDkim</a></li>
 <li><a href="../packages/OwpEzSqlMysql.html"><i class="icon-folder-open"></i> OwpEzSqlMysql</a></li>
-<li><a href="../packages/OwpEzSqlMysqli.html"><i class="icon-folder-open"></i> OwpEzSqlMysqli</a></li>
 <li><a href="../packages/OwpFramework.html"><i class="icon-folder-open"></i> OwpFramework</a></li>
 <li><a href="../packages/OwpMessaging.html"><i class="icon-folder-open"></i> OwpMessaging</a></li>
 <li><a href="../packages/OwpMod.html"><i class="icon-folder-open"></i> OwpMod</a></li>
@@ -74,14 +73,26 @@
 <button class="btn details" title="Show descriptions and method names"><i class="icon-list"></i></button><button class="btn simple" title="Show only method names"><i class="icon-align-justify"></i></button>
 </div>
 </div>
-<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list"><li class="nav-header">
+<ul xmlns:php="http://php.net/xsl" class="side-nav nav nav-list">
+<li class="nav-header">
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method_MySQLFirephp" title="MySQLFirephp() :: MySQLFirephp()"><span class="description">MySQLFirephp()</span><pre>MySQLFirephp()</pre></a></li>
 <li class="method public "><a href="#method_MySQLFirephpGetLastMysqlError" title="MySQLFirephpGetLastMysqlError() :: MySQLFirephpGetLastMysqlError()"><span class="description">MySQLFirephpGetLastMysqlError()</span><pre>MySQLFirephpGetLastMysqlError()</pre></a></li>
 <li class="method public "><a href="#method___debugInfo" title="__debugInfo() :: Debug"><span class="description">Debug</span><pre>__debugInfo()</pre></a></li>
+<li class="method public "><a href="#method_debugPhpConsole" title="debugPhpConsole() :: debugPhpConsole"><span class="description">debugPhpConsole</span><pre>debugPhpConsole()</pre></a></li>
+<li class="method public "><a href="#method_executeSqlFile" title="executeSqlFile() :: executeSqlFile"><span class="description">executeSqlFile</span><pre>executeSqlFile()</pre></a></li>
+<li class="method public "><a href="#method_initDb" title="initDb() :: initDb"><span class="description">initDb</span><pre>initDb()</pre></a></li>
 </ul>
-</li></ul>
+</li>
+<li class="nav-header">
+<i title="Properties" class="icon-custom icon-property"></i> Properties
+                    <ul></ul>
+</li>
+<li class="nav-header private">» Private
+                    <ul><li class="property private "><a href="#property_ezSqlDB" title="$ezSqlDB() :: "><span class="description">ezSQL Database Object</span><pre>$ezSqlDB</pre></a></li></ul>
+</li>
+</ul>
 </div>
 <div class="span8">
 <a xmlns:php="http://php.net/xsl" id="\OwpEzSqlMysql"></a><ul xmlns:php="http://php.net/xsl" class="breadcrumb">
@@ -195,6 +206,100 @@
 </table>
 </div></div>
 </div>
+<a id="method_debugPhpConsole"></a><div class="element clickable method public method_debugPhpConsole " data-toggle="collapse" data-target=".method_debugPhpConsole .collapse" title="public">
+<h2>debugPhpConsole</h2>
+<pre>debugPhpConsole(string $title<code> = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole"</code>) </pre>
+<div class="labels"></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument">
+<h4>$title</h4>
+<code>string</code><p>Debug Title</p></div>
+</div></div>
+</div>
+<a id="method_executeSqlFile"></a><div class="element clickable method public method_executeSqlFile " data-toggle="collapse" data-target=".method_executeSqlFile .collapse" title="public">
+<h2>executeSqlFile</h2>
+<pre>executeSqlFile($filename) </pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td>Execute SQL text file</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$filename</h4></div>
+</div></div>
+</div>
+<a id="method_initDb"></a><div class="element clickable method public method_initDb " data-toggle="collapse" data-target=".method_initDb .collapse" title="public">
+<h2>initDb</h2>
+<pre>initDb() : object</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="mailto:btafoya@briantafoya.com">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Returns</h3>
+<div class="subelement response"><code>object</code></div>
+</div></div>
+</div>
+<h3>
+<i title="Properties" class="icon-custom icon-property"></i> Properties</h3>
+<a id="property_ezSqlDB"> </a><div class="element clickable property private property_ezSqlDB" data-toggle="collapse" data-target=".property_ezSqlDB .collapse" title="private">
+<h2>ezSQL Database Object</h2>
+<pre>$ezSqlDB : object</pre>
+<div class="row collapse"><div class="detail-description">
+<h3>Default</h3>
+<div class="subelement argument"></div>
+</div></div>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description"><div class="long_description"></div></div></div>
+</div>
 </div>
 </div>
 </div>
@@ -202,7 +307,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-04-17T20:05:11-04:00.<br></footer></div>
+            generated on 2017-04-19T21:10:59-04:00.<br></footer></div>
 </div>
 </body>
 </html>

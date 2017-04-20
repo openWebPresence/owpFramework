@@ -38,37 +38,33 @@ class OwpEzSqlMysql extends ezSQL_mysql
      *
      * @method void debugPhpConsole()
      * @access public
-     * @param string $title Debug Title
+     * @param  string $title Debug Title
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole") {
+    public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole") 
+    {
         $debug = array("about"=>"ezSQL (v".EZSQL_VERSION.")");
 
-        if ( $this->last_error )
-        {
+        if ($this->last_error ) {
             $debug["last_error"] = $this->last_error;
         }
 
-        if ( $this->last_query )
-        {
+        if ($this->last_query ) {
             $debug["last_query"] = $this->last_query;
         }
 
-        if($this->captured_errors)
-        {
+        if($this->captured_errors) {
             $debug["captured_errors"] = $this->captured_errors;
         }
 
-        if($this->col_info)
-        {
+        if($this->col_info) {
             $debug["col_info"] = $this->col_info;
         }
 
-        if(!empty($this->last_result))
-        {
-            $debug["last_result"] = $this->get_results(null,ARRAY_N);
+        if(!empty($this->last_result)) {
+            $debug["last_result"] = $this->get_results(null, ARRAY_N);
         }
 
         PC::debug($debug, $title);
@@ -181,7 +177,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      * executeSqlFile
      *
      * @method void executeSqlFile($filename) Execute SQL text file
-     * @param $filename
+     * @param  $filename
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -206,8 +202,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      */
     static public function initDb()
     {
-        if(!self::$ezSqlDB)
-        {
+        if(!self::$ezSqlDB) {
             self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
             self::$ezSqlDB->use_disk_cache = false;
             self::$ezSqlDB->cache_queries  = false;

@@ -1088,7 +1088,7 @@ class OwpUsers
      * @see    OwpUsers::setLostPassUUID()
      *
      * @param string $password New user password
-     * @param string    $uuid  Lost Pass UUID
+     * @param string $uuid     Lost Pass UUID
      *
      * @throws Exception Thrown on UDF failures code 30
      *
