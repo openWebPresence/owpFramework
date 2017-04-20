@@ -1054,6 +1054,90 @@ class OwpUsers
 
 
     /**
+     * updateLoginCount
+     *
+     * @method updateLoginCount($userID) Updating the login counter as well as the user's current IP address
+     * @access public
+     *
+     * @param int $userID Existing userID
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function updateLoginCount($userID)
+    {
+        OwpFramework::$ezSqlDB->query(
+            "
+            UPDATE tbl_users
+            SET tbl_users.login_count = tbl_users.login_count + 1,
+                tbl_users.user_last_login_datetime = SYSDATE(),
+                tbl_users.user_ip = '".OwpSupportMethods::GetUserIP()."'
+            WHERE tbl_users.userID = ".(int) $userID."
+            LIMIT 1"
+        );
+
+    }//end updateLoginCount()
+
+
+    /**
+     * updateLostPassword
+     *
+     * @method updateLostPassword($password, $uuid) Usually used in conjunction with getUserIDViaLostPassUUID() and setLostPassUUID() for lost passwords or to the user to updated their own passwrd
+     * @access public
+     * @see    OwpUsers::getUserIDViaLostPassUUID()
+     * @see    OwpUsers::setLostPassUUID()
+     *
+     * @param string $password New user password
+     * @param string    $uuid  Lost Pass UUID
+     *
+     * @throws Exception Thrown on UDF failures code 30
+     *
+     * @return boolean
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function updateLostPassword($password, $uuid)
+    {
+        $new_hash = $this->genPasswdHash($password);
+
+        OwpFramework::$ezSqlDB->query('BEGIN');
+
+        OwpFramework::$ezSqlDB->query(
+            "
+            UPDATE tbl_users
+            SET tbl_users.passwd = '".$new_hash."',
+                tbl_users.statusID = 2,
+                tbl_users.reset_pass_uuid = NULL
+            WHERE tbl_users.reset_pass_uuid = '".(string) $uuid."'
+            LIMIT 1"
+        );
+
+        // Execute owpUDF_On_updatePassword user defined function
+        if (function_exists("owpUDF_On_updatePassword")) {
+            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)  self::userID(), "db" => OwpFramework::$ezSqlDB));
+            if ($owpUDF_On_updatePassword) {
+                throw new Exception($owpUDF_On_updatePassword, 30);
+            }
+        }
+
+        if (OwpFramework::$ezSqlDB->query('COMMIT') !== false) {
+            return true;
+        } else {
+            // transaction failed, rollback
+            OwpFramework::$ezSqlDB->query('ROLLBACK');
+            $this->errors[] = array(
+                "message" => "updateLostPassword: transaction failed, rollback.",
+                "details" => array("last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError()),
+            );
+
+            return false;
+        }
+
+    }//end updateLostPassword()
+
+
+    /**
      * updatePassword
      *
      * @method updatePassword($password, $userID) Usually used in conjunction with getUserIDViaLostPassUUID() and setLostPassUUID() for lost passwords or to the user to updated their own passwrd
@@ -1250,6 +1334,35 @@ class OwpUsers
 
 
     /**
+     * updateUserAdminRights
+     *
+     * @method updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) Updating the login counter as well as the user's current IP address
+     * @access public
+     *
+     * @param int $userID   New or Existing userID
+     * @param int $is_admin (optional) Designate as an admin
+     * @param int $hide_ads (optional) Hide ads
+     * @param int $is_dev   (optional) Enable dev features
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0)
+    {
+        OwpFramework::$ezSqlDB->query(
+            "
+            REPLACE INTO tbl_users_rights
+            SET tbl_users_rights.userID = ".(int) $userID.",
+                tbl_users_rights.is_admin = ".(int) $is_admin.",
+                tbl_users_rights.hide_ads = ".(int) $hide_ads.",
+                tbl_users_rights.is_dev = ".(int) $is_dev."
+            "
+        );
+
+    }//end updateUserAdminRights()
+
+
+    /**
      * userExistsViaEmail
      *
      * @method userExistsViaEmail($email) Check if user exists via email
@@ -1411,61 +1524,6 @@ class OwpUsers
         }
 
     }//end userLoginViaUserID()
-
-
-    /**
-     * updateLoginCount
-     *
-     * @method updateLoginCount($userID) Updating the login counter as well as the user's current IP address
-     * @access public
-     *
-     * @param int $userID Existing userID
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function updateLoginCount($userID)
-    {
-        OwpFramework::$ezSqlDB->query(
-            "
-            UPDATE tbl_users
-            SET tbl_users.login_count = tbl_users.login_count + 1,
-                tbl_users.user_last_login_datetime = SYSDATE(),
-                tbl_users.user_ip = '".OwpSupportMethods::GetUserIP()."'
-            WHERE tbl_users.userID = ".(int) $userID."
-            LIMIT 1"
-        );
-
-    }//end updateLoginCount()
-
-
-    /**
-     * updateUserAdminRights
-     *
-     * @method updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) Updating the login counter as well as the user's current IP address
-     * @access public
-     *
-     * @param int $userID   New or Existing userID
-     * @param int $is_admin (optional) Designate as an admin
-     * @param int $hide_ads (optional) Hide ads
-     * @param int $is_dev   (optional) Enable dev features
-     *
-     * @author  Brian Tafoya <btafoya@briantafoya.com>
-     * @version 1.0
-     */
-    public function updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0)
-    {
-        OwpFramework::$ezSqlDB->query(
-            "
-            REPLACE INTO tbl_users_rights
-            SET tbl_users_rights.userID = ".(int) $userID.",
-                tbl_users_rights.is_admin = ".(int) $is_admin.",
-                tbl_users_rights.hide_ads = ".(int) $hide_ads.",
-                tbl_users_rights.is_dev = ".(int) $is_dev."
-            "
-        );
-
-    }//end updateUserAdminRights()
 
 
     /**

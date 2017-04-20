@@ -38,6 +38,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      *
      * @method void debugPhpConsole()
      * @access public
+     * @param string $title Debug Title
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -92,7 +93,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
                 "Last Error"    => $this->last_error,
                 "Last Query"    => $this->last_query,
                 "Last Col Info" => $this->col_info,
-                "Last Result"   => ($this->last_result ? $this->get_results(null, ARRAY_A) : "No Results"),
+                "Last Result"   => (!empty($this->last_result) ? $this->get_results(null, ARRAY_A) : "No Results"),
                ];
 
     }//end __debugInfo()
@@ -144,10 +145,12 @@ class OwpEzSqlMysql extends ezSQL_mysql
 
         $table[] = array(
                     'Last Result',
-                    ($this->last_result ? $this->get_results(null, ARRAY_A) : "No Results"),
+                    (!empty($this->last_result) ? $this->get_results(null, ARRAY_A) : "No Results"),
                    );
 
         $this->debug_called = true;
+
+        PC::debug($table, $title);
 
     }//end MySQLFirephp()
 
@@ -165,7 +168,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      */
     public function MySQLFirephpGetLastMysqlError()
     {
-        if ($this->last_error) {
+        if (!empty($this->last_error)) {
             return $this->last_error;
         } else {
             return null;

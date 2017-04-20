@@ -96,7 +96,7 @@ class OwpPasswordValidator
     static public $violations = array();
 
     /**
-     * @var string $constraint Validation constraints
+     * @var object $constraint Validation constraints
      */
     static public $constraint;
 
@@ -107,7 +107,7 @@ class OwpPasswordValidator
      * @method validate($value, $constraint)
      * @access public
      * @param  string $value      Password value
-     * @param  string $constraint Constraints
+     * @param  object $constraint Constraints
      * @return mixed Violation array or false if no violations
      *
      * @author  Brian Tafoya
