@@ -216,7 +216,7 @@ class OwpCms
      */
     static public function getDataRow($content_name)
     {
-        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
@@ -344,7 +344,7 @@ class OwpCms
 			SET
 				tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."',
 				tbl_content.content_title = '".self::$ezSqlDB->escape($itemTitleFinal)."',
-				tbl_content.content_value = '".self::$ezSqlDB->escape(json_encode($itemValue))."',
+				tbl_content.content_value = '".self::$ezSqlDB->escape($itemValue)."',
 				tbl_content.content_last_updated = SYSDATE(),
 				tbl_content.content_last_updated_by_userID = " . OwpUsers::userID() . "
 		"
@@ -372,7 +372,7 @@ class OwpCms
      */
     static private function loadSettings()
     {
-        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
@@ -381,9 +381,11 @@ class OwpCms
         self::$settings_data = array();
         if($tmp) {
             foreach ($tmp as $t) {
-                self::$settings_data[$t->content_name] = json_decode($t->content_value, true);
+                self::$settings_data[$t->content_name] = $t->content_value;
             }
         }
+
+        PC::debug(self::$settings_data, "OwpCms.loadSettings");
 
     }//end loadSettings()
 
