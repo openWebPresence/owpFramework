@@ -342,9 +342,9 @@ class OwpCms
             "
 			REPLACE INTO tbl_content
 			SET
-				tbl_content.content_name = '".self::$ezSqlDB->escape($itemName)."',
-				tbl_content.content_title = '".self::$ezSqlDB->escape($itemTitleFinal)."',
-				tbl_content.content_value = '".self::$ezSqlDB->escape($itemValue)."',
+				tbl_content.content_name = '".self::$ezSqlDB->escape((string)$itemName)."',
+				tbl_content.content_title = '".self::$ezSqlDB->escape((string)$itemTitleFinal)."',
+				tbl_content.content_value = '".self::$ezSqlDB->escape((string)$itemValue)."',
 				tbl_content.content_last_updated = SYSDATE(),
 				tbl_content.content_last_updated_by_userID = " . OwpUsers::userID() . "
 		"

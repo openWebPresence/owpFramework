@@ -32,11 +32,11 @@ class OwpCms_test extends TestCase
     public function testSetGet()
     {
         $OwpCms =  new OwpCms();
-        $OwpCms->WhatDoISay = array("HelloILoveYou");
+        $OwpCms->WhatDoISay = "HelloILoveYou";
 
         $this->assertEquals(
             $OwpCms->WhatDoISay,
-            array("HelloILoveYou")
+            "HelloILoveYou"
         );
     }
 
