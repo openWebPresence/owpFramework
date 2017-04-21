@@ -108,7 +108,7 @@ class OwpUsers
     public function __construct()
     {
         $this->current_web_root = CURRENT_WEB_ROOT;
-        $this->root_path        = ROOT_PATH;
+        $this->root_path = ROOT_PATH;
     }//end __construct()
 
 
@@ -127,11 +127,11 @@ class OwpUsers
     public function __debugInfo()
     {
         return [
-                "isAdmin"      => $this->isAdmin(),
-                "MySQL_Errors" => OwpFramework::$ezSqlDB->captured_errors,
-                "userData"     => $this->userData(),
-                "userID"       =>  self::userID(),
-               ];
+            "isAdmin" => $this->isAdmin(),
+            "MySQL_Errors" => OwpFramework::$ezSqlDB->captured_errors,
+            "userData" => $this->userData(),
+            "userID" => self::userID(),
+        ];
 
     }//end __debugInfo()
 
@@ -156,18 +156,18 @@ class OwpUsers
     {
 
         $required_columns = array(
-                             "email",
-                             "passwd",
-                             "first_name",
-                             "last_name",
-                             "statusID",
-                             "welcome_email_sent",
-                            );
+            "email",
+            "passwd",
+            "first_name",
+            "last_name",
+            "statusID",
+            "welcome_email_sent",
+        );
 
         $missing_columns = array_diff($required_columns, array_keys($data_array));
 
         if ($missing_columns) {
-            throw new Exception("The following columns are missing: ".implode(", ", $missing_columns));
+            throw new Exception("The following columns are missing: " . implode(", ", $missing_columns));
         }
 
         // Execute owpUDF_On_addUserValiateData user defined function
@@ -181,18 +181,18 @@ class OwpUsers
         $validator = new EmailValidator();
         $multipleValidations = new MultipleValidationWithAnd(
             [
-            new RFCValidation(),
-            new DNSCheckValidation(),
-            new SpoofCheckValidation()
+                new RFCValidation(),
+                new DNSCheckValidation(),
+                new SpoofCheckValidation()
             ]
         );
 
         if (!$validator->isValid($data_array["email"], $multipleValidations)) {
-            throw new Exception("Invalid Email: ".(string) $data_array["email"]);
+            throw new Exception("Invalid Email: " . (string)$data_array["email"]);
         }
 
-        if (!self::validateStatusID((int) $data_array["statusID"])) {
-            throw new Exception("Invalid statusID: ".(int) $data_array["statusID"]);
+        if (!self::validateStatusID((int)$data_array["statusID"])) {
+            throw new Exception("Invalid statusID: " . (int)$data_array["statusID"]);
         }
 
         if (isset($data_array["user_created_datetime"])) {
@@ -223,38 +223,38 @@ class OwpUsers
 
         $query_sql = "
             INSERT INTO tbl_users
-            SET tbl_users.email = LCASE('".filter_var($data_array["email"], FILTER_SANITIZE_EMAIL)."'),
-                tbl_users.passwd = '".(string) $new_hash."',
-                tbl_users.first_name = '".OwpFramework::$ezSqlDB->escape($data_array["first_name"])."',
-                tbl_users.last_name = '".OwpFramework::$ezSqlDB->escape($data_array["last_name"])."',
-                tbl_users.statusID = ".(int) $data_array["statusID"].",
+            SET tbl_users.email = LCASE('" . filter_var($data_array["email"], FILTER_SANITIZE_EMAIL) . "'),
+                tbl_users.passwd = '" . (string)$new_hash . "',
+                tbl_users.first_name = '" . OwpFramework::$ezSqlDB->escape($data_array["first_name"]) . "',
+                tbl_users.last_name = '" . OwpFramework::$ezSqlDB->escape($data_array["last_name"]) . "',
+                tbl_users.statusID = " . (int)$data_array["statusID"] . ",
                 tbl_users.user_created_datetime = SYSDATE(),
                 tbl_users.user_updated_datetime = SYSDATE(),
                 tbl_users.user_last_login_datetime = SYSDATE(),
                 tbl_users.login_count = 0,
-                tbl_users.welcome_email_sent = ".(int) $data_array["welcome_email_sent"].",
-                tbl_users.uuid = '".OwpSupportMethods::uuid()."',
+                tbl_users.welcome_email_sent = " . (int)$data_array["welcome_email_sent"] . ",
+                tbl_users.uuid = '" . OwpSupportMethods::uuid() . "',
                 tbl_users.reset_pass_uuid = NULL,
                 tbl_users.user_ip = NULL";
 
         OwpFramework::$ezSqlDB->query('BEGIN');
 
-        $this->userID = (OwpFramework::$ezSqlDB->query($query_sql) ? (int) OwpFramework::$ezSqlDB->insert_id : false);
+        $this->userID = (OwpFramework::$ezSqlDB->query($query_sql) ? (int)OwpFramework::$ezSqlDB->insert_id : false);
 
         if (!$this->userID) {
             OwpFramework::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("Insert tbl_users failed: ".OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
+            throw new Exception("Insert tbl_users failed: " . OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
 
         $query_sql = "
-            SELECT * FROM tbl_users WHERE tbl_users.userID = ".(int) $this->userID." LIMIT 1
+            SELECT * FROM tbl_users WHERE tbl_users.userID = " . (int)$this->userID . " LIMIT 1
         ";
 
         $current_user_row = OwpFramework::$ezSqlDB->get_row($query_sql, ARRAY_A);
 
         if (!$current_user_row) {
             OwpFramework::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("Get user failed: ".OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
+            throw new Exception("Get user failed: " . OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
 
         $core_keys = $current_user_row;
@@ -266,9 +266,9 @@ class OwpUsers
                 $query_sql = "
                     REPLACE INTO tbl_users_meta_data
                     SET
-                        tbl_users_meta_data.key_name = '".(string) $dk."',
-                        tbl_users_meta_data.key_value = '".(string) OwpFramework::$ezSqlDB->escape($dv)."',
-                        tbl_users_meta_data.userID = ".(int) $this->userID.",
+                        tbl_users_meta_data.key_name = '" . (string)$dk . "',
+                        tbl_users_meta_data.key_value = '" . (string)OwpFramework::$ezSqlDB->escape($dv) . "',
+                        tbl_users_meta_data.userID = " . (int)$this->userID . ",
                         tbl_users_meta_data.updated_ts = SYSDATE()";
 
                 OwpFramework::$ezSqlDB->query($query_sql);
@@ -280,17 +280,17 @@ class OwpUsers
             // transaction was successful
             // Execute owpUDF_On_addUserSuccess user defined function
             if (function_exists("owpUDF_On_addUserSuccess")) {
-                $owpUDF_On_addUserSuccess = owpUDF_On_addUserSuccess(array("userID" => (int) $this->userID, "db" => OwpFramework::$ezSqlDB));
+                $owpUDF_On_addUserSuccess = owpUDF_On_addUserSuccess(array("userID" => (int)$this->userID, "db" => OwpFramework::$ezSqlDB));
                 if ($owpUDF_On_addUserSuccess) {
-                    throw new Exception((string) $owpUDF_On_addUserSuccess, 30);
+                    throw new Exception((string)$owpUDF_On_addUserSuccess, 30);
                 }
             }
 
-            return (int) $this->userID;
+            return (int)$this->userID;
         } else {
             // transaction failed, rollback
             OwpFramework::$ezSqlDB->query('ROLLBACK');
-            throw new Exception("Transaction failed: ".OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
+            throw new Exception("Transaction failed: " . OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(), 10);
         }
 
     }//end addUser()
@@ -315,9 +315,9 @@ class OwpUsers
         return OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.statusID = ".(int) $statusID.",
+            SET tbl_users.statusID = " . (int)$statusID . ",
                 tbl_users.reset_pass_uuid = NULL
-            WHERE tbl_users.userID = ".(int) $userID."
+            WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1"
         );
 
@@ -342,7 +342,7 @@ class OwpUsers
     public function deleteUser($userID)
     {
 
-        if (!(int) $userID) {
+        if (!(int)$userID) {
             return false;
         }
 
@@ -350,19 +350,19 @@ class OwpUsers
 
         $query_sql = "
             DELETE FROM tbl_users
-            WHERE tbl_users.userID = ".(int) $userID." LIMIT 1";
+            WHERE tbl_users.userID = " . (int)$userID . " LIMIT 1";
 
         OwpFramework::$ezSqlDB->query($query_sql);
 
         $query_sql = "
             DELETE FROM tbl_users_meta_data
-            WHERE tbl_users_meta_data.userID = ".(int) $userID;
+            WHERE tbl_users_meta_data.userID = " . (int)$userID;
 
         OwpFramework::$ezSqlDB->query($query_sql);
 
         $query_sql = "
             DELETE FROM tbl_users_rights
-            WHERE tbl_users_rights.userID = ".(int) $userID;
+            WHERE tbl_users_rights.userID = " . (int)$userID;
 
         OwpFramework::$ezSqlDB->query($query_sql);
 
@@ -371,14 +371,14 @@ class OwpUsers
             // transaction was successful
             // Execute owpUDF_On_deleteUser user defined function
             if (function_exists("owpUDF_On_deleteUser")) {
-                $owpUDF_On_deleteUser = owpUDF_On_deleteUser(array("userID" => (int) $userID, "db" => OwpFramework::$ezSqlDB));
+                $owpUDF_On_deleteUser = owpUDF_On_deleteUser(array("userID" => (int)$userID, "db" => OwpFramework::$ezSqlDB));
                 if ($owpUDF_On_deleteUser) {
-                    throw new Exception((string) $owpUDF_On_deleteUser, 30);
+                    throw new Exception((string)$owpUDF_On_deleteUser, 30);
                 }
             }
 
             // unset the session if the user being deleted is logged in.
-            if ((int)  self::userID() === (int) $userID && isset($_SESSION["userData"])) {
+            if ((int)self::userID() === (int)$userID && isset($_SESSION["userData"])) {
                 unset($_SESSION["userData"]);
             }
 
@@ -432,7 +432,7 @@ class OwpUsers
         $get_user_record_noMeta = $this->get_user_record_noMeta($where_clause);
 
         if ($get_user_record_noMeta) {
-            return array_merge((array) $get_user_record_noMeta, (array) $this->getUserMetaData((int) $get_user_record_noMeta["userID"]));
+            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
         } else {
             return false;
         }
@@ -464,7 +464,7 @@ class OwpUsers
             FROM
                 tbl_users_meta_data
             WHERE
-                tbl_users_meta_data.userID = ".(int) $userID."
+                tbl_users_meta_data.userID = " . (int)$userID . "
             ORDER BY tbl_users_meta_data.key_name";
 
         $userData = OwpFramework::$ezSqlDB->get_results($query_sql);
@@ -495,10 +495,10 @@ class OwpUsers
      */
     public function get_user_record_byEMAIL($email)
     {
-        $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.email = '".$email."'");
+        $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.email = '" . $email . "'");
 
         if ($get_user_record_noMeta) {
-            return array_merge((array) $get_user_record_noMeta, (array) $this->getUserMetaData((int) $get_user_record_noMeta["userID"]));
+            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
         } else {
             return false;
         }
@@ -521,10 +521,10 @@ class OwpUsers
      */
     public function get_user_record_byID($userID)
     {
-        $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.userID = ".$userID);
+        $get_user_record_noMeta = $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
 
         if ($get_user_record_noMeta) {
-            return array_merge((array) $get_user_record_noMeta, (array) $this->getUserMetaData((int) $get_user_record_noMeta["userID"]));
+            return array_merge((array)$get_user_record_noMeta, (array)$this->getUserMetaData((int)$get_user_record_noMeta["userID"]));
         } else {
             return false;
         }
@@ -548,7 +548,7 @@ class OwpUsers
      */
     public function get_user_record_byID_noMeta($userID)
     {
-        return $this->get_user_record_noMeta(" WHERE tbl_users.userID = ".$userID);
+        return $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . $userID);
 
     }//end get_user_record_byID_noMeta()
 
@@ -569,7 +569,7 @@ class OwpUsers
      */
     public function get_user_record_byUUID_noMeta($uuid)
     {
-        return $this->get_user_record_noMeta(" WHERE tbl_users.uuid = '".$uuid."'");
+        return $this->get_user_record_noMeta(" WHERE tbl_users.uuid = '" . $uuid . "'");
 
     }//end get_user_record_byUUID_noMeta()
 
@@ -590,7 +590,7 @@ class OwpUsers
     public function get_user_record_noMeta($where_clause)
     {
 
-        $query_sql  = "
+        $query_sql = "
             SELECT tbl_users.*,
                 CONCAT_WS(' ',TRIM(tbl_users.first_name),TRIM(tbl_users.last_name)) AS `full_name`,
                 tbl_users_rights.is_admin,
@@ -598,7 +598,7 @@ class OwpUsers
                 tbl_users_rights.is_dev
             FROM tbl_users
             LEFT JOIN tbl_users_rights ON tbl_users_rights.userID = tbl_users.userID ";
-        $query_sql .= "	".$where_clause." ";
+        $query_sql .= "	" . $where_clause . " ";
         $query_sql .= "	LIMIT 1";
 
         return OwpFramework::$ezSqlDB->get_row($query_sql, ARRAY_A);
@@ -621,11 +621,11 @@ class OwpUsers
      */
     public function getUserIDViaLostPassUUID($reset_pass_uuid)
     {
-        return (int) OwpFramework::$ezSqlDB->get_var(
+        return (int)OwpFramework::$ezSqlDB->get_var(
             "
             SELECT tbl_users.userID
             FROM tbl_users
-            WHERE tbl_users.reset_pass_uuid = '".(string) $reset_pass_uuid."'
+            WHERE tbl_users.reset_pass_uuid = '" . (string)$reset_pass_uuid . "'
             LIMIT 1"
         );
 
@@ -649,7 +649,7 @@ class OwpUsers
     {
         $OwpUsers = new OwpUsers();
         $a1 = $OwpUsers->get_user_record_byID_noMeta($userID);
-        if(!$a1) {
+        if (!$a1) {
             return false;
         }
         unset($a1["passwd"]);
@@ -672,7 +672,7 @@ class OwpUsers
      */
     static public function isAdmin()
     {
-        if (isset($_SESSION["userData"]) && (int) $_SESSION["userData"]["is_admin"]) {
+        if (isset($_SESSION["userData"]) && (int)$_SESSION["userData"]["is_admin"]) {
             return true;
         } else {
             return false;
@@ -718,7 +718,7 @@ class OwpUsers
     {
         // Execute owpUDF_On_logOut user defined function
         if (function_exists("owpUDF_On_logOut")) {
-            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)  self::userID(), "db" => OwpFramework::$ezSqlDB));
+            $owpUDF_On_logOut = owpUDF_On_logOut(array("userID" => (int)self::userID(), "db" => OwpFramework::$ezSqlDB));
             if ($owpUDF_On_logOut) {
                 throw new Exception($owpUDF_On_logOut, 30);
             }
@@ -734,7 +734,7 @@ class OwpUsers
             unset($_COOKIE["owpSite"]);
         }
 
-        return (boolean) isset($_SESSION["userData"]);
+        return (boolean)isset($_SESSION["userData"]);
 
     }//end logOut()
 
@@ -752,18 +752,16 @@ class OwpUsers
      */
     public function refresh_user_session()
     {
-        if ((int)  self::userID()) {
-            $a1 = $this->get_user_record_noMeta(" WHERE tbl_users.userID = ".(int)self::userID());
-            if(!$a1) {
+        if ((int)self::userID()) {
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . (int)self::userID());
+            if (!$a1) {
                 throw new Exception("OwpUsers.refresh_user_session.this.get_user_record_noMeta Failed!");
             }
 
             $a2 = $this->getUserMetaData((int)self::userID());
-            if($a2) {
+            if ($a2) {
                 $_SESSION["userData"] = array_merge($a1, $a2);
-            }
-            else
-            {
+            } else {
                 $_SESSION["userData"] = $a1;
             }
 
@@ -788,17 +786,17 @@ class OwpUsers
     public function rememberMe()
     {
 
-        if (!(int)  self::userID()) {
+        if (!(int)self::userID()) {
 
-            if(!SqueakyMindsPhpHelper::cookievar("owpSite")) {
+            if (!SqueakyMindsPhpHelper::cookievar("owpSite")) {
                 return false;
             }
 
             $owpSite = json_decode(SqueakyMindsPhpHelper::cookievar("owpSite"), true);
 
-            $a1 = $this->get_user_record_noMeta(" WHERE tbl_users.userID = ".(int)$owpSite["id"]);
+            $a1 = $this->get_user_record_noMeta(" WHERE tbl_users.userID = " . (int)$owpSite["id"]);
 
-            if(!$a1) {
+            if (!$a1) {
                 return false;
             }
 
@@ -806,7 +804,7 @@ class OwpUsers
 
             $matches = $PasswordHash->CheckPassword((string)$owpSite["rememberme"], $a1["rememberme_hash"]);
 
-            if(!$matches) {
+            if (!$matches) {
                 return false;
             }
 
@@ -830,20 +828,20 @@ class OwpUsers
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function rememberMeSet() 
+    public function rememberMeSet()
     {
         $uuid = SqueakyMindsPhpHelper::uuid();
         $new_hash = $this->genPasswdHash($uuid);
 
-        $value = json_encode(array("id"=> self::userID(),"rememberme"=>$uuid));
+        $value = json_encode(array("id" => self::userID(), "rememberme" => $uuid));
         $domain = ($_SERVER['HTTP_HOST'] != 'localhost') ? $_SERVER['HTTP_HOST'] : false;
         setcookie("owpSite", $value, strtotime('+30 days'), "/", $domain, false);
 
         OwpFramework::$ezSqlDB->query(
             "
                 UPDATE tbl_users
-                SET tbl_users.rememberme_hash = '".(string)$new_hash."'
-                WHERE tbl_users.userID = ".(int)  self::userID()."
+                SET tbl_users.rememberme_hash = '" . (string)$new_hash . "'
+                WHERE tbl_users.userID = " . (int)self::userID() . "
                 LIMIT 1"
         );
 
@@ -864,22 +862,22 @@ class OwpUsers
      */
     public function sanityCheck($redirect_url = "")
     {
-        if ((int)  self::userID()) {
+        if ((int)self::userID()) {
             $query_sql = "
                 SELECT COUNT(*)
                 FROM tbl_users
-                WHERE tbl_users.userID = ".(int)  self::userID()."
+                WHERE tbl_users.userID = " . (int)self::userID() . "
                 LIMIT 1";
 
             $result = OwpFramework::$ezSqlDB->get_var($query_sql);
 
-            if ((int) $result === 0) {
+            if ((int)$result === 0) {
                 $this->logOut();
                 ob_clean();
                 if (strlen($redirect_url)) {
-                    header('Location: '.$redirect_url);
+                    header('Location: ' . $redirect_url);
                 } else {
-                    header('Location: '."http".($_SERVER['HTTPS'] ? "s" : "")."://".$_SERVER["SERVER_NAME"]."/");
+                    header('Location: ' . "http" . ($_SERVER['HTTPS'] ? "s" : "") . "://" . $_SERVER["SERVER_NAME"] . "/");
                 }
 
                 exit();
@@ -887,6 +885,37 @@ class OwpUsers
         }//end if
 
     }//end sanityCheck()
+
+
+    /**
+     * saveUserMetaDataItem
+     *
+     * @method saveUserMetaDataItem($userID, $key_name, $key_value) Set user meta data
+     * @access public
+     * @param  $userID
+     * @param  $key_name
+     * @param  $key_value
+     * @return bool
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function saveUserMetaDataItem($userID, $key_name, $key_value)
+    {
+        $query_sql = "
+            REPLACE INTO tbl_users_meta_data
+            SET
+                tbl_users_meta_data.key_name = '" . OwpFramework::$ezSqlDB->ecape((string)$key_name) . "',
+                tbl_users_meta_data.userID = " . (int)$userID . ",
+                tbl_users_meta_data.key_value = '" . OwpFramework::$ezSqlDB->ecape((string)$key_value) . "',
+                tbl_users_meta_data.updated_ts = SYSDATE()
+        ";
+
+        $userData = (boolean)OwpFramework::$ezSqlDB->query($query_sql);
+
+        return $userData;
+
+    }//end saveUserMetaDataItem()
 
 
     /**
@@ -911,13 +940,13 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.reset_pass_uuid = '".(string) $reset_pass_uuid."',
+            SET tbl_users.reset_pass_uuid = '" . (string)$reset_pass_uuid . "',
                 tbl_users.statusID = 4
-            WHERE tbl_users.userID = ".(int) $userID."
+            WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1"
         );
 
-        return $this->get_user_info_row("WHERE tbl_users.userID = ".(int) $userID);
+        return $this->get_user_info_row("WHERE tbl_users.userID = " . (int)$userID);
 
     }//end setLostPassUUID()
 
@@ -944,13 +973,13 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.reset_pass_uuid = '".(string) $reset_pass_uuid."',
+            SET tbl_users.reset_pass_uuid = '" . (string)$reset_pass_uuid . "',
                 tbl_users.statusID = 4
-            WHERE tbl_users.email = '".(string) $email."'
+            WHERE tbl_users.email = '" . (string)$email . "'
             LIMIT 1"
         );
 
-        return $this->get_user_info_row("WHERE LCASE(tbl_users.email) = LCASE('".filter_var($email, FILTER_SANITIZE_EMAIL)."')");
+        return $this->get_user_info_row("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
 
     }//end setLostPassUUIDViaEmail()
 
@@ -975,14 +1004,14 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.statusID = ".(int) $statusID."
-            WHERE tbl_users.userID = ".(int) $userID."
+            SET tbl_users.statusID = " . (int)$statusID . "
+            WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1"
         );
 
         // Execute owpUDF_On_setStatusID user defined function
         if (function_exists("owpUDF_On_setStatusID")) {
-            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)  self::userID(), "db" => OwpFramework::$ezSqlDB));
+            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)self::userID(), "db" => OwpFramework::$ezSqlDB));
             if ($owpUDF_On_setStatusID) {
                 throw new Exception($owpUDF_On_setStatusID, 30);
             }
@@ -1027,10 +1056,10 @@ class OwpUsers
      */
     static public function userDataItem($item, $alternate_data = "", $append_to_item = "")
     {
-        if (self::userData() && isset($_SESSION["userData"][(string) $item])) {
-            return (string) $_SESSION["userData"][(string) $item].(strlen((string) $append_to_item) ? " ".$append_to_item : "");
+        if (self::userData() && isset($_SESSION["userData"][(string)$item])) {
+            return (string)$_SESSION["userData"][(string)$item] . (strlen((string)$append_to_item) ? " " . $append_to_item : "");
         } else {
-            return (string) $alternate_data.(strlen((string) $append_to_item) ? " ".$append_to_item : "");
+            return (string)$alternate_data . (strlen((string)$append_to_item) ? " " . $append_to_item : "");
         }
 
     }//end userDataItem()
@@ -1048,7 +1077,7 @@ class OwpUsers
      */
     static public function userID()
     {
-        return (int) self::userDataItem("userID", 0);
+        return (int)self::userDataItem("userID", 0);
 
     }//end userID()
 
@@ -1071,8 +1100,8 @@ class OwpUsers
             UPDATE tbl_users
             SET tbl_users.login_count = tbl_users.login_count + 1,
                 tbl_users.user_last_login_datetime = SYSDATE(),
-                tbl_users.user_ip = '".OwpSupportMethods::GetUserIP()."'
-            WHERE tbl_users.userID = ".(int) $userID."
+                tbl_users.user_ip = '" . OwpSupportMethods::GetUserIP() . "'
+            WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1"
         );
 
@@ -1106,16 +1135,16 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.passwd = '".$new_hash."',
+            SET tbl_users.passwd = '" . $new_hash . "',
                 tbl_users.statusID = 2,
                 tbl_users.reset_pass_uuid = NULL
-            WHERE tbl_users.reset_pass_uuid = '".(string) $uuid."'
+            WHERE tbl_users.reset_pass_uuid = '" . (string)$uuid . "'
             LIMIT 1"
         );
 
         // Execute owpUDF_On_updatePassword user defined function
         if (function_exists("owpUDF_On_updatePassword")) {
-            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)  self::userID(), "db" => OwpFramework::$ezSqlDB));
+            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)self::userID(), "db" => OwpFramework::$ezSqlDB));
             if ($owpUDF_On_updatePassword) {
                 throw new Exception($owpUDF_On_updatePassword, 30);
             }
@@ -1164,14 +1193,14 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             UPDATE tbl_users
-            SET tbl_users.passwd = '".$new_hash."'
-            WHERE tbl_users.userID = ".(int) $userID."
+            SET tbl_users.passwd = '" . $new_hash . "'
+            WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1"
         );
 
         // Execute owpUDF_On_updatePassword user defined function
         if (function_exists("owpUDF_On_updatePassword")) {
-            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)  self::userID(), "db" => OwpFramework::$ezSqlDB));
+            $owpUDF_On_updatePassword = owpUDF_On_updatePassword(array("userID" => (int)self::userID(), "db" => OwpFramework::$ezSqlDB));
             if ($owpUDF_On_updatePassword) {
                 throw new Exception($owpUDF_On_updatePassword, 30);
             }
@@ -1183,9 +1212,9 @@ class OwpUsers
             // transaction failed, rollback
             OwpFramework::$ezSqlDB->query('ROLLBACK');
             $this->errors[] = array(
-                               "message" => "updatePassword: transaction failed, rollback.",
-                               "details" => array("last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError()),
-                              );
+                "message" => "updatePassword: transaction failed, rollback.",
+                "details" => array("last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError()),
+            );
 
             return false;
         }
@@ -1210,13 +1239,13 @@ class OwpUsers
     public function updateUser($userID, $data_array)
     {
 
-        if (!(int) $userID) {
+        if (!(int)$userID) {
             $this->errors[] = array(
-                               "message" => "updateUser: Invalid userID.",
-                               "details" => array("userID" => (int) $userID),
-                              );
+                "message" => "updateUser: Invalid userID.",
+                "details" => array("userID" => (int)$userID),
+            );
 
-            throw new InvalidArgumentException("Invalid userID ".(int) $userID, 10);
+            throw new InvalidArgumentException("Invalid userID " . (int)$userID, 10);
         }
 
         if (isset($data_array["passwd"])) {
@@ -1236,21 +1265,21 @@ class OwpUsers
         }
 
         $query_sql = "
-            SELECT * FROM tbl_users WHERE tbl_users.userID = ".(int) $userID." LIMIT 1
+            SELECT * FROM tbl_users WHERE tbl_users.userID = " . (int)$userID . " LIMIT 1
         ";
 
         $current_user_row = OwpFramework::$ezSqlDB->get_row($query_sql, ARRAY_A);
 
         if (!$current_user_row) {
             $this->errors[] = array(
-                               "message" => "updateUser: current_user_row SELECT tbl_users failed.",
-                               "details" => array(
-                                             "query_sql"        => $query_sql,
-                                             "last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(),
-                                            ),
-                              );
+                "message" => "updateUser: current_user_row SELECT tbl_users failed.",
+                "details" => array(
+                    "query_sql" => $query_sql,
+                    "last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError(),
+                ),
+            );
 
-            throw new InvalidArgumentException("Invalid userID ".(int) $userID, 10);
+            throw new InvalidArgumentException("Invalid userID " . (int)$userID, 10);
         }
 
         unset($current_user_row["user_created_datetime"]);
@@ -1265,7 +1294,7 @@ class OwpUsers
         if ($core_keys) {
             foreach ($core_keys as $ckc => $ckv) {
                 if (isset($data_array[$ckc]) && $data_array[$ckc] != $ckv) {
-                    $ck_sql_array[] = " `tbl_users`.`".(string) $ckc."` = '".OwpFramework::$ezSqlDB->escape((string) $data_array[$ckc])."' ";
+                    $ck_sql_array[] = " `tbl_users`.`" . (string)$ckc . "` = '" . OwpFramework::$ezSqlDB->escape((string)$data_array[$ckc]) . "' ";
                 }
             }
         }
@@ -1279,7 +1308,7 @@ class OwpUsers
         $query_sql = "
                 UPDATE tbl_users
                 SET $setStatement
-                WHERE tbl_users.userID = ".(int) $userID."
+                WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1";
 
         OwpFramework::$ezSqlDB->query($query_sql);
@@ -1293,13 +1322,13 @@ class OwpUsers
 
         if ($meta_keys && is_array($meta_keys)) {
             foreach ($meta_keys as $dk => $dv) {
-                if(!in_array($dk, $meta_key_exclude)) {
+                if (!in_array($dk, $meta_key_exclude)) {
                     $query_sql = "
                     REPLACE INTO tbl_users_meta_data
                     SET
-                        tbl_users_meta_data.key_name = '".(string) $dk."',
-                        tbl_users_meta_data.key_value = '".(string) OwpFramework::$ezSqlDB->escape($dv)."',
-                        tbl_users_meta_data.userID = ".(int) $userID.",
+                        tbl_users_meta_data.key_name = '" . (string)$dk . "',
+                        tbl_users_meta_data.key_value = '" . (string)OwpFramework::$ezSqlDB->escape($dv) . "',
+                        tbl_users_meta_data.userID = " . (int)$userID . ",
                         tbl_users_meta_data.updated_ts = SYSDATE()";
 
                     OwpFramework::$ezSqlDB->query($query_sql);
@@ -1312,7 +1341,7 @@ class OwpUsers
             // transaction was successful
             // Execute owpUDF_On_updateUser user defined function
             if (function_exists("owpUDF_On_updateUser")) {
-                $owpUDF_On_updateUser = owpUDF_On_updateUser(array("userID" => (int) $userID, "db" => OwpFramework::$ezSqlDB));
+                $owpUDF_On_updateUser = owpUDF_On_updateUser(array("userID" => (int)$userID, "db" => OwpFramework::$ezSqlDB));
                 if ($owpUDF_On_updateUser) {
                     throw new Exception($owpUDF_On_updateUser, 30);
                 }
@@ -1323,9 +1352,9 @@ class OwpUsers
             // transaction failed, rollback
             OwpFramework::$ezSqlDB->query('ROLLBACK');
             $this->errors[] = array(
-                               "message" => "updateUser: transaction failed, rollback.",
-                               "details" => array("last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError()),
-                              );
+                "message" => "updateUser: transaction failed, rollback.",
+                "details" => array("last_mysql_error" => OwpFramework::$ezSqlDB->MySQLFirephpGetLastMysqlError()),
+            );
 
             return false;
         }//end if
@@ -1352,10 +1381,10 @@ class OwpUsers
         OwpFramework::$ezSqlDB->query(
             "
             REPLACE INTO tbl_users_rights
-            SET tbl_users_rights.userID = ".(int) $userID.",
-                tbl_users_rights.is_admin = ".(int) $is_admin.",
-                tbl_users_rights.hide_ads = ".(int) $hide_ads.",
-                tbl_users_rights.is_dev = ".(int) $is_dev."
+            SET tbl_users_rights.userID = " . (int)$userID . ",
+                tbl_users_rights.is_admin = " . (int)$is_admin . ",
+                tbl_users_rights.hide_ads = " . (int)$hide_ads . ",
+                tbl_users_rights.is_dev = " . (int)$is_dev . "
             "
         );
 
@@ -1378,10 +1407,10 @@ class OwpUsers
         $query_sql = "
             SELECT COUNT(*)
             FROM tbl_users
-            WHERE LCASE(tbl_users.email) = LCASE('".filter_var($email, FILTER_SANITIZE_EMAIL)."')
+            WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')
             LIMIT 1";
 
-        return (boolean) ((int) OwpFramework::$ezSqlDB->get_var($query_sql) ? true : false);
+        return (boolean)((int)OwpFramework::$ezSqlDB->get_var($query_sql) ? true : false);
 
     }//end userExistsViaEmail()
 
@@ -1402,9 +1431,8 @@ class OwpUsers
     public function userLogin($email, $passwd)
     {
         try {
-            $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('".filter_var($email, FILTER_SANITIZE_EMAIL)."')");
-        }
-        catch (OwpUserException $e) {
+            $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
+        } catch (OwpUserException $e) {
             throw $e;
         }
 
@@ -1412,7 +1440,7 @@ class OwpUsers
             $val_pass = $this->validate_password($passwd, $this->userDataItem("passwd"));
 
             if ($val_pass === true) {
-                return  self::userID();
+                return self::userID();
             } else {
                 if (isset($_SESSION["userData"])) {
                     unset($_SESSION["userData"]);
@@ -1446,28 +1474,28 @@ class OwpUsers
         $get_user_info_row = $this->get_user_info_row($where_statement);
 
         if ($get_user_info_row) {
-            $statusInfo = (array) OwpFramework::$ezSqlDB->get_row(
+            $statusInfo = (array)OwpFramework::$ezSqlDB->get_row(
                 "
                 SELECT * FROM tbl_users_status
-                WHERE tbl_users_status.statusID = ".(int) $get_user_info_row["statusID"]."
+                WHERE tbl_users_status.statusID = " . (int)$get_user_info_row["statusID"] . "
                 LIMIT 1", ARRAY_A
             );
 
-            if(!$statusInfo) {
+            if (!$statusInfo) {
                 throw new OwpUserException("Invalid user status ID.", 911);
             }
 
-            if((int)$statusInfo["canLogin"] == 0) {
-                throw new OwpUserException("Your account ".$statusInfo["status_label"], $statusInfo["statusID"]);
+            if ((int)$statusInfo["canLogin"] == 0) {
+                throw new OwpUserException("Your account " . $statusInfo["status_label"], $statusInfo["statusID"]);
             }
 
             $_SESSION["userData"] = $get_user_info_row;
 
-            $this->updateLoginCount((int) $get_user_info_row["userID"]);
+            $this->updateLoginCount((int)$get_user_info_row["userID"]);
 
             // Execute owpUDF_On_userLoginCore user defined function
             if (function_exists("owpUDF_On_userLoginCore")) {
-                owpUDF_On_userLoginCore(array("userID" => (int) $get_user_info_row["userID"], "db" => OwpFramework::$ezSqlDB));
+                owpUDF_On_userLoginCore(array("userID" => (int)$get_user_info_row["userID"], "db" => OwpFramework::$ezSqlDB));
             }
 
             return true;
@@ -1493,9 +1521,8 @@ class OwpUsers
     public function userLoginViaToken($uuid)
     {
         try {
-            return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('".$uuid."')");
-        }
-        catch (OwpUserException $e) {
+            return $this->userLoginCore("WHERE tbl_users.uuid = LCASE('" . $uuid . "')");
+        } catch (OwpUserException $e) {
             throw $e;
         }
 
@@ -1517,9 +1544,8 @@ class OwpUsers
     public function userLoginViaUserID($userID)
     {
         try {
-            return $this->userLoginCore("WHERE tbl_users.userID = ".(int) $userID);
-        }
-        catch (OwpUserException $e) {
+            return $this->userLoginCore("WHERE tbl_users.userID = " . (int)$userID);
+        } catch (OwpUserException $e) {
             throw $e;
         }
 
@@ -1561,10 +1587,10 @@ class OwpUsers
      */
     public function validateStatusID($statusID)
     {
-        return (bool) OwpFramework::$ezSqlDB->get_var(
+        return (bool)OwpFramework::$ezSqlDB->get_var(
             "
             SELECT COUNT(*) FROM tbl_users_status
-            WHERE tbl_users_status.statusID = ".(int) $statusID."
+            WHERE tbl_users_status.statusID = " . (int)$statusID . "
             LIMIT 1"
         );
 
@@ -1585,7 +1611,7 @@ class OwpUsers
      */
     public function validateUserPassword($userID, $passwd)
     {
-        $get_user_info_row = $this->get_user_info_row("WHERE tbl_users.userID = ".(int) $userID);
+        $get_user_info_row = $this->get_user_info_row("WHERE tbl_users.userID = " . (int)$userID);
         if ($get_user_info_row) {
             $val_pass = $this->validate_password($passwd, $get_user_info_row["passwd"]);
             if ($val_pass === true) {

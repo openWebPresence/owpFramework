@@ -19,16 +19,16 @@ Parsing /mnt/hgfs/www/owp-framework/src/OwpStdObject.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpSupportMethods.inc.php
 Parsing /mnt/hgfs/www/owp-framework/src/OwpUsers.inc.php
 Storing cache in "/mnt/hgfs/www/owp-framework/docs" .. OK
-Load cache                                                         ..    0.604s
-Preparing template "responsive"                                    ..    0.058s
+Load cache                                                         ..    0.414s
+Preparing template "responsive"                                    ..    0.103s
 Preparing 13 transformations                                       ..    0.000s
-Build "elements" index                                             ..    0.002s
-Replace textual FQCNs with object aliases                          ..    0.036s
-Resolve @link and @see tags in descriptions                        ..    0.005s
-Enriches inline example tags with their sources                    ..    0.001s
-Build "packages" index                                             ..    0.012s
+Build "elements" index                                             ..    0.004s
+Replace textual FQCNs with object aliases                          ..    0.093s
+Resolve @link and @see tags in descriptions                        ..    0.007s
+Enriches inline example tags with their sources                    ..    0.006s
+Build "packages" index                                             ..    0.019s
 Build "namespaces" index and add namespaces to "elements"          ..    0.001s
-Collect all markers embedded in tags                               ..    0.003s
+Collect all markers embedded in tags                               ..    0.001s
 Transform analyzed project into artifacts                          .. 
 Applying 13 transformations
   Initialize writer "phpDocumentor\Plugin\Core\Transformer\Writer\FileIo"
@@ -48,5 +48,5 @@ Applying 13 transformations
   Execute transformation using writer "xsl"
   Execute transformation using writer "xsl"
   Execute transformation using writer "Graph"
-   3.586s
+  10.111s
 Analyze results and write report to log                            ..    0.001s
