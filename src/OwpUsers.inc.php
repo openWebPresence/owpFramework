@@ -905,9 +905,9 @@ class OwpUsers
         $query_sql = "
             REPLACE INTO tbl_users_meta_data
             SET
-                tbl_users_meta_data.key_name = '" . OwpFramework::$ezSqlDB->ecape((string)$key_name) . "',
+                tbl_users_meta_data.key_name = '" . OwpFramework::$ezSqlDB->escape((string)$key_name) . "',
                 tbl_users_meta_data.userID = " . (int)$userID . ",
-                tbl_users_meta_data.key_value = '" . OwpFramework::$ezSqlDB->ecape((string)$key_value) . "',
+                tbl_users_meta_data.key_value = '" . OwpFramework::$ezSqlDB->escape((string)$key_value) . "',
                 tbl_users_meta_data.updated_ts = SYSDATE()
         ";
 
