@@ -217,15 +217,9 @@ class OwpFramework
          */
         $actionsConfig = null;
         $defaultAction = null;
-        self::$actionsConfigFileLocation = self::$root_path.join(DIRECTORY_SEPARATOR, array("app", "themes", self::$theme, "actionsConfig.inc.php"));
 
-        if (file_exists(self::$actionsConfigFileLocation)) {
-            include  self::$actionsConfigFileLocation;
-            self::$actionsConfig = $actionsConfig;
-            self::$defaultAction = $defaultAction;
-        } else {
-            throw new Exception("Missing ". self::$actionsConfigFileLocation."!", 911);
-        }
+        self::$defaultAction = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/defaultAction.json"),1);
+        self::$actionsConfig = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/actionsConfig.json"),1);
 
         /*
             * Create the frameworkObject

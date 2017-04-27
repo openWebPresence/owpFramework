@@ -1,0 +1,126 @@
+{
+    "404": {
+        "meta": {
+            "title": "(404) File Not Found!",
+            "description": "The 144 STOCK Exchange is a member only Exchange where shareholders and investors can offer to trade or sell restricted shares of a private or public company that they currently own. They can also acquire 144 shares in a company they do not own. Members can post information on a stock they own and want to sell or trade or list names of restricted stocks they are interested in buying. Members will be connected directly with each other and Exchange members names and information can be kept strictly Anonymous if the member so chooses."
+        },
+        "view": [
+            "app\/themes\/new-age\/view\/common\/header.inc.php",
+            "app\/themes\/new-age\/view\/common\/nav.inc.php",
+            "app\/themes\/new-age\/view\/pages\/404.inc.php",
+            "app\/themes\/new-age\/view\/common\/footer.inc.php"
+        ],
+        "mod": [
+            "app\/themes\/new-age\/mod\/OwpHome.inc.php"
+        ],
+        "js": [
+            "app\/themes\/new-age\/assets\/js\/new-age.js",
+            "app\/themes\/new-age\/assets\/js\/common.js",
+            "app\/themes\/new-age\/assets\/js\/isUser.js",
+            "app\/themes\/new-age\/assets\/js\/main.js"
+        ],
+        "css": [
+            "app\/themes\/new-age\/assets\/css\/nav.css",
+            "app\/themes\/new-age\/view\/pages\/home\/home.css",
+            "app\/themes\/new-age\/view\/pages\/home\/membership.css"
+        ],
+        "permissions": {
+            "isUser": 0,
+            "isAdmin": 0,
+            "statusID": 0
+        }
+    },
+    "admin": {
+        "meta": {
+            "title": "144 Site Admin",
+            "description": ""
+        },
+        "view": [
+            "app\/themes\/new-age\/view\/pages\/admin\/index.inc.php"
+        ],
+        "mod": [],
+        "js": [
+            "app\/themes\/new-age\/view\/pages\/admin\/admin.js"
+        ],
+        "css": [
+            "app\/themes\/new-age\/view\/pages\/admin\/admin.css"
+        ],
+        "permissions": {
+            "isUser": 1,
+            "isAdmin": 1,
+            "statusID": 0
+        }
+    },
+    "ajax": {
+        "view": [],
+        "mod": [
+            "app\/themes\/new-age\/lib\/OwpAjaxUdf.inc.php"
+        ],
+        "js": [],
+        "css": [],
+        "permissions": {
+            "isUser": 0,
+            "isAdmin": 0,
+            "statusID": 0
+        }
+    },
+    "cssAssets": {
+        "view": [],
+        "mod": [
+            "app\/themes\/new-age\/lib\/OwpcssAssets.inc.php"
+        ],
+        "js": [],
+        "css": [],
+        "permissions": {
+            "isUser": 0,
+            "isAdmin": 0,
+            "statusID": 0
+        }
+    },
+    "home": {
+        "meta": {
+            "title": "Home",
+            "description": "The 144 STOCK Exchange is a member only Exchange where shareholders and investors can offer to trade or sell restricted shares of a private or public company that they currently own. They can also acquire 144 shares in a company they do not own. Members can post information on a stock they own and want to sell or trade or list names of restricted stocks they are interested in buying. Members will be connected directly with each other and Exchange members names and information can be kept strictly Anonymous if the member so chooses."
+        },
+        "view": [
+            "app\/themes\/new-age\/view\/common\/header.inc.php",
+            "app\/themes\/new-age\/view\/common\/nav.inc.php",
+            "app\/themes\/new-age\/view\/pages\/home\/home.inc.php",
+            "app\/themes\/new-age\/view\/common\/footerTop.inc.php",
+            "app\/themes\/new-age\/view\/common\/footer.inc.php"
+        ],
+        "mod": [
+            "app\/themes\/new-age\/mod\/OwpHome.inc.php"
+        ],
+        "js": [
+            "app\/themes\/new-age\/assets\/js\/new-age.js",
+            "app\/themes\/new-age\/assets\/js\/common.js",
+            "app\/themes\/new-age\/assets\/js\/isUser.js",
+            "app\/themes\/new-age\/assets\/js\/main.js"
+        ],
+        "css": [
+            "app\/themes\/new-age\/assets\/css\/main.css",
+            "app\/themes\/new-age\/view\/pages\/home\/home_main.css",
+            "app\/themes\/new-age\/view\/pages\/home\/home.css",
+            "app\/themes\/new-age\/view\/pages\/home\/home.less.css",
+            "app\/themes\/new-age\/view\/pages\/home\/membership.css"
+        ],
+        "permissions": {
+            "isUser": 0,
+            "isAdmin": 0,
+            "statusID": 0
+        }
+    }
+    "jsAssets": {
+        "view": [],
+        "mod": [
+            "app\/themes\/new-age\/lib\/OwpjsAssets.inc.php"
+        ],
+        "js": [],
+        "css": [],
+        "permissions": {
+            "isUser": 0,
+            "isAdmin": 0
+        }
+    }
+}
