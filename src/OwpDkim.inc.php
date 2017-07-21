@@ -33,15 +33,16 @@ class OwpDkim
      *
      * @method createDkimRecords($domain, $file_path)
      * @access public
-     * @param  string $domain    The domain to generate DKIM keys.
-     * @param  string $file_path File path used to store the keys and instructions.
-     * @return string Dkim instructions will be output.
+     * @param        $domain
+     * @param string $file_path
+     * @param string $selector
+     * @return array Dkim instructions will be output.
      * @throws Exception Unable to create the DKIM directory.
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    static public function createDkimRecords($domain, $file_path)
+    static public function createDkimRecords($domain, $file_path = "", $selector = "owp")
     {
 
         $throw = self::createPath($file_path);
@@ -54,14 +55,16 @@ class OwpDkim
 
         $keys = self::generateKeys();
 
-        $dkim_selector = 'owp._domainkey';
+        $dkim_selector = (string)$selector . '._domainkey';
 
         $dkim_record = 'v=DKIM1; k=rsa; p='.str_replace(array("-----BEGIN PUBLIC KEY-----", "-----END PUBLIC KEY-----", "\n"), "", $keys["publickey"]);
 
         $spf_text = 'v=spf1 a mx a:'.$domain.' ~all';
 
-        file_put_contents($file_path.$files["public_key_filename"], $keys["publickey"]);
-        file_put_contents($file_path.$files["private_key_filename"], $keys["privatekey"]);
+        if($file_path) {
+            file_put_contents($file_path.$files["public_key_filename"], $keys["publickey"]);
+            file_put_contents($file_path.$files["private_key_filename"], $keys["privatekey"]);
+        }
 
         return self::generateInstructions($domain, $dkim_selector, $dkim_record, $spf_text, $keys, $file_path);
 
@@ -158,18 +161,17 @@ class OwpDkim
     /**
      * generateInstructions
      *
-     * @method generateInstructions()
-     * @access private
-     * @param  string $domain        Domain name used by the Owp site and keys.
-     * @param  string $dkim_selector DKIM domain text selector phrase.
-     * @param  string $dkim_record   DKIM domain text record.
-     * @param  string $spf_record    Recommended SPF domain text record.
-     * @param  array  $keys          Array of the generated public and private keys.
-     * @param  string $file_path     The file storage path.
-     * @return string
-     *
      * @author  Brian Tafoya
      * @version 1.0
+     *
+     * @param $domain
+     * @param $dkim_selector
+     * @param $dkim_record
+     * @param $spf_record
+     * @param $keys
+     * @param $file_path
+     *
+     * @return array
      */
     static private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path)
     {
@@ -192,7 +194,7 @@ All of the above information has been recorded in the below file path:\n
 
         file_put_contents($file_path."instructions.txt", $instructions);
 
-        return $instructions;
+        return array(""=>$instructions, "DKIM_domain"=>$domain, "DKIM_selector"=>$dkim_selector, "DKIM_record"=>$dkim_record, "SPF_record"=>$spf_record, "DKIM_keys"=>$keys, "file_path"=>$file_path);
 
     }//end generateInstructions()
 
