@@ -23,7 +23,7 @@
 /**
  * This class integrates FirePHP debugging into the EzSQL MySQL (not MySQLi) abstraction layer.
  */
-class OwpEzSqlMysql extends ezSQL_mysql
+class OwpEzSqlMysql extends ezSQL_mysqli
 {
 
 
@@ -43,7 +43,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole") 
+    public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole")
     {
         $debug = array("about"=>"ezSQL (v".EZSQL_VERSION.")");
 

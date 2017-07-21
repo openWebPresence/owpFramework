@@ -49,10 +49,7 @@ class OwpUsers_test extends TestCase
         /*
 		 * Init the database class
 		 */
-        self::$db = new OwpEzSqlMysql(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
-        self::$db->use_disk_cache = false;
-        self::$db->cache_queries = false;
-        self::$db->hide_errors();
+        self::$db = OwpDb::init(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
 
         self::$current_web_root = "http://openwebpresence.com/";
         self::$root_path = dirname(__FILE__) . DIRECTORY_SEPARATOR;
@@ -95,11 +92,7 @@ class OwpUsers_test extends TestCase
             'rememberme_hash' => null
         );
 
-        $OwpFramework = new OwpFramework();
-
-        self::$frameworkObject = $OwpFramework->getFrameworkObject();
-
-        self::$owpUsers = new OwpUsers(self::$frameworkObject);
+        self::$owpUsers = new OwpUsers();
     }
 
     protected function setUp()
