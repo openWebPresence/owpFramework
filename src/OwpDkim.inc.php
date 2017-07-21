@@ -45,10 +45,12 @@ class OwpDkim
     static public function createDkimRecords($domain, $file_path = "", $selector = "owp")
     {
 
-        $throw = self::createPath($file_path);
+        if($file_path) {
+            $throw = self::createPath($file_path);
 
-        if(!$throw) {
-            throw new Exception("Unable to create the DKIM directory; ".$file_path);
+            if(!$throw) {
+                throw new Exception("Unable to create the DKIM directory; ".$file_path);
+            }
         }
 
         $files = self::keyFileNamePath($domain);
