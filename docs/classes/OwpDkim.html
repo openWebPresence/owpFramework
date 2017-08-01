@@ -26,6 +26,7 @@
 <li><a href="../packages/OwpCms.html"><i class="icon-folder-open"></i> OwpCms</a></li>
 <li><a href="../packages/OwpConfig.html"><i class="icon-folder-open"></i> OwpConfig</a></li>
 <li><a href="../packages/OwpDBMySQLi.html"><i class="icon-folder-open"></i> OwpDBMySQLi</a></li>
+<li><a href="../packages/OwpDb.html"><i class="icon-folder-open"></i> OwpDb</a></li>
 <li><a href="../packages/OwpDefaultMod.html"><i class="icon-folder-open"></i> OwpDefaultMod</a></li>
 <li><a href="../packages/OwpDkim.html"><i class="icon-folder-open"></i> OwpDkim</a></li>
 <li><a href="../packages/OwpEzSqlMysql.html"><i class="icon-folder-open"></i> OwpEzSqlMysql</a></li>
@@ -79,6 +80,7 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods
                     <ul>
 <li class="method public "><a href="#method_createDkimRecords" title="createDkimRecords() :: createDkimRecords"><span class="description">createDkimRecords</span><pre>createDkimRecords()</pre></a></li>
+<li class="method public "><a href="#method_keyFileNamePath" title="keyFileNamePath() :: keyFileNamePath"><span class="description">keyFileNamePath</span><pre>keyFileNamePath()</pre></a></li>
 <li class="method public "><a href="#method_validateDkim" title="validateDkim() :: validateDkim"><span class="description">validateDkim</span><pre>validateDkim()</pre></a></li>
 </ul>
 </li>
@@ -89,7 +91,6 @@
                     <ul>
 <li class="method private "><a href="#method_createPath" title="createPath() :: Recursively create a long directory path"><span class="description">Recursively create a long directory path</span><pre>createPath()</pre></a></li>
 <li class="method private "><a href="#method_generateInstructions" title="generateInstructions() :: generateInstructions"><span class="description">generateInstructions</span><pre>generateInstructions()</pre></a></li>
-<li class="method private "><a href="#method_keyFileNamePath" title="keyFileNamePath() :: keyFileNamePath"><span class="description">keyFileNamePath</span><pre>keyFileNamePath()</pre></a></li>
 </ul>
 </li>
 </ul>
@@ -115,7 +116,51 @@
 <i title="Methods" class="icon-custom icon-method"></i> Methods</h3>
 <a id="method_createDkimRecords"></a><div class="element clickable method public method_createDkimRecords " data-toggle="collapse" data-target=".method_createDkimRecords .collapse" title="public">
 <h2>createDkimRecords</h2>
-<pre>createDkimRecords(string $domain, string $file_path) : string</pre>
+<pre>createDkimRecords($domain, string $file_path<code> = ""</code>, string $selector<code> = "owp"</code>) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
+<div class="row collapse"><div class="detail-description">
+<div class="long_description"></div>
+<table class="table table-bordered">
+<tr>
+<th>method</th>
+<td></td>
+</tr>
+<tr>
+<th>access</th>
+<td>public</td>
+</tr>
+<tr>
+<th>author</th>
+<td><a href="">Brian Tafoya</a></td>
+</tr>
+<tr>
+<th>version</th>
+<td>1.0</td>
+</tr>
+</table>
+<h3>Parameters</h3>
+<div class="subelement argument"><h4>$domain</h4></div>
+<div class="subelement argument">
+<h4>$file_path</h4>
+<code>string</code>
+</div>
+<div class="subelement argument">
+<h4>$selector</h4>
+<code>string</code>
+</div>
+<h3>Exceptions</h3>
+<table class="table table-bordered"><tr>
+<th><code>\Exception</code></th>
+<td>Unable to create the DKIM directory.</td>
+</tr></table>
+<h3>Returns</h3>
+<div class="subelement response">
+<code>array</code>Dkim instructions will be output.</div>
+</div></div>
+</div>
+<a id="method_keyFileNamePath"></a><div class="element clickable method public method_keyFileNamePath " data-toggle="collapse" data-target=".method_keyFileNamePath .collapse" title="public">
+<h2>keyFileNamePath</h2>
+<pre>keyFileNamePath(string $domain) : array</pre>
 <div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
@@ -140,18 +185,9 @@
 <h3>Parameters</h3>
 <div class="subelement argument">
 <h4>$domain</h4>
-<code>string</code><p>The domain to generate DKIM keys.</p></div>
-<div class="subelement argument">
-<h4>$file_path</h4>
-<code>string</code><p>File path used to store the keys and instructions.</p></div>
-<h3>Exceptions</h3>
-<table class="table table-bordered"><tr>
-<th><code>\Exception</code></th>
-<td>Unable to create the DKIM directory.</td>
-</tr></table>
+<code>string</code><p>Domain to generate filename for.</p></div>
 <h3>Returns</h3>
-<div class="subelement response">
-<code>string</code>Dkim instructions will be output.</div>
+<div class="subelement response"><code>array</code></div>
 </div></div>
 </div>
 <a id="method_validateDkim"></a><div class="element clickable method public method_validateDkim " data-toggle="collapse" data-target=".method_validateDkim .collapse" title="public">
@@ -193,7 +229,7 @@
 <a id="method_generateKeys"></a><div class="element clickable method protected method_generateKeys " data-toggle="collapse" data-target=".method_generateKeys .collapse" title="protected">
 <h2>generateKeys</h2>
 <pre>generateKeys() : array</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -221,7 +257,7 @@
 <a id="method_createPath"></a><div class="element clickable method private method_createPath " data-toggle="collapse" data-target=".method_createPath .collapse" title="private">
 <h2>Recursively create a long directory path</h2>
 <pre>createPath(string $path) : boolean</pre>
-<div class="labels"></div>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
@@ -244,19 +280,11 @@
 </div>
 <a id="method_generateInstructions"></a><div class="element clickable method private method_generateInstructions " data-toggle="collapse" data-target=".method_generateInstructions .collapse" title="private">
 <h2>generateInstructions</h2>
-<pre>generateInstructions(string $domain, string $dkim_selector, string $dkim_record, string $spf_record, array $keys, string $file_path) : string</pre>
-<div class="labels"></div>
+<pre>generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path) : array</pre>
+<div class="labels"><span class="label">Static</span></div>
 <div class="row collapse"><div class="detail-description">
 <div class="long_description"></div>
 <table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
 <tr>
 <th>author</th>
 <td><a href="">Brian Tafoya</a></td>
@@ -267,56 +295,12 @@
 </tr>
 </table>
 <h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>Domain name used by the Owp site and keys.</p></div>
-<div class="subelement argument">
-<h4>$dkim_selector</h4>
-<code>string</code><p>DKIM domain text selector phrase.</p></div>
-<div class="subelement argument">
-<h4>$dkim_record</h4>
-<code>string</code><p>DKIM domain text record.</p></div>
-<div class="subelement argument">
-<h4>$spf_record</h4>
-<code>string</code><p>Recommended SPF domain text record.</p></div>
-<div class="subelement argument">
-<h4>$keys</h4>
-<code>array</code><p>Array of the generated public and private keys.</p></div>
-<div class="subelement argument">
-<h4>$file_path</h4>
-<code>string</code><p>The file storage path.</p></div>
-<h3>Returns</h3>
-<div class="subelement response"><code>string</code></div>
-</div></div>
-</div>
-<a id="method_keyFileNamePath"></a><div class="element clickable method private method_keyFileNamePath " data-toggle="collapse" data-target=".method_keyFileNamePath .collapse" title="private">
-<h2>keyFileNamePath</h2>
-<pre>keyFileNamePath(string $domain) : array</pre>
-<div class="labels"></div>
-<div class="row collapse"><div class="detail-description">
-<div class="long_description"></div>
-<table class="table table-bordered">
-<tr>
-<th>method</th>
-<td></td>
-</tr>
-<tr>
-<th>access</th>
-<td>private</td>
-</tr>
-<tr>
-<th>author</th>
-<td><a href="">Brian Tafoya</a></td>
-</tr>
-<tr>
-<th>version</th>
-<td>1.0</td>
-</tr>
-</table>
-<h3>Parameters</h3>
-<div class="subelement argument">
-<h4>$domain</h4>
-<code>string</code><p>Domain to generate filename for.</p></div>
+<div class="subelement argument"><h4>$domain</h4></div>
+<div class="subelement argument"><h4>$dkim_selector</h4></div>
+<div class="subelement argument"><h4>$dkim_record</h4></div>
+<div class="subelement argument"><h4>$spf_record</h4></div>
+<div class="subelement argument"><h4>$keys</h4></div>
+<div class="subelement argument"><h4>$file_path</h4></div>
 <h3>Returns</h3>
 <div class="subelement response"><code>array</code></div>
 </div></div>
@@ -328,7 +312,7 @@
 <div class="row"><footer class="span12">
             Template is built using <a href="http://twitter.github.com/bootstrap/">Twitter Bootstrap 2</a> and icons provided by <a href="http://glyphicons.com/">Glyphicons</a>.<br>
             Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor 2.8.5</a> and<br>
-            generated on 2017-07-31T20:14:33-04:00.<br></footer></div>
+            generated on 2017-07-31T21:07:18-04:00.<br></footer></div>
 </div>
 </body>
 </html>

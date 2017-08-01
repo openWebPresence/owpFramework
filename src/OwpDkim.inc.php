@@ -33,9 +33,9 @@ class OwpDkim
      *
      * @method createDkimRecords($domain, $file_path)
      * @access public
-     * @param        $domain
-     * @param string $file_path
-     * @param string $selector
+     * @param  $domain
+     * @param  string $file_path
+     * @param  string $selector
      * @return array Dkim instructions will be output.
      * @throws Exception Unable to create the DKIM directory.
      *

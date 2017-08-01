@@ -54,7 +54,7 @@ class OwpDb
         /**
          * Init the database class
          */
-        self::$ezSqlDB = new OwpEzSqlMysql($DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
+        self::$ezSqlDB = new OwpDBMySQLi($DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
