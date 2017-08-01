@@ -372,7 +372,7 @@ class OwpCms
      */
     static private function loadSettings()
     {
-        self::$ezSqlDB = new ezSQL_mysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB = new OwpDBMySQLi($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();

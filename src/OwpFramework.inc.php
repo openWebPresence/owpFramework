@@ -177,7 +177,7 @@ class OwpFramework
         /*
             * Init the database class
          */
-        self::$ezSqlDB = new OwpEzSqlMysql($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+        self::$ezSqlDB = new OwpDBMySQLi($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
         self::$ezSqlDB->use_disk_cache = false;
         self::$ezSqlDB->cache_queries  = false;
         self::$ezSqlDB->hide_errors();
@@ -218,8 +218,8 @@ class OwpFramework
         $actionsConfig = null;
         $defaultAction = null;
 
-        self::$defaultAction = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/defaultAction.json"),1);
-        self::$actionsConfig = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/actionsConfig.json"),1);
+        self::$defaultAction = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/defaultAction.json"), 1);
+        self::$actionsConfig = json_decode(file_get_contents(ROOT_PATH."app/themes/" . self::$theme . "/config/actionsConfig.json"), 1);
 
         /*
             * Create the frameworkObject
@@ -239,7 +239,7 @@ class OwpFramework
         /*
             * Load the user class
          */
-        self::$userClass = new OwpUsers(self::$frameworkObject);
+        self::$userClass = new OwpUsers();
         self::$userClass->rememberMe();
 
         /*

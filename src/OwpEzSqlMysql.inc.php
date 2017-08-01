@@ -23,7 +23,7 @@
 /**
  * This class integrates FirePHP debugging into the EzSQL MySQL (not MySQLi) abstraction layer.
  */
-class OwpEzSqlMysql extends ezSQL_mysql
+class OwpEzSqlMysql extends OwpDBMySQLi
 {
 
 
@@ -45,7 +45,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
      */
     public function debugPhpConsole($title = "OwpEzSqlMysql.ezSQL_mysql.debugPhpConsole") 
     {
-        $debug = array("about"=>"ezSQL (v".EZSQL_VERSION.")");
+        $debug = array();
 
         if ($this->last_error ) {
             $debug["last_error"] = $this->last_error;
@@ -57,10 +57,6 @@ class OwpEzSqlMysql extends ezSQL_mysql
 
         if($this->captured_errors) {
             $debug["captured_errors"] = $this->captured_errors;
-        }
-
-        if($this->col_info) {
-            $debug["col_info"] = $this->col_info;
         }
 
         if(!empty($this->last_result)) {
@@ -85,10 +81,8 @@ class OwpEzSqlMysql extends ezSQL_mysql
     public function __debugInfo()
     {
         return [
-                "EZSQL_VERSION" => EZSQL_VERSION,
                 "Last Error"    => $this->last_error,
                 "Last Query"    => $this->last_query,
-                "Last Col Info" => $this->col_info,
                 "Last Result"   => (!empty($this->last_result) ? $this->get_results(null, ARRAY_A) : "No Results"),
                ];
 
@@ -114,12 +108,6 @@ class OwpEzSqlMysql extends ezSQL_mysql
                     'Item',
                     'Detail',
                    );
-        if (! $this->debug_called) {
-            $table[] = array(
-                        'EZSQL_VERSION',
-                        EZSQL_VERSION,
-                       );
-        }
 
         if ($this->last_error) {
             $table[] = array(
@@ -129,7 +117,7 @@ class OwpEzSqlMysql extends ezSQL_mysql
         }
 
         $table[] = array(
-                    'Query ['.$this->num_queries.']',
+                    'Query',
                     $this->last_query,
                    );
         if ($this->col_info) {
@@ -143,8 +131,6 @@ class OwpEzSqlMysql extends ezSQL_mysql
                     'Last Result',
                     (!empty($this->last_result) ? $this->get_results(null, ARRAY_A) : "No Results"),
                    );
-
-        $this->debug_called = true;
 
         PC::debug($table, $title);
 

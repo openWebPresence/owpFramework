@@ -49,7 +49,7 @@ class OwpUsers_test extends TestCase
         /*
 		 * Init the database class
 		 */
-        self::$db = new OwpEzSqlMysql(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
+        self::$db = new OwpDBMySQLi(getenv('DB_USER'), getenv('DB_PASS'), getenv('DB_NAME'), getenv('DB_HOST'));
         self::$db->use_disk_cache = false;
         self::$db->cache_queries = false;
         self::$db->hide_errors();

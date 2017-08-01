@@ -1,10 +1,10 @@
-PHPUnit 5.7.19 by Sebastian Bergmann and contributors.
+PHPUnit 5.7.21 by Sebastian Bergmann and contributors.
 
-Runtime:       PHP 5.6.30-10+deb.sury.org~xenial+2
-Configuration: /mnt/hgfs/www/owp-framework/phpunit.xml
+Runtime:       PHP 5.6.31-1~ubuntu16.04.1+deb.sury.org+1
+Configuration: /home/btafoya/www/owp-framework/phpunit.xml
 
 ...........................                                       27 / 27 (100%)
 
-Time: 4.12 seconds, Memory: 8.50MB
+Time: 3.2 seconds, Memory: 8.25MB
 
 OK (27 tests, 27 assertions)
