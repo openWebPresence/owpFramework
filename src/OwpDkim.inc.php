@@ -33,37 +33,42 @@ class OwpDkim
      *
      * @method createDkimRecords($domain, $file_path)
      * @access public
-     * @param  string $domain    The domain to generate DKIM keys.
-     * @param  string $file_path File path used to store the keys and instructions.
-     * @return string Dkim instructions will be output.
+     * @param        $domain
+     * @param string $file_path
+     * @param string $selector
+     * @return array Dkim instructions will be output.
      * @throws Exception Unable to create the DKIM directory.
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    static public function createDkimRecords($domain, $file_path)
+    static public function createDkimRecords($domain, $file_path = "", $selector = "owp")
     {
 
-        $throw = OwpDkim::createPath($file_path);
+        if($file_path) {
+            $throw = self::createPath($file_path);
 
-        if(!$throw) {
-            throw new Exception("Unable to create the DKIM directory; ".$file_path);
+            if(!$throw) {
+                throw new Exception("Unable to create the DKIM directory; ".$file_path);
+            }
         }
 
-        $files = OwpDkim::keyFileNamePath($domain);
+        $files = self::keyFileNamePath($domain);
 
-        $keys = OwpDkim::generateKeys();
+        $keys = self::generateKeys();
 
-        $dkim_selector = 'owp._domainkey';
+        $dkim_selector = (string)$selector . '._domainkey';
 
         $dkim_record = 'v=DKIM1; k=rsa; p='.str_replace(array("-----BEGIN PUBLIC KEY-----", "-----END PUBLIC KEY-----", "\n"), "", $keys["publickey"]);
 
         $spf_text = 'v=spf1 a mx a:'.$domain.' ~all';
 
-        file_put_contents($file_path.$files["public_key_filename"], $keys["publickey"]);
-        file_put_contents($file_path.$files["private_key_filename"], $keys["privatekey"]);
+        if($file_path) {
+            file_put_contents($file_path.$files["public_key_filename"], $keys["publickey"]);
+            file_put_contents($file_path.$files["private_key_filename"], $keys["privatekey"]);
+        }
 
-        return OwpDkim::generateInstructions($domain, $dkim_selector, $dkim_record, $spf_text, $keys, $file_path);
+        return self::generateInstructions($domain, $dkim_selector, $dkim_record, $spf_text, $keys, $file_path);
 
     }//end createDkimRecords()
 
@@ -83,13 +88,13 @@ class OwpDkim
     static public function validateDkim($domain, $file_path)
     {
 
-        $files = OwpDkim::keyFileNamePath($domain);
+        $files = self::keyFileNamePath($domain);
 
         if(file_exists($file_path.$files["public_key_filename"]) && file_exists($file_path.$files["private_key_filename"])) {
             return true;
         } else {
             ob_clean();
-            echo OwpDkim::createDkimRecords($domain, $file_path);
+            echo self::createDkimRecords($domain, $file_path);
             die();
         }
 
@@ -100,19 +105,19 @@ class OwpDkim
      * keyFileNamePath
      *
      * @method keyFileNamePath()
-     * @access private
+     * @access public
      * @param  string $domain Domain to generate filename for.
      * @return array
      *
      * @author  Brian Tafoya
      * @version 1.0
      */
-    private function keyFileNamePath($domain)
+    static public function keyFileNamePath($domain)
     {
         $files = array(
-                  "public_key_filename"  => $domain.'.htkeypublic_',
-                  "private_key_filename" => $domain.'.htkeyprivate',
-                 );
+            "public_key_filename"  => $domain.'.htkeypublic_',
+            "private_key_filename" => $domain.'.htkeyprivate',
+        );
 
         return $files;
 
@@ -129,14 +134,14 @@ class OwpDkim
      * @author  Brian Tafoya
      * @version 1.0
      */
-    protected function generateKeys()
+    static protected function generateKeys()
     {
 
         $config = array(
-                   "digest_alg"       => "sha256",
-                   "private_key_bits" => 1024,
-                   "private_key_type" => OPENSSL_KEYTYPE_RSA,
-                  );
+            "digest_alg"       => "sha256",
+            "private_key_bits" => 1024,
+            "private_key_type" => OPENSSL_KEYTYPE_RSA,
+        );
 
         // Create the keypair
         $res = openssl_pkey_new($config);
@@ -148,9 +153,9 @@ class OwpDkim
         $publickey = openssl_pkey_get_details($res);
 
         return array(
-                "privatekey" => (string) $privatekey,
-                "publickey"  => (string) $publickey["key"],
-               );
+            "privatekey" => (string) $privatekey,
+            "publickey"  => (string) $publickey["key"],
+        );
 
     }//end generateKeys()
 
@@ -158,20 +163,19 @@ class OwpDkim
     /**
      * generateInstructions
      *
-     * @method generateInstructions()
-     * @access private
-     * @param  string $domain        Domain name used by the Owp site and keys.
-     * @param  string $dkim_selector DKIM domain text selector phrase.
-     * @param  string $dkim_record   DKIM domain text record.
-     * @param  string $spf_record    Recommended SPF domain text record.
-     * @param  array  $keys          Array of the generated public and private keys.
-     * @param  string $file_path     The file storage path.
-     * @return string
-     *
      * @author  Brian Tafoya
      * @version 1.0
+     *
+     * @param $domain
+     * @param $dkim_selector
+     * @param $dkim_record
+     * @param $spf_record
+     * @param $keys
+     * @param $file_path
+     *
+     * @return array
      */
-    private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path)
+    static private function generateInstructions($domain, $dkim_selector, $dkim_record, $spf_record, $keys, $file_path)
     {
 
         $instructions = "
@@ -192,7 +196,7 @@ All of the above information has been recorded in the below file path:\n
 
         file_put_contents($file_path."instructions.txt", $instructions);
 
-        return $instructions;
+        return array(""=>$instructions, "DKIM_domain"=>$domain, "DKIM_selector"=>$dkim_selector, "DKIM_record"=>$dkim_record, "SPF_record"=>$spf_record, "DKIM_keys"=>$keys, "file_path"=>$file_path);
 
     }//end generateInstructions()
 
@@ -205,11 +209,11 @@ All of the above information has been recorded in the below file path:\n
      * @param  string $path Path to create.
      * @return boolean
      */
-    private function createPath($path)
+    static private function createPath($path)
     {
         if (is_dir($path)) return true;
         $prev_path = substr($path, 0, (strrpos($path, '/', -2) + 1));
-        $return    = OwpDkim::createPath($prev_path);
+        $return    = self::createPath($prev_path);
         return ($return && is_writable($prev_path)) ? mkdir($path) : false;
 
     }//end createPath()
