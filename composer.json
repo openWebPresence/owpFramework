@@ -3,7 +3,7 @@
     "description": "The openWebPresence Framework.",
     "keywords": ["framework", "openWebPresence"],
     "license": "MIT",
-    "type": "project",
+    "type": "library",
     "homepage": "https://openWebPresence.com",
     "support": {
         "issues": "https://github.com/openwebpresence/owp-framework/issues",
