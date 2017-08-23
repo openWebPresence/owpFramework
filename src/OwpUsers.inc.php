@@ -1004,6 +1004,44 @@ class OwpUsers
 
 
     /**
+     * setStatusIdWhereInList
+     *
+     * @method setStatusIdWhereInList($userID, $statusID, $statusIDList) Set the user status ID
+     * @access public
+     *
+     * @param int    $userID       Existing userID
+     * @param int    $statusID     Existing valid statusID
+     * @param string $statusIDList
+     * @see   OwpUsers::validateStatusID()
+     *
+     * @throws Exception Thrown on UDF failures code 30
+     *
+     * @author  Brian Tafoya <btafoya@briantafoya.com>
+     * @version 1.0
+     */
+    public function setStatusIdWhereInList($userID, $statusID, $statusIDList)
+    {
+        $this->OwpDBMySQLi->query(
+            "
+            UPDATE tbl_users
+            SET tbl_users.statusID = " . (int)$statusID . "
+            WHERE tbl_users.userID = " . (int)$userID . "
+            AND tbl_users.statusID IN (" . (string)$statusIDList . ")
+            LIMIT 1"
+        );
+
+        // Execute owpUDF_On_setStatusID user defined function
+        if (function_exists("owpUDF_On_setStatusID")) {
+            $owpUDF_On_setStatusID = owpUDF_On_setStatusID(array("userID" => (int)self::userID(), "db" => $this->OwpDBMySQLi));
+            if ($owpUDF_On_setStatusID) {
+                throw new Exception($owpUDF_On_setStatusID, 30);
+            }
+        }
+
+    }//end setStatusIdWhereInList()
+
+
+    /**
      * userData
      *
      * @method userData() Get user data for the logged in user

@@ -1,10 +1,19 @@
 PHPUnit 5.7.21 by Sebastian Bergmann and contributors.
 
-Runtime:       PHP 5.6.31-2+ubuntu16.04.1+deb.sury.org+1
-Configuration: /var/www/owp-framework/phpunit.xml
+Runtime:       PHP 5.6.31-4+ubuntu16.04.1+deb.sury.org+4
+Configuration: /home/btafoya/www/owp-framework/phpunit.xml
 
-...........................                                       27 / 27 (100%)
+.E.........................                                       27 / 27 (100%)
 
-Time: 3.71 seconds, Memory: 8.50MB
+Time: 2.12 minutes, Memory: 8.50MB
 
-OK (27 tests, 27 assertions)
+There was 1 error:
+
+1) OwpMessaging_test::testSendEmailViaSMTP
+Exception: OwpMessaging->sendEmailViaSMTP(): Caught Exception: SMTP connect() failed. https://github.com/PHPMailer/PHPMailer/wiki/Troubleshooting
+
+/home/btafoya/www/owp-framework/src/OwpMessaging.inc.php:105
+/home/btafoya/www/owp-framework/tests/OwpMessaging_test.php:69
+
+ERRORS!
+Tests: 27, Assertions: 26, Errors: 1.
