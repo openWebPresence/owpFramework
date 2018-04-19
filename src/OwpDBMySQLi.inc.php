@@ -137,23 +137,27 @@ class OwpDBMySQLi
      * @param $db
      * @param $host
      *
-     * @throws Exception
+     * @throws OwpUserException
      */
     public function __construct( $user, $pass, $db, $host ) 
     {
-        $this->datab = new mysqli($host, $user, $pass, $db);
+        try {
+            $this->datab = new mysqli($host, $user, $pass, $db);
 
-        if ($this->datab->connect_error ) {
-            $this->register_error(
-                (int) $this->debugCnt, array(
-                "function" => "get_row",
-                "method"   => "prepare",
-                "errno"    => $this->datab->connect_errno,
-                "error"    => $this->datab->connect_error
-                )
-            );
+            if ($this->datab->connect_error ) {
+                $this->register_error(
+                    (int) $this->debugCnt, array(
+                        "function" => "get_row",
+                        "method"   => "prepare",
+                        "errno"    => $this->datab->connect_errno,
+                        "error"    => $this->datab->connect_error
+                    )
+                );
 
-            throw new Exception("Connection failure: " . $this->datab->connect_error);
+                throw new Exception("Connection failure: " . $this->datab->connect_error);
+            }
+        } catch (Exception $e) {
+            throw new OwpUserException("Database login failed: " . $e->getMessage(), 911);
         }
     }//end __construct()
 

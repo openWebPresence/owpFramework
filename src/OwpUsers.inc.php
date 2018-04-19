@@ -102,19 +102,35 @@ class OwpUsers
 
 
     /**
-     * Constructor
+     * OwpUsers constructor.
      *
      * @method void __construct()
      * @access public
+     * @param string $DB_USER
+     * @param string $DB_PASS
+     * @param string $DB_NAME
+     * @param string $DB_HOST
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
      */
-    public function __construct()
+    public function __construct($DB_USER = "", $DB_PASS = "", $DB_NAME = "", $DB_HOST = "")
     {
         $this->current_web_root = CURRENT_WEB_ROOT;
         $this->root_path = ROOT_PATH;
-        $this->OwpDBMySQLi = new OwpDBMySQLi($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+
+        try {
+            if($DB_USER && $DB_PASS && $DB_NAME && $DB_HOST) {
+                $this->OwpDBMySQLi = new OwpDBMySQLi($DB_USER, $DB_PASS, $DB_NAME, $DB_HOST);
+            } else if($_ENV["DB_USER"] && $_ENV["DB_PASS"] && $_ENV["DB_NAME"] && $_ENV["DB_HOST"]) {
+                $this->OwpDBMySQLi = new OwpDBMySQLi($_ENV["DB_USER"], $_ENV["DB_PASS"], $_ENV["DB_NAME"], $_ENV["DB_HOST"]);
+            } else {
+                throw new OwpUserException("Missing database credentials.", 911);
+            }
+        } catch (Exception $e) {
+            throw new OwpUserException("Database login failed: " . $e->getMessage(), 911);
+        }
     }//end __construct()
 
 
@@ -622,8 +638,8 @@ class OwpUsers
      * @access public
      *
      * @param integer $userID UserID
-     *
      * @return mixed
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -762,6 +778,7 @@ class OwpUsers
      * @method rememberMe() Load the user's profile based on the remember me cookie if the hash matches
      * @access public
      * @return boolean
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -807,6 +824,7 @@ class OwpUsers
      * @method rememberMeSet() Set the remember me cookie
      * @access public
      * @return boolean
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -838,7 +856,8 @@ class OwpUsers
      * @method sanityCheck() Validate that the user session still exists, if not redirect them
      * @access public
      *
-     * @param string $redirect_url (optional) URL to redirect to should the user sanity check show the user is not logged in
+     * @param string $redirect_url
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -875,10 +894,11 @@ class OwpUsers
      *
      * @method saveUserMetaDataItem($userID, $key_name, $key_value) Set user meta data
      * @access public
-     * @param  $userID
-     * @param  $key_name
-     * @param  $key_value
+     * @param $userID
+     * @param $key_name
+     * @param $key_value
      * @return bool
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -909,9 +929,9 @@ class OwpUsers
      * @see    OwpUsers::getUserIDViaLostPassUUID()
      * @see    OwpUsers::updatePassword()
      *
-     * @param int $userID Existing userID
-     *
-     * @return array
+     * @param $userID
+     * @return mixed
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -942,9 +962,9 @@ class OwpUsers
      * @see    OwpUsers::getUserIDViaLostPassUUID()
      * @see    OwpUsers::updatePassword()
      *
-     * @param string $email Existing user email
-     *
-     * @return string
+     * @param $email
+     * @return mixed
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -1109,7 +1129,8 @@ class OwpUsers
      * @method updateLoginCount($userID) Updating the login counter as well as the user's current IP address
      * @access public
      *
-     * @param int $userID Existing userID
+     * @param $userID
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -1326,7 +1347,7 @@ class OwpUsers
 
         $query_sql = "
                 UPDATE tbl_users
-                SET $setStatement
+                SET " . $setStatement . "
                 WHERE tbl_users.userID = " . (int)$userID . "
             LIMIT 1";
 
@@ -1374,10 +1395,11 @@ class OwpUsers
      * @method updateUserAdminRights($userID, $is_admin = 0, $hide_ads = 0, $is_dev = 0) Updating the login counter as well as the user's current IP address
      * @access public
      *
-     * @param int $userID   New or Existing userID
-     * @param int $is_admin (optional) Designate as an admin
-     * @param int $hide_ads (optional) Hide ads
-     * @param int $is_dev   (optional) Enable dev features
+     * @param     $userID
+     * @param int $is_admin
+     * @param int $hide_ads
+     * @param int $is_dev
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -1497,7 +1519,11 @@ class OwpUsers
 
             $_SESSION["userData"] = $get_user_info_row;
 
-            $this->updateLoginCount((int)$get_user_info_row["userID"]);
+            try {
+                $this->updateLoginCount((int)$get_user_info_row["userID"]);
+            } catch (Exception $e) {
+                throw new OwpUserException("Login count update failed.", 911);
+            }
 
             // Execute owpUDF_On_userLoginCore user defined function
             if (function_exists("owpUDF_On_userLoginCore")) {
