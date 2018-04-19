@@ -1461,7 +1461,7 @@ class OwpUsers
         try {
             $exists = $this->userLoginCore("WHERE LCASE(tbl_users.email) = LCASE('" . filter_var($email, FILTER_SANITIZE_EMAIL) . "')");
         } catch (OwpUserException $e) {
-            throw $e;
+            throw new OwpUserException("Login failed: " . $e->getMessage(), 911);
         }
 
         if ($exists) {
