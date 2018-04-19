@@ -163,7 +163,9 @@ class OwpEzSqlMysql extends OwpDBMySQLi
      * executeSqlFile
      *
      * @method void executeSqlFile($filename) Execute SQL text file
-     * @param  $filename
+     * @param $filename
+     * @return mixed
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
@@ -181,7 +183,9 @@ class OwpEzSqlMysql extends OwpDBMySQLi
      *
      * @method initDb()
      * @access public
-     * @return object
+     *
+     * @return object|OwpEzSqlMysql
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0

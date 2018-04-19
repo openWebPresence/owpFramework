@@ -296,10 +296,10 @@ class OwpUsers
      * @method boolean clearLostPassUUID($userID, $statusID) Reset the lost pass UUID and set the statusID, for example when a lost password request has been completed
      * @access public
      *
-     * @param int $userID   Existing userID
-     * @param int $statusID New user statusID
-     *
-     * @return boolean
+     * @param $userID
+     * @param $statusID
+     * @return bool
+     * @throws Exception
      *
      * @author  Brian Tafoya <btafoya@briantafoya.com>
      * @version 1.0
